@@ -30,7 +30,7 @@ L.push({k:'knoei',t:'Knoeimoment 🎉',d:'Eén leuk foutje of knoeimoment. Knoei
 {k:'selfie',t:'Jij met de boterkoek (mag)',d:'Alleen als je dat wilt.',need:[],opt:['foto']},{k:'notes',t:'Notities',d:'Hoeveel stuks, tips, wat beter kan.',need:['notitie']});return L}
 
 /* ---------- navigatie ---------- */
-const TABS=[['home','🏠','Start'],['bak','📸','Bakken'],['besl','🃏','Besluiten'],['plan','⏰','Planning'],['content','✍️','Content']];
+const TABS=[['home','🏠','Start'],['bak','📸','Bakken'],['besl','🃏','Besluiten'],['plan','⏰','Planning'],['rec','📚','Recepten'],['content','✍️','Content']];
 let tab='home';function go(t){tab=t;render();scrollTo(0,0)}
 function navR(){$('#nav').innerHTML=TABS.map(([k,i,l])=>`<button class="${k==tab?'on':''}" onclick="go('${k}')"><b>${i}</b>${l}</button>`).join('')}
 async function render(){navR();const v=$('#view');v.innerHTML=await VIEWS[tab]();VIEWS[tab].after&&VIEWS[tab].after()}
@@ -86,7 +86,7 @@ async function exportZip(){const s=await cur();if(!s)return;const m=$('#zipmsg')
  const z=new JSZip();const fs=await filesOf(s.id);const L=slots();const ext=t=>(t||'').split('/')[1]?.split(';')[0].replace('quicktime','mov').replace('jpeg','jpg')||'bin';
  const cnt={};fs.forEach(f=>{const i=L.findIndex(x=>x.k==f.slot);const dir=String(i).padStart(2,'0')+'-'+f.slot;cnt[dir+f.kind]=(cnt[dir+f.kind]||0)+1;z.file(`${dir}/${f.kind}-${cnt[dir+f.kind]}.${ext(f.type)}`,f.blob)});
  let txt=`${s.name}\nGemaakt met Fien (alleen lokaal opgeslagen)\n\n`;L.forEach((x,i)=>{txt+=`${String(i).padStart(2,'0')} ${x.t}: ${slotDone(x,s,fs)?'klaar':'nog open'}\n`;if(s.notes[x.k])txt+=`   notitie: ${s.notes[x.k]}\n`});
- z.file('notities.txt',txt);const blob=await z.generateAsync({type:'blob'});const name=s.name+'.zip';const file=new File([blob],name,{type:'application/zip'});
+ z.file('notities.txt',txt);await addRecipesToZip(z);const blob=await z.generateAsync({type:'blob'});const name=s.name+'.zip';const file=new File([blob],name,{type:'application/zip'});
  if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:s.name,text:'Bubbly assets: '+s.name});if(m)m.textContent='Gedeeld ✅';return}catch(e){if(e.name=='AbortError'){if(m)m.textContent='';return}}}
  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();if(m)m.textContent='Gedownload ✅ ('+Math.round(blob.size/1024)+' kB)'}
 
