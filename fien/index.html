@@ -4,9 +4,12 @@
 <title>Fien — jouw Bubbly keukenhulp</title>
 <link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#2A9D8F">
 <link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+<link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+<script src="vendor/jszip.min.js" defer></script>
 <style>
+@font-face{font-family:Fraunces;src:url(fonts/fraunces.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:Nunito;src:url(fonts/nunito.woff2) format('woff2');font-weight:200 1000;font-display:swap}
+@font-face{font-family:Caveat;src:url(fonts/caveat.woff2) format('woff2');font-weight:400 700;font-display:swap}
 :root{--t:#2A9D8F;--td:#1F7A6F;--cream:#FFF7EC;--paper:#FFFDF8;--pink:#F5A5C2;--cocoa:#3A2A22;--soft:#6B4E3E;--line:#EADBC8}
 *{box-sizing:border-box}body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--cream);color:var(--cocoa);padding-bottom:84px}
 h1,h2,h3{font-family:Fraunces,serif;margin:.2em 0}.hand{font-family:Caveat,cursive;font-size:1.35em;color:var(--td)}
@@ -24,8 +27,22 @@ nav button{border:0;background:none;font:700 11px Nunito;color:var(--soft);displ
 .chk{display:inline-block;padding:3px 9px;border-radius:99px;font-size:12px;font-weight:800;background:#eee;margin:2px}.chk.ok{background:#CDEDE8;color:var(--td)}
 .tag{font-size:11px;font-weight:800;background:#FFE9C7;padding:2px 8px;border-radius:99px}.big{font:700 54px Fraunces;text-align:center;margin:8px 0}
 .swipe{touch-action:pan-y;transition:transform .25s}.hidden{display:none}small{color:var(--soft)}
+
+.btn{min-height:48px;background:var(--td)}.btn.xs{min-height:40px;padding:6px 12px;font-size:14px;margin-top:6px}.btn:focus-visible,nav button:focus-visible{outline:3px solid var(--pink);outline-offset:2px}.btn[disabled]{opacity:.4}
+nav button{flex:1;min-height:52px;justify-content:center}small{color:#5B4033}
+.btn.kook{width:100%;font-size:19px;min-height:60px;margin:6px 0;background:var(--cocoa)}
+#kook{position:fixed;inset:0;z-index:50;background:var(--cream);display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+#kook .kt{background:var(--td);color:#fff;padding:12px 14px calc(12px);padding-top:calc(12px + env(safe-area-inset-top));display:flex;gap:10px;align-items:center}
+.kx{width:52px;height:52px;border-radius:50%;border:0;background:#fff;color:var(--td);font:800 22px Nunito}
+.kp{display:flex;gap:4px;margin-top:6px}.kp i{flex:1;height:7px;border-radius:9px;background:#ffffff55;max-width:40px}.kp i.on{background:var(--pink)}
+#onb .kp i{background:var(--line)}#onb .kp i.on{background:var(--td)}
+#kook .kb{flex:1;overflow:auto;padding:18px 18px 8px}.kn1{font:800 16px Nunito;color:var(--soft);letter-spacing:.04em;text-transform:uppercase}
+.kv{font:700 clamp(44px,13vw,72px)/1.05 Fraunces;color:var(--td);margin:6px 0 10px}.ktx{font-size:clamp(22px,6vw,28px);line-height:1.4;margin:0 0 14px}
+#kook .kf{display:flex;gap:10px;padding:10px 14px}.kn{flex:1;min-height:72px;font-size:21px}.kc{font-size:20px;min-height:56px}
+#kook .big{font-size:60px}
+#onb{position:fixed;inset:0;z-index:60;background:#3A2A22cc;display:flex;align-items:center;padding:14px}
 </style></head><body>
 <header><img src="img/fien-hero-320w.webp" alt="Fien"><div><h1 style="font-size:22px">Hoi Suzan, Fien hier!</h1><div class="hand">Bak met liefde, niet met perfectie</div></div></header>
 <main id="view"></main>
 <nav id="nav"></nav>
-<script src="app.js"></script><script src="recepten.js"></script></body></html>
+<script src="app.js"></script><script src="recepten.js"></script><script src="kook.js"></script></body></html>

@@ -40,10 +40,18 @@ function parseRecipe(txt){const rc=emptyRecipe();const lines=txt.split(/\r?\n/).
  rc.ingr=ingr.join('\n');rc.ben=ben.join('\n');
  // te veel stappen → samenvoegen tot 9, te weinig → leeg aanvullen
  while(steps.length>9){let k=0,m=1e9;for(let i=0;i<steps.length-1;i++){const n=steps[i].text.length+steps[i+1].text.length;if(n<m){m=n;k=i}}steps[k].text+=' '+steps[k+1].text;steps[k].tip=steps[k].tip||steps[k+1].tip;steps.splice(k+1,1)}
- steps.forEach((s,i)=>{const w=s.text.split(/\s+/);let verb=w[0].replace(/[^A-Za-zÀ-ÿ]/g,'');let text=s.text;if(w.length>1&&w[0].length<14&&/^[A-ZÀ-Ý]/.test(w[0])&&w.length<=2){text=w.slice(1).join(' ')}
+ steps.forEach((s,i)=>{const v=verbOf(s.text);let verb=v.verb,text=v.text;
   rc.steps[i]={verb:verb?verb[0].toUpperCase()+verb.slice(1).toLowerCase():'',text,type:s.type||rc.steps[i].type,tip:s.tip||''}});
  return rc}
 
+/* werkwoord uit een zin halen: slaat 'Dan/Nu/Daarna' over en vangt scheidbare werkwoorden ('Voeg … toe' → 'Voeg toe') */
+const SKIP=/^(dan|nu|daarna|vervolgens|eerst|tot slot|ten slotte|als laatste|en)$/i;const PART=/^(toe|aan|af|op|uit|in|mee|door|over|bij|om|weg|terug|neer|onder|vast|los|samen|klaar|na|voor)$/i;
+function verbOf(t){t=(t||'').trim();const w=t.split(/\s+/);let k=0;while(k<w.length-1&&SKIP.test(w[k].replace(/[,:]/g,'')))k++;if(/^tot$/i.test(w[k])&&/^slot/i.test(w[k+1]||''))k+=2;
+ const clause=w.slice(k).join(' ').split(/[.;!,]|\s(?:en|tot|totdat)\s/i)[0].trim().split(/\s+/);const clean=x=>(x||'').replace(/[^A-Za-zÀ-ÿ]/g,'');
+ let verb=clean(clause[0]);if(/^(de|het|een|alle|je|\d.*)$/i.test(verb)||!verb){const inf=clause.slice(1).reverse().map(clean).find(x=>/en$/i.test(x)&&x.length>3);verb=inf||verb}
+ if(!verb)return{verb:'',text:t};verb=verb[0].toUpperCase()+verb.slice(1).toLowerCase();
+ const last=clean(clause.at(-1));if(clause.length>2&&PART.test(last)&&clean(clause[0]).toLowerCase()==verb.toLowerCase())verb+=' '+last.toLowerCase();
+ let text=t;if(w.length<=2&&k==0)text=w.slice(1).join(' ')||t;return{verb,text}}
 /* uitvoer */
 const stepLine=(s,i)=>`${i+1}. ${s.verb}`;
 function outKaart(r){let t=`${r.title.toUpperCase()}\nBak met liefde, niet met perfectie\n\nINGREDIËNTEN\n${r.ingr}\n\nBENODIGDHEDEN\n${r.ben}\n`;
@@ -83,9 +91,10 @@ VIEWS.rec=async()=>{const l=await recipes();
  <label class="btn s" style="display:inline-block;margin-top:6px">📷 Foto toevoegen<input type="file" accept="image/*" capture="environment" class="hidden" onchange="recFotoAdd(this)"></label>
  <h3>Titel</h3>${f('title',r.title,'Bv. Boterkoek')}<h3>Ondertitel</h3>${f('ondertitel',r.ondertitel||'','Korte zin onder de titel')}<h3>Status</h3><select onchange="recSet('status',this.value)">${['concept','in test','klaar'].map(x=>`<option ${x==(r.status||'concept')?'selected':''}>${x}</option>`).join('')}</select><h3>Tags</h3>${f('tags',r.tags||'','koekjes, makkelijk')}<h3>Ingrediënten</h3><small>Eén per regel</small>${f('ingr',r.ingr,'375 g bloem',1)}<h3>Benodigdheden</h3>${f('ben',r.ben,'Bakvorm 20×20',1)}</div>
  ${r.fases.map((fa,fi)=>`<div class="card"><h2 style="color:var(--td);font-size:18px">FASE ${fi+1}: ${f('fases.'+fi+'.naam',fa.naam,'Naam')}</h2><small>Doel:</small>${f('fases.'+fi+'.doel',fa.doel,'Doel van deze fase')}
- ${r.steps.slice(fi*3,fi*3+3).map((s,j)=>{const i=fi*3+j;return `<div class="step" style="padding-left:10px;margin-top:12px"><div class="row"><b>${i+1}.</b><input style="width:auto" class="grow" placeholder="Werkwoord (1 woord)" value="${esc(s.verb)}" onchange="recSet('steps.${i}.verb',this.value.trim().split(/\\s+/)[0])"></div>
+ ${r.steps.slice(fi*3,fi*3+3).map((s,j)=>{const i=fi*3+j;return `<div class="step" style="padding-left:10px;margin-top:12px"><div class="row"><b>${i+1}.</b><input style="width:auto" class="grow" placeholder="Werkwoord (1 woord)" value="${esc(s.verb)}" onchange="recSet('steps.${i}.verb',this.value.trim().split(/\\s+/).slice(0,2).join(' '))"></div>
  ${f('steps.'+i+'.text',s.text,'Wat doe je precies?',1)}<div class="row"><select style="width:auto" onchange="recSet('steps.${i}.type',this.value)">${TT.map(t=>`<option ${t==s.type?'selected':''}>${t}</option>`).join('')}</select><input class="grow" style="width:auto" placeholder="Tip / alert / mantra" value="${esc(s.tip)}" onchange="recSet('steps.${i}.tip',this.value)"></div></div>`}).join('')}</div>`).join('')}
  <div class="card"><h3>Bewaren</h3>${f('bewaren',r.bewaren||'','Hoe lang en waar?',1)}<h3>Variaties</h3><small>Eén per regel</small>${f('variaties',r.variaties||'','Met chocolade',1)}<h3>Bekentenis</h3>${f('bekentenis',r.bekentenis||'','Jouw eerlijke Proud Disaster™-moment',1)}</div>
+ <div class="card row"><button class="btn kook grow" onclick="kookOpen('rec','${r.id}')">👩‍🍳 Kookmodus</button><button class="btn s grow" onclick="recSession('${r.id}')">📸 Baksessie met foto’s</button></div>
  <div class="card"><h2>✨ Uitvoer</h2><div class="row">${Object.entries(OUTS).map(([k,[n]])=>`<button class="btn ${k==ROUT?'':'s'}" onclick="ROUT='${k}';render()">${n}</button>`).join('')}</div>
  <pre id="out" style="white-space:pre-wrap;font:14px/1.45 Nunito;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;max-height:360px;overflow:auto">${esc(OUTS[ROUT][1](r))}</pre>
  <p class="row"><button class="btn" onclick="copyOut()">📋 Kopieer</button>${ROUT=='md'?`<button class="btn s" onclick="dlMd()">⬇️ Download .md</button>`:''}<small id="cpo"></small></p>
@@ -102,3 +111,10 @@ async function dlMd(){const r=await curRec();const a=document.createElement('a')
 async function addRecipesToZip(z){const l=await recipes();for(const r of l){const n=(r.title||r.id).replace(/[\\/:*?"<>|]/g,'');const d=z.folder('recepten/'+n);
  d.file(n+' - notion.md',outMd(r));d.file((r.slug||slugify(r.title)||r.id)+'.json',outJson(r));d.folder('VR Receptkaart').file(n+' - receptkaart.txt',outKaart(r));d.folder('VR Ebook').file(n+' - ebook.md',outBoek(r));d.folder('VR Workshop').file(n+' - workshop.txt',outWorkshop(r));
  (await filesOf('rec:'+r.id)).forEach((f,i)=>d.file(`foto-${i+1}.${(f.type||'image/jpeg').split('/')[1]}`,f.blob))}}
+
+/* baksessie starten vanuit een recept: snapshot van de stappen, oude sessies blijven Boterkoek */
+async function recSession(id){const r=(await recipes()).find(x=>x.id==id);if(!r)return;const sid=Date.now().toString(36);
+ const steps=r.steps.map((x,i)=>({t:x.verb||('Stap '+(i+1)),f:Math.floor(i/3),d:x.text,tip:x.tip?`${TI[x.type]||'💡'} ${x.type}: ${x.tip}`:'',tm:timersFrom(x.text)}));
+ const fasen=r.fases.map((f,i)=>`FASE ${i+1} · ${(f.naam||'').toUpperCase()}`);
+ await put('sess:'+sid,{id:sid,name:(r.title||'Recept')+' '+today(),preset:'rec:'+r.id,rname:(r.title||'recept').toLowerCase(),steps,fasen,notes:{},checks:{},created:new Date().toISOString()});
+ const l=await get('sessions')||[];l.push(sid);await put('sessions',l);await put('cur',sid);go('bak')}
