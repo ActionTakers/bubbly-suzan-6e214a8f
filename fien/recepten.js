@@ -55,11 +55,19 @@ function outBoek(r){let t=`# ${r.title}\n\nEr zijn recepten die je met je hoofd 
 function outWorkshop(r){let t=`WORKSHOP: ${r.title}\nThe Bubbly Bakery · Bak met liefde, niet met perfectie\n\nOPBOUW\n0. Welkom & uitleg (Fien-intro, Knoeien = winnen)\n`;
  r.fases.forEach((f,fi)=>{t+=`\nBLOK ${fi+1} — ${f.naam}\nDoel: ${f.doel}\n`;r.steps.slice(fi*3,fi*3+3).forEach((s,j)=>{t+=`  • ${s.verb}: ${s.text}\n    Laat zien: ${s.tip} (${s.type})\n`})});
  t+=`\nAFSLUITING\n  • Proeven & foto-moment met ieders resultaat\n  • Vragenrondje + receptkaart mee naar huis\n\nKLAARZETTEN PER DEELNEMER\n${r.ben.split('\n').filter(Boolean).map(x=>'  • '+x).join('\n')}\n\nINGREDIËNTEN (per deelnemer, schaal zelf op)\n${r.ingr.split('\n').filter(Boolean).map(x=>'  • '+x).join('\n')}\n\nAllergenen: check jij altijd zelf vooraf met de deelnemers.`;return t}
-function outMd(r){let t=`# ${r.title}\n\n**Bron:** ${r.bron||'eigen recept'}  \n**Status:** concept\n\n## Ingrediënten\n${md(r.ingr)}\n\n## Benodigdheden\n${md(r.ben)}\n\n---\n\n## Recept\n`;
- r.fases.forEach((f,fi)=>{t+=`\n### FASE ${fi+1}: ${f.naam}\n\n*Doel: ${f.doel}*\n`;r.steps.slice(fi*3,fi*3+3).forEach((s,j)=>{t+=`\n**${fi*3+j+1}. ${s.verb}**\n${s.text}\n*(${TI[s.type]} ${s.type}: ${s.tip})*\n`})});
+const slugify=x=>(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const lines=x=>(x||'').split('\n').map(l=>l.trim()).filter(Boolean);
+function outMd(r){const sl=r.slug||slugify(r.title);let t=`# ${r.title}\n\n| Veld | Waarde |\n| --- | --- |\n| titel | ${r.title} |\n| ondertitel | ${r.ondertitel||''} |\n| slug | ${sl} |\n| status | ${r.status||'concept'} |\n| tags | ${(r.tags||'')} |\n| bron | ${r.bron||'eigen recept'} |\n\n## Ingrediënten\n${md(r.ingr)}\n\n## Benodigdheden\n${md(r.ben)}\n\n---\n\n## Fasen\n`;
+ r.fases.forEach((f,fi)=>{t+=`\n### FASE ${fi+1}: ${f.naam}\n\n*Doel: ${f.doel}*\n`;r.steps.slice(fi*3,fi*3+3).forEach((s,j)=>{const n=fi*3+j+1;t+=`\n**${n}. ${s.verb}**\n${s.text}\n*(${TI[s.type]} ${s.type}: ${s.tip})*\nFoto: \`${String(n).padStart(2,'0')}-${slugify(s.verb)}.jpg\`\n`})});
+ t+=`\n## Bewaren\n${r.bewaren||''}\n\n## Variaties\n${md(r.variaties||'')}\n\n## Bekentenis\n${r.bekentenis||''}\n`;
  return t+'\n---\n*Allergenen check jij altijd zelf.*\n'}
+function outJson(r){const tip=s=>s.type=='Chaos Alert'?{tip:'',alert:s.tip}:{tip:s.tip,alert:''};
+ return JSON.stringify({titel:r.title,ondertitel:r.ondertitel||'',slug:r.slug||slugify(r.title),status:r.status||'concept',tags:lines((r.tags||'').replace(/,/g,'\n')),
+ ingrediënten:lines(r.ingr).map(x=>({ingrediënt:x})),benodigdheden:lines(r.ben),
+ fasen:r.fases.map((f,fi)=>({naam:f.naam,stappen:r.steps.slice(fi*3,fi*3+3).map((s,j)=>({werkwoord:s.verb,beschrijving:s.text,...tip(s),foto:`${String(fi*3+j+1).padStart(2,'0')}-${slugify(s.verb)}.jpg`}))})),
+ bewaren:r.bewaren||'',variaties:lines(r.variaties),bekentenis:r.bekentenis||'',bron:r.bron||'eigen recept',_let_op:'CONCEPT uit Fien; ingrediënt-structuur (hoeveelheid/eenheid) nog niet gesplitst; niet zelf in de site-repo zetten'},null,2)}
 const md=x=>x.split('\n').filter(Boolean).map(l=>'- '+l).join('\n');const cap=x=>x[0]+x.slice(1).toLowerCase();
-const OUTS={kaart:['🃏 Receptkaart',outKaart],boek:['📖 E-book',outBoek],workshop:['👩‍🍳 Workshop',outWorkshop],md:['🗒️ Notion',outMd]};
+const OUTS={kaart:['🃏 Receptkaart',outKaart],boek:['📖 E-book',outBoek],workshop:['👩‍🍳 Workshop',outWorkshop],md:['🗒️ Notion',outMd],json:['🧩 JSON',outJson]};
 
 VIEWS.rec=async()=>{const l=await recipes();
  if(!RID)return `<div class="card"><h2>📚 Recepten</h2><small>Nieuw recept gevonden? Foto of tekst erin, Fien zet het in de Bubbly-structuur (3 fases × 3 stappen) en maakt er receptkaart, e-book, workshop en Notion-tekst van.</small>
@@ -73,10 +81,11 @@ VIEWS.rec=async()=>{const l=await recipes();
  return `<div class="card"><p class="row"><button class="btn s" onclick="RID=null;render()">‹ Alle recepten</button><span class="grow"></span><button class="btn p" onclick="recDel()">Verwijderen</button></p>
  ${ph.length?`<div class="thumbs">${ph.map(p=>{const u=URL.createObjectURL(p.blob);urls.push(u);return `<a href="${u}" target="_blank"><img src="${u}" style="width:100%;height:auto;max-height:420px;object-fit:contain"></a>`}).join('')}</div><small>Tik op de foto om te vergroten en neem de tekst over in het formulier.</small>`:''}
  <label class="btn s" style="display:inline-block;margin-top:6px">📷 Foto toevoegen<input type="file" accept="image/*" capture="environment" class="hidden" onchange="recFotoAdd(this)"></label>
- <h3>Titel</h3>${f('title',r.title,'Bv. Boterkoek')}<h3>Ingrediënten</h3><small>Eén per regel</small>${f('ingr',r.ingr,'375 g bloem',1)}<h3>Benodigdheden</h3>${f('ben',r.ben,'Bakvorm 20×20',1)}</div>
+ <h3>Titel</h3>${f('title',r.title,'Bv. Boterkoek')}<h3>Ondertitel</h3>${f('ondertitel',r.ondertitel||'','Korte zin onder de titel')}<h3>Status</h3><select onchange="recSet('status',this.value)">${['concept','in test','klaar'].map(x=>`<option ${x==(r.status||'concept')?'selected':''}>${x}</option>`).join('')}</select><h3>Tags</h3>${f('tags',r.tags||'','koekjes, makkelijk')}<h3>Ingrediënten</h3><small>Eén per regel</small>${f('ingr',r.ingr,'375 g bloem',1)}<h3>Benodigdheden</h3>${f('ben',r.ben,'Bakvorm 20×20',1)}</div>
  ${r.fases.map((fa,fi)=>`<div class="card"><h2 style="color:var(--td);font-size:18px">FASE ${fi+1}: ${f('fases.'+fi+'.naam',fa.naam,'Naam')}</h2><small>Doel:</small>${f('fases.'+fi+'.doel',fa.doel,'Doel van deze fase')}
  ${r.steps.slice(fi*3,fi*3+3).map((s,j)=>{const i=fi*3+j;return `<div class="step" style="padding-left:10px;margin-top:12px"><div class="row"><b>${i+1}.</b><input style="width:auto" class="grow" placeholder="Werkwoord (1 woord)" value="${esc(s.verb)}" onchange="recSet('steps.${i}.verb',this.value.trim().split(/\\s+/)[0])"></div>
  ${f('steps.'+i+'.text',s.text,'Wat doe je precies?',1)}<div class="row"><select style="width:auto" onchange="recSet('steps.${i}.type',this.value)">${TT.map(t=>`<option ${t==s.type?'selected':''}>${t}</option>`).join('')}</select><input class="grow" style="width:auto" placeholder="Tip / alert / mantra" value="${esc(s.tip)}" onchange="recSet('steps.${i}.tip',this.value)"></div></div>`}).join('')}</div>`).join('')}
+ <div class="card"><h3>Bewaren</h3>${f('bewaren',r.bewaren||'','Hoe lang en waar?',1)}<h3>Variaties</h3><small>Eén per regel</small>${f('variaties',r.variaties||'','Met chocolade',1)}<h3>Bekentenis</h3>${f('bekentenis',r.bekentenis||'','Jouw eerlijke Proud Disaster™-moment',1)}</div>
  <div class="card"><h2>✨ Uitvoer</h2><div class="row">${Object.entries(OUTS).map(([k,[n]])=>`<button class="btn ${k==ROUT?'':'s'}" onclick="ROUT='${k}';render()">${n}</button>`).join('')}</div>
  <pre id="out" style="white-space:pre-wrap;font:14px/1.45 Nunito;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;max-height:360px;overflow:auto">${esc(OUTS[ROUT][1](r))}</pre>
  <p class="row"><button class="btn" onclick="copyOut()">📋 Kopieer</button>${ROUT=='md'?`<button class="btn s" onclick="dlMd()">⬇️ Download .md</button>`:''}<small id="cpo"></small></p>
@@ -91,5 +100,5 @@ async function recDel(){if(!confirm('Recept verwijderen?'))return;await put('rec
 async function copyOut(){const t=$('#out').textContent;try{await navigator.clipboard.writeText(t);$('#cpo').textContent='Gekopieerd ✅'}catch(e){prompt('Kopieer dit:',t)}}
 async function dlMd(){const r=await curRec();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([outMd(r)],{type:'text/markdown'}));a.download=(r.title||'recept')+'.md';a.click()}
 async function addRecipesToZip(z){const l=await recipes();for(const r of l){const n=(r.title||r.id).replace(/[\\/:*?"<>|]/g,'');const d=z.folder('recepten/'+n);
- d.file(n+' - notion.md',outMd(r));d.file(n+' - receptkaart.txt',outKaart(r));d.file(n+' - ebook.md',outBoek(r));d.file(n+' - workshop.txt',outWorkshop(r));
+ d.file(n+' - notion.md',outMd(r));d.file((r.slug||slugify(r.title)||r.id)+'.json',outJson(r));d.folder('VR Receptkaart').file(n+' - receptkaart.txt',outKaart(r));d.folder('VR Ebook').file(n+' - ebook.md',outBoek(r));d.folder('VR Workshop').file(n+' - workshop.txt',outWorkshop(r));
  (await filesOf('rec:'+r.id)).forEach((f,i)=>d.file(`foto-${i+1}.${(f.type||'image/jpeg').split('/')[1]}`,f.blob))}}
