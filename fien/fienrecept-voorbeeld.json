@@ -1,0 +1,29 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "VOORBEELD-sjabloon voor Fien AI. Velden: titel, ondertitel, tags[], ingredienten[], benodigdheden[], fases[3]{naam, doel, stappen[3]{werkwoord, beschrijving, type (Bubbly Tip|Chaos Alert|Bubbly Mantra), tip}}, bewaren, variaties[], bekentenis, mantra, bron[]. Geen prijzen, geen allergie-claims. verzoek = id uit de app (FA-...).",
+  "verzoek": "FA-VOORBEELD",
+  "titel": "Chocolate chip cookies",
+  "ondertitel": "Zacht van binnen, knapperig randje, chaos toegestaan",
+  "tags": ["koekjes", "chocolade"],
+  "ingredienten": ["225 g bloem", "125 g roomboter (zacht)", "100 g bruine basterdsuiker", "50 g kristalsuiker", "1 ei", "1 tl vanille-extract", "½ tl bakpoeder", "snufje zout", "150 g pure chocolade, grof gehakt"],
+  "benodigdheden": ["Mengkom", "Handmixer", "Spatel", "2 bakplaten", "Bakpapier", "Ijsschep of 2 lepels", "Keukenweegschaal"],
+  "fases": [
+    {"naam": "VOORBEREIDING", "doel": "alles klaarzetten zodat het bakken zelf rustig en foutarm verloopt.", "stappen": [
+      {"werkwoord": "Verwarm", "beschrijving": "Verwarm de oven voor op 180 °C en bekleed de bakplaten met bakpapier.", "type": "Bubbly Tip", "tip": "Twee platen klaar? Dan bak je zonder wachttijd door."},
+      {"werkwoord": "Weeg", "beschrijving": "Weeg alle ingrediënten af en hak de chocolade grof.", "type": "Bubbly Tip", "tip": "Grove stukken geven straks die smeltende plassen chocolade."},
+      {"werkwoord": "Temper", "beschrijving": "Zorg dat boter en ei op kamertemperatuur zijn.", "type": "Chaos Alert", "tip": "Koude boter mengt slecht en geeft harde koekjes."}]},
+    {"naam": "MIXEN & BAKKEN", "doel": "het maken van het deeg en het bakken in de oven.", "stappen": [
+      {"werkwoord": "Mix", "beschrijving": "Mix boter en beide suikers luchtig, voeg ei en vanille toe.", "type": "Bubbly Tip", "tip": "Twee minuten mixen maakt het verschil."},
+      {"werkwoord": "Spatel", "beschrijving": "Spatel bloem, bakpoeder, zout en chocolade er kort door.", "type": "Chaos Alert", "tip": "Niet te lang mengen, anders worden ze taai."},
+      {"werkwoord": "Bak", "beschrijving": "Schep bolletjes op de plaat en bak 10 tot 12 minuten.", "type": "Chaos Alert", "tip": "Ze mogen in het midden nog zacht lijken; ze bakken na."}]},
+    {"naam": "AFKOELEN & AFWERKEN", "doel": "zorgen dat het resultaat mooi blijft, goed smaakt en handig te serveren is.", "stappen": [
+      {"werkwoord": "Rust", "beschrijving": "Laat de koekjes 5 minuten op de plaat rusten.", "type": "Bubbly Tip", "tip": "Zo breken ze niet bij het verplaatsen."},
+      {"werkwoord": "Koel", "beschrijving": "Laat ze op een rooster helemaal afkoelen.", "type": "Bubbly Tip", "tip": "Op het rooster blijft de onderkant knapperig."},
+      {"werkwoord": "Geniet", "beschrijving": "Stapel ze op een bord en deel ze uit.", "type": "Bubbly Mantra", "tip": "Scheef of perfect: elk koekje telt mee."}]}
+  ],
+  "bewaren": "In een goed afgesloten trommel een paar dagen op kamertemperatuur.",
+  "variaties": ["Met witte chocolade en cranberry", "Met een snufje zeezout erop"],
+  "bekentenis": "Ik eet altijd het eerste koekje warm van de plaat. Altijd.",
+  "mantra": "Knoeien = winnen. Bakken = feestje.",
+  "bron": ["VOORBEELD — geen echte bron"]
+}
