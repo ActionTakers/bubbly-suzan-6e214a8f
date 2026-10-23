@@ -10,10 +10,20 @@ const today=()=>{const d=new Date();return d.getDate()+'-'+(d.getMonth()+1)};
 if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();
 
 /* ---------- preset Boterkoek ---------- */
-const STAPPEN=['Wegen','Boter + suiker mengen','Ei erbij','Bloem erdoor','In de vorm','Patroon erin trekken','Insmeren met ei','Oven in','Oven uit'];
+const FASES=['FASE 1 · VOORBEREIDING','FASE 2 · MIXEN & BAKKEN','FASE 3 · AFKOELEN & AFWERKEN'];
+const STAPPEN=[
+{t:'Verwarm',f:0,d:'Oven op 170 °C (boven-/onderwarmte). Vorm 20×20 invetten + bakpapier.',tip:'💡 Bubbly Tip: laat het bakpapier aan twee kanten uitsteken: handige handvatten!'},
+{t:'Weeg',f:0,d:'Bloem, basterdsuiker, zout, vanille en citroenrasp afwegen in de kom.',tip:'💡 Bubbly Tip: citroenrasp haalt de boter- en vanillesmaak juist op.'},
+{t:'Temper',f:0,d:'Roomboter écht op kamertemperatuur.',tip:'🚨 Chaos Alert: koude boter mixt voor geen meter. Zachte boter!'},
+{t:'Meng',f:1,d:'Alles in de kom en mengen tot één zacht deeg.',tip:'🚨 Chaos Alert: géén extra bloem! Dat maakt hem droog en hard.'},
+{t:'Druk',f:1,d:'Deeg in de vorm drukken, insmeren met ei, ruitjespatroon met een vork.',tip:'💡 Bubbly Tip: vork licht nat of ingevet als het deeg plakt.'},
+{t:'Bak',f:1,d:'30–40 min midden in de oven op 170 °C, tot goudbruin.',tip:'🚨 Chaos Alert: wiebelt het midden nog? Goed zo. Niet doorbakken!',tm:[[30,'Bak 30 min · 170°'],[40,'Bak 40 min · 170°']]},
+{t:'Strijk',f:2,d:'10 min laten staan, dan de randjes aandrukken met een lepel.',tip:'💡 Bubbly Tip: randjes aandrukken zolang hij nog warm is!',tm:[[10,'Strijk: 10 min wachten']]},
+{t:'Koel',f:2,d:'Minimaal 6 uur (of een nacht) afkoelen in de vorm.',tip:'🚨 Chaos Alert: warm uit de vorm = ingestorte boterkoek. Rust is verplicht!',tm:[[360,'Koel 6 uur']]},
+{t:'Snijd',f:2,d:'Aan het bakpapier uit de vorm tillen en met een scherp mes snijden.',tip:'🎉 Bubbly Mantra: Proud Disaster of Pinterest-perfect, elke punt telt mee.'}];
 function slots(){const L=[{k:'setup',t:'Klaarzetten',d:'Telefoon staand (9:16), daglicht van opzij, geen flits. Werkblad leeg, rustige ondergrond.',need:[],check:true},
 {k:'ingr',t:'Alle ingrediënten',d:'Eén foto van alles bij elkaar, verpakkingen zichtbaar (voor de lijst; jij checkt de allergenen altijd zelf).',need:['foto']}];
-STAPPEN.forEach((s,i)=>L.push({k:'stap'+(i+1),t:'Stap '+(i+1)+': '+s,d:'Eén foto van bovenaf, een clip van 3–5 sec en een korte notitie (wat, hoe lang, hoe warm).',need:['foto','clip','notitie']}));
+STAPPEN.forEach((s,i)=>L.push({k:'stap'+(i+1),t:(i+1)+'. '+s.t,fase:s.f,d:s.d+' 📸 Foto van bovenaf, clip 3–5 sec, korte notitie.',tip:s.tip,tm:s.tm,need:['foto','clip','notitie']}));
 L.push({k:'knoei',t:'Knoeimoment 🎉',d:'Eén leuk foutje of knoeimoment. Knoeien = winnen!',need:['clip']},
 {k:'heel',t:'Hele boterkoek',d:'Foto van de hele koek.',need:['foto']},{k:'close',t:'Close-up gesneden stuk',d:'Dichtbij, mooi kruim.',need:['foto']},
 {k:'bord',t:'Stuk op een bordje',d:'Eén stuk op een bordje.',need:['foto']},{k:'snij',t:'Snijden of eerste hap',d:'Korte video.',need:['clip']},
@@ -50,11 +60,11 @@ urls.forEach(URL.revokeObjectURL);urls=[];const p=await progress(s);
 const list=(await get('sessions')||[]);const others=(await Promise.all(list.map(i=>get('sess:'+i)))).filter(Boolean);
 return `<div class="card"><div class="row"><h2 class="grow">${esc(s.name)}</h2><select style="width:auto" onchange="switchS(this.value)">${others.map(o=>`<option value="${o.id}" ${o.id==s.id?'selected':''}>${esc(o.name)}</option>`).join('')}<option value="__new">+ Nieuwe sessie</option></select></div>
 <div class="bar"><i style="width:${p.pct}%"></i></div><small>${p.done}/${p.tot} klaar</small></div>
-${slots().map(x=>slotCard(x,s,p.fs)).join('')}
+${slots().map((x,i,a)=>(x.fase!=null&&a[i-1].fase!==x.fase?`<h2 style="color:var(--td);font-size:18px;margin-top:18px">${FASES[x.fase]}</h2>`:'')+slotCard(x,s,p.fs)).join('')}
 <div class="card"><h2>📦 Klaar? Deel alles in één keer</h2><p>Ik maak één ZIP <b>“${esc(s.name)}.zip”</b> met alle foto’s, filmpjes en notities.</p><button class="btn" onclick="exportZip()">Exporteren & delen</button><p id="zipmsg"></p>${PRIV}</div>`};
 function slotCard(x,s,fs){const mine=fs.filter(f=>f.slot==x.k);const ok=slotDone(x,s,fs);const kinds=[...x.need,...(x.opt||[])];
 const th=mine.map(f=>{const u=URL.createObjectURL(f.blob);urls.push(u);const del=`ondblclick="if(confirm('Verwijderen?'))delFile(${f.id}).then(render)"`;return f.kind=='foto'?`<img src="${u}" ${del} title="dubbeltik = verwijderen">`:f.kind=='clip'?`<video src="${u}" muted playsinline ${del}></video>`:`<audio src="${u}" controls style="width:180px"></audio>`}).join('');
-return `<div class="card step ${ok?'done':''}"><div class="row"><h3 class="grow" style="font-size:17px">${ok?'✅':'⬜️'} ${x.t}</h3></div><small>${x.d}</small>
+return `<div class="card step ${ok?'done':''}"><div class="row"><h3 class="grow" style="font-size:17px">${ok?'✅':'⬜️'} ${x.t}</h3></div><small>${x.d}</small>${x.tip?`<div class="note" style="margin-top:6px">${x.tip}</div>`:''}${x.tm?`<div class="row" style="margin-top:6px">${x.tm.map(([m,l])=>`<button class="btn p" onclick="startT(${m},'${l}');go('plan')">⏲️ ${m>=60?m/60+' uur':m+' min'}</button>`).join('')}</div>`:''}
 <div>${kinds.map(n=>`<span class="chk ${have(x,s,fs,n)?'ok':''}">${n}</span>`).join('')}</div>
 <div class="row" style="margin-top:8px">${x.check?`<button class="btn ${s.checks[x.k]?'s':''}" onclick="chk('${x.k}')">${s.checks[x.k]?'✓ Gedaan':'Gedaan'}</button>`:''}
 ${kinds.includes('foto')?`<label class="btn">📷 Foto<input type="file" accept="image/*" capture="environment" class="hidden" onchange="grab(this,'${x.k}','foto')"></label>`:''}
