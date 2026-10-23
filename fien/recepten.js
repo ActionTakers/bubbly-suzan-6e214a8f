@@ -68,7 +68,7 @@ const lines=x=>(x||'').split('\n').map(l=>l.trim()).filter(Boolean);
 function outMd(r){const sl=r.slug||slugify(r.title);let t=`# ${r.title}\n\n| Veld | Waarde |\n| --- | --- |\n| titel | ${r.title} |\n| ondertitel | ${r.ondertitel||''} |\n| slug | ${sl} |\n| status | ${r.status||'concept'} |\n| tags | ${(r.tags||'')} |\n| bron | ${r.bron||'eigen recept'} |\n\n## Ingrediënten\n${md(r.ingr)}\n\n## Benodigdheden\n${md(r.ben)}\n\n---\n\n## Fasen\n`;
  r.fases.forEach((f,fi)=>{t+=`\n### FASE ${fi+1}: ${f.naam}\n\n*Doel: ${f.doel}*\n`;r.steps.slice(fi*3,fi*3+3).forEach((s,j)=>{const n=fi*3+j+1;t+=`\n**${n}. ${s.verb}**\n${s.text}\n*(${TI[s.type]} ${s.type}: ${s.tip})*\nFoto: \`${String(n).padStart(2,'0')}-${slugify(s.verb)}.jpg\`\n`})});
  t+=`\n## Bewaren\n${r.bewaren||''}\n\n## Variaties\n${md(r.variaties||'')}\n\n## Bekentenis\n${r.bekentenis||''}\n`;
- return t+'\n---\n*Allergenen check jij altijd zelf.*\n'}
+ if(typeof logTxt=='function'&&logTxt(r))t+=`\n## Besluitenlog\n${logTxt(r)}\n`;return t+'\n---\n*Allergenen check jij altijd zelf.*\n'}
 function outJson(r){const tip=s=>s.type=='Chaos Alert'?{tip:'',alert:s.tip}:{tip:s.tip,alert:''};
  return JSON.stringify({titel:r.title,ondertitel:r.ondertitel||'',slug:r.slug||slugify(r.title),status:r.status||'concept',tags:lines((r.tags||'').replace(/,/g,'\n')),
  ingrediënten:lines(r.ingr).map(x=>({ingrediënt:x})),benodigdheden:lines(r.ben),
@@ -109,7 +109,7 @@ async function recDel(){if(!confirm('Recept verwijderen?'))return;await put('rec
 async function copyOut(){const t=$('#out').textContent;try{await navigator.clipboard.writeText(t);$('#cpo').textContent='Gekopieerd ✅'}catch(e){prompt('Kopieer dit:',t)}}
 async function dlMd(){const r=await curRec();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([outMd(r)],{type:'text/markdown'}));a.download=(r.title||'recept')+'.md';a.click()}
 async function addRecipesToZip(z){const l=await recipes();for(const r of l){const n=(r.title||r.id).replace(/[\\/:*?"<>|]/g,'');const d=z.folder('recepten/'+n);
- d.file(n+' - notion.md',outMd(r));d.file((r.slug||slugify(r.title)||r.id)+'.json',outJson(r));d.folder('VR Receptkaart').file(n+' - receptkaart.txt',outKaart(r));d.folder('VR Ebook').file(n+' - ebook.md',outBoek(r));d.folder('VR Workshop').file(n+' - workshop.txt',outWorkshop(r));
+ d.file(n+' - notion.md',outMd(r));if(typeof logTxt=='function'&&logTxt(r))d.file(n+' - besluitenlog.txt',logTxt(r));d.file((r.slug||slugify(r.title)||r.id)+'.json',outJson(r));d.folder('VR Receptkaart').file(n+' - receptkaart.txt',outKaart(r));d.folder('VR Ebook').file(n+' - ebook.md',outBoek(r));d.folder('VR Workshop').file(n+' - workshop.txt',outWorkshop(r));
  (await filesOf('rec:'+r.id)).forEach((f,i)=>d.file(`foto-${i+1}.${(f.type||'image/jpeg').split('/')[1]}`,f.blob))}}
 
 /* baksessie starten vanuit een recept: snapshot van de stappen, oude sessies blijven Boterkoek */
