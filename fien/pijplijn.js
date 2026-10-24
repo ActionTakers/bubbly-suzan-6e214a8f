@@ -47,7 +47,7 @@ async function pipeView(){const l=await recipes();const r=l.find(x=>x.id==PID);i
  const ph=await filesOf('rec:'+r.id);const phU=id=>{const f=ph.find(x=>x.id==id);if(!f)return'';const u=URL.createObjectURL(f.blob);urls.push(u);return u};
  const head=`<div class="card"><div class="row"><button class="btn s xs" onclick="PID=null;PST=null;render()">◀</button><h2 class="grow">${esc(r.title||'Nieuw recept')}</h2></div>
  <small>Van idee → formulier → E-book → Receptkaart → Workshop = asset</small><div class="bar" style="margin:6px 0"><i style="width:${p}%"></i></div><small><b>${p}%</b> ${p==100?'🎉 Klaar als brand asset!':''}</small>
- <div class="row" style="margin-top:8px">${STAGES.map(([k,n])=>`<button class="btn ${k==st?'':'s'} xs" onclick="PST='${k}';render()">${stageDone(r,k)?'✅':''} ${n}</button>`).join('')}</div>
+ <div class="row" style="margin-top:8px">${STAGES.map(([k,n])=>`<button class="btn stagepill ${k==st?'':'s'} xs" onclick="PST='${k}';render()">${stageDone(r,k)?'✅':''} ${n}</button>`).join('')}</div>
  <small>${STAGES.find(x=>x[0]==st)[2]} ${st!='ebook'&&!stageDone(r,'ebook')?'<b>Tip: keur eerst het e-book goed; wijzigingen stromen automatisch door.</b>':''}</small></div>`;
  const cards=STAGESECS[st].map(sec=>{const d=P.dec[dkey(st,sec)];const F=styleFlags(r,sec);const ex=P.extra[sec]||[];
   return `<div class="card swipe pcard ${d?'dk-'+d.k.replace(/ /g,''):''}" data-sec="${sec}"><div class="row"><b class="grow">${SECS[sec]}</b>${d?`<span class="chk ${d.k=='Niet eens'?'':'ok'}">${d.k}</span>`:''}</div>
@@ -55,7 +55,7 @@ async function pipeView(){const l=await recipes();const r=l.find(x=>x.id==PID);i
   ${F.length?`<div class="note" style="background:#FFF3DC;border-color:#C76B00;font-size:13px">${F.map(esc).join('<br>')}</div>`:'<small>✅ Stijlcheck ok</small>'}
   ${ex.map(e=>e.type=='note'?`<div class="note" style="font-size:13px">➕ ${esc(e.text)}</div>`:`<img src="${phU(e.id)}" style="width:72px;height:90px;object-fit:cover;border-radius:10px;margin:4px 4px 0 0">`).join('')}
   <textarea id="pc-${sec}" placeholder="Opmerking (mag leeg)" style="min-height:44px;margin-top:6px">${esc(d?.c||'')}</textarea>
-  <div class="row">${PEDIT==sec?`<button class="btn" onclick="pDec('${sec}','Aanpassen')">💾 Opslaan & goedkeuren</button>`:['Eens','Aanpassen','Niet eens'].map(o=>`<button class="btn ${d?.k==o?'':'s'}" onclick="pDec('${sec}','${o}')">${o}</button>`).join('')}</div>
+  <div class="decrow">${PEDIT==sec?`<button class="btn" style="grid-column:1/-1" onclick="pDec('${sec}','Aanpassen')">💾 Opslaan & goedkeuren</button>`:['Eens','Aanpassen','Niet eens'].map(o=>`<button class="btn ${d?.k==o?'':'s'}" onclick="pDec('${sec}','${o}')">${o}</button>`).join('')}</div>
   <details style="margin-top:6px"><summary style="min-height:40px;padding:8px 0">+ content</summary><div class="row"><input id="px-${sec}" class="grow" style="width:auto" placeholder="Notitie, bv. extra tip"><button class="btn s xs" onclick="pExtra('${sec}')">+</button><label class="btn s xs">📷<input type="file" accept="image/*" capture="environment" class="hidden" onchange="pExtra('${sec}',this)"></label></div></details></div>`}).join('');
  const nxt=curStage(r);
  return head+`<small style="display:block;margin:4px 6px">Veeg naar rechts = Eens, links = Niet eens.</small>`+cards+
@@ -80,7 +80,7 @@ async function ideaStart(){const t=($('#idea')?.value||'').trim(),px=($('#ideatx
  else{r=emptyRecipe();if(isUrl){r.bron=t;r.title=decodeURIComponent(t.replace(/[?#].*$/,'').replace(/\/$/,'').split('/').pop()||'').replace(/[-_]+/g,' ').replace(/\.\w+$/,'').replace(/^\w/,c=>c.toUpperCase())}else{r.title=t;r.bron='idee'}}
  await saveRecipe(r);PID=r.id;PST=null;PFILL=true;render()}
 async function ideaFoto(inp){const r=emptyRecipe();r.bron='foto';r.title=($('#idea')?.value||'').trim();await saveRecipe(r);for(const f of inp.files)await addFile({sid:'rec:'+r.id,slot:'foto',kind:'foto',blob:f,type:f.type,t:Date.now()});PID=r.id;PFILL=true;render()}
-const IDEA=`<div class="card" style="border:2px solid var(--t)"><h2>✨ Van idee tot asset</h2><small>Idee, link, foto of tekst → Fien vult het formulier → jij keurt per onderdeel goed: eerst het e-book, dan receptkaart en workshop.</small>
+const IDEA=`<div class="card hero"><h2>✨ Zelf invullen</h2><small>Of plak tekst / foto — Fien vult het formulier, daarna keur jij goed (e-book → receptkaart → workshop).</small>
  <input id="idea" placeholder="Idee of link, bv. Chocolate chip cookies" style="margin-top:8px"><textarea id="ideatxt" placeholder="Optioneel: plak de recepttekst" style="min-height:60px"></textarea>
  <div class="row"><button class="btn" onclick="ideaStart()">✨ Start</button><label class="btn s">📷 Foto<input type="file" accept="image/*" capture="environment" class="hidden" onchange="ideaFoto(this)"></label></div></div>`;
 const _rec=VIEWS.rec;
