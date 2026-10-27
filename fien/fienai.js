@@ -1,6 +1,6 @@
 'use strict';
 /* ---------- Fien AI: verzoek blijft de bestaande POST. Antwoord komt in de app via ai-results/<FA-id>.json ---------- */
-const _W=['NWExYTg3Nzc5YmQyLWVkMjgtMWZkNS1jNmFlLTViZTM5MjM5L2tvb2hiZXcvc25vaXRhbW90dWEvaHMucm9zcnVjLjJpcGEvLzpzcHR0aA==','MzdlNzA1Y2U4MWUzNDgyZTllMjQyNDBkNjZmN2E5YjhmM2RjOWI2MmRmNDY4OTU4NDNmMDA0ZjAzODY2NTAwOF9yc3Jj'].map(x=>atob(x).split('').reverse().join(''));const APPV='fien-v11';const PIN='0709';
+const _W=['NWExYTg3Nzc5YmQyLWVkMjgtMWZkNS1jNmFlLTViZTM5MjM5L2tvb2hiZXcvc25vaXRhbW90dWEvaHMucm9zcnVjLjJpcGEvLzpzcHR0aA==','MzdlNzA1Y2U4MWUzNDgyZTllMjQyNDBkNjZmN2E5YjhmM2RjOWI2MmRmNDY4OTU4NDNmMDA0ZjAzODY2NTAwOF9yc3Jj'].map(x=>atob(x).split('').reverse().join(''));const APPV='fien-v12';const PIN='0709';
 const AIK='aiReq';const aiList=async()=>(await get(AIK))||[];const aiSave=l=>put(AIK,l);
 let aiQ=Promise.resolve();const aiTurn=fn=>{const n=aiQ.then(fn,fn);aiQ=n.then(()=>{},()=>{});return n};
 const VERBODEN=/prij|price|kost|allerg|glutenvrij|notenvrij|lactosevrij|veilig voor/i;
@@ -12,13 +12,21 @@ async function aiPin(){if(localStorage.getItem('fienPin')==PIN)return true;const
 async function aiPost(q){try{const fl=/^https?:\/\//.test(q.fotoLink||'')?q.fotoLink:undefined;
  const body={id:q.id,pin:PIN,idee:q.idee,link:q.link,tijd:q.t,appVersie:APPV,...(fl?{fotoLink:fl}:{}),...(q.foto?{foto:'foto op telefoon'}:{}),...(q.test?{test:true}:{})};
  const r=await fetch(_W[0],{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+_W[1]},body:JSON.stringify(body)});return r.ok}catch(e){return false}}
-async function aiAsk(){const idee=($('#ai-idee')?.value||'').trim(),link=($('#ai-link')?.value||'').trim(),fotoLink=($('#ai-flink')?.value||'').trim(),f=$('#ai-foto')?.files?.[0];
- if(!idee&&!link&&!f&&!fotoLink)return alert('Typ een idee, plak een link of kies een foto.');
+/* Eén invoer. Een losse https-link in het ideevak of in "Foto of link" wordt receptlink, behalve Drive/foto-urls. */
+function aiFotoUrl(u){let x;try{x=new URL(u)}catch(e){return false}const h=x.hostname.replace(/^www\./,'');
+ if(h==='drive.google.com'||h==='photos.google.com'||h==='photos.app.goo.gl')return true;
+ if(/(^|\.)googleusercontent\.com$/.test(h))return true;return /\.(jpe?g|png|webp|gif|heic)$/i.test(x.pathname)}
+function aiTakeUrl(raw,link,fotoLink){const u=String(raw||'').trim();if(!/^https?:\/\//i.test(u)||u===link||u===fotoLink)return {link,fotoLink};
+ if(aiFotoUrl(u)){if(!fotoLink)fotoLink=u;else if(!link)link=u}else if(!link)link=u;else if(!fotoLink)fotoLink=u;return {link,fotoLink}}
+async function aiAsk(){let idee=($('#ai-idee')?.value||'').trim(),link=($('#ai-link')?.value||'').trim(),fotoLink=($('#ai-flink')?.value||'').trim();const f=$('#ai-foto')?.files?.[0];
+ const extra=aiTakeUrl($('#ai-bron-in')?.value||'',link,fotoLink);link=extra.link;fotoLink=extra.fotoLink;
+ if(!link&&!fotoLink&&/^https?:\/\/\S+$/i.test(idee)){const moved=aiTakeUrl(idee,'','');link=moved.link;fotoLink=moved.fotoLink;idee=''}
+ if(!idee&&!link&&!f&&!fotoLink)return alert('Typ een idee, of voeg een link of foto toe.');
  if(!await aiPin())return;
  const id=window.AITESTID||('FA-'+Date.now().toString(36).toUpperCase().slice(-6));const t=new Date().toISOString();
  const q=await aiTurn(async()=>{const l=await aiList();let fid=null;if(f)fid=await addFile({sid:'ai:'+id,slot:'foto',kind:'foto',blob:f,type:f.type,t:Date.now()});
   const row={id,idee,link,fotoLink,foto:fid,status:'bezig',t,test:!!window.AITESTID};l.unshift(row);await aiSave(l);return row});
- render();aiWatch();
+ aiResetCompose();render();aiWatch();
  const ok=await aiPost(q);await aiTurn(async()=>{const l2=await aiList();const x=l2.find(y=>y.id==id);if(x){x.verzonden=ok;await aiSave(l2)}});render()}
 async function aiRetry(id){const l=await aiList();const q=l.find(x=>x.id==id);if(!q)return;const ok=await aiPost(q);await aiTurn(async()=>{const l2=await aiList();const x=l2.find(y=>y.id==id);if(x){x.verzonden=ok;await aiSave(l2)}});render();aiWatch()}
 async function aiDel(id){if(!confirm('Verzoek verwijderen?'))return;await aiTurn(async()=>{await aiSave((await aiList()).filter(x=>x.id!=id))});render()}
@@ -89,22 +97,68 @@ function aiWatch(){const gen=++pollGen;clearTimeout(pollTimer);pollDelay=POLL_BA
 async function aiPeek(id){const l=await aiList();const q=l.find(x=>x.id==id);if(!q||q.status!=='bezig'||!AI_ID.test(q.id))return;
  try{const j=await aiFetchResult(q.id);if(j){await aiTake(j,{onlyId:q.id});aiRefresh();return}}catch(e){}
  aiRefresh();aiWatch()}
-/* kaart */
-function aiGoed(q){return q.recept&&/^r[a-z0-9]+$/.test(q.recept)?`<br><button class="btn s xs" onclick="PID='${q.recept}';PST=null;tab='rec';render()">Goedkeuren ▶</button>`:''}
-function aiBusy(q){if(q.verzonden)return 'Ik ben ermee bezig… je verzoek is aangekomen. Het recept zet ik hier neer zodra het klaar is.';
- if(q.verzonden===false)return 'Ik ben ermee bezig… versturen lukte nog niet.';return 'Ik ben ermee bezig…'}
+/* kaart — één pad: idee, optioneel foto of link, daarna rustige status */
+let aiDraft={idee:'',link:'',flink:'',bron:'',open:false,file:null};
+function aiReadDraft(){const idee=$('#ai-idee');if(!idee)return;
+ aiDraft={idee:idee.value,link:$('#ai-link')?.value||'',flink:$('#ai-flink')?.value||'',bron:$('#ai-bron-in')?.value||'',open:!!$('#ai-bron')&&!$('#ai-bron').classList.contains('hidden'),file:$('#ai-foto')?.files?.[0]||null}}
+function aiApplyDraft(){const idee=$('#ai-idee');if(!idee)return;idee.value=aiDraft.idee||'';
+ if($('#ai-link'))$('#ai-link').value=aiDraft.link||'';if($('#ai-flink'))$('#ai-flink').value=aiDraft.flink||'';if($('#ai-bron-in'))$('#ai-bron-in').value=aiDraft.bron||'';
+ const inp=$('#ai-foto');if(aiDraft.file&&inp){try{const dt=new DataTransfer();dt.items.add(aiDraft.file);inp.files=dt.files}catch(e){}}
+ aiSetBronOpen(!!aiDraft.open);aiBronChips()}
+function aiResetCompose(){aiDraft={idee:'',link:'',flink:'',bron:'',open:false,file:null};
+ ['ai-idee','ai-link','ai-flink','ai-bron-in','ai-foto'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''})}
+function aiSetBronOpen(open){const p=$('#ai-bron');if(!p)return;p.classList.toggle('hidden',!open);$('#ai-bron-btn')?.setAttribute('aria-expanded',open?'true':'false')}
+function aiToggleBron(){aiSetBronOpen(!!$('#ai-bron')?.classList.contains('hidden'));if(!$('#ai-bron')?.classList.contains('hidden'))$('#ai-bron-in')?.focus()}
+function aiAddBron(){const raw=($('#ai-bron-in')?.value||'').trim();if(!raw)return;if(!/^https?:\/\//i.test(raw))return alert('Plak een link die met http begint.');
+ const link=$('#ai-link'),fl=$('#ai-flink');const next=aiTakeUrl(raw,link.value.trim(),fl.value.trim());link.value=next.link;fl.value=next.fotoLink;$('#ai-bron-in').value='';aiSetBronOpen(false);aiBronChips()}
+function aiClear(id){const el=document.getElementById(id);if(el)el.value='';if(id==='ai-foto')aiDraft.file=null;aiBronChips()}
+function aiSwapBron(){const a=$('#ai-link'),b=$('#ai-flink');if(!a||!b)return;const t=a.value;a.value=b.value;b.value=t;aiBronChips()}
+function aiOnFoto(){aiDraft.file=$('#ai-foto')?.files?.[0]||null;if(aiDraft.file)aiSetBronOpen(false);aiBronChips()}
+function aiHost(u){try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return 'link'}}
+function aiChip(label,sub,clearId,swap){const flip=swap?`<button type="button" class="ai-mini" onclick="aiSwapBron()">${swap}</button>`:'';
+ return `<span class="ai-chip"><span class="ai-chip-t"><b>${esc(label)}</b> · ${esc(sub)}</span>${flip}<button type="button" class="ai-mini" onclick="aiClear('${clearId}')" aria-label="Verwijderen">×</button></span>`}
+function aiBronChips(){const box=$('#ai-chips');if(!box)return;const link=($('#ai-link')?.value||'').trim(),fl=($('#ai-flink')?.value||'').trim(),f=$('#ai-foto')?.files?.[0];
+ const canFlip=!!link!==!!fl;const html=[];
+ if(link)html.push(aiChip('Receptlink',aiHost(link),'ai-link',canFlip?'Toch foto':''));
+ if(fl)html.push(aiChip('Fotolink',aiHost(fl),'ai-flink',canFlip?'Toch recept':''));
+ if(f)html.push(aiChip('Foto',f.name,'ai-foto',''));
+ box.innerHTML=html.join('');box.classList.toggle('hidden',!html.length);
+ const n=[link,fl,f].filter(Boolean).length;const lbl=$('#ai-bron-btn .ai-bron-lbl');if(lbl)lbl.textContent=n?`Foto of link · ${n}`:'Foto of link'}
+function aiWhen(t){const d=new Date(t);if(Number.isNaN(+d))return '';return d.toLocaleString('nl-NL',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}
+function aiKind(q){if(q.status==='klaar')return 'klaar';if(q.verzonden===false)return 'fout';return 'bezig'}
+function aiGoed(q){return q.recept&&/^r[a-z0-9]+$/.test(q.recept)?`<button type="button" class="btn xs" onclick="PID='${q.recept}';PST=null;tab='rec';render()">Goedkeuren</button>`:''}
+function aiBusy(q){if(q.verzonden)return 'Ik ben ermee bezig. Het recept zet ik hier neer zodra het klaar is.';
+ if(q.verzonden===false)return 'Versturen lukte even niet. Tik op opnieuw, dan probeer ik het nog een keer.';return 'Ik ben ermee bezig…'}
+function aiActs(q){const idOk=/^[A-Za-z0-9_-]+$/.test(q.id);const btns=[];
+ if(q.status==='klaar'){const g=aiGoed(q);if(g)btns.push(g)}
+ else{if(q.verzonden===false&&idOk)btns.push(`<button type="button" class="btn xs" onclick="aiRetry('${q.id}')">Opnieuw proberen</button>`);
+  if(aiLate(q)&&AI_ID.test(q.id))btns.push(`<button type="button" class="btn s xs" onclick="aiPeek('${q.id}')">Nog eens kijken</button>`)}
+ if(idOk)btns.push(`<button type="button" class="btn ghost xs" onclick="aiDel('${q.id}')">Verwijderen</button>`);
+ return btns.length?`<div class="ai-acts">${btns.join('')}</div>`:''}
+function aiCardItem(q){const k=aiKind(q);const pill=k==='klaar'?'Klaar':k==='fout'?'Niet verzonden':'Bezig';const when=aiWhen(q.t);const host=q.link?aiHost(q.link):'';
+ const notes=[];if(q.foto)notes.push('Foto staat op deze telefoon.');if(q.pollFout)notes.push(q.pollFout);
+ if(q.status!=='klaar'&&aiLate(q))notes.push('Dit duurt langer dan ik had verwacht. Ik kijk niet meer vanzelf.');
+ return `<article class="ai-card ${k}" data-ai="${esc(q.id)}" ${k==='bezig'?'aria-busy="true"':''}><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(q.titel||q.idee||q.link||'Foto')}</h3><small class="ai-meta">${esc(q.id)}${host?' · '+esc(host):''}${when?' · '+esc(when):''}</small></div><span class="ai-pill ${k}">${pill}</span></div>
+ <p class="ai-msg">${q.status==='klaar'?'Klaar om te keuren.':esc(aiBusy(q))}</p>${notes.map(t=>`<p class="ai-note">${esc(t)}</p>`).join('')}${aiActs(q)}</article>`}
 async function aiCard(){const l=await aiList();
- return `<div class="card hero" id="fienai" style="border-style:dashed;border-color:var(--pink)"><div class="row"><img src="img/fien-denken-160w.webp" width="48" height="48" style="border-radius:50%" alt=""><div class="grow"><h3 style="margin:0">🤖 Fien AI</h3><small>Idee in → Bubbly-recept uit, hier in de app. Geen prijzen, geen allergie-garanties.</small></div></div>
- <input id="ai-idee" placeholder="Idee, bv. Chocolate chip cookies" style="margin-top:10px" autocomplete="off"><input id="ai-link" placeholder="Link (optioneel)" inputmode="url"><input id="ai-flink" placeholder="Drive-link naar foto (optioneel)" inputmode="url">
- <div class="row"><label class="btn s grow">📷 Foto (optioneel)<input id="ai-foto" type="file" accept="image/*" class="hidden" onchange="this.parentNode.firstChild.textContent='📷 '+(this.files[0]?.name||'Foto')"></label></div>
- <p class="row"><button class="btn xl" onclick="aiAsk()">🤖 Vraag Fien</button></p>
- ${!l.length?'<div class="empty soft" style="padding:16px 8px"><img src="img/fien-blij-160w.webp" alt=""><p class="hand">Nog geen verzoek</p><small>Typ hierboven een idee. Ik ga aan de slag.</small></div>':''}${l.map(q=>`<div class="note" data-ai="${esc(q.id)}" style="margin:6px 0;${q.status=='klaar'?'':'background:#FFF3DC;border-color:#C76B00'}"><div class="row"><b class="grow">${esc(q.titel||q.idee||q.link||'Foto')}</b><span class="chk ${q.status=='klaar'?'ok':''}">${q.status=='klaar'?'✅ klaar':'⏳ bezig'}</span></div><small>${esc(q.id)}${q.link?' · '+esc(q.link):''}</small>
-  ${q.status=='klaar'?aiGoed(q):`<div class="hand aibusy" style="margin:8px 0">${aiBusy(q)}</div>${q.foto?'<small>📷 foto op telefoon</small>':''}${q.verzonden===false?'<div class="note" style="font-size:13px">Versturen lukte even niet. Tik op opnieuw, dan probeer ik het nog een keer.</div>':''}${q.pollFout?`<div class="note" style="font-size:13px">${esc(q.pollFout)}</div>`:''}${aiLate(q)?'<div class="note" style="font-size:13px">Dit duurt langer dan ik had verwacht. Ik kijk niet meer vanzelf. Tik om nog eens te kijken.</div>':''}<div class="row">${q.verzonden===false&&/^[A-Za-z0-9_-]+$/.test(q.id)?`<button class="btn xs" onclick="aiRetry('${q.id}')">↻ Opnieuw proberen</button>`:''}${aiLate(q)&&AI_ID.test(q.id)?`<button class="btn s xs" onclick="aiPeek('${q.id}')">Nog eens kijken</button>`:''}<button class="btn s xs" onclick="aiDel('${q.id}')">✕</button></div>`}</div>`).join('')}
- <details style="margin-top:6px"><summary style="min-height:40px;padding:8px 0">Lukt het niet vanzelf? Plak een Fien-recept</summary><textarea id="ai-in" placeholder="Plak een Fien-recept link of JSON"></textarea><div class="row"><button class="btn xs" onclick="aiImport($('#ai-in').value)">📥 Importeer</button><label class="btn s xs">📄 .json bestand<input type="file" accept=".json,application/json" class="hidden" onchange="aiFile(this)"></label></div></details></div>`}
+ return `<section class="fien-sheet" id="fienai"><div class="fien-head"><img src="img/fien-denken-160w.webp" width="58" height="58" alt=""><div class="grow"><div class="kicker">Fien</div><h2>Vraag een recept</h2><p class="fien-lead">Eén idee is genoeg. Een foto of link mag erbij.</p></div></div>
+ <label class="lbl" for="ai-idee">Je idee</label>
+ <textarea id="ai-idee" rows="3" placeholder="Bv. chocolate chip cookies, goudbruin en zacht" autocomplete="off"></textarea>
+ <div id="ai-chips" class="ai-chips hidden"></div>
+ <button type="button" class="fien-add" id="ai-bron-btn" aria-expanded="false" onclick="aiToggleBron()"><span class="fien-plus" aria-hidden="true">+</span><span class="ai-bron-lbl">Foto of link</span></button>
+ <div id="ai-bron" class="fien-bron hidden"><p class="fien-hint">Een receptlink, een Drive-foto, of een foto van je telefoon. Ik zie zelf wat het is.</p>
+  <input id="ai-bron-in" placeholder="https://…" inputmode="url" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter'){event.preventDefault();aiAddBron()}">
+  <div class="row fien-bron-row"><button type="button" class="btn s xs" onclick="aiAddBron()">Link toevoegen</button><label class="btn s xs">Foto kiezen<input id="ai-foto" type="file" accept="image/*" class="hidden" onchange="aiOnFoto()"></label></div></div>
+ <input id="ai-link" type="hidden"><input id="ai-flink" type="hidden">
+ <button type="button" class="btn xl fien-go" id="ai-go" onclick="aiAsk()">Vraag Fien</button>
+ <p class="fien-fine">Geen prijzen. Geen allergie-garanties.</p>
+ ${l.length?`<h3 class="ai-list-h">Je verzoeken</h3><div class="ai-list" aria-live="polite">${l.map(aiCardItem).join('')}</div>`:'<p class="fien-empty"><img src="img/fien-blij-160w.webp" alt="">Nog geen verzoek. Eén idee is genoeg.</p>'}
+ <details class="fien-fall"><summary>Lukt het niet vanzelf? Plak een Fien-recept</summary><textarea id="ai-in" placeholder="Plak een Fien-recept link of JSON"></textarea><div class="row"><button type="button" class="btn xs" onclick="aiImport($('#ai-in').value)">Importeer</button><label class="btn s xs">.json bestand<input type="file" accept=".json,application/json" class="hidden" onchange="aiFile(this)"></label></div></details></section>`}
 const _recAI=VIEWS.rec;VIEWS.rec=async()=>{let h=await _recAI();if(PID&&!PFILL)return h.replace(AI,'');if(PID||h.includes('id="fienai"'))return h;return (await aiCard())+h};VIEWS.rec.after=_recAI.after;
 /* link openen: #fienrecept=... (noodpad; normaal komt het recept via ai-results) */
 async function aiHash(){if(/fienrecept=/.test(location.hash)){const h=location.hash;history.replaceState(null,'',location.pathname+location.search);await aiImport(h)}}
 aiHash();addEventListener('hashchange',aiHash);
+const _renderFien=render;render=async function(){if(document.getElementById('ai-idee'))aiReadDraft();await _renderFien();aiApplyDraft()};
 addEventListener('focusout',()=>{if(aiDirty)setTimeout(aiRefresh,30)});
 addEventListener('pointerdown',()=>{aiHandsOff=true},{capture:true,once:true});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)aiWatch()});

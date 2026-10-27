@@ -27,7 +27,7 @@ async function chaosSet(n){const l=await get('chaos')||[];l.push({t:K.title,n,d:
 /* onboarding in 3 kaarten */
 const ONB=[['fien-hero-320w.webp','Hoi Suzan, ik ben Fien!','Jouw keukenhulp voor The Bubbly Bakery. Alles wat je maakt blijft op deze telefoon. Niets gaat vanzelf online.'],
 ['fien-in-actie-320w.webp','Bakken met meelhanden','Tik op 👩‍🍳 <b>Kookmodus</b>: één stap per scherm, grote letters, vegen of tikken voor de volgende stap. Het scherm blijft aan en de timer zit erin.'],
-['fien-denken-160w.webp','Recepten & delen','Plak of fotografeer een recept, ik zet het in 3 fasen × 3 stappen. Klaar? Eén ZIP voor Gabriël. Allergenen check jij altijd zelf.']];
+['fien-denken-160w.webp','Recepten & delen','Vraag Fien om een idee, of plak zelf een recept. Ik zet het in 3 fasen × 3 stappen. Klaar? Eén ZIP voor Gabriël. Allergenen check jij altijd zelf.']];
 let OB=0;function onbR(){let el=$('#onb');if(!el){el=document.createElement('div');el.id='onb';el.setAttribute('role','dialog');document.body.appendChild(el)}const [img,h,p]=ONB[OB];
  el.innerHTML=`<div class="card" style="max-width:420px;margin:auto;text-align:center"><img src="img/${img}" alt="" width="120" height="120" style="border-radius:50%;object-fit:cover;background:#fff"><h2 style="font-size:26px">${h}</h2><p style="font-size:18px">${p}</p><div class="kp" style="justify-content:center;margin:10px 0">${ONB.map((_,j)=>`<i class="${j<=OB?'on':''}"></i>`).join('')}</div>
  <div class="row" style="justify-content:center"><button class="btn s" onclick="onbDone()">Overslaan</button><button class="btn" onclick="OB<2?(OB++,onbR()):onbDone()">${OB<2?'Volgende ▶':'Aan de slag! 🎉'}</button></div></div>`}

@@ -40,7 +40,7 @@ async function pExtra(sec,inp){const l=await recipes();const r=l.find(x=>x.id==P
  if(inp){for(const f of inp.files){const id=await addFile({sid:'rec:'+r.id,slot:'extra:'+sec,kind:'foto',blob:f,type:f.type,t:Date.now()});P.extra[sec].push({type:'foto',id})}}
  else{const t=($('#px-'+sec)?.value||'').trim();if(!t)return;P.extra[sec].push({type:'note',text:t})}
  P.log.push({t:new Date().toISOString(),stage:PST,sec,k:'+ content',c:inp?'foto':'notitie'});await put('recipes',l);render()}
-const AI=`<div class="card" style="border:2px dashed var(--pink)"><h3>🤖 Fien AI <span class="tag">binnenkort</span></h3><small>Hier komt later: recept onderzoeken (bron, varianten), invullen in de Bubbly-schrijfstijl, tips en bewaaradvies voorstellen. Nu nog niet actief: Fien gebruikt alleen jouw tekst en de vaste parser. Er wordt niets verzonnen.</small><p class="row"><button class="btn s" disabled>🔎 Onderzoek recept</button><button class="btn s" disabled>✍️ Vul in Bubbly-stijl</button></p></div>`;
+const AI=`<div class="card soft" id="fien-soon"><h3>Fien AI</h3><small>Onderzoek en Bubbly-stijl komen later op deze plek. Nu gebruik ik alleen jouw tekst. Er wordt niets verzonnen.</small></div>`;
 async function pipeView(){const l=await recipes();const r=l.find(x=>x.id==PID);if(!r){PID=null;return VIEWS.rec()}const P=pipe(r);
  if(PFILL)return fillView(r);
  PST=PST||curStage(r)||'workshop';const st=PST;const p=pct(r);
@@ -67,12 +67,12 @@ function fillView(r){return `<div class="card"><h2>✨ Fien vult het formulier�
  ${FILLF(r).map(([k],i)=>`<div class="fl" style="margin:6px 0"><small><b>${k}</b></small><div id="ff${i}" class="ffv" style="min-height:24px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 8px;white-space:pre-wrap"></div></div>`).join('')}
  <button class="btn s" onclick="FILLSKIP=1">Sla animatie over ▶</button></div>`}
 let FILLSKIP=0;
-async function runFill(){const r=(await recipes()).find(x=>x.id==PID);const F=FILLF(r);FILLSKIP=0;const sl=ms=>new Promise(o=>setTimeout(o,ms));
- for(let i=0;i<F.length;i++){const el=$('#ff'+i);if(!el)return;const v=(F[i][1]||'').toString();el.scrollIntoView({block:'nearest'});el.style.borderColor='var(--t)';
-  if(!v){el.innerHTML='<i style="color:#A08070">nog leeg — vul je straks zelf aan</i>';await sl(FILLSKIP?0:120)}
-  else{const step=Math.max(2,Math.ceil(v.length/25));for(let c=0;c<=v.length;c+=step){if(FILLSKIP)break;el.textContent=v.slice(0,c)+'▍';await sl(16)}el.textContent=v}
+async function runFill(){const r=(await recipes()).find(x=>x.id==PID);if(!r)return;const F=FILLF(r);FILLSKIP=0;const calm=()=>FILLSKIP||!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);const sl=ms=>new Promise(o=>setTimeout(o,ms));
+ for(let i=0;i<F.length;i++){const el=$('#ff'+i);if(!el)return;const v=(F[i][1]||'').toString();if(!calm())el.scrollIntoView({block:'nearest'});el.style.borderColor='var(--t)';
+  if(!v){el.innerHTML='<i style="color:#A08070">nog leeg — vul je straks zelf aan</i>';await sl(calm()?0:120)}
+  else{const step=Math.max(2,Math.ceil(v.length/25));for(let c=0;c<=v.length;c+=step){if(calm())break;el.textContent=v.slice(0,c)+'▍';await sl(16)}el.textContent=v}
   el.style.borderColor='';const b=$('#fbar');if(b)b.style.width=Math.round((i+1)/F.length*100)+'%'}
- await sl(FILLSKIP?0:500);PFILL=false;scrollTo(0,0);render()}
+ await sl(calm()?0:400);PFILL=false;scrollTo(0,0);render()}
 /* idee-invoer */
 async function ideaStart(){const t=($('#idea')?.value||'').trim(),px=($('#ideatxt')?.value||'').trim();if(!t&&!px)return alert('Typ een idee, plak een link of tekst.');
  let r;const isUrl=/^https?:\/\//i.test(t);
@@ -80,9 +80,10 @@ async function ideaStart(){const t=($('#idea')?.value||'').trim(),px=($('#ideatx
  else{r=emptyRecipe();if(isUrl){r.bron=t;r.title=decodeURIComponent(t.replace(/[?#].*$/,'').replace(/\/$/,'').split('/').pop()||'').replace(/[-_]+/g,' ').replace(/\.\w+$/,'').replace(/^\w/,c=>c.toUpperCase())}else{r.title=t;r.bron='idee'}}
  await saveRecipe(r);PID=r.id;PST=null;PFILL=true;render()}
 async function ideaFoto(inp){const r=emptyRecipe();r.bron='foto';r.title=($('#idea')?.value||'').trim();await saveRecipe(r);for(const f of inp.files)await addFile({sid:'rec:'+r.id,slot:'foto',kind:'foto',blob:f,type:f.type,t:Date.now()});PID=r.id;PFILL=true;render()}
-const IDEA=`<div class="card hero"><h2>✨ Zelf invullen</h2><small>Of plak tekst / foto — Fien vult het formulier, daarna keur jij goed (e-book → receptkaart → workshop).</small>
- <input id="idea" placeholder="Idee of link, bv. Chocolate chip cookies" style="margin-top:8px"><textarea id="ideatxt" placeholder="Optioneel: plak de recepttekst" style="min-height:60px"></textarea>
- <div class="row"><button class="btn" onclick="ideaStart()">✨ Start</button><label class="btn s">📷 Foto<input type="file" accept="image/*" capture="environment" class="hidden" onchange="ideaFoto(this)"></label></div></div>`;
+const IDEA=`<details class="card quiet"><summary>Liever zelf invullen?</summary>
+ <p class="fien-hint">Plak tekst of een foto. Ik zet het in het formulier, daarna keur jij goed.</p>
+ <input id="idea" placeholder="Idee of link, bv. chocolate chip cookies"><textarea id="ideatxt" placeholder="Optioneel: plak de recepttekst" style="min-height:72px"></textarea>
+ <div class="row" style="margin-top:8px"><button type="button" class="btn s" onclick="ideaStart()">Zelf starten</button><label class="btn s">Foto<input type="file" accept="image/*" capture="environment" class="hidden" onchange="ideaFoto(this)"></label></div></details>`;
 const _rec=VIEWS.rec;
 VIEWS.rec=async()=>{if(PID)return pipeView();let h=await _rec();if(!RID)return IDEA+h;
  if(RID!='__plak'){const r=(await recipes()).find(x=>x.id==RID);if(r)h=`<div class="card row"><div class="grow"><b>✨ Van idee tot asset</b><br><small>${pct(r)}% · E-book → Receptkaart → Workshop</small></div><button class="btn" onclick="PID='${r.id}';PST=null;render()">Goedkeuren ▶</button></div>`+h}return h};
