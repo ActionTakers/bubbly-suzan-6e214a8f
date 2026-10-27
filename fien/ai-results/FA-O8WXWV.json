@@ -1,0 +1,127 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-O8WXWV Appeltaart. Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON.",
+  "verzoek": "FA-O8WXWV",
+  "titel": "Klassieke Hollandse appeltaart",
+  "ondertitel": "Hoog, boterig, kaneelwarm — met een ruitjesdakje dat mag scheef staan",
+  "tags": ["taart", "appel", "klassieker", "holland"],
+  "ingredienten": [
+    "300 g bloem",
+    "150 g lichtbruine basterdsuiker (voor het deeg)",
+    "200 g koude ongezouten roomboter, in blokjes",
+    "1 ei (voor het deeg)",
+    "1 eigeel of 1 ei (om te bestrijken)",
+    "1 snuf zout",
+    "1 tl gemalen kaneel (in het deeg, naar smaak)",
+    "1–1,2 kg friszure stoofappels (Goudreinet, Jonagold of Elstar), geschild",
+    "75 g rozijnen, geweld en uitgelekt",
+    "75 g suiker (voor de vulling)",
+    "2 tl gemalen kaneel (voor de vulling)",
+    "sap van ½–1 citroen",
+    "2 el paneermeel of fijne beschuitkruimels (voor de bodem)",
+    "extra boter of bakpapier voor de springvorm",
+    "optioneel: 2 el abrikozenjam + 1 el heet water (voor glans)"
+  ],
+  "benodigdheden": [
+    "Springvorm Ø 24 cm",
+    "Mengkom",
+    "Keukenweegschaal",
+    "Deegroller",
+    "Mes of deegsnijder voor de reepjes",
+    "Bakkwastje",
+    "Bakpapier of boter om in te vetten",
+    "Vershoudfolie",
+    "Taartrooster"
+  ],
+  "fases": [
+    {
+      "naam": "VOORBEREIDING",
+      "doel": "deeg laten rusten en appels klaarzetten, zodat vullen en bakken daarna soepel gaan.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 175 °C (boven-/onderwarmte; bij hete lucht iets lager, rond 160 °C). Vet een springvorm van 24 cm in of bekleed de bodem met bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Zet de vorm alvast klaar vóór het deeg uit de koelkast komt — koud deeg werkt fijner."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Wrijf of knip de koude boter door bloem, basterdsuiker, zout en eventueel kaneel tot grove kruimels. Breng samen met 1 ei tot een kort zanddeeg. Vorm een platte schijf, wikkel in folie en laat minstens 30 minuten rusten in de koelkast.",
+          "type": "Chaos Alert",
+          "tip": "Niet te lang kneden! Te veel werken maakt het deeg taai in plaats van kruimelig-boterig."
+        },
+        {
+          "werkwoord": "Schil",
+          "beschrijving": "Schil de appels, verwijder klokhuizen en snijd in stevige partjes of dikke plakjes. Meng met citroensap, suiker, kaneel en de uitgelekte rozijnen.",
+          "type": "Bubbly Tip",
+          "tip": "Stevige, friszure appels houden beter hun vorm — Goudreinet is de klassieker, Jonagold of Elstar doen het ook prima."
+        }
+      ]
+    },
+    {
+      "naam": "VULLEN & BAKKEN",
+      "doel": "de taart opbouwen met een stevige korst, royale appelkoepel en ruitjesdak, en goudbruin bakken.",
+      "stappen": [
+        {
+          "werkwoord": "Bekleed",
+          "beschrijving": "Rol ongeveer tweederde van het deeg uit en bekleed er bodem en randen van de springvorm mee (circa 5 mm dik). Strooi het paneermeel of de beschuitkruimels over de bodem.",
+          "type": "Bubbly Tip",
+          "tip": "Dat strooisel vangt appelsap op — zo blijft de bodem knapperiger in plaats van zompig."
+        },
+        {
+          "werkwoord": "Rooster",
+          "beschrijving": "Vul de vorm stevig met het appelmengsel en hoog in het midden een koepel op. Rol de rest van het deeg uit, snijd reepjes en leg ze in een ruitjespatroon. Druk de uiteinden vast op de rand en bestrijk deeg met losgeklopt eigeel of ei.",
+          "type": "Chaos Alert",
+          "tip": "Appels zakken in tijdens het bakken. Een bescheiden laagje wordt een holle taart — wees royaal met die koepel."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak circa 60 tot 70 minuten in het midden van de oven tot de korst diep goudbruin is en de appels zacht aanvoelen als je door het rooster prikt. Wordt de bovenkant te donker? Dek licht af met folie en bak door.",
+          "type": "Chaos Alert",
+          "tip": "Ovendeur dicht houden tot je echt wilt checken. Elke kijkbeurt lekt warmte — en appeltaart houdt van een lange, rustige bak."
+        }
+      ]
+    },
+    {
+      "naam": "AFKOELEN & SERVEREN",
+      "doel": "de taart laten stevig worden, optioneel laten glanzen, en hem mooi delen.",
+      "stappen": [
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat de taart in de vorm volledig afkoelen — het liefst een paar uur — voordat je de ring verwijdert en snijdt.",
+          "type": "Chaos Alert",
+          "tip": "Warm snijden = zacht puntje op het bord. Koude taart houdt die hoge, trots Hollandse snede."
+        },
+        {
+          "werkwoord": "Glans",
+          "beschrijving": "Optioneel: roer abrikozenjam los met een eetlepel heet water en bestrijk er voorzichtig de bovenkant mee voor een zachte glans. Of skip deze stap — naakt goudbruin is ook feest.",
+          "type": "Bubbly Tip",
+          "tip": "Oma-truc: een dun laagje jam maakt het ruitjesdakje uitnodigend glanzend zonder drama."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Snijd in punten en serveer — klassiek met een flinke dot slagroom, of gewoon zo bij de koffie.",
+          "type": "Bubbly Mantra",
+          "tip": "Scheef ruitje of perfect rooster: elke punt telt. Proud Disaster™ mag ook op tafel."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt op kamertemperatuur een dag of twee; langer afgedekt in de koelkast. Opwarmen kan in een matige oven zodat de korst weer even knapperig wordt.",
+  "variaties": [
+    "Zonder rozijnen, of met rozijnen even geweekt in warme thee of (naar smaak) een scheutje rum",
+    "Een handje grof gehakte walnoten door de vulling",
+    "Extra kaneel in het deeg voor een warmere korst",
+    "Bovenkant dicht met een volle deeglap i.p.v. ruitjes — minder klassiek, wél stevig"
+  ],
+  "bekentenis": "Ik eet de eerste punt het liefst nog lauw, met slagroom die meteen smelt. De nette, koude snede bewaar ik voor de foto — en voor morgen bij de koffie.",
+  "mantra": "Hoog stapelen, lang bakken, geduldig afkoelen. Ruitjes mogen scheef — smaak wint altijd.",
+  "bron": [
+    "BRON (soft): Dutch Cookbook — Appeltaart — https://dutchcookbook.com/nl/recipes/appeltaart/",
+    "BRON (soft): Betty's Kitchen — Klassieke Appeltaart — https://bettyskitchen.nl/klassieke-appeltaart-maken/",
+    "BRON (soft): Heel Holland Bakt — Klassieke appeltaart — https://www.heelhollandbakt.nl/recepten/klassieke-appeltaart/",
+    "BRON (soft): Allerhande — Traditionele Hollandse appeltaart — https://www.ah.nl/allerhande/recept/R-R584396",
+    "BRON (soft): 24Kitchen — Oma's / klassieke appeltaart — https://www.24kitchen.nl/recepten/klassieke-appeltaart",
+    "Geen foto/link van Suzan bij FA-O8WXWV — samengesteld uit gangbare Nederlandse klassiekers; hoeveelheden en tijden zijn richting, geen wet."
+  ]
+}

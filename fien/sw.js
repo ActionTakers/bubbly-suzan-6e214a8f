@@ -1,4 +1,8 @@
-const C='fien-v10';const F=['./','index.html','app.js','recepten.js','kook.js','pijplijn.js','fienai.js','vendor/jszip.min.js','fonts/nunito.woff2','fonts/fraunces.woff2','fonts/caveat.woff2','img/fien-blij-160w.webp','img/fien-trots-160w.webp','img/fien-in-actie-320w.webp','img/fien-denken-160w.webp','manifest.webmanifest','icon-192.png','img/fien-hero-320w.webp'];
+const C='fien-v11';const F=['./','index.html','app.js','recepten.js','kook.js','pijplijn.js','fienai.js','vendor/jszip.min.js','fonts/nunito.woff2','fonts/fraunces.woff2','fonts/caveat.woff2','img/fien-blij-160w.webp','img/fien-trots-160w.webp','img/fien-in-actie-320w.webp','img/fien-denken-160w.webp','manifest.webmanifest','icon-192.png','img/fien-hero-320w.webp'];
+/* ai-results/<FA-id>.json: nooit in de cache. Een 404 of een oud recept mag niet blijven hangen. */
+const aiResult=u=>new URL(u,self.location).pathname.includes('/ai-results/');
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(F)));self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!=C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const k=r.clone();caches.open(C).then(c=>c.put(e.request,k));return r}).catch(()=>caches.match(e.request)))});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;
+ if(aiResult(e.request.url)){e.respondWith(fetch(new Request(e.request.url,{method:'GET',cache:'no-store',headers:{Accept:'application/json'}})));return}
+ e.respondWith(fetch(e.request).then(r=>{const k=r.clone();caches.open(C).then(c=>c.put(e.request,k));return r}).catch(()=>caches.match(e.request)))});

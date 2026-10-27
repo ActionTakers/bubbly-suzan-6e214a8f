@@ -43,19 +43,20 @@ const ALLERG=`<small>Allergenen check jij altijd zelf; Fien geeft daar geen gara
 /* ---------- Start ---------- */
 const VIEWS={};
 VIEWS.home=async()=>{const s=await cur();const p=s?await progress(s):null;const tasks=(await get('tasks')||[]).filter(t=>!t.done).sort((a,b)=>a.d>b.d?1:-1).slice(0,2);
- const open=((await get('aiReq'))||[]).filter(x=>x.status=='bezig');const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
+ const reqs=(await get('aiReq'))||[];const open=reqs.filter(x=>x.status=='bezig');const klaar=reqs.filter(x=>x.status=='klaar'&&x.recept).slice(0,4);const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
  return `${tipLine()}
 <div class="card hero"><h2 style="font-size:26px;margin:0">Van idee tot asset</h2>
  <p class="hand" style="margin:4px 0 0">Eén pad. Knoeien mag.</p>
  <div class="path">
   <div class="p on"><b>1</b>Idee</div>
   <div class="p${open.length?' on':''}"><b>2</b>Fien AI</div>
-  <div class="p${openPipe?' on':''}"><b>3</b>Keuren</div>
+  <div class="p${openPipe||klaar.length?' on':''}"><b>3</b>Keuren</div>
   <div class="p${s&&p&&p.pct?' on':''}"><b>4</b>Asset</div>
  </div>
  <p style="margin:10px 0 6px;font-size:14px">Typ een idee of link → Fien werkt het uit in Bubbly-stijl → jij keurt goed → klaar voor content.</p>
  <button class="btn xl" onclick="go('rec')">✨ Start met een idee</button>
  ${open.length?`<div class="note" style="margin-top:10px;background:#FFF3DC;border-color:#C76B00"><b>⏳ Ik ben ermee bezig…</b><br><small>${esc(open[0].idee||open[0].id)}</small><br><button class="btn s xs" onclick="go('rec')">Bekijk verzoek</button></div>`:''}
+ ${klaar.length?`<div class="note" style="margin-top:10px"><b>✅ Fien is klaar</b>${klaar.map(q=>`<br><small>${esc(q.titel||q.idee||q.id)}</small><br><button class="btn s xs" onclick="PID='${q.recept}';PST=null;go('rec')">Goedkeuren ▶</button>`).join('')}</div>`:''}
  ${openPipe?`<div class="note" style="margin-top:8px"><b>🃏 Nog te keuren:</b> ${esc(openPipe.title||'recept')}<br><button class="btn s xs" onclick="PID='${openPipe.id}';PST=null;go('rec')">Verder goedkeuren ▶</button></div>`:''}
 </div>
 <div class="card soft"><div class="row"><h2 class="grow" style="font-size:20px">Bakken vandaag</h2></div>
