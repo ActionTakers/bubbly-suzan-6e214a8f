@@ -31,19 +31,19 @@ L.push({k:'knoei',t:'Knoeimoment 🎉',d:'Eén leuk foutje of knoeimoment. Knoei
 
 /* ---------- navigatie ---------- */
 const TABS=[['home','🏠','Start'],['rec','✨','Recepten'],['bak','📸','Bakken'],['meer','⋯','Meer']];const MEER=['plan','besl','content','meer'];
-let tab='home';function go(t){tab=t;render();scrollTo(0,0)}
-function navR(){$('#nav').innerHTML=TABS.map(([k,i,l])=>`<button class="${k==tab||(k=='meer'&&MEER.includes(tab)&&tab!='meer')?'on':''}" onclick="go('${k}')"><b>${i}</b>${l}</button>`).join('')}
-async function render(){navR();const v=$('#view');v.innerHTML=await VIEWS[tab]();VIEWS[tab].after&&VIEWS[tab].after()}
+let tab='home',shownTab='';function go(t){tab=t;render();scrollTo(0,0)}
+function navR(){$('#nav').innerHTML=TABS.map(([k,i,l])=>`<button class="${k==tab||(k=='meer'&&MEER.includes(tab)&&tab!='meer')?'on':''}" onclick="go('${k}')" aria-current="${k==tab?'page':'false'}"><b aria-hidden="true">${i}</b>${l}</button>`).join('')}
+async function render(){navR();const v=$('#view');const switched=shownTab!==tab;shownTab=tab;v.innerHTML=await VIEWS[tab]();if(switched){v.classList.remove('is-in');void v.offsetWidth;v.classList.add('is-in')}VIEWS[tab].after&&VIEWS[tab].after()}
 
 const TIPS=['Rustig aan: één stap tegelijk, ik vink mee af.','Daglicht van opzij maakt boterkoek extra goudbruin op foto.','Knoeien = winnen. Bakken = feestje.','Een korte notitie na elke stap scheelt later veel zoeken.','Liever drie echte foto’s dan tien perfecte.','Even pauze? De timer houdt de oven voor je in de gaten.'];
-const tipLine=()=>`<div class="card row"><img src="img/fien-blij-160w.webp" width="48" height="48" style="border-radius:50%"><div class="grow"><b>Fien tipt:</b> ${TIPS[Math.floor(Date.now()/36e5)%TIPS.length]}</div></div>`;
+const tipLine=()=>`<div class="card tip"><img src="img/fien-blij-160w.webp" alt=""><div class="grow"><b>Fien tipt</b><div>${TIPS[Math.floor(Date.now()/36e5)%TIPS.length]}</div></div></div>`;
 const PRIV=`<div class="note">🔒 Alles blijft op deze telefoon. Er wordt <b>niets automatisch geüpload</b>. Jij kiest zelf wanneer je iets deelt (WhatsApp, Drive of downloaden).</div>`;
 const ALLERG=`<small>Allergenen check jij altijd zelf; Fien geeft daar geen garanties over.</small>`;
 
 /* ---------- Start ---------- */
 const VIEWS={};
 VIEWS.home=async()=>{const s=await cur();const p=s?await progress(s):null;const tasks=(await get('tasks')||[]).filter(t=>!t.done).sort((a,b)=>a.d>b.d?1:-1).slice(0,2);
- const reqs=(await get('aiReq'))||[];const open=reqs.filter(x=>x.status=='bezig');const klaar=reqs.filter(x=>x.status=='klaar'&&x.recept).slice(0,4);const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
+ const reqs=(await get('aiReq'))||[];const open=reqs.filter(x=>x.status=='bezig');const failed=open.filter(x=>x.verzonden===false);const busy=open.filter(x=>x.verzonden!==false);const klaar=reqs.filter(x=>x.status=='klaar'&&x.recept).slice(0,4);const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
  return `${tipLine()}
 <div class="card hero"><h2 style="font-size:26px;margin:0">Van idee tot asset</h2>
  <p class="hand" style="margin:4px 0 0">Eén pad. Knoeien mag.</p>
@@ -53,11 +53,12 @@ VIEWS.home=async()=>{const s=await cur();const p=s?await progress(s):null;const 
   <div class="p${openPipe||klaar.length?' on':''}"><b>3</b>Keuren</div>
   <div class="p${s&&p&&p.pct?' on':''}"><b>4</b>Asset</div>
  </div>
- <p style="margin:10px 0 6px;font-size:14px">Typ een idee of link → Fien werkt het uit in Bubbly-stijl → jij keurt goed → klaar voor content.</p>
- <button class="btn xl" onclick="go('rec')">✨ Start met een idee</button>
- ${open.length?`<div class="note" style="margin-top:10px;background:#FFF3DC;border-color:#C76B00"><b>⏳ Ik ben ermee bezig…</b><br><small>${esc(open[0].idee||open[0].id)}</small><br><button class="btn s xs" onclick="go('rec')">Bekijk verzoek</button></div>`:''}
- ${klaar.length?`<div class="note" style="margin-top:10px"><b>✅ Fien is klaar</b>${klaar.map(q=>`<br><small>${esc(q.titel||q.idee||q.id)}</small><br><button class="btn s xs" onclick="PID='${q.recept}';PST=null;go('rec')">Goedkeuren ▶</button>`).join('')}</div>`:''}
- ${openPipe?`<div class="note" style="margin-top:8px"><b>🃏 Nog te keuren:</b> ${esc(openPipe.title||'recept')}<br><button class="btn s xs" onclick="PID='${openPipe.id}';PST=null;go('rec')">Verder goedkeuren ▶</button></div>`:''}
+ <p style="margin:10px 0 6px;font-size:15px">Typ een idee. Fien maakt er een Bubbly-recept van, jij keurt goed, daarna is het klaar voor content.</p>
+ <button class="btn xl" onclick="go('rec')">Vraag Fien</button>
+ ${failed.length?`<div class="ai-banner fout"><div class="ai-banner-t"><span class="ai-pill fout">Niet verzonden</span><b>${esc(failed[0].titel||failed[0].idee||failed[0].id)}</b></div><small>Versturen lukte even niet.</small>${failed.length>1?`<small>En nog ${failed.length-1}.</small>`:''}<button class="btn s xs" onclick="go('rec')">Bekijk verzoek</button></div>`:''}
+ ${busy.length?`<div class="ai-banner bezig"><div class="ai-banner-t"><span class="ai-pill bezig">Bezig</span><b>${esc(busy[0].titel||busy[0].idee||busy[0].id)}</b></div>${busy.length>1?`<small>En nog ${busy.length-1} ${busy.length===2?'verzoek':'verzoeken'}.</small>`:''}<button class="btn s xs" onclick="go('rec')">Bekijk verzoek</button></div>`:''}
+ ${klaar.length?`<div class="ai-banner klaar"><div class="ai-banner-t"><span class="ai-pill klaar">Klaar</span><b>Fien heeft een recept</b></div>${klaar.map(q=>`<div class="ai-banner-row"><span class="grow">${esc(q.titel||q.idee||q.id)}</span><button class="btn xs" onclick="PID='${q.recept}';PST=null;go('rec')">Goedkeuren</button></div>`).join('')}</div>`:''}
+ ${openPipe?`<div class="note" style="margin-top:8px"><b>Nog te keuren:</b> ${esc(openPipe.title||'recept')}<br><button class="btn s xs" onclick="PID='${openPipe.id}';PST=null;go('rec')">Verder goedkeuren</button></div>`:''}
 </div>
 <div class="card soft"><div class="row"><h2 class="grow" style="font-size:20px">Bakken vandaag</h2></div>
  ${s?`<p><b>${esc(s.name)}</b></p><div class="bar"><i style="width:${p.pct}%"></i></div><small>${p.done} van ${p.tot} is klaar</small>
@@ -77,7 +78,7 @@ async function progress(s){const fs=await filesOf(s.id);let done=0;const L=slots
 function have(x,s,fs,n){if(n=='notitie')return !!(s.notes[x.k]||'').trim()||fs.some(f=>f.slot==x.k&&f.kind=='spraak');return fs.some(f=>f.slot==x.k&&f.kind==n)}
 function slotDone(x,s,fs){if(x.check)return !!s.checks[x.k];if(!x.need.length)return fs.some(f=>f.slot==x.k)||!!s.checks[x.k];return x.need.every(n=>have(x,s,fs,n))}
 let urls=[];
-VIEWS.bak=async()=>{const s=await cur();if(!s)return `<div class="card"><h2>Nieuwe baksessie</h2><p>Eerste recept: <b>Boterkoek</b>, 10 stappen voor alle foto’s en filmpjes.</p><input id="sn" value="Boterkoek ${today()}"><p></p><button class="btn" onclick="newSession()">Start Boterkoek</button></div>${PRIV}`;
+VIEWS.bak=async()=>{const s=await cur();if(!s)return `<div class="card"><h2>Nieuwe baksessie</h2><div class="empty"><img src="img/fien-in-actie-320w.webp" alt=""><p class="hand">Klaar om te bakken?</p><small>Eerste recept: <b>Boterkoek</b>. Tien stappen voor foto’s en filmpjes.</small></div><label class="lbl" for="sn">Naam van deze sessie</label><input id="sn" value="Boterkoek ${today()}"><p class="row"><button class="btn xl" onclick="newSession()">Start boterkoek</button></p></div>${PRIV}`;
 urls.forEach(URL.revokeObjectURL);urls=[];const p=await progress(s);
 const list=(await get('sessions')||[]);const others=(await Promise.all(list.map(i=>get('sess:'+i)))).filter(Boolean);
 return `<div class="card"><div class="row"><h2 class="grow">${esc(s.name)}</h2><select style="width:auto" onchange="switchS(this.value)">${others.map(o=>`<option value="${o.id}" ${o.id==s.id?'selected':''}>${esc(o.name)}</option>`).join('')}<option value="__new">+ Nieuwe sessie</option></select></div>
@@ -168,10 +169,10 @@ async function delB(id){await put('blog',(await get('blog')||[]).filter(b=>b.id!
 async function addJ(){const t=$('#jt').value.trim();if(!t&&!window._m)return;const l=await get('journal')||[];l.push({d:new Date().toLocaleString('nl-NL',{dateStyle:'short',timeStyle:'short'}),m:window._m,t});window._m=null;await put('journal',l);render()}
 
 VIEWS.meer=async()=>`<div class="card hero"><h2>Meer</h2><p class="hand">Timers, besluiten en schrijven — als je ze nodig hebt.</p></div>
-<a class="meer-link" href="#" onclick="go('plan');return false"><b>⏰</b><div class="grow"><b>Planning & timers</b><br><small>Taken en oven-timers</small></div></a>
-<a class="meer-link" href="#" onclick="go('besl');return false"><b>🃏</b><div class="grow"><b>Snelle besluiten</b><br><small>Losse swipe-kaarten (los van recepten)</small></div></a>
-<a class="meer-link" href="#" onclick="go('content');return false"><b>✍️</b><div class="grow"><b>Content & dagboek</b><br><small>Blog-ideeën en journaling</small></div></a>
-<a class="meer-link" href="#" onclick="onbShow();return false"><b>❓</b><div class="grow"><b>Uitleg van Fien</b><br><small>Korte onboarding opnieuw</small></div></a>
-<div class="card soft"><small>🔒 Alles blijft op deze telefoon tot jij deelt. Allergenen check jij altijd zelf.</small></div>`;
+<a class="meer-link" href="#" onclick="go('plan');return false"><b aria-hidden="true">⏰</b><div class="grow"><strong>Planning & timers</strong><br><small>Taken en oven-timers</small></div><span class="chev" aria-hidden="true">›</span></a>
+<a class="meer-link" href="#" onclick="go('besl');return false"><b aria-hidden="true">🃏</b><div class="grow"><strong>Snelle besluiten</strong><br><small>Losse swipe-kaarten, los van recepten</small></div><span class="chev" aria-hidden="true">›</span></a>
+<a class="meer-link" href="#" onclick="go('content');return false"><b aria-hidden="true">✍️</b><div class="grow"><strong>Content & dagboek</strong><br><small>Blog-ideeën en journaling</small></div><span class="chev" aria-hidden="true">›</span></a>
+<a class="meer-link" href="#" onclick="onbShow();return false"><b aria-hidden="true">❓</b><div class="grow"><strong>Uitleg van Fien</strong><br><small>Korte onboarding opnieuw</small></div><span class="chev" aria-hidden="true">›</span></a>
+<div class="card soft"><small>Alles blijft op deze telefoon tot jij deelt. Allergenen check jij altijd zelf.</small></div>`;
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 render();
