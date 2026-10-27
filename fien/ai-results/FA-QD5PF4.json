@@ -1,0 +1,125 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-QD5PF4 Chocolate chip cookies. Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON.",
+  "verzoek": "FA-QD5PF4",
+  "titel": "Chocolate chip cookies",
+  "ondertitel": "Knapperige randjes, zachte middens, chocolade-poelen — en een snuf zeezout als je lef hebt",
+  "tags": ["koekjes", "chocolade", "klassieker", "cookies"],
+  "ingredienten": [
+    "280 g bloem",
+    "1 tl baking soda (natriumbicarbonaat)",
+    "1 tl zout",
+    "225 g ongezouten roomboter, op kamertemperatuur",
+    "150 g kristalsuiker",
+    "150 g lichtbruine basterdsuiker, aangedrukt",
+    "2 eieren, op kamertemperatuur",
+    "1–2 tl vanille-extract",
+    "340 g halfzoete of pure chocolade chips (of grof gehakte chocolade)",
+    "optioneel: 100 g grof gehakte noten",
+    "optioneel: een snuf zeezoutvlokjes om te bestrooien"
+  ],
+  "benodigdheden": [
+    "2 bakplaten",
+    "Bakpapier",
+    "Grote mengkom",
+    "Kleine kom voor de droge mix",
+    "Handmixer of standmixer (of stevige spatel en energie)",
+    "Spatel",
+    "IJsschep of eetlepel voor porties",
+    "Keukenweegschaal",
+    "Afkoelrooster"
+  ],
+  "fases": [
+    {
+      "naam": "VOORBEREIDING",
+      "doel": "oven en droog mix klaarzetten, boter en suikers luchtig kloppen — de basis voor die knapperig-zachte balans.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 190 °C (boven-/onderwarmte; bij hete lucht rond 175 °C). Bekleed twee bakplaten met bakpapier. Meng in een kleine kom bloem, baking soda en zout.",
+          "type": "Bubbly Tip",
+          "tip": "Platen klaarzetten vóór het deeg klaar is — cookies willen meteen de oven in als de balletjes gevormd zijn."
+        },
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Klop de zachte boter met kristalsuiker en bruine basterdsuiker in een grote kom tot het mengsel licht, romig en een beetje fluffy is (een paar minuten). Roer de vanille erdoor.",
+          "type": "Bubbly Tip",
+          "tip": "Boter écht zacht, niet gesmolten. Soft = luchtig; gesmolten = platte pannenkoeken-cookies."
+        },
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Klop de eieren één voor één door het botermengsel tot alles glad is. Spatel of meng daarna de bloemmix erdoor tot er geen droge strepen meer zijn — stop zodra het samenkomt.",
+          "type": "Chaos Alert",
+          "tip": "Niet doorbloemen! Te lang mengen na de bloem maakt taaie koekjes in plaats van chewable cloudjes."
+        }
+      ]
+    },
+    {
+      "naam": "DEEG & BAKKEN",
+      "doel": "chocolade verdelen, gelijke balletjes vormen en goudbruin bakken met knapperige randen.",
+      "stappen": [
+        {
+          "werkwoord": "Vouw",
+          "beschrijving": "Vouw de chocolade chips (en eventueel de noten) door het deeg met een spatel, tot de stukjes mooi verdeeld zijn. Optioneel: laat het deeg 30–60 minuten in de koelkast rusten voor dikkere, diepere cookies.",
+          "type": "Bubbly Tip",
+          "tip": "Mix chips én grof gehakte chocolade: chips houden vorm, brokken smelten tot gooey poelen. Proud Disaster™-chocolade is ook prima."
+        },
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Schep met een ijsschep of eetlepel ronde balletjes deeg op de bakplaten — ruim 5 cm uit elkaar, want ze lopen uit. Optioneel: een klein snufje zeezoutvlokjes bovenop elk balletje.",
+          "type": "Chaos Alert",
+          "tip": "Te dicht bij elkaar = één cookie-eiland. Liever twee platen dan één overvolle."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak circa 9 tot 11 minuten tot de randen goudbruin zijn en de middens nog net iets bleek en zacht lijken. Haal ze uit de oven — ze garen nog even na op de plaat.",
+          "type": "Chaos Alert",
+          "tip": "Wacht niet tot ze overal bruin zijn. Te lang = knisperend hard. Die bleke middentop is geen fout, dat is chewy-belofte."
+        }
+      ]
+    },
+    {
+      "naam": "AFKOELEN & SERVEREN",
+      "doel": "cookies laten zetten, overzetten, en warm of koel delen — met of zonder zoutfinish.",
+      "stappen": [
+        {
+          "werkwoord": "Rust",
+          "beschrijving": "Laat de cookies 2 tot 3 minuten op de bakplaat rusten tot ze net stevig genoeg zijn om te tillen zonder te breken.",
+          "type": "Chaos Alert",
+          "tip": "Meteen tillen = gebroken cookies en chocoladevlekken. Even wachten is de stilste heldendaad van de bakdag."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Schuif ze over naar een rooster en laat verder afkoelen. Of eet er één lauw — de chocolade is dan nog zacht en glanzend.",
+          "type": "Bubbly Tip",
+          "tip": "Op het rooster stopt het doorgaren. Op de hete plaat blijven ze doorkoken tot biscuit-status."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Serveer bij koffie, melk, of gewoon uit de hand. Een extra snuf zeezoutvlokjes mag nog — of skip, en laat de chocolade de show stelen.",
+          "type": "Bubbly Mantra",
+          "tip": "Scheve rand, ongelijke chip, te donkere hoek: elke cookie telt. Proud Disaster™ mag ook in de koektrommel."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt op kamertemperatuur een paar dagen. Deegballetjes kun je invriezen en later rechtstreeks vanuit de vriezer iets langer bakken.",
+  "variaties": [
+    "Alleen pure chocolade, of een mix van halfzoet en puur",
+    "Een handje gehakte walnoten of pecannoten door het deeg",
+    "Deeg 24 uur koud laten rusten voor diepere karamel-toffee-smaak",
+    "Grotere bakery-balletjes (meer deeg per cookie) en iets langer bakken",
+    "Zeezoutvlokjes vlak voor of net na de oven"
+  ],
+  "bekentenis": "Ik eet de eerste cookie altijd te vroeg: lauw, sticky, met chocolade aan mijn vingers. De nette, afgekoelde stapel is voor later — en voor de foto.",
+  "mantra": "Romig kloppen, kort mengen, vroeg uit de oven. Bleke middentop = chewy belofte.",
+  "bron": [
+    "BRON (soft): Nestlé Toll House — Original Chocolate Chip Cookies — https://www.verybestbaking.com/toll-house/recipes/original-nestle-toll-house-chocolate-chip-cookies/",
+    "BRON (soft): King Arthur Baking — Classic Chocolate Chip Cookies — https://www.kingarthurbaking.com/recipes/classic-chocolate-chip-cookies-recipe",
+    "BRON (soft): Allrecipes — Best Chocolate Chip Cookies — https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/",
+    "BRON (soft): Allrecipes — Original Nestlé Toll House — https://www.allrecipes.com/recipe/174864/original-nestle-toll-house-chocolate-chip-cookies/",
+    "BRON (soft): Arla — Chocolate chip cookies — https://www.arla.nl/recepten/chocolate-chip-cookies/",
+    "BRON (soft): Simone's Kitchen — Chocolate chip cookies — https://simoneskitchen.nl/chocolate-chip-cookies/",
+    "Geen foto/link van Suzan bij FA-QD5PF4 — samengesteld uit klassieke Toll House-lijn + succesvolle online/NL-varianten; hoeveelheden en tijden zijn richting, geen wet."
+  ]
+}
