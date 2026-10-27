@@ -1,0 +1,131 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-R0IP5R",
+  "titel": "Chocoladezoenen",
+  "ondertitel": "Krokant koekje, wolkje schuim, krakend chocoladejasje — de Hollandse koffieklassieker, zelfgemaakt",
+  "tags": [
+    "zoenen",
+    "chocolade",
+    "Italiaans schuim",
+    "Hollands",
+    "klassieker",
+    "koffietafel"
+  ],
+  "ingredienten": [
+    "Koekjes: 120 g bloem",
+    "Koekjes: 80 g koude boter",
+    "Koekjes: 40 g witte basterdsuiker",
+    "Koekjes: 20 g amandelmeel (of extra bloem)",
+    "Koekjes: 25 g losgeklopt ei",
+    "Koekjes: snufje zout",
+    "Schuim: 75 g eiwit (± 2 eiwitten), op kamertemperatuur",
+    "Schuim: 150 g kristalsuiker (130 g voor de siroop + 20 g voor het eiwit)",
+    "Schuim: 50 ml water",
+    "Schuim: 2 blaadjes gelatine (optioneel, maakt het schuim steviger)",
+    "Schuim: optioneel merg van ½ vanillestokje",
+    "Jasje: 400–500 g pure chocolade (of melk/wit)",
+    "Jasje: optioneel een beetje cacaoboter om te tempereren"
+  ],
+  "benodigdheden": [
+    "Keukenweegschaal",
+    "Deegroller + ronde steker ± 5 cm",
+    "Bakplaat met bakpapier",
+    "Steelpan + suikerthermometer",
+    "(Staande) mixer met brandschone, vetvrije kom",
+    "Spuitzak met ronde spuitmond (± nr. 15)",
+    "Au-bain-marie pan of magnetronkom voor de chocolade",
+    "Rooster + vork of dipvork",
+    "Koelkast"
+  ],
+  "fases": [
+    {
+      "naam": "KOEKJES",
+      "doel": "een dun, krokant bodempje bakken dat het schuim kan dragen.",
+      "stappen": [
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Meng koude boter, basterdsuiker, amandelmeel en zout kort door. Wrijf het ei erdoor en voeg als laatste de bloem toe. Kneed alleen tot het samenhangt, verpak het deeg en laat het minstens 30 minuten opstijven in de koelkast.",
+          "type": "Bubbly Tip",
+          "tip": "Hoe korter je kneedt, hoe brosser het koekje. Het deeg mag gerust een dag van tevoren."
+        },
+        {
+          "werkwoord": "Steek",
+          "beschrijving": "Verwarm de oven voor op 160–170 °C. Rol het deeg uit tot 3 mm dik en steek rondjes van ± 5 cm uit. Leg ze op een bakplaat met bakpapier. Steek er één extra uit — die is voor de proef.",
+          "type": "Bubbly Tip",
+          "tip": "Scheurt het deeg? Even een paar slagen met warme handen kneden, dan wordt het weer soepel."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak 15–20 minuten tot de koekjes gaar zijn met een licht goudbruin randje. Laat ze helemaal afkoelen voordat het schuim erop gaat.",
+          "type": "Chaos Alert",
+          "tip": "Warm koekje + schuim = smeltende wolk. Geduld, eerst écht koud."
+        }
+      ]
+    },
+    {
+      "naam": "SCHUIM",
+      "doel": "een stevig, glanzend Italiaans schuim kloppen en hoge toefjes spuiten.",
+      "stappen": [
+        {
+          "werkwoord": "Kook",
+          "beschrijving": "Week de gelatine in ruim koud water. Breng 130 g suiker met 50 ml water aan de kook in een steelpan en verwarm tot ± 118–120 °C. Begin intussen het eiwit op te kloppen; voeg zodra het schuimig is de 20 g suiker toe.",
+          "type": "Chaos Alert",
+          "tip": "Hete suikersiroop is gemeen heet. Steelpan naar achteren, handen erbij weg, geen kinderen in de buurt."
+        },
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Laat de siroop kort uitbubbelen en giet hem in een dun straaltje langs de wand bij het draaiende eiwit. Knijp de gelatine uit, smelt hem en klop hem erdoor (eventueel met vanillemerg). Klop door tot het schuim stevig, glanzend en handwarm tot koel is.",
+          "type": "Bubbly Tip",
+          "tip": "Vetvrije kom = hoge pieken. Eén spatje dooier en je schuim blijft plat."
+        },
+        {
+          "werkwoord": "Spuit",
+          "beschrijving": "Schep het schuim in de spuitzak. Houd de spuitmond ± 1 cm boven het koekje, spuit tot het koekje bedekt is en trek de zak al spuitend rustig omhoog voor een hoge toef. Laat de zoenen minstens een uur opstijven (liefst in de koelkast), tot het schuim niet meer plakt.",
+          "type": "Bubbly Tip",
+          "tip": "Scheve toren? Proud Disaster™ — onder de chocolade ziet niemand het, en hij smaakt hetzelfde."
+        }
+      ]
+    },
+    {
+      "naam": "CHOCOLADEJASJE",
+      "doel": "de zoenen helemaal in een glanzend, knapperig laagje chocolade hullen.",
+      "stappen": [
+        {
+          "werkwoord": "Tempereer",
+          "beschrijving": "Smelt de chocolade au bain-marie of in de magnetron in korte stootjes en tempereer hem (eventueel met wat cacaoboter). Laat hem niet te heet worden — zodra alles net gesmolten is, ben je goed.",
+          "type": "Chaos Alert",
+          "tip": "Geen water of olie bij de chocolade! Eén druppel water en hij wordt korrelig."
+        },
+        {
+          "werkwoord": "Dip",
+          "beschrijving": "Pak een zoen bij het koekje en dip hem ondersteboven in de chocolade tot aan het koekje. Haal hem er met een rustige, herhaalde op-en-neer beweging uit zodat de overtollige chocolade afdruipt. Zet hem op een rooster.",
+          "type": "Bubbly Tip",
+          "tip": "Dippen in een smal, diep glas of kommetje gaat makkelijker dan in een brede pan."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Laat de zoenen ± een uur in de koelkast uitharden tot het jasje knapt. Serveer bij koffie of thee — en luister naar het krakje bij de eerste hap.",
+          "type": "Bubbly Tip",
+          "tip": "Druipneus van chocolade aan de onderkant? Dat is het handtekening-randje van zelfgemaakt."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Luchtdicht en koel bewaren, het liefst binnen een paar dagen opeten; dan is het koekje nog krokant en het schuim zacht. Liever niet invriezen, dan gaat het schuim zweten.",
+  "variaties": [
+    "Melk- of witte chocolade in plaats van puur",
+    "Vanillemerg of wat koffie-extract door het schuim",
+    "Een klein toefje jam of karamel op het koekje onder het schuim",
+    "Snelle versie: kant-en-klare ronde koekjes als bodem gebruiken",
+    "Mini-zoenen met een kleinere steker en spuitmond"
+  ],
+  "bekentenis": "Mijn eerste zoen zakte half om en kreeg een chocoladejasje met een gat erin. Ik at hem op boven de pan. Niemand heeft het gezien — tot nu.",
+  "mantra": "Koud koekje, heet suikertje, rustig dippen. Het krakje maakt het af.",
+  "bron": [
+    "BRON (soft): Heel Holland Bakt — Chocolade zoenen (Robèrt van Beckhoven) — https://www.heelhollandbakt.nl/recepten/chocolade-zoenen/",
+    "BRON (soft): PaTESSerie — Chocolade zoenen maken (Melo cakes) — https://www.patesserie.com/chocolade-zoenen-maken-melo-cakes/",
+    "BRON (soft): Rutger bakt — Chocolade zoenen recept — https://rutgerbakt.nl/koek-recepten/chocolade-zoenen-recept/",
+    "BRON (soft): BakTotaal — Chocolade zoenen recept — https://www.baktotaal.nl/chocolade-zoenen-recept",
+    "Geen foto/link van Suzan bij FA-R0IP5R — samengesteld uit publieke NL-bakrecepten; hoeveelheden en tijden zijn richting, geen wet."
+  ]
+}
