@@ -1,0 +1,130 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-0URQI9 Wortelcake (fien-v13). Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON (publieke NL-bakrecepten).",
+  "verzoek": "FA-0URQI9",
+  "titel": "Wortelcake",
+  "ondertitel": "Smeuïge cake met geraspte wortel, warme kruiden en een frisse roomkaas-topping — scheef mag, smeuïg moet",
+  "tags": [
+    "cake",
+    "wortel",
+    "carrot cake",
+    "roomkaas",
+    "klassieker"
+  ],
+  "ingredienten": [
+    "175 ml neutrale olie (bijv. zonnebloemolie)",
+    "275 g lichtbruine basterdsuiker",
+    "¼ tl zout",
+    "rasp van 1 sinaasappel (alleen de oranje schil)",
+    "3 eieren, op kamertemperatuur",
+    "200 g patentbloem (geen zelfrijzend bakmeel)",
+    "5 tl bakpoeder",
+    "1 el speculaaskruiden (of 2 tl kaneel + snuf nootmuskaat)",
+    "300 g wortel, schoongemaakt en grof geraspt (niet uitknijpen)",
+    "100 g donkere rozijnen (optioneel)",
+    "75 g walnoten, grof gebroken (optioneel; plus 30 g om te finishen)",
+    "125 g roomkaas, op kamertemperatuur",
+    "50 g roomboter, op kamertemperatuur",
+    "100 g poedersuiker, gezeefd"
+  ],
+  "benodigdheden": [
+    "Springvorm ≈ 24 cm of hoge cakevorm 20–22 cm",
+    "Mengkom + handmixer of stevige garde",
+    "Keukenweegschaal",
+    "Rasp of keukenmachine",
+    "Spatel",
+    "Bakpapier",
+    "Satéprikker of caketester",
+    "Afkoelrooster"
+  ],
+  "fases": [
+    {
+      "naam": "BESLAG MAKEN",
+      "doel": "romig olie-suikermengsel, eieren erdoor, droge stoffen erin, dan wortel en vulling — zonder overwerken.",
+      "stappen": [
+        {
+          "werkwoord": "Rasp",
+          "beschrijving": "Verwarm de oven voor op 180 °C (boven-/onderwarmte; bij hete lucht iets lager). Vet de vorm in en bekleed de bodem met bakpapier. Rasp de wortels grof en zet ze klaar. Niet uitknijpen: dat vocht maakt de cake smeuïg.",
+          "type": "Bubbly Tip",
+          "tip": "Julienne uit de winkel mag, maar te fijne julienne droogt sneller uit. Grof geraspt houdt sap en bite."
+        },
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Doe olie, lichtbruine basterdsuiker, zout en sinaasappelrasp in een kom. Klop circa 3 minuten tot het mengsel lichter en glad is. Voeg de eieren toe en mix kort door tot net opgenomen.",
+          "type": "Chaos Alert",
+          "tip": "Gesmolten boter i.p.v. olie kan, maar olie houdt de cake langer zacht. Neutrale olie wint hier van smaakvolle notenolie."
+        },
+        {
+          "werkwoord": "Spatel",
+          "beschrijving": "Meng bloem, bakpoeder en speculaaskruiden apart even door elkaar. Spatel ze door het beslag tot net geen droge bloem meer zichtbaar is. Schep daarna wortel, rozijnen en walnoten erdoor. Beslag mag dik en rommelig zijn.",
+          "type": "Bubbly Tip",
+          "tip": "Stop met spatelen zodra het samenhangt. Te lang = taaiere cake. Proud Disaster™-beslag ziet er nooit ‘perfect glad’ uit."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN",
+      "doel": "vorm vullen, rustig bakken tot een droge prikker — midden mag nog iets vochtig ogen.",
+      "stappen": [
+        {
+          "werkwoord": "Vul",
+          "beschrijving": "Schep of giet het beslag in de voorbereide vorm en strijk de bovenkant licht glad. Tik de vorm één keer op het aanrecht om grote luchtbellen kwijt te raken.",
+          "type": "Bubbly Tip",
+          "tip": "Vul tot hooguit driekwart: deze cake rijst. Liever iets lager dan een vulkaan over de rand."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak 55 tot 65 minuten. Prik in het midden: komt de satéprikker er (bijna) schoon uit en voelt de bovenkant veerkrachtig, dan is hij gaar. Nog nat beslag? Geef 5 minuten extra.",
+          "type": "Chaos Alert",
+          "tip": "Kijk op kleur én prikker, niet alleen op de klok. Te vroeg = inzakkende midden. Te laat = droge rand. Folie over de top als hij te snel kleurt."
+        },
+        {
+          "werkwoord": "Rust",
+          "beschrijving": "Laat de cake in de vorm afkoelen tot hij handwarm is. Loop daarna met een mes langs de rand, keer om op een rooster en laat volledig afkoelen voordat je topping maakt.",
+          "type": "Bubbly Tip",
+          "tip": "Warme cake + roomkaas = glijdende topping. Even wachten is geen luxe, het is de redding."
+        }
+      ]
+    },
+    {
+      "naam": "TOPPING & GENIETEN",
+      "doel": "frisse roomkaas-topping, walnoten erop, snijden en trots zijn op smeuïge plakken.",
+      "stappen": [
+        {
+          "werkwoord": "Mix",
+          "beschrijving": "Doe roomkaas, zachte boter en gezeefde poedersuiker in een kom. Mix enkele minuten tot een romig, smeerbaar glazuur zonder klontjes. Te slap? Kort in de koelkast; te stijf? Een theelepel citroensap of een scheutje melk.",
+          "type": "Bubbly Tip",
+          "tip": "Alles op kamertemperatuur mengt soepeler. Koude roomkaas = korrelig gevecht."
+        },
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Bestrijk de volledig afgekoelde cake met het glazuur. Strooi de extra gebroken walnoten erover. Scheve topping? Proud Disaster™ — smaakt hetzelfde.",
+          "type": "Chaos Alert",
+          "tip": "Eerst een dunne ‘kruimellaag’, kort laten zetten, dan de rest. Zo blijven kruimels onder controle."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Snijd stevige plakken (koude cake snijdt strakker). Serveer lauw zonder topping of koel met topping. De eerste plak is voor de bakker — dat is wet.",
+          "type": "Bubbly Tip",
+          "tip": "Wortelcake mag eruitzien alsof hij een herfstdag heeft gehad: oranje, kruidig, en meteen te snappen."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Zonder topping: 3–4 dagen luchtdicht op kamertemperatuur. Met roomkaas-topping: 3–4 dagen in de koelkast. Zonder topping goed invriesbaar (tot een paar maanden); topping liever vers maken na ontdooien.",
+  "variaties": [
+    "Walnoten weglaten of vervangen door pecannoten",
+    "Rozijnen weglaten of vervangen door cranberries",
+    "Alleen kaneel i.p.v. speculaaskruiden",
+    "Cupcakes: korter bakken (start rond 18–22 min, prikker checken)",
+    "Vierkante vorm 20–22 cm voor nette blokjes"
+  ],
+  "bekentenis": "Wortel in cake klinkt raar tot je de eerste smeuïge hap neemt. Dit is de klassieker: olie voor zachtheid, kruiden voor warmte, roomkaas voor fris. Geen showtaart — wel trots op tafel.",
+  "mantra": "Grof raspen, niet uitknijpen. Prikker droog, topping koel. Scheef mag — smeuïg moet.",
+  "bron": [
+    "BRON (soft): Rutger bakt — Carrot cake — https://rutgerbakt.nl/taart-recepten/carrot-cake/",
+    "BRON (soft): Laura's Bakery — Carrot cake — https://www.laurasbakery.nl/carrot-cake/",
+    "BRON (soft): Koopmans — Wortelcake met walnoten — https://www.koopmans.com/recept/wortelcake/",
+    "fien-v13 (FA-0URQI9) — samengesteld uit publieke NL-bakrecepten; hoeveelheden en tijden zijn richting, geen wet."
+  ]
+}
