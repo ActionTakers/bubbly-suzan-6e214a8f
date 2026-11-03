@@ -1,0 +1,136 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-11HN2R Frisse Appelcake. Bronfoto = digitaal/gedrukt NL receptklassieker (FRISSE APPELCAKE, 8–10 plakken) via Fien-relay. Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON (publieke NL-bakrecepten) ter check.",
+  "verzoek": "FA-11HN2R",
+  "titel": "Frisse Appelcake",
+  "ondertitel": "Zachte yoghurtcake met kaneelappels en abrikozenjam-glans — eenvoudig, fris, ongeveer 8–10 plakken",
+  "tags": [
+    "cake",
+    "appel",
+    "yoghurt",
+    "kaneel",
+    "citroen",
+    "klassieker"
+  ],
+  "ingredienten": [
+    "135 g tarwebloem (of patentbloem)",
+    "40 g amandelmeel",
+    "1½ tl bakpoeder",
+    "¼ tl zout",
+    "135 g kristalsuiker (voor het beslag)",
+    "½ tl kaneel (voor het beslag)",
+    "90 ml zonnebloemolie",
+    "125 ml volle yoghurt",
+    "3 eieren, maat M, op kamertemperatuur",
+    "rasp van ½ citroen",
+    "boter (om de vorm in te vetten)",
+    "2 appels",
+    "sap van ½ citroen",
+    "2 el kristalsuiker (voor de appels)",
+    "1 tl kaneel (voor de appels)",
+    "75 g abrikozenjam (voor de glans)"
+  ],
+  "benodigdheden": [
+    "Springvorm Ø 22 cm",
+    "Bakpapier",
+    "2 kommen + pollepel of spatel",
+    "Keukenweegschaal",
+    "Rasp of microplane",
+    "Scherp mes + snijplank",
+    "Klein pannetje",
+    "Kwastje",
+    "Satéprikker of steekmesje"
+  ],
+  "fases": [
+    {
+      "naam": "VORM & BESLAG",
+      "doel": "oven en springvorm klaar, droge en natte stoffen net mengen — beslag soepel maar niet overgeroerd.",
+      "stappen": [
+        {
+          "werkwoord": "Voorverwarm",
+          "beschrijving": "Verwarm de oven voor op 180 °C (boven-/onderwarmte; bij hete lucht iets lager). Vet een springvorm van 22 cm in met boter en bekleed de bodem met bakpapier. Zo komt de cake later netjes los.",
+          "type": "Bubbly Tip",
+          "tip": "Bodem én rand licht invetten. Bakpapier alleen op de bodem is genoeg; de rand houdt het beslag."
+        },
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Doe in een kom de bloem, het amandelmeel, bakpoeder, zout, 135 g suiker en ½ tl kaneel. Roer droog door elkaar met een pollepel. Voeg zonnebloemolie, yoghurt, eieren en de citroenrasp toe. Roer tot net gecombineerd — stop zodra er geen droge poeder meer zichtbaar is.",
+          "type": "Chaos Alert",
+          "tip": "Te lang roeren = taaie cake. Klontjes verdwijnen in de oven; glad als pudding hoeft niet."
+        },
+        {
+          "werkwoord": "Giet",
+          "beschrijving": "Giet het beslag in de springvorm en strijk de bovenkant licht glad. Het mag nog een beetje bobbelen — Proud Disaster™ mag.",
+          "type": "Bubbly Tip",
+          "tip": "Tik de vorm één keer zacht op het aanrecht om grote luchtbellen te laten ontsnappen."
+        }
+      ]
+    },
+    {
+      "naam": "APPELS & BAKKEN",
+      "doel": "kaneelappels in een patroon, goudbruin bakken tot de prikker schoon komt — ovens verschillen.",
+      "stappen": [
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Was de appels en droog ze af. Snijd in kwarten, verwijder de klokhuizen en snijd partjes van ongeveer een halve centimeter dik. Meng in een kom het citroensap met 2 el suiker en 1 tl kaneel. Schep de appelpartjes erdoor tot ze glimmen van de kaneelsuiker.",
+          "type": "Bubbly Tip",
+          "tip": "Schillen mag, hoeft niet: met schil blijven de partjes steviger en ziet het patroon er rustiek uit. Citroensap houdt bruin worden tegen."
+        },
+        {
+          "werkwoord": "Rangschik",
+          "beschrijving": "Leg de appelpartjes in een mooi patroon op het beslag — cirkels van buiten naar binnen werken goed. Druk ze niet diep in; ze mogen op het oppervlak liggen.",
+          "type": "Bubbly Tip",
+          "tip": "Scheve partjes? Nog steeds appelcake. Gelijkmatige dikte helpt wel bij gelijk bakken."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak 30 tot 40 minuten in het midden van de oven tot de cake goudbruin is en een satéprikker er schoon uitkomt. Laat de cake iets afkoelen in de vorm, haal daarna de springvormrand eraf.",
+          "type": "Chaos Alert",
+          "tip": "Ovens liegen. Na 30 minuten prikken: nog nat? 5 minuten erbij. Te donker aan de rand? Los folie over de bovenkant."
+        }
+      ]
+    },
+    {
+      "naam": "GLANS & GENIETEN",
+      "doel": "warme abrikozenjam als glans, afkoelen, snijden — eerste plak voor de bakker.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Doe de abrikozenjam in een klein pannetje en verwarm op laag vuur tot hij los en kwastbaar is. Roer tot glad; geen stukjes die het kwastje blokkeren (zeef kort als nodig).",
+          "type": "Bubbly Tip",
+          "tip": "Niet laten koken: te heet maakt de jam te dun en plakt minder mooi."
+        },
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Bestrijk de nog warme cake met de jam: bovenkant én appels, in een dunne glanzende laag. Laat verder afkoelen op een rooster of op de springvormbodem.",
+          "type": "Chaos Alert",
+          "tip": "Te dik kwasten = plakkerige top. Dun is genoeg voor glans en smaak."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Snijd in 8–10 plakken. Serveer lauwwarm of op kamertemperatuur bij koffie of thee. Eerste plak is voor Suzan.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: appels iets gezakt? Smaakt nog steeds naar herfst. Volgende keer iets steviger partjes of iets korter bakken."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt op kamertemperatuur 2–3 dagen; in de koelkast iets langer, dan even op temperatuur laten komen voor de beste bite. Goed verpakt invriezen (in plakken) tot ongeveer een maand; ontdooien op kamertemperatuur.",
+  "variaties": [
+    "Appels geschild i.p.v. met schil",
+    "Peer i.p.v. appel (zelfde hoeveelheid partjes)",
+    "Extra citroenrasp in het beslag voor meer frisheid",
+    "Zonder jam-glans — bestrooi met poedersuiker na afkoelen",
+    "Een snuf gemalen gember bij de kaneelappels"
+  ],
+  "bekentenis": "Suzan stuurde een foto van een receptklassieker: frisse appelcake met yoghurt, zonnebloemolie en een abrikozenjam-glans, goed voor 8–10 plakken. Ik heb het in Bubbly-stappen gezet: beslag net mengen, appels rangschikken, prikken, kwasten. De eerste plak is voor haar.",
+  "mantra": "Droog eerst, nat erbij, niet overroeren. Appels in een cirkel — jam glanst warm.",
+  "bron": [
+    "BRON (foto Suzan): digitaal/gedrukt recept FRISSE APPELCAKE (receptklassieker, 8–10 plakken) via Fien-relay foto FA-11HN2R",
+    "BRON (soft): Rutger bakt — Frisse appelcake met yoghurt — https://rutgerbakt.nl/cake-recepten/frisse-appelcake-met-yoghurt-recept/",
+    "BRON (soft): Familie over de Kook — Appelcake met Griekse yoghurt — https://familieoverdekook.nl/appelcake-met-griekse-yoghurt/",
+    "BRON (soft): Innersparkle — Luchtige yoghurtcake met appel — https://www.innersparkle.be/recepten/dessert-snacks/cakes-taarten/luchtige-yoghurt-appelcake/",
+    "BRON (soft): Miljuschka — Appelcake met yoghurt — https://miljuschka.nl/appelcake-met-yoghurt-makkelijk-recept/",
+    "FA-11HN2R (fien-v13) — hoeveelheden volgen Suzans foto (135 g bloem, 40 g amandelmeel, 1½ tl bakpoeder, ¼ tl zout, 135 g suiker, yoghurt + olie, 2 appels, 75 g abrikozenjam, 180 °C, 30–40 min, springvorm 22 cm); soft bronnen ter check; tijden en ovens zijn richting, geen wet."
+  ]
+}
