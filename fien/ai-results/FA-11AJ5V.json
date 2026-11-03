@@ -1,0 +1,126 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-11AJ5V Kokosmakronen. Bronfoto = digitaal/gedrukt NL receptklassieker (KOKOSMAKRONEN, ca. 50 stuks) via Fien-relay. Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON (publieke NL-bakrecepten) ter check.",
+  "verzoek": "FA-11AJ5V",
+  "titel": "Kokosmakronen",
+  "ondertitel": "Krokante kokosbobbeltjes met citroenrasp en een chocoladebodem — klein, vrolijk, ongeveer 50 stuks",
+  "tags": [
+    "koekjes",
+    "kokos",
+    "makronen",
+    "chocolade",
+    "citroen",
+    "klassieker"
+  ],
+  "ingredienten": [
+    "200 g geraspte kokos",
+    "1 biologische citroen (rasp + 1 tl sap)",
+    "3 eiwitten, maat M, op kamertemperatuur",
+    "225 g poedersuiker",
+    "60 g patentbloem (of tarwebloem), gezeefd",
+    "150 g pure couverturechocolade (voor de bodem)"
+  ],
+  "benodigdheden": [
+    "Droge koekenpan",
+    "Mixer (hand of standing) + vetvrije kom",
+    "Keukenweegschaal",
+    "Rasp of microplane",
+    "Spatel",
+    "2 bakplaten + bakpapier",
+    "2 theelepels of kleine ijslepel",
+    "Hittebestendige kom + pan voor au bain-marie",
+    "Afkoelrooster"
+  ],
+  "fases": [
+    {
+      "naam": "KOKOS & BESLAG",
+      "doel": "kokos licht roosteren, eiwit stijf kloppen, kokos en citroen erdoor — lucht houdt, mengsel blijft plakkerig maar vormbaar.",
+      "stappen": [
+        {
+          "werkwoord": "Rooster",
+          "beschrijving": "Rooster de geraspte kokos licht in een droge pan op middelhoog vuur, al roerend, tot hij geurig en licht goud is. Niet laten verbranden. Schep meteen op een bord en laat volledig afkoelen. Verwarm ondertussen de oven voor op 180 °C (boven-/onderwarmte; bij hete lucht iets lager) en bekleed twee bakplaten met bakpapier. Rasp de citroenschil fijn (alleen het gele deel).",
+          "type": "Chaos Alert",
+          "tip": "Kokos gaat van ‘bijna’ naar ‘te ver’ in seconden. Blijf erbij. Warme kokos in eiwit = smeltend schuim — eerst echt afkoelen."
+        },
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Doe de eiwitten in een vetvrije kom. Voeg 1 tl citroensap toe. Klop tot stevige pieken: als je de kom kantelt, mag er niets meer glijden. Spatel daarna de afgekoelde kokos en de citroenrasp erdoor met brede, rustige bewegingen.",
+          "type": "Bubbly Tip",
+          "tip": "Vetvrije kom = stijver schuim. Een spetter eigeel of vettige spatel? Was af en begin opnieuw met schone tools."
+        },
+        {
+          "werkwoord": "Spatel",
+          "beschrijving": "Zeef de poedersuiker en de bloem erover. Spatel tot net gecombineerd — stop zodra er geen droge poeder meer zichtbaar is. Te lang roeren jaagt de lucht eruit; te kort laat meelklontjes. Het beslag is stevig-plakkerig, geen soep.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™-beslag mag er rommelig uitzien. Glad en luchtig genoeg om bergjes te scheppen = klaar."
+        }
+      ]
+    },
+    {
+      "naam": "VORMEN & BAKKEN",
+      "doel": "kleine bergjes, één plaat tegelijk, goudbruin met bite — ovens en platen verschillen.",
+      "stappen": [
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Schep met twee theelepels (of een kleine ijslepel) kleine bergjes op de bakplaten. Houd een paar centimeter tussenruimte. Maak ze ongeveer even groot zodat ze gelijk bakken. Dit recept is voor circa 50 stuks — klein houden.",
+          "type": "Bubbly Tip",
+          "tip": "Nat maken van de lepels helpt tegen kleven. Geen perfecte bolletjes nodig: een beetje ruw ziet er ambachtelijk uit."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak één plaat tegelijk in het midden van de oven ongeveer 10 minuten tot de makronen licht goudbruin zijn aan de randen en bovenkant. De tweede plaat wacht. Geen wet: ovens verschillen; kleur en geur zijn baas.",
+          "type": "Chaos Alert",
+          "tip": "Twee platen tegelijk = ongelijke kleur. Eén plaat, middenpositie. Worden ze te snel donker? Iets lager zetten of 1–2 minuten korter."
+        },
+        {
+          "werkwoord": "Check",
+          "beschrijving": "Klaar als de buitenkant licht knisperig is en de onderkant licht goud. Laat 2–3 minuten op de plaat zitten, schuif ze dan met bakpapier op een rooster. Te zacht? Nog 1–2 minuten. Te hard? Volgende plaat iets korter.",
+          "type": "Bubbly Tip",
+          "tip": "Ze harden na tijdens afkoelen. Trek ze niet te vroeg van het papier — even laten zetten."
+        }
+      ]
+    },
+    {
+      "naam": "CHOCOLADE & GENIETEN",
+      "doel": "bodem dippen in pure chocolade, laten zetten, trommelen — of meteen een proefhap.",
+      "stappen": [
+        {
+          "werkwoord": "Smelt",
+          "beschrijving": "Hak de pure couverturechocolade fijn. Smelt au bain-marie: kom boven een pan met een laagje zachtjes sudderend water, bodem van de kom niet in het water. Roer tot glad. Geen waterdruppels in de chocolade.",
+          "type": "Chaos Alert",
+          "tip": "Een druppel water maakt chocolade korrelig. Droge lepel, droge kom. Te heet? Haal van het vuur en blijf roeren."
+        },
+        {
+          "werkwoord": "Dip",
+          "beschrijving": "Dompel de onderkant van elke afgekoelde makron in de chocolade. Tik overtollige chocolade af en zet terug op bakpapier of een rooster. Laat de chocolade volledig opstijven op kamertemperatuur (koelkast mag kort als je haast hebt).",
+          "type": "Bubbly Tip",
+          "tip": "Alleen de bodem: zo blijft de kokoskruin knapperig en ziet het er netjes uit. Scheve dip? Nog steeds kokosmakron."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Serveer bij de koffie of thee, of bewaar in een trommel. Eerste makron is voor de bakker. De rest mag de keuken uit — of niet.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: te bleek? volgende keer iets langer. Te donker? lager of korter. Smaakt het naar kokos en citroen? Dan is het gelukt."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Volledig afgekoeld in een luchtdichte trommel op kamertemperatuur enkele dagen tot ongeveer een week. Chocoladebodem houdt beter koel en droog (niet vochtig). Goed verpakt invriezen tot ongeveer een maand; ontdooien op kamertemperatuur.",
+  "variaties": [
+    "Zonder chocoladebodem — puur kokos-citroen",
+    "Witte of melkchocolade i.p.v. pure couverture",
+    "Extra citroenrasp voor meer frisheid",
+    "Een snuf zout bij de poedersuiker",
+    "Iets grotere bergjes (minder stuks, iets langer bakken)"
+  ],
+  "bekentenis": "Suzan stuurde een foto van een receptklassieker: kokosmakronen met citroen en chocoladebodem, goed voor een hele bakplaat vol. Ik heb het in Bubbly-stappen gezet: licht roosteren, stijf kloppen, één plaat tegelijk, dippen. De eerste is voor haar.",
+  "mantra": "Kokos licht goud, eiwit stijf, één plaat tegelijk. Citroen fris — chocolade op de bodem.",
+  "bron": [
+    "BRON (foto Suzan): digitaal/gedrukt recept KOKOSMAKRONEN (receptklassieker, ca. 50 stuks) via Fien-relay foto FA-11AJ5V",
+    "BRON (soft): Laura's Bakery — Kokosmakronen — https://www.laurasbakery.nl/kokosmakronen/",
+    "BRON (soft): Uit Paulines Keuken — Kokosmakronen — https://uitpaulineskeuken.nl/recept/kokosmakronen",
+    "BRON (soft): Baktotaal — Kokosmakronen recept — https://www.baktotaal.nl/kokosmakronen-recept",
+    "BRON (soft): Allerhande — Snelle kokosmakronen — https://www.ah.nl/allerhande/recept/R-R1187011/snelle-kokosmakronen",
+    "FA-11AJ5V (fien-v13) — hoeveelheden volgen Suzans foto (200 g kokos, 3 eiwitten M, 225 g poedersuiker, 60 g bloem, 150 g pure couverture, 180 °C, ± 10 min per plaat); soft bronnen ter check; tijden en ovens zijn richting, geen wet."
+  ]
+}
