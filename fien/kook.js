@@ -25,7 +25,7 @@ function kookR(){let el=$('#kook');if(!el){el=document.createElement('div');el.i
  <div class="kf"><button class="btn s kn" onclick="kookGo(-1)" ${K.i?'':'disabled'}>◀ Terug</button><button class="btn kn" onclick="kookGo(1)">${K.i==N-1?'Klaar 🎉':'Volgende ▶'}</button></div>`;tick()}
 async function chaosSet(n){const l=await get('chaos')||[];l.push({t:K.title,n,d:new Date().toISOString()});await put('chaos',l);$('#kcm').textContent='Opgeslagen: Chaos Level '+'🥄'.repeat(n)+'. Knoeien = winnen!'}
 /* onboarding in 3 kaarten */
-const ONB=[['fien-hero-320w.webp','Hoi Suzan, ik ben Fien!','Jouw keukenhulp voor The Bubbly Bakery. Alles wat je maakt blijft op deze telefoon. Niets gaat vanzelf online.'],
+const ONB=[['fien-hero-320w.webp','Hoi Suzan, ik ben Fien!','Jouw keukenhulp voor The Bubbly Bakery. Wat je aan Fien vraagt (tekst en eventueel een foto) gaat naar Fien, zodat ze een recept kan schrijven. Al het andere blijft op deze telefoon.'],
 ['fien-in-actie-320w.webp','Bakken met meelhanden','Tik op 👩‍🍳 <b>Kookmodus</b>: één stap per scherm, grote letters, vegen of tikken voor de volgende stap. Het scherm blijft aan en de timer zit erin.'],
 ['fien-denken-160w.webp','Recepten & delen','Vraag Fien om een idee, of plak zelf een recept. Ik zet het in 3 fasen × 3 stappen. Klaar? Eén ZIP voor Gabriël. Allergenen check jij altijd zelf.']];
 let OB=0;function onbR(){let el=$('#onb');if(!el){el=document.createElement('div');el.id='onb';el.setAttribute('role','dialog');document.body.appendChild(el)}const [img,h,p]=ONB[OB];

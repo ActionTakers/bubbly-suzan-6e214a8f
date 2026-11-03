@@ -78,10 +78,9 @@ const md=x=>x.split('\n').filter(Boolean).map(l=>'- '+l).join('\n');const cap=x=
 const OUTS={kaart:['🃏 Receptkaart',outKaart],boek:['📖 E-book',outBoek],workshop:['👩‍🍳 Workshop',outWorkshop],md:['🗒️ Notion',outMd],json:['🧩 JSON',outJson]};
 
 VIEWS.rec=async()=>{const l=await recipes();
- if(!RID)return `<section class="card"><h2>Je recepten</h2><small>Zelf overnemen kan ook: foto, tekst of een leeg formulier. Daarna 3 fases × 3 stappen.</small>
- <p class="row"><label class="btn s">Foto van recept<input type="file" accept="image/*" capture="environment" class="hidden" onchange="recFoto(this)"></label><button class="btn s" onclick="RID='__plak';render()">Tekst plakken</button><button class="btn s" onclick="recNew()">Leeg</button></p></section>
+ if(!RID)return `${l.length?'<h3 class="ai-list-h">Je recepten</h3>':''}
  ${l.map(r=>`<button type="button" class="card tap" onclick="RID='${r.id}';render()"><span class="grow"><b>${esc(r.title||'(zonder titel)')}</b> ${r.voorbeeld?'<span class="tag">Voorbeeld</span>':''}<br><small>${esc(r.steps.map(s=>s.verb).filter(Boolean).join(' · '))}</small></span><span class="chev" aria-hidden="true">›</span></button>`).join('')}
- <div class="note">Recepten blijven op deze telefoon en gaan mee in de ZIP. Geen prijzen, geen allergie-beloftes.</div>`;
+ <div class="note">Je recepten blijven op deze telefoon. Zelf een recept maken? Kijk onder Meer.</div>`;
  if(RID=='__plak')return `<div class="card"><h2>📋 Tekst plakken</h2><small>Plak het hele recept (bv. uit een website, e-mail of NotebookLM). Fien herkent ingrediënten en stappen zo goed mogelijk; daarna pas je alles aan.</small><textarea id="plak" style="min-height:260px"></textarea><p class="row"><button class="btn" onclick="recParse()">✨ Structureer</button><button class="btn s" onclick="RID=null;render()">Terug</button></p></div>`;
  const r=l.find(x=>x.id==RID);if(!r){RID=null;return VIEWS.rec()}
  const ph=(await filesOf('rec:'+r.id));urls.forEach(URL.revokeObjectURL);urls=[];

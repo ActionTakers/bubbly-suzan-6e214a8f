@@ -1,0 +1,19 @@
+# Nieuwe Worker naast de bestaande fien-relay (die blijft ongemoeid).
+name = "fien-relay-v13"
+main = "index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+[[r2_buckets]]
+binding = "FIEN"
+bucket_name = "fien-relay-v13"
+
+[browser]
+binding = "BROWSER"
+
+[triggers]
+crons = ["7 * * * *"]
+
+# Secrets (wrangler secret put …): FIEN_WEBHOOK_URL, FIEN_WEBHOOK_KEY, PIN, FOTO_SECRET
+# Optioneel var EXTRA_ORIGINS (komma-gescheiden) voor een preview-origin.
