@@ -123,7 +123,7 @@ function aiApplyDraft(){const idee=$('#ai-idee');if(!idee)return;idee.value=aiDr
  if($('#ai-link'))$('#ai-link').value=aiDraft.link||'';if($('#ai-flink'))$('#ai-flink').value=aiDraft.flink||'';if($('#ai-bron-in'))$('#ai-bron-in').value=aiDraft.bron||'';
  const inp=$('#ai-foto');if(aiDraft.file&&inp){try{const dt=new DataTransfer();dt.items.add(aiDraft.file);inp.files=dt.files}catch(e){}}
  aiSetBronOpen(!!aiDraft.open);aiBronChips()}
-function aiResetCompose(){aiDraft={idee:'',link:'',flink:'',bron:'',open:false,file:null};
+function aiResetCompose(){aiHint('');aiDraft={idee:'',link:'',flink:'',bron:'',open:false,file:null};
  ['ai-idee','ai-link','ai-flink','ai-bron-in','ai-foto'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''})}
 function aiSetBronOpen(open){const p=$('#ai-bron');if(!p)return;p.classList.toggle('hidden',!open);$('#ai-bron-btn')?.setAttribute('aria-expanded',open?'true':'false')}
 function aiToggleBron(){aiSetBronOpen(!!$('#ai-bron')?.classList.contains('hidden'));if(!$('#ai-bron')?.classList.contains('hidden'))$('#ai-bron-in')?.focus()}
@@ -166,7 +166,7 @@ function aiCardItem(q){const k=aiKind(q);const when=aiWhen(q.t);
  <p class="ai-msg">${esc(aiBusy(q))}</p>${k==='bezig'?'<div class="ai-bar" aria-hidden="true"><i></i></div>':''}${notes.map(t=>`<p class="ai-note">${esc(t)}</p>`).join('')}${aiActs(q)}</article>`}
 async function aiCard(){const l=await aiList();
  return `<section class="fien-sheet" id="fienai"><div class="fien-head"><img src="img/fien-denken-160w.webp" width="58" height="58" alt=""><div class="grow"><div class="kicker">Fien</div><h2>Wat wil je bakken?</h2><p class="fien-lead">Schrijf het gewoon op. Fien maakt er een recept van.</p></div></div>
- <textarea id="ai-idee" rows="3" aria-label="Wat wil je bakken?" placeholder="Bv. bitterkoekjes, lekker zacht" autocomplete="off"></textarea>
+ <textarea id="ai-idee" rows="3" oninput="aiHint('')" aria-label="Wat wil je bakken?" placeholder="Bv. bitterkoekjes, lekker zacht" autocomplete="off"></textarea>
  <div id="ai-chips" class="ai-chips hidden"></div>
  <label class="fien-add" id="ai-bron-btn"><span class="fien-plus" aria-hidden="true">📷</span><span class="ai-bron-lbl">Foto toevoegen</span><input id="ai-foto" type="file" accept="image/*" class="hidden" onchange="aiOnFoto()"></label>
  <input id="ai-link" type="hidden"><input id="ai-flink" type="hidden">

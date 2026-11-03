@@ -7,7 +7,7 @@ workers_dev = true
 
 [[r2_buckets]]
 binding = "FIEN"
-bucket_name = "fien-relay-v13"
+bucket_name = "bubblyfien"
 
 [browser]
 binding = "BROWSER"

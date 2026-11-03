@@ -2,6 +2,7 @@
    POST /foto?id=FA-…&pin=…   body = foto (image/*, max 8 MB) → R2 foto/<id>
    POST /verzoek              JSON {id,pin,idee,link,fotoLink,tijd,appVersie,test,foto:true} → één keer door naar de Fien-routine (dedupe op id)
    GET  /foto/<id>?exp=&sig=  ondertekende link (7 dagen) zodat Fien de foto kan zien
+   POST /site/nu?pin=  screenshot nu maken (handmatig)
    GET  /site.jpg | /site.json  laatste screenshot van bubblybakery.nl (cron elk uur) */
 const ORIGIN='https://actiontakers.github.io',SITE='https://bubblybakery.nl/';
 const MAX={idee:500,link:500,fotoLink:500,tijd:40,appVersie:20};const FOTO_MAX=8*1024*1024,WEEK=7*864e5;
@@ -31,6 +32,7 @@ export default{
   if(!okO)return new Response('origin',{status:403});
   if(req.method==='OPTIONS')return new Response(null,{status:204,headers:cors});if(req.method!=='POST')return J(405,{ok:false,e:'method'});
   const ip=req.headers.get('CF-Connecting-IP')||'x',now=Date.now(),h=(hits.get(ip)||[]).filter(t=>now-t<600000);if(h.length>=30)return J(429,{ok:false,e:'rate'});h.push(now);hits.set(ip,h);
+  if(u.pathname==='/site/nu'){if(u.searchParams.get('pin')!==env.PIN)return J(401,{ok:false,e:'pin'});let r;try{r=await shot(env)}catch(e){r='fout: '+String(e&&e.message||e).slice(0,200)}return J(r==='ok'?200:500,{ok:r==='ok',r})}
   if(u.pathname==='/foto'){const id=u.searchParams.get('id')||'';if(u.searchParams.get('pin')!==env.PIN)return J(401,{ok:false,e:'pin'});if(!/^FA-[A-Z0-9]{2,24}$/.test(id))return J(400,{ok:false,e:'id'});
    const ct=(req.headers.get('Content-Type')||'').split(';')[0];if(!/^image\//.test(ct))return J(415,{ok:false,e:'type'});
    const buf=await req.arrayBuffer();if(!buf.byteLength||buf.byteLength>FOTO_MAX)return J(413,{ok:false,e:'size'});
