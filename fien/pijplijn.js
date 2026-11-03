@@ -85,7 +85,7 @@ const IDEA=`<details class="card quiet"><summary>Liever zelf invullen?</summary>
  <input id="idea" placeholder="Idee of link, bv. chocolate chip cookies"><textarea id="ideatxt" placeholder="Optioneel: plak de recepttekst" style="min-height:72px"></textarea>
  <div class="row" style="margin-top:8px"><button type="button" class="btn s" onclick="ideaStart()">Zelf starten</button><label class="btn s">Foto<input type="file" accept="image/*" capture="environment" class="hidden" onchange="ideaFoto(this)"></label></div></details>`;
 const _rec=VIEWS.rec;
-VIEWS.rec=async()=>{if(PID)return pipeView();let h=await _rec();if(!RID)return IDEA+h;
+VIEWS.rec=async()=>{if(PID)return pipeView();let h=await _rec();if(!RID)return h;
  if(RID!='__plak'){const r=(await recipes()).find(x=>x.id==RID);if(r)h=`<div class="card row"><div class="grow"><b>✨ Van idee tot asset</b><br><small>${pct(r)}% · E-book → Receptkaart → Workshop</small></div><button class="btn" onclick="PID='${r.id}';PST=null;render()">Goedkeuren ▶</button></div>`+h}return h};
 VIEWS.rec.after=()=>{if(PFILL)return runFill();document.querySelectorAll('.pcard').forEach(el=>{let x0=null,y0=null;el.addEventListener('touchstart',e=>{if(e.target.closest('input,textarea,select,summary'))return;x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
  el.addEventListener('touchmove',e=>{if(x0!=null)el.style.transform=`translateX(${(e.touches[0].clientX-x0)/3}px)`},{passive:true});
