@@ -1,0 +1,124 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-0USNAY Vanillecake. Bronfoto = gedrukt NL basisrecept (VANILLECAKE, 1 cake, Ø25 cm) via Fien-relay. Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON (publieke NL-bakrecepten) ter check.",
+  "verzoek": "FA-0USNAY",
+  "titel": "Vanillecake",
+  "ondertitel": "Klassieke basiscake: romig, goudbruin, klaar voor elke topping — of gewoon zo",
+  "tags": [
+    "cake",
+    "vanille",
+    "basisrecept",
+    "klassieker",
+    "oven"
+  ],
+  "ingredienten": [
+    "250 g ongezouten roomboter, op kamertemperatuur",
+    "250 g kristalsuiker",
+    "1 zakje vanillesuiker (of 1 tl vanille-extract / merg van ½ vanillestokje)",
+    "snuf zout",
+    "4 eieren, op kamertemperatuur",
+    "50 ml melk, op kamertemperatuur",
+    "250 g patentbloem, gezeefd"
+  ],
+  "benodigdheden": [
+    "Mixer (hand of standing)",
+    "Mengkom",
+    "Keukenweegschaal",
+    "Cakevorm Ø ± 25 cm, ingevet (eventueel bebloemd of met bakpapier)",
+    "Spatel",
+    "Satéprikker of caketester",
+    "Afkoelrooster"
+  ],
+  "fases": [
+    {
+      "naam": "BESLAG MAKEN",
+      "doel": "luchtige boter-suikerbasis, eieren één voor één, melk en bloem — zonder overwerken.",
+      "stappen": [
+        {
+          "werkwoord": "Mix",
+          "beschrijving": "Verwarm de oven voor op 160 °C (boven-/onderwarmte; bij hete lucht iets lager). Doe de zachte boter, kristalsuiker, vanillesuiker en zout in een kom. Mix 5–8 minuten tot het mengsel licht, romig en iets bleker is. Te koude boter? Wacht; gesmolten boter maakt een platte cake.",
+          "type": "Chaos Alert",
+          "tip": "Alles op kamertemperatuur. Koude eieren of melk → sneller schiften. Even warm waterbad voor de eieren helpt."
+        },
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Klop de eieren één voor één erdoor. Voeg het volgende ei pas toe als het vorige volledig is opgenomen. Als het toch een beetje schift: een eetlepel van de bloem erdoor en door. Klop tot slot de melk er kort door.",
+          "type": "Bubbly Tip",
+          "tip": "Geduld bij de eieren = luchtiger cake. Haast = beslag dat eruitziet als wrongelsoep."
+        },
+        {
+          "werkwoord": "Spatel",
+          "beschrijving": "Zeef de bloem in 2–3 porties boven het beslag. Spatel of mix kort tot net glad — stop zodra er geen droge bloem meer zichtbaar is. Te lang kneden/mixen maakt de cake taai.",
+          "type": "Bubbly Tip",
+          "tip": "Spatelen van buiten naar binnen houdt lucht in het beslag. Proud Disaster™-beslag mag er rommelig uitzien; glad = klaar."
+        }
+      ]
+    },
+    {
+      "naam": "VORMEN & BAKKEN",
+      "doel": "vorm vullen, goudbruin bakken, prikker-check — midden mag nog heel even zetten.",
+      "stappen": [
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Vet de cakevorm goed in (hoekjes meenemen) en bestuif licht met bloem of bekleed met bakpapier. Schep het beslag erin en strijk de bovenkant licht glad. Tik de vorm één keer op het aanrecht om grote luchtbellen te laten ontsnappen.",
+          "type": "Bubbly Tip",
+          "tip": "Vorm tot ongeveer ¾ vullen. Te vol = vulkaan in de oven."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak in het midden van de oven ongeveer 70–75 minuten tot de cake goudbruin is. Kijk vanaf ± 65 minuten. Geen wet: ovens verschillen; kleur en prikker zijn baas.",
+          "type": "Chaos Alert",
+          "tip": "Te vroeg de deur open = inzakkende top. Eerste check pas laat. Wordt de top te donker? Losjes folie erover."
+        },
+        {
+          "werkwoord": "Check",
+          "beschrijving": "Steek een satéprikker diep in het midden. Komt hij schoon of met een paar droge kruimels eruit, dan is de cake klaar. Nog nat beslag? Nog 5 minuten en opnieuw checken.",
+          "type": "Bubbly Tip",
+          "tip": "Schoon = klaar. Nat = nog even. Droge kruimels zijn oké — wacht niet tot hij kurkdroog is."
+        }
+      ]
+    },
+    {
+      "naam": "AFKOELEN & GENIETEN",
+      "doel": "kort in de vorm, dan rooster — snijden als hij stevig genoeg is.",
+      "stappen": [
+        {
+          "werkwoord": "Rust",
+          "beschrijving": "Laat de cake 10 minuten in de vorm afkoelen. Keer hem daarna voorzichtig om op een rooster en laat verder afkoelen. Meteen tillen terwijl hij brandheet is = breukgevaar.",
+          "type": "Chaos Alert",
+          "tip": "Die 10 minuten in de vorm zijn geen straf: de cake zet na en laat los van de rand."
+        },
+        {
+          "werkwoord": "Finish",
+          "beschrijving": "Serveer puur, met een beetje poedersuiker, of bewaar als basis voor glazuur, fruit of een simpele buttercream. Warme plakjes zijn verleidelijk; de structuur is steviger als hij helemaal afgekoeld is.",
+          "type": "Bubbly Tip",
+          "tip": "Eerste plakje voor de bakker. Scheve snede? Nog steeds vanillecake."
+        },
+        {
+          "werkwoord": "Geniet",
+          "beschrijving": "Bewaar de rest voor later of deel hem. Deze basiscake is de canvas van The Bubbly Bakery: vandaag puur, morgen met topping, altijd met vanillegeur in de keuken.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: te bleek? volgende keer paar minuten langer. Te donker? lager in de oven of folie. Smaakt het? Dan is het gelukt."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Luchtdicht op kamertemperatuur een paar dagen (smeuïger dan in de koelkast). In de koelkast tot ongeveer een week. Goed verpakt invriezen tot een maand; ontdooien op kamertemperatuur.",
+  "variaties": [
+    "Vanille-extract of vanillestokje i.p.v. (alleen) vanillesuiker",
+    "Citroenrasp erbij voor een frisse twist",
+    "Een deel basterdsuiker i.p.v. kristalsuiker (smeuïger, iets langer bakken)",
+    "Optioneel 1–1½ tl bakpoeder bij de bloem voor iets luchtiger resultaat",
+    "Glazuur, poedersuiker of vers fruit als topping"
+  ],
+  "bekentenis": "Suzan stuurde een foto van een gedrukt basisrecept — vanillecake, rechttoe rechtaan. Precies het soort recept dat je altijd bij de hand wilt hebben. Ik heb het in Bubbly-stappen gezet: romig kloppen, geduldig eieren, prikker-check. De eerste warme plak is voor haar.",
+  "mantra": "Zachte boter, eieren één voor één, prikker schoon. Vanille eerst — topping later.",
+  "bron": [
+    "BRON (foto Suzan): gedrukt recept VANILLECAKE (basisrecept, voor 1 cake) via Fien-relay foto FA-0USNAY",
+    "BRON (soft): Keukenliefde — Basisrecept vanillecake — https://www.keukenliefde.nl/basisrecept-vanillecake/",
+    "BRON (soft): Laura's Bakery — Basisrecept vanillecake — https://www.laurasbakery.nl/basisrecept-vanillecake/",
+    "BRON (soft): PaTESSerie — Cake recept voor vanillecake — https://www.patesserie.com/cake-recept-voor-vanillecake/",
+    "BRON (soft): Rutger bakt — Cake basisrecept — https://rutgerbakt.nl/basisrecepten/cake-basisrecept/",
+    "FA-0USNAY (fien-v13) — hoeveelheden volgen Suzans foto (250 g boter/suiker/bloem, 4 eieren, 50 ml melk, 160 °C, ± 75 min); soft bronnen ter check; tijden en ovens zijn richting, geen wet."
+  ]
+}
