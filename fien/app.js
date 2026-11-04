@@ -80,7 +80,7 @@ return `<div class="card"><div class="row"><h2 class="grow">${esc(s.name)}</h2><
 ${slots(s).map((x,i,a)=>(x.fase!=null&&a[i-1].fase!==x.fase?`<h2 style="color:var(--td);font-size:18px;margin-top:18px">${(s.fasen||FASES)[x.fase]}</h2>`:'')+slotCard(x,s,p.fs)).join('')}
 <div class="card"><h2>📦 Klaar? Deel alles in één keer</h2><p>Ik maak één ZIP <b>“${esc(s.name)}.zip”</b> met alle foto’s, filmpjes en notities.</p><label class="row" style="margin:6px 0"><input type="checkbox" id="zsmall" checked style="width:auto"> Foto’s kleiner maken (sneller delen; originelen blijven op je telefoon)</label><button class="btn" onclick="exportZip()">Exporteren & delen</button><p id="zipmsg"></p>${PRIV}</div>`};
 function slotCard(x,s,fs){const mine=fs.filter(f=>f.slot==x.k);const ok=slotDone(x,s,fs);const kinds=[...x.need,...(x.opt||[])];
-const th=mine.map(f=>{const u=URL.createObjectURL(f.blob);urls.push(u);const del=`ondblclick="if(confirm('Verwijderen?'))delFile(${f.id}).then(render)"`;return f.kind=='foto'?`<img src="${u}" ${del} title="dubbeltik = verwijderen">`:f.kind=='clip'?`<video src="${u}" muted playsinline ${del}></video>`:`<audio src="${u}" controls style="width:180px"></audio>`}).join('');
+const th=mine.map(f=>{const u=URL.createObjectURL(f.blob);urls.push(u);const m=f.kind=='foto'?`<img src="${u}" alt="Foto">`:f.kind=='clip'?`<video src="${u}" muted playsinline></video>`:`<audio src="${u}" controls></audio>`;return `<span class="th ${f.kind}">${m}<button type="button" class="thx" aria-label="Weg" onclick="delOne(${f.id})">✕</button></span>`}).join('');
 return `<div class="card step ${ok?'done':''}"><div class="row"><h3 class="grow" style="font-size:17px">${ok?'✅':'⬜️'} ${x.t}</h3></div><small>${x.d}</small>${x.tip?`<div class="note" style="margin-top:6px">${x.tip}</div>`:''}${x.tm?`<div class="row" style="margin-top:6px">${x.tm.map(([m,l])=>`<button class="btn p" onclick="startT(${m},'${l}');go('plan')">⏲️ ${m>=60?m/60+' uur':m+' min'}</button>`).join('')}</div>`:''}
 <div>${kinds.map(n=>`<span class="chk ${have(x,s,fs,n)?'ok':''}">${n}</span>`).join('')}</div>
 <div class="row" style="margin-top:8px">${x.check?`<button class="btn ${s.checks[x.k]?'s':''}" onclick="chk('${x.k}')">${s.checks[x.k]?'✓ Gedaan':'Gedaan'}</button>`:''}
@@ -88,7 +88,8 @@ ${kinds.includes('foto')?`<label class="btn">📷 Foto<input type="file" accept=
 ${kinds.includes('clip')?`<label class="btn">🎬 Clip<input type="file" accept="video/*" capture="environment" class="hidden" onchange="grab(this,'${x.k}','clip')"></label>`:''}
 ${kinds.includes('notitie')?`<button class="btn s" onclick="rec(this,'${x.k}')">🎙️ Spraak</button>`:''}</div>
 ${kinds.includes('notitie')?`<textarea placeholder="Notitie, bv. 25 min op 180 graden" onchange="note('${x.k}',this.value)">${esc(s.notes[x.k]||'')}</textarea>`:''}
-<div class="thumbs">${th}</div>${mine.length?`<button class="btn s xs" onclick="if(confirm('Laatst toegevoegde bestand verwijderen?'))delFile(${mine.at(-1).id}).then(render)">🗑️ Laatste weg</button>`:''}</div>`}
+<div class="thumbs">${th}</div></div>`}
+async function delOne(id){if(confirm('Weg?'))await delFile(id);render()}
 async function switchS(v){if(v=='__new'){await put('cur',null);return render()}await put('cur',v);render()}
 async function chk(k){const s=await cur();s.checks[k]=!s.checks[k];await put('sess:'+s.id,s);render()}
 async function note(k,v){const s=await cur();s.notes[k]=v;await put('sess:'+s.id,s);navR()}

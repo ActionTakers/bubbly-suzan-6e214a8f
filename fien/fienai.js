@@ -3,7 +3,7 @@
 /* v13: alles gaat via de Fien-relay (Cloudflare Worker). De webhook-sleutel staat alleen in de Worker, niet hier. */
 const RELAY=(localStorage.getItem('fienRelay')||document.querySelector('meta[name="fien-relay"]')?.content||'').replace(/\/$/,'');
 const RESULTS=(localStorage.getItem('fienResults')||'').replace(/\/$/,'');const SITE='https://bubblybakery.nl/';
-const APPV='fien-v13';const PIN='0709';
+const APPV='fien-v14';const PIN='0709';
 const AIK='aiReq';const aiList=async()=>(await get(AIK))||[];const aiSave=l=>put(AIK,l);
 let aiQ=Promise.resolve();const aiTurn=fn=>{const n=aiQ.then(fn,fn);aiQ=n.then(()=>{},()=>{});return n};
 const VERBODEN=/prij|price|kost|allerg|glutenvrij|notenvrij|lactosevrij|veilig voor/i;
@@ -20,7 +20,7 @@ async function aiPostOnce(q){if(!RELAY)return false;
   const r=await fetch(RELAY+'/foto?id='+encodeURIComponent(q.id)+'&pin='+PIN,{method:'POST',headers:{'Content-Type':img.type||'image/jpeg'},body:img});
   if(!r.ok)return false;await aiPatch(q.id,{fotoUp:true});q.fotoUp=true}
  const fl=/^https?:\/\//.test(q.fotoLink||'')?q.fotoLink:undefined;
- const body={id:q.id,pin:PIN,idee:q.idee,link:q.link,tijd:q.t,appVersie:APPV,...(fl?{fotoLink:fl}:{}),...(q.foto?{foto:true}:{}),...(q.test?{test:true}:{})};
+ const body={id:q.id,pin:PIN,idee:q.idee,...(q.type?{type:q.type,receptId:q.receptId,recept:q.receptTekst}:{}),link:q.link,tijd:q.t,appVersie:APPV,...(fl?{fotoLink:fl}:{}),...(q.foto?{foto:true}:{}),...(q.test?{test:true}:{})};
  const r=await fetch(RELAY+'/verzoek',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
  const j=await r.json().catch(()=>({}));return r.ok&&j.ok===true}
 async function aiHasResult(id){try{return !!(await aiFetchResult(id))}catch(e){return false}}
@@ -96,6 +96,7 @@ async function aiPollTick(forceAll){const waiting=(await aiList()).filter(q=>q.s
  for(const q of waiting){const late=aiLate(q);if(late&&!forceAll)continue;
   try{const j=await aiFetchResult(q.id);
    if(!j){if(!late)keep++;continue}
+   if(q.type==='blog'){await aiPatch(q.id,{status:'klaar',klaar:new Date().toISOString(),blog:blogFrom(j)});changed++;continue}
    if(j.vraag&&!Array.isArray(j.fases)){await aiPatch(q.id,{status:'vraag',vraag:String(j.vraag).slice(0,400)});changed++;continue}
    await aiTake(j,{onlyId:q.id});changed++}
   catch(e){const zacht=aiZacht(e);
@@ -158,7 +159,7 @@ function aiActs(q){const idOk=/^[A-Za-z0-9_-]+$/.test(q.id);const btns=[];
  if(idOk&&(q.status!=='bezig'||q.verzonden===false||aiLate(q)))btns.push(`<button type="button" class="btn ghost xs" onclick="aiDel('${q.id}')">Verwijderen</button>`);
  return btns.length?`<div class="ai-acts">${btns.join('')}</div>`:''}
 const AI_PILL={klaar:'Klaar ✓',vraag:'Fien vraagt iets',bezig:'Fien schrijft…'};
-function aiCardItem(q){const k=aiKind(q);const when=aiWhen(q.t);
+function aiCardItem(q){if(q.type==='blog')return blogCard(q);const k=aiKind(q);const when=aiWhen(q.t);
  const notes=[];if(q.pollFout)notes.push(q.pollFout);
  if(k==='bezig'&&q.verzonden!==false&&Date.now()-Date.parse(q.t)>15*60000&&!aiLate(q))notes.push('Het duurt wat langer dan normaal. Fien is er nog mee bezig.');
  if(k==='bezig'&&aiLate(q))notes.push('Dit duurt veel te lang. Tik op Nog eens kijken.');
@@ -196,3 +197,20 @@ addEventListener('focusout',()=>{if(aiDirty)setTimeout(aiRefresh,30)});
 addEventListener('pointerdown',()=>{aiHandsOff=true},{capture:true,once:true});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)aiWatch()});
 aiWatch();
+
+/* v14: Maandagblog. Knop op elke receptkaart → verzoek type 'blog' via de relay → antwoord in ai-results/<FA-id>.json */
+function recTekst(r){const L=x=>lines(x).join('; ');return [r.title,r.ondertitel,'Ingrediënten: '+L(r.ingr),...(r.fases||[]).map((f,i)=>'Fase '+(i+1)+': '+(f.naam||'')+' — '+r.steps.slice(i*3,i*3+3).map(s=>[s.verb,s.text].filter(Boolean).join(' ')).join(' | ')),'Bewaren: '+(r.bewaren||'')].join('\n').slice(0,2400)}
+async function aiBlog(rid){const r=(await recipes()).find(x=>x.id==rid);if(!r)return;if(!await aiPin())return;
+ const id='FA-'+Date.now().toString(36).toUpperCase().slice(-6);
+ const q=await aiTurn(async()=>{const l=await aiList();const row={id,type:'blog',receptId:(r.fienai&&r.fienai.verzoek)||r.id,receptTekst:recTekst(r),idee:('Maandagblog: '+(r.title||'recept')).slice(0,500),titel:'Blog: '+(r.title||'recept'),status:'bezig',t:new Date().toISOString()};l.unshift(row);await aiSave(l);return row});
+ PID=null;PST=null;tab='rec';render();aiWatch();const ok=await aiPost(q);await aiPatch(id,{verzonden:ok});render()}
+function blogFrom(j){if(typeof j=='string')j=JSON.parse(j);const b=j.blog&&typeof j.blog=='object'?j.blog:j;
+ const tekst=typeof j.blog=='string'?j.blog:String(b.tekst||b.markdown||b.text||b.body||(Array.isArray(b.secties)?b.secties.map(x=>(x.kop?x.kop+'\n':'')+(x.tekst||'')).join('\n\n'):''));
+ return {titel:String(b.titel||b.title||''),tekst}}
+async function blogDec(id,k){if(k==='Aanpassen'){BEDIT=id;return render()}const t=$('#bt-'+id);const patch={blogDec:k};if(t&&BEDIT===id){patch.blog={...(await aiList()).find(x=>x.id==id).blog,tekst:t.value};patch.blogDec='Aangepast'}BEDIT=null;await aiPatch(id,patch);render()}
+let BEDIT=null;
+function blogCard(q){const k=aiKind(q);const b=q.blog||{};const d=q.blogDec;
+ if(k!=='klaar'){const x={...q,titel:q.titel};return `<article class="ai-card ${k}"><div class="ai-top"><div class="grow"><h3 class="ai-title">✍️ ${esc(q.titel)}</h3><small class="ai-meta">${esc(aiWhen(q.t))}</small></div><span class="ai-pill ${k}">${k==='bezig'?'Fien schrijft…':AI_PILL[k]}</span></div><p class="ai-msg">${q.verzonden===false?esc(aiBusy(q)):'Fien schrijft je maandagblog. Meestal binnen 5 minuten.'}</p>${k==='bezig'?'<div class="ai-bar" aria-hidden="true"><i></i></div>':''}${aiActs(x)}</article>`}
+ const body=BEDIT===q.id?`<textarea id="bt-${q.id}" rows="12">${esc(b.tekst||'')}</textarea><button class="btn" style="width:100%" onclick="blogDec('${q.id}','Opslaan')">💾 Opslaan & goedkeuren</button>`:`<div class="blog-tekst">${esc(b.tekst||'(leeg)')}</div>`;
+ return `<article class="ai-card klaar blog ${d?'dk-'+d.replace(/ /g,''):''}"><div class="ai-top"><div class="grow"><h3 class="ai-title">✍️ ${esc(b.titel||q.titel)}</h3><small class="ai-meta">Maandagblog · ${esc(aiWhen(q.t))}</small></div><span class="ai-pill ${d=='Niet eens'?'vraag':'klaar'}">${esc(d||'Klaar ✓')}</span></div>${body}
+ ${BEDIT===q.id?'':`<div class="decrow">${['Eens','Aanpassen','Niet eens'].map(o=>`<button class="btn ${d==o?'':'s'}" onclick="blogDec('${q.id}','${o}')">${o}</button>`).join('')}</div>`}<div class="ai-acts"><button class="btn s xs" onclick="navigator.clipboard?.writeText(${esc(JSON.stringify(b.tekst||''))}).then(()=>alert('Gekopieerd'))">Kopieer</button><button class="btn ghost xs" onclick="aiDel('${q.id}')">Verwijderen</button></div></article>`}
