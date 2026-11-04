@@ -5,7 +5,7 @@
    POST /site/nu?pin=  screenshot nu maken (handmatig)
    GET  /site.jpg | /site.json  laatste screenshot van bubblybakery.nl (cron elk uur) */
 const ORIGIN='https://actiontakers.github.io',SITE='https://bubblybakery.nl/';
-const MAX={idee:500,link:500,fotoLink:500,tijd:40,appVersie:20};const FOTO_MAX=8*1024*1024,WEEK=7*864e5;
+const MAX={idee:500,link:500,fotoLink:500,tijd:40,appVersie:20,receptId:40,recept:2500};const FOTO_MAX=8*1024*1024,WEEK=7*864e5;
 const hits=new Map();
 const enc=new TextEncoder();
 async function sign(env,id,exp){const k=await crypto.subtle.importKey('raw',enc.encode(env.FOTO_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);
@@ -41,6 +41,7 @@ export default{
   const raw=await req.text();if(raw.length>4096)return J(413,{ok:false,e:'size'});let b;try{b=JSON.parse(raw)}catch{return J(400,{ok:false,e:'json'})}
   if(b.pin!==env.PIN)return J(401,{ok:false,e:'pin'});if(!/^FA-[A-Z0-9]{2,24}$/.test(b.id||''))return J(400,{ok:false,e:'id'});
   const out={id:b.id,pin:b.pin};for(const[k,m]of Object.entries(MAX))if(b[k]!=null&&b[k]!==''){if(typeof b[k]!=='string'||b[k].length>m)return J(400,{ok:false,e:k});out[k]=b[k]}
+  if(b.type!=null){if(b.type!=='blog')return J(400,{ok:false,e:'type'});out.type='blog'}
   if(b.test===true)out.test=true;
   if(b.foto===true){const ob=await env.FIEN.head('foto/'+b.id);if(!ob)return J(409,{ok:false,e:'foto ontbreekt'});
    const exp=Date.now()+WEEK;const url=`${u.origin}/foto/${b.id}?exp=${exp}&sig=${await sign(env,b.id,exp)}`;
