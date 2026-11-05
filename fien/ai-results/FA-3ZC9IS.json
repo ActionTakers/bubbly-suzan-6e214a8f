@@ -1,0 +1,135 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-3ZC9IS Zonsondergangtaart. Bronfoto = digitaal/gedrukt NL receptklassieker (ZONSONDERGANGTAART, Spektakelstukken / koken & genieten, ca. 16 stukken, ~2 uur + ~7 uur wachten) via Fien-relay. Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON (publieke NL-bakrecepten) ter check.",
+  "verzoek": "FA-3ZC9IS",
+  "titel": "Zonsondergangtaart",
+  "ondertitel": "Drie lagen biscuit met frambozen- en abrikozenroom, roze-gele zonsondergangrand — spektakelstuk, ongeveer 16 stukken",
+  "tags": [
+    "taart",
+    "spektakelstuk",
+    "framboos",
+    "abrikoos",
+    "slagroom",
+    "biscuit",
+    "klassieker"
+  ],
+  "ingredienten": [
+    "6 eieren",
+    "150 g kristalsuiker (+ 2 el voor de abrikozenpuree)",
+    "snufje zout",
+    "175 g tarwebloem (of patentbloem), gezeefd",
+    "350 g diepvriesframbozen, ontdooid",
+    "75 g poedersuiker (+ 2 el om te bestuiven)",
+    "6 blaadjes gelatine (ca. 10 g)",
+    "200 g crème fraîche",
+    "650 ml slagroom, koud",
+    "800 g abrikozen op siroop (blik), goed uitgelekt",
+    "rode kleurstof (paar druppels)",
+    "gele kleurstof (paar druppels)",
+    "boter of bakspray (om in te vetten)",
+    "bakpapier"
+  ],
+  "benodigdheden": [
+    "Springvorm Ø 26 cm",
+    "Bakpapier",
+    "Mixer (hand of standing) + kommen",
+    "Spatel / pollepel",
+    "Zeef",
+    "Staafmixer of blender",
+    "Keukenweegschaal",
+    "Klein pannetje",
+    "Paletmes of deegschraper",
+    "Koelruimte / koelkast"
+  ],
+  "fases": [
+    {
+      "naam": "BISCUIT & SNIJDEN",
+      "doel": "luchtige biscuit bakken, volledig laten afkoelen en in drie gelijke lagen snijden — rechte lagen maken de zonsondergang later rustig.",
+      "stappen": [
+        {
+          "werkwoord": "Voorverwarm",
+          "beschrijving": "Verwarm de oven voor op 200 °C boven-/onderwarmte (hetelucht ongeveer 180 °C). Vet een springvorm van 26 cm in en bekleed de bodem met bakpapier. Zet eieren klaar op kamertemperatuur — koude eieren kloppen minder hoog.",
+          "type": "Bubbly Tip",
+          "tip": "Bodem én rand licht invetten. Bakpapier op de bodem voorkomt dat de biscuit blijft plakken."
+        },
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Klop de 6 eieren met 150 g suiker en een snufje zout 8–10 minuten tot een dik, bleek lintbeslag: als je met de garde een streep trekt, blijft die even liggen. Zeef de bloem erover en spatel die voorzichtig erdoor tot net opgenomen — lucht erin houden.",
+          "type": "Chaos Alert",
+          "tip": "Te vroeg stoppen = dikke pancake. Te lang spatelen = platte biscuit. Stop zodra er geen droge bloemplakken meer zijn."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Giet het beslag in de vorm, strijk licht glad en bak ongeveer 30 minuten tot de biscuit goudbruin is en veert bij een zachte duw. Laat in de vorm iets afkoelen, haal los en laat volledig afkoelen op een rooster. Snijd daarna horizontaal in drie gelijke lagen.",
+          "type": "Bubbly Tip",
+          "tip": "Nog warm snijden = kruimelschaos. Markeer eerst met tandenstokers op gelijke hoogte, dan rustig doorzagen met een lang mes."
+        }
+      ]
+    },
+    {
+      "naam": "FRAMBOOS & ABRIKOOS",
+      "doel": "twee fruitrooms met gelatine en crème fraîche, laag voor laag opbouwen met tussentijds koelen — stevig genoeg om te snijden.",
+      "stappen": [
+        {
+          "werkwoord": "Maak",
+          "beschrijving": "Week 3 blaadjes gelatine in koud water. Pureer de ontdooide frambozen met 75 g poedersuiker. Knijp de gelatine uit, los op in een scheutje lauwwarme puree (of heel kort opgewarmd) en meng terug door de rest. Roer 100 g crème fraîche erdoor. Klop 100 ml slagroom lobbig tot net stevig en spatel die erdoor.",
+          "type": "Bubbly Tip",
+          "tip": "Gelatine nooit koken: te heet maakt hem slap. Lauwwarm is genoeg. Puree iets te waterig? Even laten uitlekken of kort inkoken zonder te koken."
+        },
+        {
+          "werkwoord": "Bouw",
+          "beschrijving": "Leg de onderste biscuitlaag terug in de springvorm (of op een taartbodem met ring). Verdeel de frambozenroom er gelijkmatig over. Leg de middelste biscuit erop. Zet minstens 30–45 minuten in de koelkast tot de laag licht stevig aanvoelt.",
+          "type": "Chaos Alert",
+          "tip": "Te vroeg de volgende laag = schuiven en roze-gele warboel. Wachten is hier vriendelijkheid tegen je latere zelf."
+        },
+        {
+          "werkwoord": "Maak",
+          "beschrijving": "Week de andere 3 blaadjes gelatine. Pureer de goed uitgelekte abrikozen met 2 el suiker. Los de gelatine op zoals bij de frambozen, meng met 100 g crème fraîche, spatel 100 ml lobbige slagroom erdoor. Verdeel over de middelste biscuit, leg de bovenste biscuit erop en koel minstens 6 uur (liefst overnight) tot stevig.",
+          "type": "Bubbly Tip",
+          "tip": "Abrikozen écht uitdruipen — te natte puree verzacht de biscuit. Dek af met folie zodat de koelkastgeuren eruit blijven."
+        }
+      ]
+    },
+    {
+      "naam": "ZONSONDERGANG & TOP",
+      "doel": "roze-gele verloop op de zijkant, witte slagroomtop, poedersuiker — spektakel zonder stress.",
+      "stappen": [
+        {
+          "werkwoord": "Kleurt",
+          "beschrijving": "Haal de springvormrand voorzichtig weg. Klop 100 ml slagroom met een paar druppels rode kleurstof tot smeerbaar, en 100 ml met gele kleurstof. Smeer van onder naar boven: roze onderaan, geel bovenaan, en blend het midden met een paletmes tot een zachte zonsondergang.",
+          "type": "Chaos Alert",
+          "tip": "Weinig kleurstof eerst — te fel wordt cartoon. Blend met lichte druk; te veel heen-en-weer veegt de biscuit bloot. Proud Disaster™ mag: een scheve horizon is nog steeds zonsondergang."
+        },
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Klop de resterende 250 ml slagroom stevig (niet korrelig). Bestrijk of spuit de bovenkant glad of met zachte rillen. Bestuif vlak voor serveren met 2 el poedersuiker.",
+          "type": "Bubbly Tip",
+          "tip": "Te slap = glijdt van de rand. Stop bij stevige, glanzende pieken. Poedersuiker vlak voor tafel — anders trekt hij vocht aan."
+        },
+        {
+          "werkwoord": "Serveer",
+          "beschrijving": "Snijd met een warm, afgeveegd mes in ongeveer 16 stukken. Serveer gekoeld. Eerste stuk is voor de bakker — spektakelstukken verdienen een proefhap.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: kleurrand niet perfect? Poedersuiker, een glimlach, en noem het ‘bewolkte zonsondergang’. Smaakt hij fris en luchtig? Dan is het gelukt."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Goed afgedekt in de koelkast 2–3 dagen. Niet warm terugzetten. Invriezen kan (zonder poedersuiker, goed verpakt) tot ongeveer een maand; ontdooien in de koelkast en daarna bestuiven.",
+  "variaties": [
+    "Zonder kleurstof: witte slagroomrand, nog steeds spektakel met de fruitlagen",
+    "Verse frambozen i.p.v. diepvries (even pletten/pureeren)",
+    "Perzik uit blik i.p.v. abrikoos — zelfde techniek",
+    "Iets kleinere vorm (24 cm) — iets dikkere lagen, iets langer koelen",
+    "Extra frambozen of abrikozenpartjes als garnish op de top"
+  ],
+  "bekentenis": "Mijn eerste zonsondergangtaart had een horizon die meer op een stormachtige regenboog leek: roze vlekken, gele strepen, en een midden dat naar één kant gleed. Ik noemde hem ‘bewolkte zonsondergang’, bestrooide hem met poedersuiker en serveerde hem toch. Iedereen vroeg om het recept. Sindsdien weet ik: het verloop mag imperfect zijn — als framboos en abrikoos maar helder blijven proeven.",
+  "mantra": "Biscuit eerst, fruitrooms stevig laten zetten, kleurrand met weinig verf. Geduld in de koelkast — poedersuiker maakt de horizon mooi.",
+  "bron": [
+    "BRON (foto Suzan): digitaal/gedrukt recept Zonsondergangtaart — Spektakelstukken / koken & genieten (ca. 16 stukken, ~2 uur + ~7 uur wachten) via Fien-relay foto FA-3ZC9IS",
+    "BRON (soft): Puratos — Slagroomtaart met fruit (biscuit + frambozen- + abrikozenvulling) — https://www.puratos.be/nl/recipes/slagroomtaart-met-fruit",
+    "BRON (soft): Bakkersvakrecepten — Vruchtenslagroomtaart (biscuit in drie lagen) — https://bakkersvakrecepten.nl/taart-patisserie/taarten/vruchtenslagroomtaart",
+    "BRON (soft): Dagelijkse kost — Slagroomtaart met marsepein en frambozen — https://dagelijksekost.vrt.be/gerechten/88qhsteFrwtOZ1LoNMMR",
+    "FA-3ZC9IS (fien-v14) — hoeveelheden volgen Suzans foto (6 eieren, 150 g + 2 el suiker, zout, 175 g bloem, 350 g frambozen, 75 g + 2 el poedersuiker, 6 blaadjes gelatine, 200 g crème fraîche, 650 ml slagroom, 800 g abrikozen blik, rode/gele kleurstof, springvorm ~26 cm, biscuit ~200 °C / hetelucht ~180 °C ~30 min, 3 lagen, ~6 u koelen); soft bronnen ter check; tijden en ovens zijn richting, geen wet."
+  ]
+}
