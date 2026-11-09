@@ -1,0 +1,24 @@
+name: Site-recepten lijst (alleen lezen)
+# Leest elke ochtend de sitemap van bubblybakery.nl en ververst fien/site-recepten.json
+# zodat Fien eerlijk kan tonen welk recept online staat. Schrijft niets naar de site.
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: site-recepten
+jobs:
+  ververs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/site-recepten.py
+      - name: Commit als er iets veranderd is
+        run: |
+          if git diff --quiet -- fien/site-recepten.json; then echo "Niets veranderd"; exit 0; fi
+          git config user.name "fien-sitestatus"
+          git config user.email "fien-sitestatus@users.noreply.github.com"
+          git add fien/site-recepten.json
+          git commit -m "Fien: site-recepten lijst ververst"
+          git pull --rebase origin main && git push origin HEAD:main

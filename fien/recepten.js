@@ -78,8 +78,8 @@ const md=x=>x.split('\n').filter(Boolean).map(l=>'- '+l).join('\n');const cap=x=
 const OUTS={kaart:['🃏 Receptkaart',outKaart],boek:['📖 E-book',outBoek],workshop:['👩‍🍳 Workshop',outWorkshop],md:['🗒️ Notion',outMd],json:['🧩 JSON',outJson]};
 
 VIEWS.rec=async()=>{const l=await recipes();
- if(!RID)return `${l.length?'<h3 class="ai-list-h">Je recepten</h3>':''}
- ${l.map(r=>`<button type="button" class="card tap" onclick="RID='${r.id}';render()"><span class="grow"><b>${esc(r.title||'(zonder titel)')}</b> ${r.voorbeeld?'<span class="tag">Voorbeeld</span>':''}<br><small>${esc(r.steps.map(s=>s.verb).filter(Boolean).join(' · '))}</small></span><span class="chev" aria-hidden="true">›</span></button>`).join('')}
+ if(!RID)return `${l.length?'<h3 class="ai-list-h">Je recepten</h3>':''}${siteHead(l)}
+ ${siteFilter(l).map(r=>`<button type="button" class="card tap" onclick="RID='${r.id}';render()"><span class="grow"><b>${esc(r.title||'(zonder titel)')}</b> ${r.voorbeeld?'<span class="tag">Voorbeeld</span>':''}<br>${sitePill(r)}${siteNaam(r)?'<small class="st-naam">Op de site staat al een recept met deze naam.</small>':''}<small style="display:block">${esc(r.steps.map(s=>s.verb).filter(Boolean).join(' · '))}</small></span><span class="chev" aria-hidden="true">›</span></button>`).join('')}
  <div class="note">Je recepten blijven op deze telefoon. Zelf een recept maken? Kijk onder Meer.</div>`;
  if(RID=='__plak')return `<div class="card"><h2>📋 Tekst plakken</h2><small>Plak het hele recept (bv. uit een website, e-mail of NotebookLM). Fien herkent ingrediënten en stappen zo goed mogelijk; daarna pas je alles aan.</small><textarea id="plak" style="min-height:260px"></textarea><p class="row"><button class="btn" onclick="recParse()">✨ Structureer</button><button class="btn s" onclick="RID=null;render()">Terug</button></p></div>`;
  const r=l.find(x=>x.id==RID);if(!r){RID=null;return VIEWS.rec()}
