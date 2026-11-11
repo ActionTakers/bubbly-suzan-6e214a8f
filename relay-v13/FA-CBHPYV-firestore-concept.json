@@ -1,0 +1,261 @@
+{
+ "naam": "Speculaas-boterkoek met amandelschaafsel",
+ "beschrijving": "Klassieke smeuïge boterkoek met warme speculaaskruiden en een knapperig amandeldakje — ongeveer 16–20 stukjes",
+ "category": "cake & koek",
+ "status": "draft",
+ "progress": 56,
+ "dod": {
+  "hasTitle": true,
+  "hasDescription": true,
+  "hasIngredients": true,
+  "hasSteps": true,
+  "hasTips": true,
+  "hasImages": false,
+  "hasNutrition": false,
+  "testedInKitchen": false,
+  "reviewedByEditor": false
+ },
+ "hasReceptenkaart": true,
+ "isCompleteReceptkaart": false,
+ "createdAt": "2026-11-11T19:45:00.000Z",
+ "updatedAt": "2026-11-11T19:45:00.000Z",
+ "bron": "fien",
+ "fien": {
+  "verzoek": "FA-CBHPYV",
+  "resultUrl": "https://actiontakers.github.io/bubbly-suzan-6e214a8f/fien/ai-results/FA-CBHPYV.json",
+  "appVersie": "fien-v16",
+  "aangevraagdOp": "2026-11-11T19:45:00.000Z",
+  "aangevraagdDoor": "suzan",
+  "wens": "zet op de site",
+  "stap": "klaar voor Gabriël",
+  "bronnen": [
+   "BRON (idee): Standaard boterkoek met speculaaskruiden en amandelschaafsel — FA-CBHPYV (fien-v15)",
+   "BRON (soft): Allerhande — Speculaasboterkoek — https://www.ah.nl/allerhande/recept/R-R1197362/speculaasboterkoek",
+   "BRON (soft): Rutger bakt — Speculaas boterkoek met amandelschaafsel — https://rutgerbakt.nl/koek-recepten/speculaas-boterkoek-met-amandelschaafsel/",
+   "BRON (soft): PaTESSerie — Speculaas boterkoek met amandelschaafsel — https://www.patesserie.com/speculaas-boterkoek-met-amandelschaafsel/",
+   "Hoeveelheden volgen de Allerhande-basis (300 g bloem, 250 g boter, 250 g basterdsuiker, 2 el speculaaskruiden, 35 g amandelschaafsel, 180 °C ~30 min); tijden en ovens zijn richting, geen wet."
+  ],
+  "open": [
+   "foto’s",
+   "prepTime/cookTime/restTime",
+   "servings",
+   "difficulty",
+   "Owner-review (fase 4)"
+  ]
+ },
+ "receptenkaart": {
+  "naam": "Speculaas-boterkoek met amandelschaafsel",
+  "subtitel": "Klassieke smeuïge boterkoek met warme speculaaskruiden en een knapperig amandeldakje — ongeveer 16–20 stukjes",
+  "beschrijving": "Klassieke smeuïge boterkoek met warme speculaaskruiden en een knapperig amandeldakje — ongeveer 16–20 stukjes",
+  "metaDescription": "Klassieke smeuïge boterkoek met warme speculaaskruiden en een knapperig amandeldakje — ongeveer 16–20 stukjes",
+  "slug": "speculaas-boterkoek-met-amandelschaafsel",
+  "category": "cake & koek",
+  "tags": [
+   "boterkoek",
+   "speculaas",
+   "amandel",
+   "najaar",
+   "sinterklaas",
+   "klassieker",
+   "koek"
+  ],
+  "status": "draft",
+  "servings": "",
+  "prepTime": "",
+  "cookTime": "",
+  "restTime": "",
+  "difficulty": "",
+  "heroFotoUrl": "",
+  "ingredienten": {
+   "Ingrediënten": [
+    {
+     "hoeveelheid": "300 g",
+     "naam": "tarwebloem",
+     "specificatie": "gezeefd"
+    },
+    {
+     "hoeveelheid": "250 g",
+     "naam": "lichtbruine basterdsuiker",
+     "specificatie": null
+    },
+    {
+     "hoeveelheid": "2 el",
+     "naam": "speculaaskruiden",
+     "specificatie": null
+    },
+    {
+     "hoeveelheid": "½ tl",
+     "naam": "zout",
+     "specificatie": null
+    },
+    {
+     "hoeveelheid": "250 g",
+     "naam": "ongezouten roomboter",
+     "specificatie": "koud, in blokjes"
+    },
+    {
+     "hoeveelheid": "1",
+     "naam": "ei",
+     "specificatie": "losgeklopt (om te bestrijken)"
+    },
+    {
+     "hoeveelheid": "30–35 g",
+     "naam": "amandelschaafsel",
+     "specificatie": null
+    },
+    {
+     "hoeveelheid": "",
+     "naam": "boter om in te vetten",
+     "specificatie": null
+    },
+    {
+     "hoeveelheid": "",
+     "naam": "bakpapier",
+     "specificatie": null
+    }
+   ]
+  },
+  "benodigdheden": [
+   "Boterkoekvorm Ø 22–24 cm (of vierkante vorm 20×20 cm)",
+   "Bakpapier",
+   "Grote kom",
+   "Twee messen of keukenmachine met deeghaak",
+   "Vershoudfolie",
+   "Bakkwast",
+   "Vork",
+   "Lepel (bolle kant)",
+   "Keukenweegschaal",
+   "Rooster"
+  ],
+  "fasen": [
+   {
+    "nummer": 1,
+    "naam": "DEEG & RUST",
+    "doel": "een koel, samenhangend kruidendeeg maken en laten rusten — zo trekken de speculaaskruiden er goed in.",
+    "stappen": [
+     {
+      "nummer": 1,
+      "woord": "MENG",
+      "zin": "Zeef de bloem boven een kom en meng met de basterdsuiker, de speculaaskruiden en het zout. Wrijf klontjes basterdsuiker tussen je vingers fijn.",
+      "tipType": "Bubbly Tip",
+      "tip": "Proef een snuifje van je speculaaskruiden: oud potje = flauwe koek. Vers kruiden geeft dat echte decembergevoel.",
+      "fotoUrl": "",
+      "fotoAlt": "Meng"
+     },
+     {
+      "nummer": 2,
+      "woord": "SNIJD",
+      "zin": "Leg de koude boterblokjes op het bloemmengsel en snijd ze met twee messen in kleine stukjes. Kneed daarna met koele handen snel tot een samenhangende deegbal. Geen machine nodig; met een deeghaak op lage stand kan ook.",
+      "tipType": "Chaos Alert",
+      "tip": "Te lang kneden met warme handen = vettig, plakkerig deeg. Werk snel en stop zodra het een bal is.",
+      "fotoUrl": "",
+      "fotoAlt": "Snijd"
+     },
+     {
+      "nummer": 3,
+      "woord": "LAAT",
+      "zin": "Verpak het deeg in vershoudfolie en laat minstens 1 uur rusten in de koelkast. Intussen: vet de vorm in en bekleed de bodem met bakpapier.",
+      "tipType": "Bubbly Tip",
+      "tip": "Rust is smaak: de kruiden ontwikkelen zich en het deeg laat zich straks rustiger uitdrukken.",
+      "fotoUrl": "",
+      "fotoAlt": "Laat"
+     }
+    ]
+   },
+   {
+    "nummer": 2,
+    "naam": "VORM & GLANS",
+    "doel": "het deeg egaal in de vorm drukken, een glanzend eilaagje en een ruitje — het amandeldakje blijft dan mooi zitten.",
+    "stappen": [
+     {
+      "nummer": 4,
+      "woord": "VOORVERWARM",
+      "zin": "Verwarm de oven voor op 180 °C boven-/onderwarmte (hetelucht ongeveer 160 °C).",
+      "tipType": "Bubbly Tip",
+      "tip": "Een oven die écht op temperatuur is, geeft een gelijkmatig goudbruine bovenkant.",
+      "fotoUrl": "",
+      "fotoAlt": "Voorverwarm"
+     },
+     {
+      "nummer": 5,
+      "woord": "DRUK",
+      "zin": "Verdeel het deeg over de vorm en druk het egaal uit. Strijk glad met de bolle kant van een (licht natte) lepel, vooral langs de rand.",
+      "tipType": "Chaos Alert",
+      "tip": "Let op met een springvorm: de boter kan tijdens het bakken gaan lekken. Zet er voor de zekerheid een bakplaat onder.",
+      "fotoUrl": "",
+      "fotoAlt": "Druk"
+     },
+     {
+      "nummer": 6,
+      "woord": "BESTRIJK",
+      "zin": "Bestrijk de bovenkant dun met losgeklopt ei, trek met een vork een ruitjespatroon en bestrooi gelijkmatig met het amandelschaafsel. Druk de amandelen heel licht aan.",
+      "tipType": "Bubbly Tip",
+      "tip": "Het ruitje is niet alleen mooi: het helpt het eilaagje en de amandelen op hun plek te blijven.",
+      "fotoUrl": "",
+      "fotoAlt": "Bestrijk"
+     }
+    ]
+   },
+   {
+    "nummer": 3,
+    "naam": "BAKKEN & GEDULD",
+    "doel": "goudbruin bakken en daarna laten opstijven — de smeuïge kern ontstaat pas tijdens het afkoelen.",
+    "stappen": [
+     {
+      "nummer": 7,
+      "woord": "BAK",
+      "zin": "Bak de boterkoek in het midden van de oven in ongeveer 30 minuten goudbruin (na lang koelen soms een paar minuten langer). De koek voelt dan nog heel zacht en wiebelig aan — dat hoort zo.",
+      "tipType": "Chaos Alert",
+      "tip": "Niet ‘voor de zekerheid’ langer bakken: dan wordt hij droog en hard in plaats van smeuïg. Houd het amandelschaafsel in de gaten; te donker = even afdekken met bakpapier.",
+      "fotoUrl": "",
+      "fotoAlt": "Bak"
+     },
+     {
+      "nummer": 8,
+      "woord": "KOEL",
+      "zin": "Laat de boterkoek in de vorm afkoelen op een rooster, minstens 4 uur en liefst langer. Druk na een minuut of 10 de randen eventueel licht aan met de bolle kant van een lepel, zodat hij overal even hoog is.",
+      "tipType": "Bubbly Tip",
+      "tip": "Warm uit de vorm halen = gebroken koek. Geduld is hier het geheime ingrediënt.",
+      "fotoUrl": "",
+      "fotoAlt": "Koel"
+     },
+     {
+      "nummer": 9,
+      "woord": "SNIJD",
+      "zin": "Haal de koek met behulp van het bakpapier uit de vorm en snijd in smalle punten of blokjes, ongeveer 16–20 stuks. Hij is machtig: klein snijden mag.",
+      "tipType": "Bubbly Tip",
+      "tip": "Proud Disaster™: rand iets donkerder of een scheur in het midden? Dat zijn de bakkersstukjes. Smeuïg en kruidig binnenin = gelukt.",
+      "fotoUrl": "",
+      "fotoAlt": "Snijd"
+     }
+    ]
+   }
+  ],
+  "tip": {
+   "probleem": "Tip",
+   "oplossing": "Proef een snuifje van je speculaaskruiden: oud potje = flauwe koek. Vers kruiden geeft dat echte decembergevoel."
+  },
+  "bewaren": "Afgedekt of in een goed sluitende trommel op kamertemperatuur ongeveer 5 dagen; de smaak wordt na een dag vaak nog voller. Invriezen kan, goed verpakt, tot ongeveer een maand; laten ontdooien op kamertemperatuur.",
+  "variaties": [
+   "Met een laag amandelspijs in het midden (halve deeglaag, spijs, halve deeglaag)",
+   "Donkerbruine basterdsuiker voor een diepere, karamelachtige smaak",
+   "Een snufje extra kaneel en wat geraspte sinaasappelschil door het deeg",
+   "Gehakte walnoten of pecannoten in plaats van amandelschaafsel",
+   "In een vierkante vorm bakken en in blokjes snijden voor een traktatieschaal"
+  ],
+  "bekentenis": "Wist je dat speculaaskruiden eigenlijk een stukje wereldgeschiedenis in een potje zijn? Kaneel, kruidnagel, nootmuskaat en gember kwamen ooit per schip van ver, en wie ermee bakte liet zien dat er iets te vieren viel. Mijn eerste speculaas-boterkoek haalde ik veel te vroeg uit de vorm — hij brak precies doormidden. Ik noemde de twee helften ‘de boterkoek voor nu en de boterkoek voor straks’. Niemand vond dat erg, en sindsdien weet ik: geduld maakt hem heel, maar ook een gebroken boterkoek ruikt naar december.",
+  "mantra": "Koel deeg, warme kruiden, korte bakbeurt. Laat hem rusten — smeuïg komt met geduld.",
+  "progress": 56,
+  "dod": {
+   "hasTitle": true,
+   "hasDescription": true,
+   "hasIngredients": true,
+   "hasSteps": true,
+   "hasTips": true,
+   "hasImages": false,
+   "hasNutrition": false,
+   "testedInKitchen": false,
+   "reviewedByEditor": false
+  }
+ }
+}

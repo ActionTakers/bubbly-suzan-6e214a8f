@@ -3,7 +3,10 @@
    POST /verzoek              JSON {id,pin,idee,link,fotoLink,tijd,appVersie,test,foto:true} → één keer door naar de Fien-routine (dedupe op id)
    GET  /foto/<id>?exp=&sig=  ondertekende link (7 dagen) zodat Fien de foto kan zien
    POST /site/nu?pin=  screenshot nu maken (handmatig)
-   GET  /site.jpg | /site.json  laatste screenshot van bubblybakery.nl (cron elk uur) */
+   GET  /site.jpg | /site.json  laatste screenshot van bubblybakery.nl (cron elk uur)
+   POST /site/zet     JSON {id,pin,dry?,appVersie?} → fase 2: concept (draft) in Firestore recipes/fien_<id> (zie sitezet.js)
+   POST /site/status  JSON {pin,ids:[…]} → siteStatus/siteSlug per Fien-recept voor de app */
+import {zetOpSite,siteStatus} from './sitezet.js';
 const ORIGIN='https://actiontakers.github.io',SITE='https://bubblybakery.nl/';
 const MAX={idee:500,link:500,fotoLink:500,tijd:40,appVersie:20,receptId:40,recept:2500};const FOTO_MAX=8*1024*1024,WEEK=7*864e5;
 const hits=new Map();
@@ -37,6 +40,9 @@ export default{
    const ct=(req.headers.get('Content-Type')||'').split(';')[0];if(!/^image\//.test(ct))return J(415,{ok:false,e:'type'});
    const buf=await req.arrayBuffer();if(!buf.byteLength||buf.byteLength>FOTO_MAX)return J(413,{ok:false,e:'size'});
    await env.FIEN.put('foto/'+id,buf,{httpMetadata:{contentType:ct}});return J(200,{ok:true,id,bytes:buf.byteLength})}
+  if(u.pathname==='/site/zet'||u.pathname==='/site/status'){const raw=await req.text();if(raw.length>4096)return J(413,{ok:false,e:'size'});let b;try{b=JSON.parse(raw)}catch{return J(400,{ok:false,e:'json'})}
+   if(!env.PIN||b.pin!==env.PIN)return J(401,{ok:false,e:'pin'});if(!env.FIEN_FIREBASE_SA)return J(503,{ok:false,e:'site-koppeling staat nog uit'});
+   try{const[s,o]=await(u.pathname==='/site/zet'?zetOpSite(b,env):siteStatus(b,env));return J(s,o)}catch(e){return J(502,{ok:false,e:String(e&&e.message||e).slice(0,120)})}}
   if(u.pathname!=='/verzoek')return J(404,{ok:false});
   const raw=await req.text();if(raw.length>4096)return J(413,{ok:false,e:'size'});let b;try{b=JSON.parse(raw)}catch{return J(400,{ok:false,e:'json'})}
   if(b.pin!==env.PIN)return J(401,{ok:false,e:'pin'});if(!/^FA-[A-Z0-9]{2,24}$/.test(b.id||''))return J(400,{ok:false,e:'id'});

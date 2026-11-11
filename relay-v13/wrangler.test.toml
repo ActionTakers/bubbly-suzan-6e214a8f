@@ -1,0 +1,8 @@
+# ALLEEN lokaal testen (geen browser/cron). Nooit deployen met dit bestand.
+name = "fien-relay-v13-lokaaltest"
+main = "index.js"
+compatibility_date = "2026-05-01"  # lokale workerd kent max 2026-05-03
+compatibility_flags = ["nodejs_compat"]
+[[r2_buckets]]
+binding = "FIEN"
+bucket_name = "bubblyfien-lokaal"
