@@ -1,0 +1,130 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-EURHP9 Boterkoek met speculaaskruiden en amandelschaafsel (fien-v15, idee zonder foto). Bubbly 3×3. Geen prijzen, geen allergie-claims. Soft BRON (publieke NL-bakrecepten) ter check.",
+  "verzoek": "FA-EURHP9",
+  "titel": "Speculaas-boterkoek met amandelschaafsel",
+  "ondertitel": "Klassieke smeuïge boterkoek met warme speculaaskruiden en een knapperig amandeldakje — ongeveer 16–20 stukjes",
+  "tags": [
+    "boterkoek",
+    "speculaas",
+    "amandel",
+    "najaar",
+    "sinterklaas",
+    "klassieker",
+    "koek"
+  ],
+  "ingredienten": [
+    "300 g tarwebloem, gezeefd",
+    "250 g lichtbruine basterdsuiker",
+    "2 el speculaaskruiden",
+    "½ tl zout",
+    "250 g ongezouten roomboter, koud, in blokjes",
+    "1 ei, losgeklopt (om te bestrijken)",
+    "30–35 g amandelschaafsel",
+    "boter om in te vetten",
+    "bakpapier"
+  ],
+  "benodigdheden": [
+    "Boterkoekvorm Ø 22–24 cm (of vierkante vorm 20×20 cm)",
+    "Bakpapier",
+    "Grote kom",
+    "Twee messen of keukenmachine met deeghaak",
+    "Vershoudfolie",
+    "Bakkwast",
+    "Vork",
+    "Lepel (bolle kant)",
+    "Keukenweegschaal",
+    "Rooster"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG & RUST",
+      "doel": "een koel, samenhangend kruidendeeg maken en laten rusten — zo trekken de speculaaskruiden er goed in.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Zeef de bloem boven een kom en meng met de basterdsuiker, de speculaaskruiden en het zout. Wrijf klontjes basterdsuiker tussen je vingers fijn.",
+          "type": "Bubbly Tip",
+          "tip": "Proef een snuifje van je speculaaskruiden: oud potje = flauwe koek. Vers kruiden geeft dat echte decembergevoel."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Leg de koude boterblokjes op het bloemmengsel en snijd ze met twee messen in kleine stukjes. Kneed daarna met koele handen snel tot een samenhangende deegbal. Geen machine nodig; met een deeghaak op lage stand kan ook.",
+          "type": "Chaos Alert",
+          "tip": "Te lang kneden met warme handen = vettig, plakkerig deeg. Werk snel en stop zodra het een bal is."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Verpak het deeg in vershoudfolie en laat minstens 1 uur rusten in de koelkast. Intussen: vet de vorm in en bekleed de bodem met bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Rust is smaak: de kruiden ontwikkelen zich en het deeg laat zich straks rustiger uitdrukken."
+        }
+      ]
+    },
+    {
+      "naam": "VORM & GLANS",
+      "doel": "het deeg egaal in de vorm drukken, een glanzend eilaagje en een ruitje — het amandeldakje blijft dan mooi zitten.",
+      "stappen": [
+        {
+          "werkwoord": "Voorverwarm",
+          "beschrijving": "Verwarm de oven voor op 180 °C boven-/onderwarmte (hetelucht ongeveer 160 °C).",
+          "type": "Bubbly Tip",
+          "tip": "Een oven die écht op temperatuur is, geeft een gelijkmatig goudbruine bovenkant."
+        },
+        {
+          "werkwoord": "Druk",
+          "beschrijving": "Verdeel het deeg over de vorm en druk het egaal uit. Strijk glad met de bolle kant van een (licht natte) lepel, vooral langs de rand.",
+          "type": "Chaos Alert",
+          "tip": "Let op met een springvorm: de boter kan tijdens het bakken gaan lekken. Zet er voor de zekerheid een bakplaat onder."
+        },
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Bestrijk de bovenkant dun met losgeklopt ei, trek met een vork een ruitjespatroon en bestrooi gelijkmatig met het amandelschaafsel. Druk de amandelen heel licht aan.",
+          "type": "Bubbly Tip",
+          "tip": "Het ruitje is niet alleen mooi: het helpt het eilaagje en de amandelen op hun plek te blijven."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & GEDULD",
+      "doel": "goudbruin bakken en daarna laten opstijven — de smeuïge kern ontstaat pas tijdens het afkoelen.",
+      "stappen": [
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de boterkoek in het midden van de oven in ongeveer 30 minuten goudbruin (na lang koelen soms een paar minuten langer). De koek voelt dan nog heel zacht en wiebelig aan — dat hoort zo.",
+          "type": "Chaos Alert",
+          "tip": "Niet ‘voor de zekerheid’ langer bakken: dan wordt hij droog en hard in plaats van smeuïg. Houd het amandelschaafsel in de gaten; te donker = even afdekken met bakpapier."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat de boterkoek in de vorm afkoelen op een rooster, minstens 4 uur en liefst langer. Druk na een minuut of 10 de randen eventueel licht aan met de bolle kant van een lepel, zodat hij overal even hoog is.",
+          "type": "Bubbly Tip",
+          "tip": "Warm uit de vorm halen = gebroken koek. Geduld is hier het geheime ingrediënt."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Haal de koek met behulp van het bakpapier uit de vorm en snijd in smalle punten of blokjes, ongeveer 16–20 stuks. Hij is machtig: klein snijden mag.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: rand iets donkerder of een scheur in het midden? Dat zijn de bakkersstukjes. Smeuïg en kruidig binnenin = gelukt."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt of in een goed sluitende trommel op kamertemperatuur ongeveer 5 dagen; de smaak wordt na een dag vaak nog voller. Invriezen kan, goed verpakt, tot ongeveer een maand; laten ontdooien op kamertemperatuur.",
+  "variaties": [
+    "Met een laag amandelspijs in het midden (halve deeglaag, spijs, halve deeglaag)",
+    "Donkerbruine basterdsuiker voor een diepere, karamelachtige smaak",
+    "Een snufje extra kaneel en wat geraspte sinaasappelschil door het deeg",
+    "Gehakte walnoten of pecannoten in plaats van amandelschaafsel",
+    "In een vierkante vorm bakken en in blokjes snijden voor een traktatieschaal"
+  ],
+  "bekentenis": "Boterkoek is zo’n echt Nederlands koekje dat bijna niemand meer opschrijft hoe je hem maakt: iedereen heeft wel een oma, tante of buurvrouw met “het” recept in haar hoofd. Speculaaskruiden horen er in november gewoon bij — de geur van kaneel en kruidnagel zegt al dat Sinterklaas eraan komt. Mijn eigen Proud Disaster: ik strooide ooit zó royaal amandelschaafsel dat het dakje in de oven bijna zwart werd. Ik heb de donkerste stukjes eraf gepeuterd, de rest in blokjes gesneden en ze “geroosterde speculaasstukjes” genoemd. Ze waren als eerste op.",
+  "mantra": "Koel deeg, warme kruiden, korte bakbeurt. Laat hem rusten — smeuïg komt met geduld.",
+  "bron": [
+    "BRON (idee): Boterkoek met speculaaskruiden en amandelschaafsel — FA-EURHP9 (fien-v15)",
+    "BRON (soft): Allerhande — Speculaasboterkoek — https://www.ah.nl/allerhande/recept/R-R1197362/speculaasboterkoek",
+    "BRON (soft): Rutger bakt — Speculaas boterkoek met amandelschaafsel — https://rutgerbakt.nl/koek-recepten/speculaas-boterkoek-met-amandelschaafsel/",
+    "BRON (soft): PaTESSerie — Speculaas boterkoek met amandelschaafsel — https://www.patesserie.com/speculaas-boterkoek-met-amandelschaafsel/",
+    "Hoeveelheden volgen de Allerhande-basis (300 g bloem, 250 g boter, 250 g basterdsuiker, 2 el speculaaskruiden, 35 g amandelschaafsel, 180 °C ~30 min); tijden en ovens zijn richting, geen wet."
+  ]
+}
