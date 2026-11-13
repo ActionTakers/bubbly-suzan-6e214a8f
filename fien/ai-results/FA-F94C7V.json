@@ -1,0 +1,122 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-F94C7V",
+  "titel": "Brosse pindakoeken",
+  "ondertitel": "Grote, knapperige koeken bomvol grof gehakte pinda's — zonder deeg kneden, gewoon scheppen en bakken. Ongeveer 8 stuks (1 bakplaat)",
+  "tags": [
+    "koekjes",
+    "pinda",
+    "snel",
+    "eiwit",
+    "knapperig",
+    "zonder kneden",
+    "koffietafel"
+  ],
+  "ingredienten": [
+    "75 g ongezouten pinda's",
+    "75 g suiker",
+    "20 g bloem",
+    "1 eiwit",
+    "flinke snuf zout",
+    "bakpapier"
+  ],
+  "benodigdheden": [
+    "Keukenweegschaal (digitaal is handig)",
+    "Groot mes of hakmolentje",
+    "Kom",
+    "Spatel of lepel",
+    "2 eetlepels",
+    "Bakplaat met bakpapier",
+    "Rooster",
+    "Paletmes of kaasschaaf",
+    "Metalen koektrommel"
+  ],
+  "fases": [
+    {
+      "naam": "HAK & MENG",
+      "doel": "een nat, kleverig pindabeslag maken — snel en zonder gedoe.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 180 °C en bekleed een bakplaat met bakpapier. Dit beslag wil straks snel de oven in, dus zet alles vast klaar.",
+          "type": "Bubbly Tip",
+          "tip": "Een goed voorverwarmde oven zorgt dat de koeken meteen gaan bubbelen in plaats van slap uit te zakken."
+        },
+        {
+          "werkwoord": "Hak",
+          "beschrijving": "Hak de pinda's grof met een groot mes of een paar korte pulsen in de hakmolen. Meng ze in een kom met de suiker, de bloem en het zout.",
+          "type": "Chaos Alert",
+          "tip": "Te lang malen = pindakaas in je hakmolen. Kort pulsen en grove stukjes laten zitten: daar zit juist de bite."
+        },
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Voeg het eiwit toe en schep het snel maar grondig door het pindamengsel, tot alles nat en kleverig is. Niet kloppen, alleen goed mengen.",
+          "type": "Bubbly Tip",
+          "tip": "Dit is een van de weinige koekjesrecepten waar beslag niet hoeft te rusten — sterker nog: hoe sneller de oven in, hoe beter."
+        }
+      ]
+    },
+    {
+      "naam": "BERGJES & RUIMTE",
+      "doel": "gelijke bergjes op de plaat zetten met genoeg ruimte om uit te lopen.",
+      "stappen": [
+        {
+          "werkwoord": "Weeg",
+          "beschrijving": "Zet de kom op de weegschaal en haal er steeds ongeveer 25 g beslag af. Zo worden alle koeken even groot en even gaar.",
+          "type": "Bubbly Tip",
+          "tip": "Even grote koeken = één baktijd voor allemaal. Geen randje verbrand en een middentje nog zacht."
+        },
+        {
+          "werkwoord": "Verdeel",
+          "beschrijving": "Schep met 2 eetlepels ongeveer 8 bergjes op de bakplaat en maak ze zo rond mogelijk. Laat flink veel ruimte ertussen.",
+          "type": "Chaos Alert",
+          "tip": "Ze worden in de oven zo'n 2 keer zo groot. Te dicht op elkaar = één grote pindaplaat (ook lekker, maar dan in stukken breken)."
+        },
+        {
+          "werkwoord": "Schuif",
+          "beschrijving": "Zet de bakplaat meteen in het midden van de oven. Wil je meer koeken? Bak dan liever meerdere platen na elkaar dan alles op één plaat te proppen.",
+          "type": "Bubbly Tip",
+          "tip": "Verdubbelen mag gerust: maak het beslag dubbel en bak twee platen na elkaar."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & KNAPPEREN",
+      "doel": "goudbruin bakken en laten afkoelen tot ze echt knapperig zijn.",
+      "stappen": [
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de koeken in ongeveer 12 minuten goudbruin en flink bubbelend. Ovens verschillen, dus kijk de laatste minuten even mee.",
+          "type": "Chaos Alert",
+          "tip": "Ze zien er uit de oven nog zacht uit — dat hoort zo. Het knapperige komt pas tijdens het afkoelen."
+        },
+        {
+          "werkwoord": "Til",
+          "beschrijving": "Til het bakpapier met de koeken erop van de bakplaat en laat ze op een rooster helemaal afkoelen en knapperig worden.",
+          "type": "Bubbly Tip",
+          "tip": "Op een hete bakplaat blijven ze doorbakken; op het rooster koelen ze snel en gelijkmatig af."
+        },
+        {
+          "werkwoord": "Bewaar",
+          "beschrijving": "Schuif de afgekoelde koeken voorzichtig los met een paletmes of kaasschaaf — ze kunnen een beetje plakken. Doe ze direct in een metalen trommel.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: breekt er eentje? Dat is officieel het proefstuk voor de bakker."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Meteen na het afkoelen in een goed sluitende metalen trommel; zo blijven ze een paar dagen knapperig. In een plastic bakje of open op tafel worden ze snel zacht.",
+  "variaties": [
+    "Een snufje kaneel of speculaaskruiden door het pindamengsel",
+    "Gezouten pinda's met minder extra zout, voor een zout-zoete koek",
+    "De afgekoelde koeken voor de helft dippen in gesmolten pure chocolade",
+    "Een deel van de suiker vervangen door lichtbruine basterdsuiker voor een karamelachtige smaak",
+    "Kleine bergjes van ± 10 g voor mini-pindakoekjes bij de koffie (baktijd korter, kijk goed mee)"
+  ],
+  "bekentenis": "Wist je dat de pinda eigenlijk helemaal geen noot is? Het is een peulvrucht, familie van de erwt en de boon, en hij groeit onder de grond in plaats van aan een boom. Ons woord 'pinda' reisde mee via Suriname en komt oorspronkelijk uit Centraal-Afrika. Mijn eigen Proud Disaster: de eerste keer zette ik alle bergjes keurig netjes naast elkaar. Uit de oven kwam één gigantische, bubbelende pindakoek ter grootte van de bakplaat. Ik heb hem in stukken gebroken en 'pindabrosse' genoemd — er bleef geen kruimel over.",
+  "mantra": "Grof hakken, snel scheppen, ruimte laten. Knapperig komt met afkoelen.",
+  "bron": [
+    "BRON: gedrukt kookboekrecept 'Brosse pindakoeken' (± 8 stuks, 180 °C, ± 12 min) — FA-F94C7V (fien-v15)",
+    "Hoeveelheden volgen het kookboekrecept (75 g pinda's, 75 g suiker, 20 g bloem, 1 eiwit, snuf zout); stappen in eigen woorden. Tijden en ovens zijn richting, geen wet."
+  ]
+}
