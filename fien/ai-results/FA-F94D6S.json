@@ -1,0 +1,118 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-F94D6S",
+  "titel": "Brosse pindakoeken",
+  "ondertitel": "Grote, knapperige koeken bomvol pinda's — vier ingrediënten, één kom, geen mixer",
+  "tags": [
+    "koekjes",
+    "pinda",
+    "brosse koek",
+    "snel",
+    "één kom",
+    "eiwit-recept"
+  ],
+  "ingredienten": [
+    "75 g ongezouten pinda's",
+    "75 g suiker",
+    "20 g bloem",
+    "1 eiwit",
+    "flinke snuf zout"
+  ],
+  "benodigdheden": [
+    "Keukenweegschaal",
+    "Groot mes en snijplank (of hakmolentje)",
+    "Mengkom + spatel",
+    "2 eetlepels",
+    "Bakplaat met bakpapier",
+    "Rooster",
+    "Paletmes of kaasschaaf",
+    "Metalen trommel om te bewaren"
+  ],
+  "fases": [
+    {
+      "naam": "KLAARZETTEN",
+      "doel": "alles klaar hebben, zodat het beslag straks meteen de oven in kan.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 180 °C en bekleed een bakplaat met bakpapier. Dit recept is voor één bakplaat (± 8 koeken).",
+          "type": "Bubbly Tip",
+          "tip": "Wil je er meer? Verdubbel gerust, maar bak per plaat — ze hebben echt ruimte nodig."
+        },
+        {
+          "werkwoord": "Hak",
+          "beschrijving": "Hak de pinda's grof. Je wilt flinke stukjes, geen pindameel.",
+          "type": "Bubbly Tip",
+          "tip": "Hakmolentje? Kort pulsen, niet laten draaien — anders heb je zo pindakaas."
+        },
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Doe de gehakte pinda's in een kom en meng ze met de suiker, de bloem en een flinke snuf zout.",
+          "type": "Bubbly Tip",
+          "tip": "Dat snufje zout is geen bijzaak: het maakt de pinda en de karamelsmaak veel voller."
+        }
+      ]
+    },
+    {
+      "naam": "BESLAG",
+      "doel": "een nat, kleverig beslag maken en ruime bergjes op de plaat zetten.",
+      "stappen": [
+        {
+          "werkwoord": "Roer",
+          "beschrijving": "Voeg het eiwit toe en schep alles snel maar grondig door elkaar tot een nat, kleverig beslag. Opkloppen is niet nodig.",
+          "type": "Chaos Alert",
+          "tip": "Ziet het er te nat uit? Dat hoort zo. Niet extra bloem toevoegen, dan worden ze niet bros."
+        },
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Schep met twee lepels ± 8 bergjes op de bakplaat. Zet ze een flink eind uit elkaar: in de oven worden ze ongeveer twee keer zo groot.",
+          "type": "Chaos Alert",
+          "tip": "Te dicht op elkaar = één grote pindaplaat. Ook lekker, maar dan breek je hem achteraf in stukken."
+        },
+        {
+          "werkwoord": "Weeg",
+          "beschrijving": "Wil je ze allemaal even groot? Zet de kom op de weegschaal en haal er steeds ± 25 g uit. Duw de bergjes eventueel netjes rond.",
+          "type": "Bubbly Tip",
+          "tip": "Dit beslag hoeft niet te rusten — hoe sneller de plaat de oven in gaat, hoe beter."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & AFKOELEN",
+      "doel": "goudbruine, bubbelende koeken bakken die knapperig worden op het rooster.",
+      "stappen": [
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de koeken in het midden van de oven in ± 12 minuten goudbruin en flink bubbelend.",
+          "type": "Bubbly Tip",
+          "tip": "Ovens verschillen: kijk vanaf minuut 10 mee. Goudbruin is goed, donkerbruin wordt bitter."
+        },
+        {
+          "werkwoord": "Til",
+          "beschrijving": "Til het bakpapier met koeken en al van de plaat en laat ze afkoelen op een rooster. Pas als ze koud zijn worden ze echt knapperig.",
+          "type": "Chaos Alert",
+          "tip": "Warm zijn ze nog zacht en buigzaam. Niet schrikken — geduld maakt ze bros."
+        },
+        {
+          "werkwoord": "Schuif",
+          "beschrijving": "Plakken ze een beetje aan het papier? Schuif ze er voorzichtig af met een paletmes of kaasschaaf. Bewaar ze meteen in een metalen trommel.",
+          "type": "Bubbly Tip",
+          "tip": "Brokje afgebroken? Proud Disaster™ — dat is gewoon de proefkoek voor de bakker."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Laat ze helemaal afkoelen en bewaar ze meteen in een goed sluitende metalen trommel; in plastic of in de open lucht worden ze snel zacht. Zacht geworden? Een paar minuten in een warme oven en na afkoelen zijn ze weer knapperig.",
+  "variaties": [
+    "Gezouten pinda's en dan het snufje zout weglaten",
+    "Een deel van de pinda's vervangen door hazelnoten of amandelen",
+    "Een snufje kaneel of wat vanille door het beslag",
+    "De onderkant na afkoelen in gesmolten pure chocolade dippen",
+    "Mini-koekjes met een theelepel (kortere baktijd, goed opletten)"
+  ],
+  "bekentenis": "Pindakoeken zijn eigenlijk familie van de Hollandse noten- en amandelkoeken uit grootmoeders trommel: suiker, eiwit en noten, meer niet. Mijn eerste plaat liep zó uit dat ik één reuzenkoek had. Ik heb hem in stukken gebroken en 'pindabros' genoemd. Hij was op voordat hij koud was.",
+  "mantra": "Grof hakken, snel scheppen, ruim leggen. Het rooster maakt ze bros.",
+  "bron": [
+    "BRON: kookboekpagina 'Brosse pindakoeken' (boektitel niet zichtbaar) — hoeveelheden, oventemperatuur en baktijd overgenomen; stappen en tips in eigen woorden."
+  ]
+}
