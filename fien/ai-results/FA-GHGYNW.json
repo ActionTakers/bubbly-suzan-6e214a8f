@@ -1,0 +1,112 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-GHGYNW",
+  "titel": "Kruimeldeeg",
+  "ondertitel": "De basis-crumble die bijna altijd lukt: bloem, suiker en koude boter tot licht bonkige kruimels. Strooi het over fruit, een plaatkoek of een ovenschotel en de oven doet de rest. Voor ± 1 laag kruimels (een ovenschaal van ± 20 cm)",
+  "tags": ["basis", "crumble", "kruimeldeeg", "fruit", "vriezer", "varianten"],
+  "ingredienten": [
+    "100 g bloem",
+    "75 g koude boter, in blokjes",
+    "50 g suiker",
+    "Snufje zout",
+    "Optioneel voor kaneelkruimeldeeg: ½ theelepel kaneel",
+    "Optioneel voor havermoutkruimeldeeg: 30 g havermout",
+    "Optioneel voor pistachekruimeldeeg: 25 g grofgehakte pistachenootjes"
+  ],
+  "benodigdheden": [
+    "Kom",
+    "Keukenweegschaal",
+    "Mesje of plank voor de boterblokjes",
+    "Eventueel een keukenmachine met pulse-knop",
+    "Vriezerzakje of bakje (als je een voorraadje maakt)"
+  ],
+  "fases": [
+    {
+      "naam": "KLAARZETTEN",
+      "doel": "alles koud en afgewogen klaar hebben voor je begint.",
+      "stappen": [
+        {
+          "werkwoord": "Weeg",
+          "beschrijving": "Weeg de bloem, suiker en het zout af en doe ze samen in een kom.",
+          "type": "Bubbly Tip",
+          "tip": "De exacte hoeveelheden zijn hier vergevingsgezind. Een paar grammetjes meer of minder? Je krijgt nog steeds kruimels."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Snijd de boter rechtstreeks uit de koelkast in kleine blokjes.",
+          "type": "Chaos Alert",
+          "tip": "Koude boter is het hele geheim. Zachte boter wordt een pasta in plaats van kruimels, dus laat hem tot het laatste moment in de koelkast."
+        },
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Roer de droge ingrediënten even door elkaar, zodat het zout en de suiker goed verdeeld zijn. Kies je een variant met kaneel, havermout of pistache? Meng die er nu ook door.",
+          "type": "Bubbly Tip",
+          "tip": "Even goed mengen voorkomt dat je straks een zoute of extra zoete hap in je crumble hebt."
+        }
+      ]
+    },
+    {
+      "naam": "KRUIMELEN",
+      "doel": "licht bonkige kruimels maken: niet te fijn, niet te grof.",
+      "stappen": [
+        {
+          "werkwoord": "Wrijf",
+          "beschrijving": "Voeg de boterblokjes toe en wrijf ze met je vingertoppen door de bloem tot het op kruimels lijkt.",
+          "type": "Bubbly Tip",
+          "tip": "Gebruik alleen je vingertoppen, niet je warme handpalmen. Dan blijft de boter koud en de kruimel luchtig."
+        },
+        {
+          "werkwoord": "Pulse",
+          "beschrijving": "Liever de keukenmachine? Doe alles erin en druk maar een paar keer kort op de pulse-knop, tot je fijne kruimels hebt met hier en daar een groter bonkje.",
+          "type": "Chaos Alert",
+          "tip": "Een keukenmachine gaat razendsnel. Een paar tellen te lang en je hebt één grote deegbal. Kort pulsen en tussendoor kijken."
+        },
+        {
+          "werkwoord": "Check",
+          "beschrijving": "Kijk naar je kruimels. Te veel bonken? Voeg een paar lepels bloem en eventueel wat suiker toe en meng opnieuw. Blijft het juist poeder? Wriemel dan nog wat langer met je vingers, zodat de boter de bloem goed pakt.",
+          "type": "Bubbly Tip",
+          "tip": "Mooie kruimels zijn een mix van zandkorrels en erwtgrote bonkjes. Precies die bonkjes worden knapperig in de oven."
+        }
+      ]
+    },
+    {
+      "naam": "STROOIEN & BEWAREN",
+      "doel": "de kruimels gebruiken of slim bewaren voor later.",
+      "stappen": [
+        {
+          "werkwoord": "Strooi",
+          "beschrijving": "Strooi de kruimels losjes over fruit in een ovenschaal, over een plaatkoek of over een taart. Niet aandrukken.",
+          "type": "Bubbly Tip",
+          "tip": "Losjes strooien geeft een knapperige bovenkant. Aandrukken geeft een dichte, harde korst."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak het geheel tot de kruimels goudbruin en knapperig zijn. Volg daarvoor de oventemperatuur en tijd van het recept waar je de kruimels op gebruikt.",
+          "type": "Chaos Alert",
+          "tip": "Kruimels kleuren op het eind ineens snel. Kijk de laatste minuten even mee; worden ze te donker, leg dan losjes een velletje bakpapier erover."
+        },
+        {
+          "werkwoord": "Vries",
+          "beschrijving": "Maak gerust een dubbele hoeveelheid en bewaar de rest in een zakje of bakje in de vriezer. Je kunt de kruimels bevroren over je gerecht strooien en meteen de oven in zetten.",
+          "type": "Bubbly Tip",
+          "tip": "Een zakje kruimels in de vriezer is je geheime wapen: in vijf minuten staat er een crumble in de oven."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Ongebakken kruimels kun je goed invriezen in een afgesloten zakje of bakje en bevroren gebruiken. Gebakken crumble is het lekkerst op de dag zelf; daarna wordt de bovenkant wat zachter.",
+  "variaties": [
+    "Kaneelkruimeldeeg: plus ½ theelepel kaneel",
+    "Havermoutkruimeldeeg: plus 30 g havermout",
+    "Pistachekruimeldeeg: plus 25 g grofgehakte pistachenootjes",
+    "Rasp van citroen, limoen of sinaasappel",
+    "Gemberpoeder of speculaaskruiden",
+    "Amandelschaafsel of gehakte walnoten, pecannoten of hazelnoten"
+  ],
+  "bekentenis": "Wist je dat de crumble in de Tweede Wereldoorlog in Groot-Brittannië populair werd? Boter, bloem en suiker waren op de bon, en voor een echte taartbodem had je er te veel van nodig. Een handje kruimels over het fruit was zuiniger en net zo lekker. Mijn eigen Proud Disaster: ik liet de keukenmachine vrolijk doordraaien terwijl ik de appels sneed. Toen ik terugkeek, zat er geen kruimel meer in, maar één glimmende deegbal. Ik heb hem toch maar uitgerold: koekjes! Sindsdien sta ik naast de pulse-knop.",
+  "mantra": "Koude boter, losse vingers, bonkjes zijn goed.",
+  "bron": [
+    "BRON: gedrukt kookboekrecept 'Kruimeldeeg' (100 g bloem, 75 g koude boter, 50 g suiker, snufje zout; varianten kaneel, havermout, pistache) — FA-GHGYNW (fien-v15)",
+    "Hoeveelheden en varianten volgen het kookboekrecept; stappen in eigen woorden. Het kookboek geeft geen oventijd: bak volgens het recept waarop je de kruimels gebruikt."
+  ]
+}
