@@ -32,7 +32,7 @@ L.push({k:'knoei',t:'Knoeimoment 🎉',d:'Eén leuk foutje of knoeimoment. Knoei
 /* ---------- navigatie ---------- */
 const TABS=[['home','🏠','Start'],['rec','✨','Recepten'],['bak','📸','Bakken'],['site','🌐','Site'],['meer','⋯','Meer']];const MEER=['plan','besl','content','meer','zelf'];
 let tab='home',shownTab='';function go(t){tab=t;render();scrollTo(0,0)}
-function navR(){$('#nav').innerHTML=TABS.map(([k,i,l])=>`<button class="${k==tab||(k=='meer'&&MEER.includes(tab)&&tab!='meer')?'on':''}" onclick="go('${k}')" aria-current="${k==tab?'page':'false'}"><b aria-hidden="true">${i}</b>${l}</button>`).join('')}
+function navR(){$('#nav').innerHTML=TABS.map(([k,i,l])=>`<button class="${k==tab||(k=='meer'&&MEER.includes(tab)&&tab!='meer')?'on':''}" onclick="go('${k}')" aria-current="${k==tab?'page':'false'}"><span class="nav-ico"><b aria-hidden="true">${i}</b>${(typeof navBadge==='function'&&navBadge(k))?'<i class="nav-dot" aria-hidden="true"></i>':''}</span>${l}</button>`).join('')}
 async function render(){navR();const v=$('#view');const switched=shownTab!==tab;shownTab=tab;v.innerHTML=await VIEWS[tab]();if(switched){v.classList.remove('is-in');void v.offsetWidth;v.classList.add('is-in')}VIEWS[tab].after&&VIEWS[tab].after()}
 
 const TIPS=['Rustig aan: één stap tegelijk, ik vink mee af.','Daglicht van opzij maakt boterkoek extra goudbruin op foto.','Knoeien = winnen. Bakken = feestje.','Een korte notitie na elke stap scheelt later veel zoeken.','Liever drie echte foto’s dan tien perfecte.','Even pauze? De timer houdt de oven voor je in de gaten.'];
@@ -47,21 +47,23 @@ function berichtGelezen(id){if(!id)return;const a=berichtenGelezen();if(!a.inclu
 function berichtAntwoord(id){const b=(window._berichten||[]).find(x=>x.id===id);const tekst=(b&&typeof b.antwoord==='string')?b.antwoord:'';
  if(typeof aiDraft!=='undefined')aiDraft.idee=tekst;go('rec');
  setTimeout(()=>{const t=$('#ai-idee');if(t){t.value=tekst;t.focus();try{t.setSelectionRange(tekst.length,tekst.length)}catch(e){}}},50)}
-async function loadBerichten(){try{const r=await fetch('berichten.json',{cache:'no-store'});if(!r.ok)return[];const j=await r.json();return Array.isArray(j)?j.filter(x=>x&&/^[A-Za-z0-9_-]+$/.test(x.id)&&x.t):[]}catch(e){return[]}}
+async function loadBerichten(){try{const r=await fetch('berichten.json',{cache:'no-store'});if(!r.ok)return[];const j=await r.json();return Array.isArray(j)?j.filter(x=>x&&/^[A-Za-z0-9_-]+$/.test(x.id)&&x.t&&x.status!=='beantwoord'&&x.verborgen!==true):[]}catch(e){return[]}}
 function berichtCards(list){const seen=berichtenGelezen();window._berichten=list;
  return list.filter(x=>!seen.includes(x.id)).map(x=>`<div class="card tip bericht"><img src="img/fien-blij-160w.webp" alt=""><div class="grow"><b>Bericht van Fien</b><div>${esc(x.t)}</div><p class="row" style="margin:10px 0 0"><button type="button" class="btn s xs" onclick="berichtAntwoord('${x.id}')">Antwoord Fien</button><button type="button" class="btn ghost xs" onclick="berichtGelezen('${x.id}')">Gelezen ✓</button></p></div></div>`).join('')}
 
 /* ---------- Start ---------- */
 const VIEWS={};
 VIEWS.home=async()=>{const berichten=await loadBerichten();const s=await cur();const p=s?await progress(s):null;const tasks=(await get('tasks')||[]).filter(t=>!t.done).sort((a,b)=>a.d>b.d?1:-1).slice(0,2);
- const reqs=(await get('aiReq'))||[];const open=reqs.filter(x=>x.status=='bezig');const vraag=reqs.filter(x=>x.status=='vraag'||(x.status=='bezig'&&x.verzonden===false));const busy=open.filter(x=>x.verzonden!==false);const klaar=reqs.filter(x=>x.status=='klaar'&&x.recept&&Date.now()-Date.parse(x.klaar||x.t)<3*864e5).slice(0,3);const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
+ const reqs=(await get('aiReq'))||[];const open=reqs.filter(x=>x.status=='bezig');const vraag=reqs.filter(x=>x.status=='vraag'||(x.status=='bezig'&&x.verzonden===false));const busy=open.filter(x=>x.verzonden!==false);const klaar=reqs.filter(x=>x.status=='klaar'&&x.recept&&Date.now()-Date.parse(x.klaar||x.t)<3*864e5).slice(0,3);const berKlaar=reqs.filter(x=>x.status=='klaar'&&x.type==='bericht'&&Date.now()-Date.parse(x.klaar||x.t)<3*864e5).slice(0,3);const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
+ const busyKind=busy[0]&&(typeof aiKind==='function'?aiKind(busy[0]):(busy[0].verzonden===true?'opgepakt':'verstuurd'));
  return `${berichtCards(berichten)}${tipLine()}
 <div class="card hero"><h2 style="font-size:26px;margin:0">Nieuw recept vragen</h2>
  <p style="margin:8px 0 6px;font-size:15px">Schrijf op wat je wilt bakken. Fien maakt er een recept van, jij kijkt of het klopt.</p>
  <button class="btn xl" onclick="go('rec')">Vraag Fien</button>
  ${klaar.length?`<div class="ai-banner klaar"><div class="ai-banner-t"><span class="ai-pill klaar">Klaar ✓</span><b>Je recept is klaar</b></div>${klaar.map(q=>`<div class="ai-banner-row"><span class="grow">${esc(q.titel||q.idee)}</span><button class="btn xs" onclick="PID='${q.recept}';PST=null;go('rec')">Bekijk recept</button></div>`).join('')}</div>`:''}
+ ${berKlaar.length?`<div class="ai-banner klaar"><div class="ai-banner-t"><span class="ai-pill klaar">✅ Ontvangen</span><b>Bericht van Fien</b></div>${berKlaar.map(q=>`<div class="ai-banner-row"><span class="grow">${esc(q.bericht||q.idee||'Fien heeft iets voor je')}</span><button class="btn xs" onclick="go('rec')">Bekijk</button></div>`).join('')}</div>`:''}
  ${vraag.length?`<div class="ai-banner vraag"><div class="ai-banner-t"><span class="ai-pill vraag">Fien vraagt iets</span><b>${esc(vraag[0].titel||vraag[0].idee||'Je vraag')}</b></div><button class="btn s xs" onclick="go('rec')">Bekijk</button></div>`:''}
- ${busy.length?`<div class="ai-banner bezig"><div class="ai-banner-t"><span class="ai-pill bezig">Fien schrijft…</span><b>${esc(busy[0].idee||'Je vraag')}</b></div>${busy.length>1?`<small>En nog ${busy.length-1}.</small>`:''}</div>`:''}
+ ${busy.length?`<div class="ai-banner ${busyKind}"><div class="ai-banner-t"><span class="ai-pill ${busyKind}">${busyKind==='verstuurd'?'Verstuurd ✓':'Fien pakt het op…'}</span><b>${esc(busy[0].idee||'Je vraag')}</b></div>${busy.length>1?`<small>En nog ${busy.length-1}.</small>`:''}</div>`:''}
  ${openPipe?`<div class="note" style="margin-top:8px"><b>Nog te keuren:</b> ${esc(openPipe.title||'recept')}<br><button class="btn s xs" onclick="PID='${openPipe.id}';PST=null;go('rec')">Verder goedkeuren</button></div>`:''}
 </div>
 <div class="card soft"><div class="row"><h2 class="grow" style="font-size:20px">Bakken vandaag</h2></div>
