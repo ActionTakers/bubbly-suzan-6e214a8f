@@ -1,0 +1,118 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-GISDVV",
+  "titel": "Sachertorte met abrikozenjam",
+  "ondertitel": "De beroemde Weense chocoladetaart: een smeuïge chocoladecake met amandel, gevuld en bestreken met abrikozenjam en afgemaakt met een glanzende chocoladeganache. Voor 10 personen (ronde springvorm Ø 22 cm)",
+  "tags": ["taart", "chocolade", "abrikoos", "Wenen", "springvorm", "feest", "klassieker"],
+  "ingredienten": [
+    "175 g pure chocolade (voor het beslag)",
+    "150 g roomboter",
+    "150 g suiker",
+    "4 eieren, op kamertemperatuur",
+    "125 g bloem",
+    "40 g amandelmeel",
+    "1 theelepel bakpoeder",
+    "200 g abrikozenjam",
+    "150 g pure chocolade (voor het glazuur)",
+    "125 ml slagroom",
+    "Boter voor de vorm"
+  ],
+  "benodigdheden": [
+    "Ronde springvorm (Ø 22 cm)",
+    "Bakpapier",
+    "Pan en hittebestendige kom (au bain-marie)",
+    "Grote kom",
+    "Mixer",
+    "Spatel",
+    "Lang gekarteld mes",
+    "Steelpannetje",
+    "Taartrooster"
+  ],
+  "fases": [
+    {
+      "naam": "KLAARZETTEN",
+      "doel": "oven warm, vorm klaar en chocolade gesmolten.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 170 °C. Vet de springvorm in en leg een rondje bakpapier op de bodem.",
+          "type": "Bubbly Tip",
+          "tip": "Zet de eieren op tijd buiten de koelkast: eieren op kamertemperatuur kloppen veel luchtiger op."
+        },
+        {
+          "werkwoord": "Smelt",
+          "beschrijving": "Smelt 175 g chocolade met de boter au bain-marie: in een kom boven een pan zacht kokend water. Roer tot het glad is en laat het iets afkoelen.",
+          "type": "Chaos Alert",
+          "tip": "Laat de kom het water niet raken en houd stoom en waterdruppels weg. Eén druppel water en je chocolade wordt korrelig en stug."
+        },
+        {
+          "werkwoord": "Weeg",
+          "beschrijving": "Weeg de bloem, het amandelmeel en het bakpoeder af en meng ze alvast in een schaaltje.",
+          "type": "Bubbly Tip",
+          "tip": "Alles klaar hebben staan voordat je gaat kloppen betekent dat je luchtige eimassa straks niet hoeft te wachten."
+        }
+      ]
+    },
+    {
+      "naam": "BESLAG & BAKKEN",
+      "doel": "een luchtige, smeuïge chocoladecake.",
+      "stappen": [
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Klop de eieren met de suiker met de mixer luchtig en licht van kleur. Meng daarna de lauwe chocolade-botermassa erdoor.",
+          "type": "Bubbly Tip",
+          "tip": "Klop een paar minuten door: hoe luchtiger de eimassa, hoe lichter je taart."
+        },
+        {
+          "werkwoord": "Spatel",
+          "beschrijving": "Spatel het bloemmengsel in twee keer voorzichtig door het beslag, tot je geen meel meer ziet.",
+          "type": "Chaos Alert",
+          "tip": "Vanaf hier niet meer mixen. Te hard roeren slaat alle lucht eruit en dan wordt de taart plat en compact."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Giet het beslag in de vorm en bak de taart in 45 tot 50 minuten gaar. Laat hem daarna helemaal afkoelen op een rooster.",
+          "type": "Chaos Alert",
+          "tip": "Prik met een satéprikker in het midden: komen er nog maar een paar vochtige kruimels mee, dan is hij goed. Warm snijden? Dan brokkelt hij uit elkaar."
+        }
+      ]
+    },
+    {
+      "naam": "VULLEN & GLAZUREN",
+      "doel": "een gevulde taart met een glanzend chocoladejasje.",
+      "stappen": [
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Snijd de afgekoelde taart met een lang gekarteld mes horizontaal doormidden.",
+          "type": "Bubbly Tip",
+          "tip": "Steek rondom een paar prikkers op halve hoogte als hulplijn en draai de taart rustig rond terwijl je zaagt."
+        },
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Bestrijk de onderste helft met abrikozenjam, leg de bovenste helft erop en bestrijk ook de bovenkant (en rand) dun met jam.",
+          "type": "Bubbly Tip",
+          "tip": "Verwarm de jam even en zeef hem: dan smeert hij dun en glad en blijven er geen stukjes onder je glazuur zitten."
+        },
+        {
+          "werkwoord": "Glazuur",
+          "beschrijving": "Verwarm de slagroom tot net tegen de kook aan, haal van het vuur en smelt hierin de overige 150 g chocolade. Roer glad, giet over de taart en laat opstijven.",
+          "type": "Chaos Alert",
+          "tip": "Giet in één keer midden op de taart en strijk zo min mogelijk na: dan blijft het glazuur spiegelglad. Te dun? Laat het een paar minuten afkoelen voor je giet."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt op een koele plek blijft de taart een paar dagen lekker; de jam houdt hem mooi smeuïg. Haal hem uit de koelkast op tijd naar kamertemperatuur, dan proef je de chocolade het best.",
+  "variaties": [
+    "Serveer met een flinke toef ongezoete slagroom, zoals in Wenen",
+    "Schrijf met gesmolten chocolade 'Sacher' op het opgestijfde glazuur",
+    "Vervang de abrikozenjam door frambozenjam voor een frissere taart",
+    "Bak er kleine taartjes van in een muffinvorm (korter bakken)"
+  ],
+  "bekentenis": "Wist je dat de Sachertorte in 1832 werd bedacht door een zestienjarige leerling-kok, Franz Sacher? De chef van het hof lag ziek in bed en Franz moest een toetje maken voor een deftig diner. Later vochten Hotel Sacher en banketbakkerij Demel jarenlang in de rechtszaal om wie de 'echte' mocht verkopen. Mijn eigen Proud Disaster: ik goot mijn glazuur veel te heet over de taart, het liep als een chocoladewaterval van de rand en op het aanrecht. Ik heb de taart toch geserveerd en iedereen schepte het glazuur van het bord. Sindsdien laat ik het eerst even rusten.",
+  "mantra": "Luchtig kloppen, rustig spatelen, glanzend gieten.",
+  "bron": [
+    "BRON: gedrukt kookboekrecept 'Sachertorte met abrikozenjam' (p. 36) — FA-GISDVV (fien-v15)",
+    "Hoeveelheden, oventemperatuur en baktijd volgen het kookboekrecept; stappen en tips in eigen woorden."
+  ]
+}
