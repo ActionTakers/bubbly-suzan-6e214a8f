@@ -1,0 +1,123 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-GHDUJN",
+  "titel": "Pecan pie met karamel",
+  "ondertitel": "Meer koek dan taart: een krokante zandbodem vol knapperige pecannoten en een supersimpele zoute karamel die de oven voor je maakt. Voor ± 12-15 stukjes (vierkante vorm 20×20 cm)",
+  "tags": [
+    "taart",
+    "koek",
+    "pecannoten",
+    "karamel",
+    "fleur de sel",
+    "plaatkoek",
+    "uitdelen"
+  ],
+  "ingredienten": [
+    "Bodem: 250 g bloem",
+    "Bodem: 175 g boter op kamertemperatuur",
+    "Bodem: 75 g suiker",
+    "Bodem: snufje zout",
+    "Vulling: 200 g pecannoten",
+    "Vulling: 1 blikje gezoete gecondenseerde melk (± 400 g)",
+    "Vulling: snuf fleur de sel (knisperzout)",
+    "Extra boter en bloem voor de vorm"
+  ],
+  "benodigdheden": [
+    "Vierkante bakvorm van 20×20 cm (rond mag ook, liever geen springvorm)",
+    "Bakpapier",
+    "Kwastje",
+    "Grote kom",
+    "Vork",
+    "Keukenweegschaal",
+    "Scherp mes",
+    "Rooster"
+  ],
+  "fases": [
+    {
+      "naam": "VORM & KRUIMEL",
+      "doel": "de vorm klaarzetten en een zandig, snel deeg maken.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 180 °C. Kwast de vierkante vorm in met boter, leg een velletje bakpapier op de bodem en bestuif de randen met bloem.",
+          "type": "Chaos Alert",
+          "tip": "Geen springvorm gebruiken: de karamel is vloeibaar als hij de oven in gaat en vindt elk kiertje. Een dichte vorm bespaart je een plakkerige oven."
+        },
+        {
+          "werkwoord": "Wrijf",
+          "beschrijving": "Meng de bloem, suiker en het zout in een kom. Wrijf de zachte boter er met je vingertoppen doorheen tot het op grove broodkruimels lijkt.",
+          "type": "Bubbly Tip",
+          "tip": "Werk met koele vingertoppen en niet met je hele hand: zo smelt de boter niet en blijft de bodem lekker zandig."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Kneed alles kort tot een min of meer samenhangend deeg. Niet langer dan nodig, het hoeft niet glad te worden.",
+          "type": "Bubbly Tip",
+          "tip": "Kort kneden = bros resultaat. Lang kneden = taai resultaat. Brokkelig is hier dus helemaal goed."
+        }
+      ]
+    },
+    {
+      "naam": "BODEM & VOORBAK",
+      "doel": "een stevige bodem met randje maken die alvast goudgeel bakt.",
+      "stappen": [
+        {
+          "werkwoord": "Duw",
+          "beschrijving": "Duw het deeg met je vingers gelijkmatig uit over de bodem van de vorm en maak langs de kant een klein opstaand randje.",
+          "type": "Chaos Alert",
+          "tip": "Dat randje is je dijk: zonder randje loopt de karamel straks onder de bodem door en plakt alles aan de vorm."
+        },
+        {
+          "werkwoord": "Prik",
+          "beschrijving": "Prik met een vork overal gaatjes in de bodem, zodat hij plat blijft tijdens het bakken.",
+          "type": "Bubbly Tip",
+          "tip": "Druk de bodem gerust even aan met de onderkant van een glas voor een mooi egale laag."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de bodem in ongeveer 20 minuten voor tot hij gaar en lichtgoud is. Haal de vorm uit de oven, maar laat de oven aan.",
+          "type": "Bubbly Tip",
+          "tip": "Voorbakken maakt de bodem knapperig, zodat hij straks niet zacht wordt onder de karamel."
+        }
+      ]
+    },
+    {
+      "naam": "NOTEN & KARAMEL",
+      "doel": "de oven de karamel laten maken en de koek helemaal laten opstijven.",
+      "stappen": [
+        {
+          "werkwoord": "Verdeel",
+          "beschrijving": "Verdeel de pecannoten over de warme bodem en giet de gecondenseerde melk er zo gelijkmatig mogelijk overheen. Strooi de fleur de sel erover.",
+          "type": "Chaos Alert",
+          "tip": "Let op dat de melk niet over het randje loopt; misschien heb je niet het hele blikje nodig. Liever een restje over dan een overstroming."
+        },
+        {
+          "werkwoord": "Karamelliseer",
+          "beschrijving": "Zet de vorm nog ongeveer 25 minuten terug in de oven. De melk gaat hier en daar bubbelen en kleurt langzaam tot karamel.",
+          "type": "Bubbly Tip",
+          "tip": "Magisch, toch? Geen pannetje, geen thermometer: de oven doet het werk. Kijk de laatste minuten even mee, ovens verschillen."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Laat de koek helemaal afkoelen in de vorm, zodat de karamel kan opstijven. Snijd hem daarna in 12 tot 15 kleine stukjes.",
+          "type": "Bubbly Tip",
+          "tip": "Proud Disaster™: snijd je te vroeg, dan glijdt de karamel weg. Geen ramp, dat zijn de proefstukjes voor de bakker."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt of in een trommel op een koele plek; zo blijven de stukjes een paar dagen lekker. Leg bakpapier tussen de lagen, want de karamel kan een beetje plakken.",
+  "variaties": [
+    "Walnoten in plaats van pecannoten",
+    "Extra uitpakken: smelt 75 g pure chocolade en trek er streepjes overheen",
+    "Een ronde vorm in plaats van een vierkante (geen springvorm)",
+    "Een snufje kaneel door het deeg voor een herfstige twist",
+    "Een mix van pecannoten en grof gehakte hazelnoten"
+  ],
+  "bekentenis": "Wist je dat de pecannoot uit Noord-Amerika komt en zijn naam dankt aan een oud Algonquin-woord, 'pacane': een noot die je met een steen moet kraken? Daarom is pecan pie in Amerika dé feesttaart van de herfst. Mijn eigen Proud Disaster: ik dacht slim te zijn en goot het hele blik melk er in één keer op. De karamel klom over het randje, liep onder de bodem door en bakte vast in de ovenbodem. Wat er nog in de vorm zat? Dat was de lekkerste pecan pie ooit. Sindsdien giet ik met beleid.",
+  "mantra": "Kort kneden, randje maken, rustig gieten. De oven doet de karamel.",
+  "bron": [
+    "BRON: gedrukt kookboekrecept 'Pecan pie met karamel' (± 12-15 stukjes, 180 °C, 20 + 25 min, vorm 20×20 cm) — FA-GHDUJN (fien-v15)",
+    "Hoeveelheden volgen het kookboekrecept (250 g bloem, 175 g boter, 75 g suiker, snufje zout; 200 g pecannoten, 1 blikje gecondenseerde melk ± 400 g, snuf fleur de sel); stappen in eigen woorden. Tijden en ovens zijn richting, geen wet."
+  ]
+}
