@@ -1,0 +1,118 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-GHKAHO",
+  "titel": "Appelkruimelcake",
+  "ondertitel": "Een doodgewone cake, maar dan feestelijk: rond gebakken, rijk gevuld met kruidige appel en bedekt met knapperig kaneelkruimeldeeg. Voor ± 8-10 punten (ronde springvorm Ø 22 cm)",
+  "tags": ["cake", "appel", "kruimeldeeg", "kaneel", "kardemom", "springvorm", "herfst"],
+  "ingredienten": [
+    "2 flinke appels (± 500 g)",
+    "½ portie kaneelkruimeldeeg (zie het recept Kruimeldeeg: ± 50 g bloem, ± 38 g koude boter, 25 g suiker, snufje zout en ¼ theelepel kaneel)",
+    "125 g zelfrijzend bakmeel",
+    "75 g amandelmeel",
+    "200 g boter, op kamertemperatuur",
+    "200 g suiker",
+    "4 eieren, op kamertemperatuur",
+    "1 citroen (alleen de rasp)",
+    "½ theelepel kaneel",
+    "1 theelepel gestampte kardemom",
+    "Snufje zout",
+    "Boter en bakmeel voor de vorm"
+  ],
+  "benodigdheden": [
+    "Ronde springvorm (Ø 22 cm)",
+    "Bakpapier",
+    "Grote kom",
+    "Mixer",
+    "Spatel",
+    "Fijne rasp",
+    "Dunschiller en appelboor of mesje",
+    "Taartrooster"
+  ],
+  "fases": [
+    {
+      "naam": "KLAARZETTEN",
+      "doel": "oven warm, vorm klaar en kruimels alvast gemaakt.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 160 °C. Klem een vel bakpapier vast in de springvorm en beboter en bebloem de rand.",
+          "type": "Bubbly Tip",
+          "tip": "Bakpapier onderin vastklemmen tussen bodem en ring is het makkelijkst: dan schuift de cake straks zo van de bodem."
+        },
+        {
+          "werkwoord": "Kruimel",
+          "beschrijving": "Maak een halve portie kaneelkruimeldeeg en zet het in de koelkast tot je het nodig hebt.",
+          "type": "Chaos Alert",
+          "tip": "Koude kruimels blijven mooi bonkig op de cake liggen. Warme kruimels smelten weg in het beslag."
+        },
+        {
+          "werkwoord": "Pak",
+          "beschrijving": "Zet boter en eieren op tijd buiten de koelkast, zodat ze op kamertemperatuur zijn als je begint.",
+          "type": "Bubbly Tip",
+          "tip": "Koude eieren in romige boter laten het beslag schiften. Vergeten? Leg de eieren tien minuten in een kom lauw water."
+        }
+      ]
+    },
+    {
+      "naam": "BESLAG",
+      "doel": "een romig, luchtig beslag met kruidige appelblokjes.",
+      "stappen": [
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Klop de boter, suiker, kaneel en kardemom met de mixer romig in een grote kom. Klop daarna de eieren er één voor één door en rasp de citroenschil erboven fijn.",
+          "type": "Bubbly Tip",
+          "tip": "Neem de tijd voor het romig kloppen: hoe lichter van kleur, hoe luchtiger je cake."
+        },
+        {
+          "werkwoord": "Spatel",
+          "beschrijving": "Doe het zelfrijzend bakmeel, het amandelmeel en het zout erbij en spatel alles nu voorzichtig door elkaar.",
+          "type": "Chaos Alert",
+          "tip": "Vanaf hier niet meer mixen. Doorgeklopt beslag geeft een taaie cake; stoppen zodra je geen meel meer ziet."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Schil de appels, verwijder het klokhuis en snijd ze in kleine blokjes. Spatel de helft van de blokjes door het beslag.",
+          "type": "Bubbly Tip",
+          "tip": "Kleine blokjes zakken minder snel naar de bodem en worden mooi zacht in de oven."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & AFKOELEN",
+      "doel": "een goudbruine, gare cake met knapperige kruimelkroon.",
+      "stappen": [
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Schep het beslag in de vorm en strijk het glad met een spatel. Verdeel de rest van de appelblokjes erover en bestrooi alles met het kruimeldeeg.",
+          "type": "Bubbly Tip",
+          "tip": "Strooi de kruimels losjes en tot aan de rand, dan krijg je overal een knapperig randje."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de cake op een rooster vrij onderin de oven in ± 50-60 minuten gaar.",
+          "type": "Chaos Alert",
+          "tip": "Prik met een satéprikker in het midden: komt hij er droog uit, dan is de cake klaar. Kleuren de kruimels te snel? Leg losjes een vel bakpapier erover."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat de cake een kwartiertje in de vorm rusten, haal dan de ring eraf en laat hem op een rooster verder afkoelen.",
+          "type": "Bubbly Tip",
+          "tip": "Te vroeg uit de vorm en de warme cake kan scheuren. Dat kwartiertje geduld is het waard."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt op een koele plek is de cake een paar dagen lekker; door de appel blijft hij mooi smeuïg. De kruimels worden na de eerste dag wat zachter.",
+  "variaties": [
+    "Geen amandelmeel? Vervang het door 75 g extra zelfrijzend bakmeel",
+    "Meng 100 g rozijnen door het beslag",
+    "Voeg 50 g fijngehakte stemgember toe voor een vleugje pit",
+    "Gebruik peer in plaats van appel"
+  ],
+  "bekentenis": "Wist je dat kardemom na saffraan en vanille een van de duurste specerijen ter wereld is? In Scandinavië gaat het al eeuwen door koffiebrood en cake, en samen met appel en kaneel ruikt je hele huis meteen naar herfst. Mijn eigen Proud Disaster: ik was zo trots op mijn berg kruimels dat ik ze er dik bovenop stapelde. Na een uur was de bovenkant prachtig goudbruin, maar het midden nog vloeibaar. Ik heb er die middag gewoon appelkruimelpudding van gemaakt. Sindsdien vertrouw ik op de satéprikker, niet op de kleur.",
+  "mantra": "Romig kloppen, rustig spatelen, kruimels erop.",
+  "bron": [
+    "BRON: gedrukt kookboekrecept 'Appelkruimelcake' (p. 66) — FA-GHKAHO (fien-v15)",
+    "Hoeveelheden, oventemperatuur en baktijd volgen het kookboekrecept; stappen in eigen woorden. Het kaneelkruimeldeeg verwijst naar het Fien-recept Kruimeldeeg (FA-GHGYNW), halve portie."
+  ]
+}
