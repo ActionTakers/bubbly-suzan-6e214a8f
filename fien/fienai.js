@@ -98,7 +98,7 @@ async function aiPollTick(forceAll){const waiting=(await aiList()).filter(q=>q.s
  for(const q of waiting){const late=aiLate(q);if(late&&!forceAll)continue;
   try{const j=await aiFetchResult(q.id);
    if(!j){if(!late)keep++;continue}
-   if(q.type==='blog'){await aiPatch(q.id,{status:'klaar',klaar:new Date().toISOString(),blog:blogFrom(j)});changed++;continue}
+   if(q.type==='blog'||j.type==='blog'){await aiPatch(q.id,{type:'blog',status:'klaar',klaar:new Date().toISOString(),blog:blogFrom(j)});changed++;continue}
    if(j.vraag&&!Array.isArray(j.fases)){await aiPatch(q.id,{status:'vraag',vraag:String(j.vraag).slice(0,400)});changed++;continue}
    await aiTake(j,{onlyId:q.id});changed++}
   catch(e){const zacht=aiZacht(e);
@@ -116,7 +116,7 @@ function aiWatch(){const gen=++pollGen;clearTimeout(pollTimer);pollDelay=POLL_BA
   pollTimer=setTimeout(run,pollDelay)};
  pollTimer=setTimeout(run,0)}
 async function aiPeek(id){const l=await aiList();const q=l.find(x=>x.id==id);if(!q||q.status!=='bezig'||!AI_ID.test(q.id))return;
- try{const j=await aiFetchResult(q.id);if(j){await aiTake(j,{onlyId:q.id});aiRefresh();return}}catch(e){}
+ try{const j=await aiFetchResult(q.id);if(j){if(q.type==='blog'||j.type==='blog')await aiPatch(q.id,{type:'blog',status:'klaar',klaar:new Date().toISOString(),blog:blogFrom(j)});else await aiTake(j,{onlyId:q.id});aiRefresh();return}}catch(e){}
  aiRefresh();aiWatch()}
 /* kaart — één pad: idee, optioneel foto of link, daarna rustige status */
 let aiDraft={idee:'',link:'',flink:'',bron:'',open:false,file:null};
