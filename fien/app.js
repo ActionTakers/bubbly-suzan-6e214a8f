@@ -40,11 +40,22 @@ const tipLine=()=>`<div class="card tip"><img src="img/fien-blij-160w.webp" alt=
 const PRIV=`<div class="note">🔒 Je baksessies, foto’s en recepten blijven op deze telefoon. Alleen wat je aan Fien vraagt (tekst en eventueel een foto) gaat naar Fien. Iets anders delen doe je zelf (Drive of downloaden).</div>`;
 const ALLERG=`<small>Allergenen check jij altijd zelf; Fien geeft daar geen garanties over.</small>`;
 
+/* ---------- Bericht van Fien (berichten.json, ongelezen bovenaan Start) ---------- */
+const BERICHTEN_KEY='fienBerichtenGelezen';
+function berichtenGelezen(){try{const a=JSON.parse(localStorage.getItem(BERICHTEN_KEY)||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}}
+function berichtGelezen(id){if(!id)return;const a=berichtenGelezen();if(!a.includes(id)){a.push(id);localStorage.setItem(BERICHTEN_KEY,JSON.stringify(a))}render()}
+function berichtAntwoord(id){const b=(window._berichten||[]).find(x=>x.id===id);const tekst=(b&&typeof b.antwoord==='string')?b.antwoord:'';
+ if(typeof aiDraft!=='undefined')aiDraft.idee=tekst;go('rec');
+ setTimeout(()=>{const t=$('#ai-idee');if(t){t.value=tekst;t.focus();try{t.setSelectionRange(tekst.length,tekst.length)}catch(e){}}},50)}
+async function loadBerichten(){try{const r=await fetch('berichten.json',{cache:'no-store'});if(!r.ok)return[];const j=await r.json();return Array.isArray(j)?j.filter(x=>x&&/^[A-Za-z0-9_-]+$/.test(x.id)&&x.t):[]}catch(e){return[]}}
+function berichtCards(list){const seen=berichtenGelezen();window._berichten=list;
+ return list.filter(x=>!seen.includes(x.id)).map(x=>`<div class="card tip bericht"><img src="img/fien-blij-160w.webp" alt=""><div class="grow"><b>Bericht van Fien</b><div>${esc(x.t)}</div><p class="row" style="margin:10px 0 0"><button type="button" class="btn s xs" onclick="berichtAntwoord('${x.id}')">Antwoord Fien</button><button type="button" class="btn ghost xs" onclick="berichtGelezen('${x.id}')">Gelezen ✓</button></p></div></div>`).join('')}
+
 /* ---------- Start ---------- */
 const VIEWS={};
-VIEWS.home=async()=>{const s=await cur();const p=s?await progress(s):null;const tasks=(await get('tasks')||[]).filter(t=>!t.done).sort((a,b)=>a.d>b.d?1:-1).slice(0,2);
+VIEWS.home=async()=>{const berichten=await loadBerichten();const s=await cur();const p=s?await progress(s):null;const tasks=(await get('tasks')||[]).filter(t=>!t.done).sort((a,b)=>a.d>b.d?1:-1).slice(0,2);
  const reqs=(await get('aiReq'))||[];const open=reqs.filter(x=>x.status=='bezig');const vraag=reqs.filter(x=>x.status=='vraag'||(x.status=='bezig'&&x.verzonden===false));const busy=open.filter(x=>x.verzonden!==false);const klaar=reqs.filter(x=>x.status=='klaar'&&x.recept&&Date.now()-Date.parse(x.klaar||x.t)<3*864e5).slice(0,3);const recs=typeof recipes=='function'?await recipes():[];const openPipe=recs.find(r=>!r.voorbeeld&&r.pipe&&pct&&pct(r)<100);
- return `${tipLine()}
+ return `${berichtCards(berichten)}${tipLine()}
 <div class="card hero"><h2 style="font-size:26px;margin:0">Nieuw recept vragen</h2>
  <p style="margin:8px 0 6px;font-size:15px">Schrijf op wat je wilt bakken. Fien maakt er een recept van, jij kijkt of het klopt.</p>
  <button class="btn xl" onclick="go('rec')">Vraag Fien</button>
