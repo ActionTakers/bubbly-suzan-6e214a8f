@@ -2,5 +2,63 @@
   "type": "bericht",
   "verzoek": "FA-GRLNXJ",
   "status": "klaar",
-  "bericht": "Dank je! Ik heb je vluchtdata voor Atlanta ontvangen. Ik zet een klein lijstje voor je klaar met lekkere bakkerijen en waar je de vanille en de kersen voor de cashew taart haalt. 🍰"
+  "titel": "Je Atlanta-lijstje",
+  "bericht": "Hier is je lijstje voor Atlanta: een paar bakkerijen, en waar je kunt kijken voor vanille en kersen voor de cashew taart. Kies wat op je route past, en check even de openingstijden voordat je gaat.",
+  "lijst": [
+    {
+      "kop": "Bakkerijen",
+      "inleiding": "Eén of twee is genoeg. Tik op de kaart om de plek te zoeken.",
+      "items": [
+        {
+          "naam": "The Little Tart Bakeshop",
+          "buurt": "Grant Park, Krog Street Market en Summerhill",
+          "waarom": "Franse gebakjes en seizoensfruit, zoals galettes en croissants.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=The+Little+Tart+Bakeshop+Atlanta"
+        },
+        {
+          "naam": "Henri’s Bakery & Deli",
+          "buurt": "Onder meer Upper Westside, Buckhead en Brookhaven",
+          "waarom": "Een klassieker met gebak, petit fours en taarten. Handig, want er zijn meerdere vestigingen.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=Henri%27s+Bakery+and+Deli+Atlanta"
+        },
+        {
+          "naam": "Star Provisions Market & Cafe",
+          "buurt": "Westside",
+          "waarom": "Bekend om sticky buns en croissants. In het weekend is het daar soms al vroeg druk; als je in de buurt bent, is vroeg langsgaan prettig.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=Star+Provisions+Atlanta"
+        },
+        {
+          "naam": "Sublime Doughnuts",
+          "buurt": "Home Park, 10th Street",
+          "waarom": "Creatieve donuts naast de klassiekers. Check even de locatie en de openingstijden, die kunnen veranderen.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=Sublime+Doughnuts+10th+Street+Atlanta"
+        }
+      ]
+    },
+    {
+      "kop": "Vanille en kersen",
+      "inleiding": "Kijk eens bij de bakafdeling. Wat er in het schap ligt, verschilt per winkel. Een medewerker vragen is vaak het snelst.",
+      "items": [
+        {
+          "naam": "Target",
+          "buurt": "op verschillende plekken in Atlanta",
+          "waarom": "Kijk eens bij de bakafdeling naar vanille-extract. Voor de kersen zoek je op maraschinokersen; op het potje kan een andere naam staan.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=Target+Atlanta"
+        },
+        {
+          "naam": "Kroger",
+          "buurt": "op verschillende plekken in Atlanta",
+          "waarom": "Kijk eens bij de bakafdeling. Handig als je bij Target net niet vindt wat je zoekt.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=Kroger+Atlanta"
+        },
+        {
+          "naam": "Publix",
+          "buurt": "op verschillende plekken in Atlanta",
+          "waarom": "Ook een bakafdeling. Vanille staat meestal bij de extracten; kersen soms bij ijs-toppings.",
+          "maps": "https://www.google.com/maps/search/?api=1&query=Publix+Atlanta"
+        }
+      ]
+    }
+  ],
+  "tip": "Leuk om te filmen: één foto van een bakkerij of van het schap is al genoeg voor later."
 }
