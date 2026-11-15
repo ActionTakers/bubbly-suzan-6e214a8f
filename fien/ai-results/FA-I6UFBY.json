@@ -1,0 +1,115 @@
+{
+  "fienrecept": 1,
+  "verzoek": "FA-I6UFBY",
+  "titel": "Kerstkransjes",
+  "ondertitel": "Hét makkelijke kerstrecept: knapperige boterkoekjes met een gaatje in het midden, bestrooid met amandel of parelsuiker. Lekker bij de koffie én mooi met een lintje in de kerstboom. Voor ongeveer 30 kransjes",
+  "tags": ["kerst", "koekjes", "makkelijk", "boterkoekjes", "kerstboom", "uitdeelcadeautje", "klassieker"],
+  "ingredienten": [
+    "250 g bloem",
+    "175 g koude roomboter, in blokjes",
+    "100 g fijne kristalsuiker of poedersuiker",
+    "1 zakje vanillesuiker",
+    "1 snufje zout",
+    "Geraspte schil van ½ citroen",
+    "1 ei (de helft voor het deeg, de rest om te bestrijken)",
+    "Amandelschaafsel en/of parelsuiker om te bestrooien",
+    "Dun rood lint om op te hangen (optioneel)"
+  ],
+  "benodigdheden": [
+    "Grote kom",
+    "Huishoudfolie",
+    "Deegroller",
+    "Gekartelde of ronde uitsteker (± 6 cm)",
+    "Kleine ronde uitsteker of appelboor voor het gaatje",
+    "2 bakplaten met bakpapier",
+    "Kwastje",
+    "Taartrooster"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG MAKEN",
+      "doel": "een soepel, koel botertje-deeg.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Meng de bloem, suiker, vanillesuiker, het zout en de citroenrasp in een grote kom.",
+          "type": "Bubbly Tip",
+          "tip": "Citroenrasp is het geheime randje: je proeft het niet als citroen, maar je kransjes smaken ineens veel frisser."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Klop het ei los. Voeg de koude boterblokjes en de helft van het ei toe en kneed snel tot een glad deeg. Bewaar de rest van het ei in de koelkast.",
+          "type": "Chaos Alert",
+          "tip": "Niet te lang kneden met warme handen: dan smelt de boter en worden je kransjes taai in plaats van bros. Zodra het één bal is, stop je."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Druk het deeg plat tot een schijf, verpak in folie en laat minstens 30 minuten opstijven in de koelkast.",
+          "type": "Bubbly Tip",
+          "tip": "Mooi moment om de kerstmuziek aan te zetten. Je kunt het deeg ook een dag van tevoren maken."
+        }
+      ]
+    },
+    {
+      "naam": "UITSTEKEN",
+      "doel": "nette kransjes met een gaatje, klaar voor de oven.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 175 °C en bekleed de bakplaten met bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Twee bakplaten = doorwerken: terwijl de ene in de oven staat, vul je de volgende."
+        },
+        {
+          "werkwoord": "Rol",
+          "beschrijving": "Rol het deeg op een licht met bloem bestoven werkblad uit tot ongeveer ½ cm dik. Steek rondjes uit en steek in het midden een klein gaatje.",
+          "type": "Chaos Alert",
+          "tip": "Maak het gaatje gerust wat groter dan je denkt: tijdens het bakken rijst het deeg en groeit het gaatje bijna dicht. Dan past je lintje er niet meer door."
+        },
+        {
+          "werkwoord": "Bestrooi",
+          "beschrijving": "Leg de kransjes op de bakplaat, bestrijk ze met het overgebleven ei en bestrooi met amandelschaafsel of parelsuiker. Druk het lichtjes aan.",
+          "type": "Bubbly Tip",
+          "tip": "Restjes deeg? Kneed ze kort samen, laat even opstijven in de koelkast en rol opnieuw uit."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & VERSIEREN",
+      "doel": "goudbruine kransjes, klaar om uit te delen of op te hangen.",
+      "stappen": [
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de kransjes in 12 tot 15 minuten goudbruin in het midden van de oven.",
+          "type": "Chaos Alert",
+          "tip": "Blijf in de buurt in de laatste minuten: van goudbruin naar te donker gaat bij dunne koekjes razendsnel."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat ze een paar minuten op de bakplaat liggen en schuif ze daarna voorzichtig op een rooster om helemaal af te koelen.",
+          "type": "Bubbly Tip",
+          "tip": "Warm zijn ze nog zacht en breekbaar; afgekoeld worden ze lekker knapperig."
+        },
+        {
+          "werkwoord": "Hang",
+          "beschrijving": "Rijg een dun rood lintje door het gaatje en hang ze in de kerstboom, of stapel ze in een mooie trommel.",
+          "type": "Bubbly Tip",
+          "tip": "Hang ze op het laatste moment op: in een warme kamer worden ze na een paar dagen minder knapperig. De mooiste houd je gewoon in de trommel."
+        }
+      ]
+    }
+  ],
+  "bewaren": "In een goed sluitende koekjestrommel blijven de kransjes ongeveer twee weken knapperig. In de kerstboom gaan ze sneller zacht worden, dus daar zijn ze vooral voor de sfeer en om snel op te snoepen.",
+  "variaties": [
+    "Doop de helft in gesmolten pure of witte chocolade en strooi er rode suikerparels over",
+    "Vervang een deel van de bloem door 50 g amandelmeel voor een nog brossere bite",
+    "Voeg een theelepel speculaaskruiden toe voor een warme kerstsmaak",
+    "Steek sterretjes of boompjes uit in plaats van rondjes (vergeet het gaatje niet)"
+  ],
+  "bekentenis": "Wist je dat mensen vroeger hun kerstboom versierden met eetbare dingen, zoals appels, noten en koekjes? Kerstkransjes met een lintje zijn een overblijfsel van die traditie. Mijn eigen Proud Disaster: ik maakte de gaatjes piepklein en na het bakken waren ze helemaal dichtgegroeid. Daar stond ik dan, met dertig kransjes zonder gat en een rol lint. Ik heb ze met een rietje weer opengeprikt terwijl ze nog warm waren. Sindsdien steek ik mijn gaatjes royaal uit.",
+  "mantra": "Koud deeg, royaal gaatje, goudbruin klaar.",
+  "bron": [
+    "BRON: klassiek Nederlands kerstkransjesrecept (boterkoekdeeg met amandel of parelsuiker), uitgewerkt door Fien — FA-I6UFBY (fien-v15)",
+    "Hoeveelheden, oventemperatuur en baktijd volgen gangbare kerstkransjesrecepten; stappen en tips in eigen woorden."
+  ]
+}
