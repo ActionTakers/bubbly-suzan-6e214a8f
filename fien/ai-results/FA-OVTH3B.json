@@ -1,0 +1,132 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-OVTH3B Pistache-kaneelbroodjes met croissant-twist. Vraag: recept geïnspireerd op een bun-zaak (kaneel-/pistachebuns van croissantdeeg). Bubbly 3×3 met snelle vouwmethode i.p.v. volledig croissantdeeg. Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-OVTH3B",
+  "titel": "Pistache-kaneelbroodjes met croissant-twist",
+  "ondertitel": "Luchtige buns met boterlaagjes, een kaneel-pistachevulling en een glanzend glazuur — zonder dagenlang croissantgedoe, voor 9 broodjes",
+  "tags": [
+    "kaneelbroodjes",
+    "pistache",
+    "buns",
+    "croissant-twist",
+    "zoet brood",
+    "weekend bakken"
+  ],
+  "ingredienten": [
+    "Deeg: 400 g tarwebloem",
+    "Deeg: 7 g gedroogde gist (1 zakje)",
+    "Deeg: 40 g suiker",
+    "Deeg: 6 g zout",
+    "Deeg: 200 ml lauwe melk",
+    "Deeg: 1 ei",
+    "Deeg: 40 g zachte roomboter",
+    "Vouwboter: 125 g koude roomboter, in dunne plakjes",
+    "Vulling: 60 g zachte roomboter",
+    "Vulling: 80 g bruine basterdsuiker",
+    "Vulling: 2 tl kaneel",
+    "Vulling: 3 el pistachecrème (of pistachepasta)",
+    "Vulling: 50 g gepelde pistachenoten, grof gehakt (+ extra om te strooien)",
+    "Afmaken: 1 ei (losgeklopt, om te bestrijken)",
+    "Glazuur: 60 g poedersuiker + 1–2 el melk (of een lepel pistachecrème erdoor)"
+  ],
+  "benodigdheden": [
+    "Grote kom + keukenweegschaal",
+    "Deegroller",
+    "Vershoudfolie of theedoek",
+    "Bakpapier",
+    "Vierkante bakvorm (ca. 23 × 23 cm) of muffinvorm",
+    "Scherp mes of stukje (tand)floss om te snijden",
+    "Kwastje",
+    "Spatel of lepel"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG & RIJZEN",
+      "doel": "een soepel, verrijkt deeg dat straks mooi oprekt zonder te scheuren.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Meng bloem, gist en suiker in een grote kom. Doe het zout aan de andere kant van de kom. Voeg de lauwe melk en het ei toe en roer tot een ruw deeg.",
+          "type": "Bubbly Tip",
+          "tip": "Lauwe melk = vingerwarm. Te heet en je gist doet niet meer mee."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Kneed ongeveer 8 minuten. Werk dan de 40 g zachte boter er in stukjes doorheen en kneed nog 5 minuten tot het deeg glad en elastisch is.",
+          "type": "Chaos Alert",
+          "tip": "Eerst is het een plakkerige boel als de boter erbij komt. Niet schrikken en niet meteen bloem strooien: gewoon doorkneden, het komt goed."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Dek de kom af en laat het deeg ongeveer 1 uur op een warme plek rijzen tot het bijna dubbel zo groot is. Druk het daarna plat, wikkel in folie en leg het 30 minuten in de koelkast.",
+          "type": "Bubbly Tip",
+          "tip": "Koud deeg + koude boter = laagjes. Dit rustmoment is je geheime croissant-truc."
+        }
+      ]
+    },
+    {
+      "naam": "VOUWEN & VULLEN",
+      "doel": "snelle boterlaagjes in het deeg en een royale kaneel-pistachevulling.",
+      "stappen": [
+        {
+          "werkwoord": "Rol",
+          "beschrijving": "Rol het koude deeg uit tot een rechthoek van ongeveer 20 × 40 cm. Leg de plakjes koude boter op twee derde van het deeg. Vouw het lege derde over de boter en het laatste derde daaroverheen, zoals een brief.",
+          "type": "Bubbly Tip",
+          "tip": "Werk vlot en met koude handen. Begint de boter te glimmen of te smeren? Even 10 minuten de koelkast in."
+        },
+        {
+          "werkwoord": "Vouw",
+          "beschrijving": "Draai het pakketje een kwartslag, rol weer uit tot een lange rechthoek en vouw opnieuw als een brief. Leg 20 minuten in de koelkast en herhaal dit nog één keer.",
+          "type": "Chaos Alert",
+          "tip": "Piept er boter door het deeg? Bestuif het plekje met wat bloem en ga gewoon door. Proud Disaster™ laagjes bestaan ook."
+        },
+        {
+          "werkwoord": "Vul",
+          "beschrijving": "Rol het deeg uit tot ongeveer 30 × 35 cm. Roer zachte boter, bruine suiker en kaneel tot een smeuïge pasta en smeer die uit. Verdeel de pistachecrème er in klodders over en strooi de gehakte pistache erop. Rol strak op vanaf de lange kant.",
+          "type": "Bubbly Tip",
+          "tip": "Laat aan één lange kant 1 cm vrij, dan plakt je rol netjes dicht."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & AFMAKEN",
+      "doel": "goudbruine, gelaagde buns met een kleverig hart en een glanzend toppertje.",
+      "stappen": [
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Snijd de rol in 9 gelijke plakken met een scherp mes of een stukje floss. Zet ze in de beklede bakvorm, dek af en laat 45–60 minuten rijzen tot ze opgezwollen zijn. Verwarm de oven voor op 190 °C.",
+          "type": "Chaos Alert",
+          "tip": "Bot mes = platgedrukte slakkenhuisjes. Floss eronder, kruisen en trekken: perfecte plakken."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bestrijk de buns met losgeklopt ei en bak ze 22–28 minuten tot ze diep goudbruin zijn. Laat ze 10 minuten afkoelen in de vorm.",
+          "type": "Bubbly Tip",
+          "tip": "Worden ze bovenop te snel bruin? Leg er de laatste minuten een vel bakpapier op."
+        },
+        {
+          "werkwoord": "Glaceer",
+          "beschrijving": "Roer poedersuiker met melk (en eventueel een lepel pistachecrème) tot een dik glazuur. Trek strepen over de lauwe buns en strooi er gehakte pistache over.",
+          "type": "Bubbly Tip",
+          "tip": "Lauw, niet heet: anders smelt je glazuur weg als sneeuw voor de zon."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Het lekkerst op de dag zelf. Afgedekt blijven ze 1–2 dagen goed; even 5 minuten in een warme oven en ze zijn weer als nieuw. Ongeglazuurd kun je ze ook invriezen.",
+  "variaties": [
+    "Klassiek: laat de pistache weg en gebruik alleen kaneel-suiker — met een roomkaasglazuur erop",
+    "Appel-crumble: strooi kleine blokjes appel en wat kruimeldeeg over de vulling",
+    "Framboos-witte chocolade: vulling van frambozenjam met stukjes witte chocolade",
+    "Kardemom: vervang de helft van de kaneel door gemalen kardemom, Scandinavisch geïnspireerd",
+    "Sneller: sla het vouwen over voor zachte, klassieke kaneelbroodjes"
+  ],
+  "bekentenis": "Wist je dat Zweden elk jaar op 4 oktober Kanelbullens dag viert, een hele dag voor het kaneelbroodje? Bij mijn eerste poging met laagjes boter gutste de helft van de boter er in de oven gewoon uit. De bakkerij rook naar karamel, de buns stonden in een plasje goud en ze waren stiekem de lekkerste ooit. Proud Disaster™ op z'n best.",
+  "mantra": "Koud deeg, koude boter, warm hart. Laagjes komen vanzelf als je geduld hebt.",
+  "bron": [
+    "BRON (soft): Serious Eats — Pistachio Buns — https://www.seriouseats.com/pistachio-buns",
+    "BRON (soft): Finding Time for Cooking — Orange Cinnamon Pistachio Morning Buns (+ Laminated Dough) — https://findingtimeforcooking.com/breakfast-goodies/orange-cinnamon-pistachio-morning-buns-how-to-laminate-dough/",
+    "BRON (soft): Allerhande — Pistache rolls — https://www.ah.nl/allerhande/recept/R-R1202294/pistache-rolls",
+    "FA-OVTH3B (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ]
+}
