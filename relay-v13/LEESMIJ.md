@@ -13,3 +13,6 @@ npx wrangler deploy
 ```
 Zet daarna de workers.dev-URL in `fien/index.html` (`<meta name="fien-relay">`).
 Na deploy: draai daarna de oude webhook-key door (die stond leesbaar in fien-v12).
+
+## v13.1 duurzaam (20-11-2026)
+Zie `DURABLE.md`: elk verzoek eerst in R2 `req/<id>.json`, cron `7,37 * * * *` stuurt opnieuw zonder resultaat, `GET /pending` (Bearer `FIEN_PENDING_KEY`).

@@ -6,3 +6,6 @@ compatibility_flags = ["nodejs_compat"]
 [[r2_buckets]]
 binding = "FIEN"
 bucket_name = "bubblyfien-lokaal"
+
+[triggers]
+crons = ["7,37 * * * *"]

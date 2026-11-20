@@ -13,7 +13,7 @@ bucket_name = "bubblyfien"
 binding = "BROWSER"
 
 [triggers]
-crons = ["7 * * * *"]
+crons = ["7,37 * * * *"]  # :07 screenshot + herkansing, :37 alleen herkansing
 
-# Secrets (wrangler secret put …): FIEN_WEBHOOK_URL, FIEN_WEBHOOK_KEY, PIN, FOTO_SECRET
+# Secrets (wrangler secret put …): FIEN_WEBHOOK_URL, FIEN_WEBHOOK_KEY, PIN, FOTO_SECRET, FIEN_PENDING_KEY (GET /pending)
 # Optioneel var EXTRA_ORIGINS (komma-gescheiden) voor een preview-origin.
