@@ -1,0 +1,229 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-PGSVDL Apfelstrudel met bladerdeeg. Vraag: van het gedrukte recept (kookboek, hoofdstuk 'Wintersport op je bord') een Bubbly Bakery recept maken. Bubbly 3×3 met kant-en-klaar bladerdeeg uit de koeling. Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-PGSVDL",
+  "titel": "Apfelstrudel met bladerdeeg",
+  "ondertitel": "Wintersport op je bord: knapperig bladerdeeg met een warme vulling van appel, rozijnen en kaneel — voor 4–6 personen, in ca. 35 minuten",
+  "tags": [
+    "apfelstrudel",
+    "appel",
+    "bladerdeeg",
+    "kaneel",
+    "winter",
+    "dessert",
+    "après-ski"
+  ],
+  "ingredienten": [
+    "Vulling: 2 stevige appels (bijv. Elstar of Jonagold)",
+    "Vulling: 60 g blanke rozijnen",
+    "Vulling: 1 tl kaneelpoeder",
+    "Vulling: 1 el abrikozenjam",
+    "Deeg: 1 rol bladerdeeg uit de koeling",
+    "Afmaken: 1 ei (middelgroot), losgeklopt",
+    "Afmaken: poedersuiker om te bestuiven",
+    "Serveren: eventueel vanille-ijs of slagroom"
+  ],
+  "benodigdheden": [
+    "Bakplaat + bakpapier",
+    "Snijplank + scherp mesje",
+    "Appelboor of schilmesje",
+    "Mengkom + lepel",
+    "Kwastje",
+    "Zeefje voor de poedersuiker"
+  ],
+  "fases": [
+    {
+      "naam": "VOORBEREIDEN & VULLING",
+      "doel": "een sappige, smeuïge appelvulling die niet gaat lekken.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 200 °C (hetelucht 180 °C). Bekleed een bakplaat met bakpapier en haal het bladerdeeg alvast uit de koelkast.",
+          "type": "Bubbly Tip",
+          "tip": "Laat het bladerdeeg 5–10 minuten op het aanrecht liggen. Dan scheurt het niet bij het uitrollen."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Verwijder het klokhuis uit de appels. Snijd ze in parten en daarna in blokjes van ongeveer 1 cm.",
+          "type": "Chaos Alert",
+          "tip": "Te grote stukken prikken straks door je deeg. Kleine blokjes = een gladde strudel."
+        },
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Doe de appelblokjes in een kom met de rozijnen, kaneel en abrikozenjam. Schep alles goed door elkaar.",
+          "type": "Bubbly Tip",
+          "tip": "Blijft er veel vocht onderin de kom staan? Laat dat achter. Zo blijft je bodem knapperig."
+        }
+      ]
+    },
+    {
+      "naam": "VOUWEN & DICHTPLAKKEN",
+      "doel": "een strak pakketje met mooie streepjes, dat dicht blijft in de oven.",
+      "stappen": [
+        {
+          "werkwoord": "Leg",
+          "beschrijving": "Rol het bladerdeeg uit en snijd er een lap van ongeveer 20 × 20 cm van. Leg die op het bakpapier en schep de vulling op één helft. Houd de randjes vrij.",
+          "type": "Bubbly Tip",
+          "tip": "Laat rondom zo'n 1,5 cm vrij. Dat is je plakrandje."
+        },
+        {
+          "werkwoord": "Vouw",
+          "beschrijving": "Vouw de andere helft over de vulling en druk alle randjes goed aan. Druk ze eventueel nog extra dicht met de tanden van een vork.",
+          "type": "Chaos Alert",
+          "tip": "Een open randje = appelsap op je bakplaat. Druk liever één keer te veel aan dan te weinig."
+        },
+        {
+          "werkwoord": "Kerf",
+          "beschrijving": "Snijd met een scherp mesje om de centimeter een streepje in de bovenkant (over de breedte), zodat er een streepjespatroon ontstaat.",
+          "type": "Bubbly Tip",
+          "tip": "Niet helemaal doorsnijden! Alleen de bovenste laag. Zo kan de stoom eruit en houd je de vorm."
+        }
+      ]
+    },
+    {
+      "naam": "GLANZEN & BAKKEN",
+      "doel": "een goudbruine, glanzende strudel die knispert als je hem aansnijdt.",
+      "stappen": [
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Klop het ei los en bestrijk de boven- en zijkanten van de strudel. Zo gaat hij extra mooi glanzen.",
+          "type": "Chaos Alert",
+          "tip": "Geen ei over de snijranden laten lopen. Dan plakken de laagjes dicht en rijst het deeg minder."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Zet de strudel ongeveer 20 minuten in de oven tot hij mooi goudbruin is.",
+          "type": "Bubbly Tip",
+          "tip": "Kijk na 15 minuten even. Ovens verschillen, en goudbruin is goud waard."
+        },
+        {
+          "werkwoord": "Bestuif",
+          "beschrijving": "Haal de strudel uit de oven, laat hem een paar minuten rusten en bestuif hem met poedersuiker. Lekker met vanille-ijs of slagroom.",
+          "type": "Bubbly Tip",
+          "tip": "Even laten rusten voor het snijden. Dan blijft de vulling netjes op zijn plek."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Het lekkerst op de dag zelf, nog lauwwarm. Afgedekt 1–2 dagen in de koelkast; 5–8 minuten opwarmen in een oven van 180 °C maakt het bladerdeeg weer knapperig.",
+  "variaties": [
+    "Notig: strooi een handje gehakte walnoten of amandelschaafsel door de vulling",
+    "Peer & gember: vervang de appels door stevige peren en een snufje gemberpoeder",
+    "Kerst: voeg een snufje speculaaskruiden en wat sinaasappelrasp toe",
+    "Mini: snijd het deeg in vierkantjes en maak kleine strudelpakketjes, ca. 15 minuten bakken",
+    "Rum-rozijnen: laat de rozijnen vooraf 30 minuten wellen in wat warm water of appelsap"
+  ],
+  "bekentenis": "Wist je dat de Weense apfelstrudel familie is van de Turkse baklava? Echte strudeldeeg wordt zó dun uitgetrokken dat je er een krant doorheen kunt lezen. Dat heb ik ooit geprobeerd op mijn keukentafel. Na tien minuten had ik vooral een tafelkleed van deeg met gaten. Sindsdien ben ik groot fan van bladerdeeg uit de koeling. Proud Disaster™, en net zo lekker.",
+  "mantra": "Kleine blokjes, dichte randjes, warme oven. Goudbruin is goud waard.",
+  "bron": [
+    "BRON: gedrukt kookboekrecept 'Apfelstrudel met bladerdeeg' (hoofdstuk 'Wintersport op je bord'), 4–6 personen, ca. 35 min",
+    "FA-PGSVDL (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ],
+  "pakket": {
+    "pakketVersie": 1,
+    "status": "concept",
+    "post": {
+      "eersteZin": "Wintersport op je bord, zonder ski's en zonder kou. Gewoon een warme apfelstrudel uit je eigen oven. ⛷️🍎",
+      "caption": "Wintersport op je bord, zonder ski's en zonder kou. Gewoon een warme apfelstrudel uit je eigen oven. ⛷️🍎\n\nKnapperig bladerdeeg. Appel, rozijnen en kaneel. Een likje abrikozenjam.\n\nEn het mooiste? Binnen 35 minuten staat hij op tafel.\n\nEerlijk is eerlijk: ik probeerde ooit echt strudeldeeg uit te trekken. Het werd een tafelkleed vol gaten. Proud Disaster™. 💛\n\nNu kies ik bladerdeeg uit de koeling. Net zo lekker, veel minder chaos.\n\nKleine blokjes, dichte randjes, warme oven.\n\nVanille-ijs of slagroom erbij? Vertel het me in de reacties! 👇\n\nWil je het recept? Zet 'RECEPT' in de reacties. 💌",
+      "fotoIdee": "Carrousel: 1) de kookboekpagina als inspiratie, 2) de strudel met streepjes vlak voor de oven, 3) een aangesneden plak met een bolletje ijs.",
+      "altTekst": "Goudbruine apfelstrudel van bladerdeeg met streepjespatroon en poedersuiker, een plak aangesneden met appelvulling en vanille-ijs."
+    },
+    "story": [
+      {
+        "frame": 1,
+        "tekst": "Dit recept liet me niet meer los… ⛷️",
+        "beeld": "Je eigen foto van de kookboekpagina met de apfelstrudel.",
+        "sticker": "emoji-slider",
+        "stickerTekst": "Hoe graag wil jij een plak?"
+      },
+      {
+        "frame": 2,
+        "tekst": "Appel, rozijnen, kaneel. Meer is het niet!",
+        "beeld": "Korte clip: appelblokjes, rozijnen en kaneel door elkaar scheppen.",
+        "sticker": "geen"
+      },
+      {
+        "frame": 3,
+        "tekst": "Vouwen, aandrukken en streepjes snijden 🔪",
+        "beeld": "Close-up van het mesje dat de streepjes in het deeg kerft.",
+        "sticker": "poll",
+        "stickerTekst": "Al eens strudel gebakken? Ja / Nog niet"
+      },
+      {
+        "frame": 4,
+        "tekst": "Goudbruin uit de oven. Die geur! 😍",
+        "beeld": "De strudel uit de oven, poedersuiker erover door een zeefje.",
+        "sticker": "poll",
+        "stickerTekst": "Ijs of slagroom?"
+      },
+      {
+        "frame": 5,
+        "tekst": "Wil jij dit recept? 👇",
+        "beeld": "Een plak op een bordje met een bolletje vanille-ijs.",
+        "sticker": "vraag",
+        "stickerTekst": "Typ 'ja' en ik deel het!"
+      }
+    ],
+    "hashtags": [
+      "#ProudDisaster",
+      "#bubblybakery",
+      "#apfelstrudel",
+      "#appeltaart",
+      "#bladerdeeg",
+      "#wintersportopjebord",
+      "#zelfgebakken",
+      "#thuisbakken",
+      "#applestrudel",
+      "#homebaking",
+      "#winterbaking"
+    ],
+    "boodschappen": [
+      {
+        "afdeling": "Groente & fruit",
+        "items": [
+          "Stevige appels (2)"
+        ]
+      },
+      {
+        "afdeling": "Noten & gedroogd fruit",
+        "items": [
+          "Blanke rozijnen (60 g)"
+        ]
+      },
+      {
+        "afdeling": "Zuivel & eieren",
+        "items": [
+          "Bladerdeeg uit de koeling (1 rol)",
+          "Ei (1, middelgroot)"
+        ]
+      },
+      {
+        "afdeling": "Houdbaar & potten",
+        "items": [
+          "Abrikozenjam (1 el)"
+        ]
+      },
+      {
+        "afdeling": "Kruiden & specerijen",
+        "items": [
+          "Kaneelpoeder (1 tl)"
+        ]
+      },
+      {
+        "afdeling": "Diepvries",
+        "items": [
+          "Vanille-ijs (optioneel)"
+        ]
+      },
+      {
+        "afdeling": "Al in huis?",
+        "items": [
+          "Poedersuiker",
+          "Bakpapier",
+          "Slagroom (optioneel)"
+        ]
+      }
+    ],
+    "tip": "Film het streepjes snijden in slow motion. Dat korte moment doet het vaak het best in je story."
+  }
+}
