@@ -1,0 +1,231 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-PGMHGZ Hartige taart met prei, spek en kaas. Vraag: een recept voor een hartige taart. Bubbly 3×3 met zelfgemaakt kruimeldeeg en blind bakken. Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-PGMHGZ",
+  "titel": "Hartige taart met prei, spek en kaas",
+  "ondertitel": "Een knapperige zelfgemaakte bodem, zachte prei, krokante spekjes en een romige kaasvulling — voor een springvorm van 24 cm (ca. 8 punten)",
+  "tags": [
+    "hartige taart",
+    "quiche",
+    "prei",
+    "spek",
+    "kaas",
+    "lunch",
+    "avondeten"
+  ],
+  "ingredienten": [
+    "Deeg: 250 g tarwebloem",
+    "Deeg: 150 g koude roomboter, in blokjes",
+    "Deeg: 1 eidooier",
+    "Deeg: ½ tl zout",
+    "Deeg: 3–4 el ijskoud water",
+    "Vulling: 200 g spekblokjes",
+    "Vulling: 2 preien, in halve ringen",
+    "Vulling: 1 ui, gesnipperd",
+    "Vulling: 4 eieren",
+    "Vulling: 200 ml kookroom",
+    "Vulling: 125 g crème fraîche",
+    "Vulling: 150 g geraspte belegen kaas (of gruyère)",
+    "Vulling: snufje nootmuskaat, peper en een klein beetje zout",
+    "Afmaken: paar takjes verse tijm of bieslook (optioneel)"
+  ],
+  "benodigdheden": [
+    "Grote kom + keukenweegschaal",
+    "Springvorm of quichevorm (ca. 24 cm)",
+    "Deegroller",
+    "Bakpapier + blindbakvulling (droge bonen of rijst)",
+    "Vershoudfolie",
+    "Koekenpan",
+    "Garde",
+    "Vork"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG & RUSTEN",
+      "doel": "een stevig, bros kruimeldeeg dat in de oven niet krimpt.",
+      "stappen": [
+        {
+          "werkwoord": "Wrijf",
+          "beschrijving": "Doe bloem en zout in een kom. Wrijf de koude boterblokjes er met je vingertoppen doorheen tot het lijkt op grof zand.",
+          "type": "Bubbly Tip",
+          "tip": "Werk snel met koude vingers. Hoe kouder de boter, hoe brosser je bodem."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Voeg de eidooier en 3 el ijskoud water toe. Kneed kort tot een bal; alleen als het echt te droog is nog een extra lepel water.",
+          "type": "Chaos Alert",
+          "tip": "Niet te lang kneden! Dan wordt je deeg taai en krimpt het straks in de vorm."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Druk het deeg plat, wikkel het in folie en laat het minstens 30 minuten rusten in de koelkast.",
+          "type": "Bubbly Tip",
+          "tip": "Rustig deeg is blij deeg. Dit is het perfecte moment om de vulling te bakken."
+        }
+      ]
+    },
+    {
+      "naam": "BODEM & VULLING",
+      "doel": "een voorgebakken bodem en een smaakvolle, droge vulling.",
+      "stappen": [
+        {
+          "werkwoord": "Bekleed",
+          "beschrijving": "Verwarm de oven voor op 200 °C. Rol het deeg uit tot ongeveer 3 mm dik en bekleed de ingevette vorm, ook de rand. Prik de bodem in met een vork en leg 15 minuten in de koelkast.",
+          "type": "Bubbly Tip",
+          "tip": "Scheurtje? Gewoon dichtplakken met een restje deeg. Niemand ziet het straks."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Leg bakpapier op het deeg, vul met droge bonen en bak 15 minuten blind. Haal papier en bonen weg en bak nog 5 minuten tot de bodem droog en lichtgoud is.",
+          "type": "Chaos Alert",
+          "tip": "Blind bakken overslaan = kans op een slappe, natte bodem. Deze 20 minuten zijn je redding."
+        },
+        {
+          "werkwoord": "Fruit",
+          "beschrijving": "Bak de spekblokjes krokant in een droge koekenpan. Voeg ui en prei toe en bak 8–10 minuten tot de prei zacht is en het vocht verdampt is. Laat iets afkoelen.",
+          "type": "Bubbly Tip",
+          "tip": "Prei houdt veel water vast. Goed laten uitdampen, dan blijft je taart stevig."
+        }
+      ]
+    },
+    {
+      "naam": "VULLEN & BAKKEN",
+      "doel": "een goudbruine taart met een romige, net gestolde vulling.",
+      "stappen": [
+        {
+          "werkwoord": "Klop",
+          "beschrijving": "Klop de eieren met kookroom, crème fraîche, nootmuskaat en peper. Roer er twee derde van de kaas door. Voeg maar weinig zout toe, de spek en kaas zijn al zout.",
+          "type": "Bubbly Tip",
+          "tip": "Proef eerst een stukje spek: dan weet je hoeveel zout er nog bij mag."
+        },
+        {
+          "werkwoord": "Vul",
+          "beschrijving": "Verdeel het prei-spekmengsel over de voorgebakken bodem. Schenk het eimengsel erover en strooi de rest van de kaas erop.",
+          "type": "Chaos Alert",
+          "tip": "Vul niet tot de rand. Zet de vorm op een bakplaat, dan loopt er niets in je oven."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de taart in 30–35 minuten op 180 °C tot de bovenkant goudbruin is en het midden nog heel licht trilt. Laat 10 minuten rusten en strooi er tijm of bieslook over.",
+          "type": "Bubbly Tip",
+          "tip": "Even laten rusten: dan snij je mooie punten in plaats van een romige glijbaan."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Afgedekt 2–3 dagen in de koelkast. Lekker koud als lunch, of 10 minuten opwarmen in een oven van 160 °C zodat de bodem weer knapperig wordt. Ook in punten in te vriezen.",
+  "variaties": [
+    "Vegetarisch: laat de spek weg en voeg gebakken champignons en spinazie toe",
+    "Zalm & dille: vervang de spek door gerookte zalm en strooi er verse dille door",
+    "Geitenkaas & ui: gekarameliseerde ui met brokjes geitenkaas en een beetje honing",
+    "Snel: gebruik kant-en-klaar bladerdeeg of kruimeldeeg uit de koeling",
+    "Mini: bak ze in een muffinvorm als hapjes, 18–20 minuten"
+  ],
+  "bekentenis": "Wist je dat de beroemde quiche lorraine oorspronkelijk uit Lotharingen komt en dat er in de allereerste versies helemaal geen kaas in zat? Alleen ei, room en spek. Mijn eerste hartige taart had ik niet blind gebakken. Bovenop zag hij er prachtig uit, maar de bodem was zo zacht dat ik hem met een lepel heb opgegeten. Nog steeds een van mijn lekkerste Proud Disasters™.",
+  "mantra": "Koude boter, droge prei, geduldige oven. Een stevige bodem is het halve werk.",
+  "bron": [
+    "BRON (soft): OhMyFoodness — Quiche Lorraine uit de springvorm — https://ohmyfoodness.nl/quiche-lorraine-uit-de-springvorm/",
+    "BRON (soft): Foody Magazine — Hartige taart met prei en kaas — https://foodymagazine.nl/recepten/hartige-taart-prei/",
+    "BRON (soft): Allerhande — Quiche met prei en spek — https://www.ah.nl/allerhande/recept/R-R424706/quiche-met-prei-en-spek",
+    "FA-PGMHGZ (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ],
+  "pakket": {
+    "pakketVersie": 1,
+    "status": "concept",
+    "post": {
+      "eersteZin": "Soms wil je gewoon iets hartigs. Warm, romig en met een knapperige bodem. 🥧",
+      "caption": "Soms wil je gewoon iets hartigs. Warm, romig en met een knapperige bodem. 🥧\n\nHartige taart met prei, spek en kaas. Zelfgemaakt deeg, zachte prei en krokante spekjes.\n\nHet geheim? Eerst de bodem blind bakken. Dan blijft hij lekker knapperig.\n\nEerlijk is eerlijk: mijn eerste taart had ik niet voorgebakken. De bodem was zo zacht dat ik een lepel pakte. En toch smulde iedereen. Proud Disaster™. 💛\n\nKoude boter, droge prei, geduldige oven.\n\nWat doe jij in je hartige taart: spek, zalm of groente? Vertel het me! 👇\n\nWil je het recept? Zet 'RECEPT' in de reacties. 💌",
+      "fotoIdee": "Carrousel: 1) de hele taart net uit de oven, 2) een punt eruit met zicht op de laagjes, 3) de bodem van onderen als bewijs: knapperig!",
+      "altTekst": "Goudbruine hartige taart in een springvorm met prei, spekjes en gesmolten kaas; één punt is eruit gesneden."
+    },
+    "story": [
+      {
+        "frame": 1,
+        "tekst": "Zin in iets hartigs vandaag? 🥧",
+        "beeld": "Prei, eieren en kaas op het aanrecht.",
+        "sticker": "emoji-slider",
+        "stickerTekst": "Hoeveel zin heb jij?"
+      },
+      {
+        "frame": 2,
+        "tekst": "Eerst de bodem blind bakken",
+        "beeld": "Korte clip: bonen op het bakpapier in de vorm.",
+        "sticker": "geen"
+      },
+      {
+        "frame": 3,
+        "tekst": "Prei en spek in de pan… ruik je het al?",
+        "beeld": "Sissende spekjes en prei in de koekenpan.",
+        "sticker": "poll",
+        "stickerTekst": "Spek of vegetarisch?"
+      },
+      {
+        "frame": 4,
+        "tekst": "Daar is ie! Romig en goudbruin",
+        "beeld": "De taart uit de oven en het eerste stuk snijden.",
+        "sticker": "vraag",
+        "stickerTekst": "Wat doe jij in je hartige taart?"
+      }
+    ],
+    "hashtags": [
+      "#ProudDisaster",
+      "#bubblybakery",
+      "#hartigetaart",
+      "#quiche",
+      "#preitaart",
+      "#zelfbakken",
+      "#thuisbakken",
+      "#lunchinspiratie",
+      "#homebaking",
+      "#savorybaking"
+    ],
+    "boodschappen": [
+      {
+        "afdeling": "Groente & fruit",
+        "items": [
+          "2 preien",
+          "1 ui",
+          "verse tijm of bieslook (optioneel)"
+        ]
+      },
+      {
+        "afdeling": "Zuivel & eieren",
+        "items": [
+          "150 g roomboter",
+          "5 eieren (1 dooier voor het deeg + 4 voor de vulling)",
+          "200 ml kookroom",
+          "125 g crème fraîche"
+        ]
+      },
+      {
+        "afdeling": "Kaas",
+        "items": [
+          "150 g geraspte belegen kaas (of gruyère)"
+        ]
+      },
+      {
+        "afdeling": "Brood & bakken",
+        "items": [
+          "250 g tarwebloem"
+        ]
+      },
+      {
+        "afdeling": "Houdbaar & potten",
+        "items": [
+          "200 g spekblokjes (koeling)"
+        ]
+      },
+      {
+        "afdeling": "Al in huis?",
+        "items": [
+          "zout",
+          "peper",
+          "nootmuskaat",
+          "droge bonen of rijst om blind te bakken",
+          "bakpapier"
+        ]
+      }
+    ],
+    "tip": "Post de foto van de bodem van onderen: dat knapperige bewijs zorgt altijd voor reacties."
+  }
+}
