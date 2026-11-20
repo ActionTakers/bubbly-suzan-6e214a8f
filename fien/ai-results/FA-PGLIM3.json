@@ -1,0 +1,26 @@
+{
+  "type": "bericht",
+  "verzoek": "FA-PGLIM3",
+  "status": "klaar",
+  "titel": "Je Starter Buddy-poster",
+  "bericht": "Je Starter Buddy-poster is klaar! In 7 dagen je eigen zuurdesem. Hij staat al live op bubblybakery.nl/starter. Download hem hier als PDF om te printen, of bekijk hem op de site.",
+  "lijst": [
+    {
+      "kop": "Je poster",
+      "inleiding": "Hij staat al live. Tik hieronder om hem te openen of te printen.",
+      "items": [
+        {
+          "naam": "Bekijk de poster op de site",
+          "waarom": "Open bubblybakery.nl/starter om de poster te bekijken.",
+          "link": "https://bubblybakery.nl/starter/"
+        },
+        {
+          "naam": "Download de poster als PDF",
+          "waarom": "De PDF kun je printen en in je keuken hangen.",
+          "link": "https://bubblybakery.nl/starter/starter-buddy-poster.pdf"
+        }
+      ]
+    }
+  ],
+  "tip": "Hang hem op een vaste plek bij je starter, dan zie je in één oogopslag hoe ver je bent."
+}

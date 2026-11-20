@@ -1,0 +1,20 @@
+{
+  "type": "bericht",
+  "verzoek": "FA-PGLIM4",
+  "status": "klaar",
+  "titel": "Kleine vraag over je muffins",
+  "bericht": "Kleine vraag: wil je in je receptkaart Banana Chocolate Chip Muffins in Notion de zin “Gezond door de banaan” veranderen in “Lekker met banaan”? Dan klopt het weer met de site. Dank je!",
+  "lijst": [
+    {
+      "kop": "Je receptkaart",
+      "inleiding": "Tik hieronder om de kaart in Notion te openen.",
+      "items": [
+        {
+          "naam": "Banana Chocolate Chip Muffins in Notion",
+          "waarom": "Verander alleen de zin “Gezond door de banaan” in “Lekker met banaan”.",
+          "link": "https://lyrical-servant-e94.notion.site/33cb8826d40880afa2aaf5d311111845"
+        }
+      ]
+    }
+  ]
+}
