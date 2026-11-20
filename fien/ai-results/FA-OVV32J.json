@@ -1,0 +1,128 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-OVV32J Olijfbroodjes met rozemarijn. Vraag: recept geïnspireerd op een vitrine vol broodjes (o.a. olijfbroodje, speltmueslibol, appel-rozijnen). Bubbly 3×3. Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-OVV32J",
+  "titel": "Olijfbroodjes met rozemarijn",
+  "ondertitel": "Luchtige, rustieke bakkersbroodjes vol zwarte en groene olijven, met een knapperig korstje en een vleugje rozemarijn — voor ongeveer 8 broodjes",
+  "tags": [
+    "olijfbroodjes",
+    "broodjes bakken",
+    "brood",
+    "mediterraan",
+    "lunch",
+    "bakkerij-inspiratie"
+  ],
+  "ingredienten": [
+    "Deeg: 500 g tarwebloem (of half tarwebloem, half speltbloem)",
+    "Deeg: 7 g gedroogde gist (1 zakje)",
+    "Deeg: 10 g zout",
+    "Deeg: 1 tl suiker of honing",
+    "Deeg: ca. 300 ml lauw water",
+    "Deeg: 3 el olijfolie",
+    "Vulling: 75 g zwarte olijven zonder pit, grof gehakt",
+    "Vulling: 75 g groene olijven zonder pit, grof gehakt",
+    "Vulling: 2 takjes verse rozemarijn, naaldjes fijngehakt",
+    "Afwerking: 1 el olijfolie om te bestrijken",
+    "Afwerking: grof zeezout of een beetje bloem om te bestuiven"
+  ],
+  "benodigdheden": [
+    "Grote kom + keukenweegschaal",
+    "Theedoek of vershoudfolie",
+    "Keukenpapier",
+    "Deegschraper of scherp mes",
+    "Bakplaat met bakpapier",
+    "Bakkwast",
+    "Ovenschaal voor water (voor een knapperige korst)",
+    "Rooster om af te koelen"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG & RIJZEN",
+      "doel": "een soepel, licht plakkerig deeg dat genoeg kracht heeft om al die olijven te dragen.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Meng de bloem, gist en suiker in een grote kom. Doe het zout aan de andere kant van de kom. Giet het lauwe water en de olijfolie erbij en roer tot een ruw deeg.",
+          "type": "Bubbly Tip",
+          "tip": "Lauw water = als badwater. Te heet en je gist gaat er niet meer voor werken."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Kneed het deeg ongeveer 10 minuten tot het glad en elastisch is. Het mag een tikje plakken; dat geeft straks luchtige broodjes.",
+          "type": "Chaos Alert",
+          "tip": "Niet blijven bloem strooien! Te veel extra bloem = stugge, droge broodjes. Even doorkneden lost het plakken meestal vanzelf op."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Leg het deeg in een licht ingevette kom, dek af en laat het op een warme plek ongeveer 1 uur rijzen tot het ongeveer dubbel zo groot is.",
+          "type": "Bubbly Tip",
+          "tip": "Mooi moment om de olijven te hakken en goed droog te deppen met keukenpapier."
+        }
+      ]
+    },
+    {
+      "naam": "OLIJVEN & VORMEN",
+      "doel": "olijven mooi verdeeld door het deeg en acht gelijke, strakke broodjes.",
+      "stappen": [
+        {
+          "werkwoord": "Vouw",
+          "beschrijving": "Druk het gerezen deeg plat tot een rechthoek. Strooi de drooggedepte olijven en rozemarijn erover, rol het deeg op en vouw en kneed het kort door tot alles verdeeld is.",
+          "type": "Chaos Alert",
+          "tip": "Natte olijven = paarse, plakkerige deegvlekken en broodjes die uitzakken. Deppen, deppen, deppen. Een paar paarse strepen? Proud Disaster™, dat is gewoon karakter."
+        },
+        {
+          "werkwoord": "Verdeel",
+          "beschrijving": "Verdeel het deeg in 8 gelijke stukken (weeg ze gerust). Vorm elk stuk tot een bol of een langwerpig broodje zoals in de bakkerij, en leg ze met ruimte ertussen op de bakplaat.",
+          "type": "Bubbly Tip",
+          "tip": "Steken er olijven uit het deeg? Duw ze iets naar binnen, anders verbranden ze bovenop."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Dek de broodjes af en laat ze nog 30–45 minuten rijzen tot ze mooi bol staan. Verwarm intussen de oven voor op 220 °C en zet een ovenschaal met water onderin.",
+          "type": "Bubbly Tip",
+          "tip": "Vingertest: druk zacht in een broodje. Komt het deukje langzaam terug, dan zijn ze klaar voor de oven."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & GENIETEN",
+      "doel": "goudbruine broodjes met een knapperig korstje en een zachte, geurige binnenkant.",
+      "stappen": [
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Bestrijk de broodjes met een beetje olijfolie en strooi er wat grof zeezout over, of bestuif ze met bloem voor die rustieke bakkerslook. Snijd eventueel een ondiepe snee in de bovenkant.",
+          "type": "Bubbly Tip",
+          "tip": "Een snee met één vlotte, schuine haal. Twijfelen en zagen maakt rafelige randjes."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de broodjes 18–22 minuten tot ze goudbruin zijn en hol klinken als je op de onderkant klopt.",
+          "type": "Chaos Alert",
+          "tip": "Ovens verschillen. Kijk vanaf 15 minuten mee: te bleek = zacht korstje, te lang = olijven die bitter worden."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Laat de broodjes minstens 15 minuten afkoelen op een rooster. Lekker met een dipje olijfolie, bij soep of als lunchbroodje met mozzarella en tomaat.",
+          "type": "Bubbly Tip",
+          "tip": "Meteen aansnijden is verleidelijk, maar dan wordt de binnenkant klef. Even geduld, het is het waard."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Het lekkerst op de dag zelf. Bewaar ze in een papieren zak of broodtrommel en maak ze de volgende dag 5 minuten knapperig in een oven van 180 °C. Ze zijn ook goed in te vriezen; laat ze dan ontdooien en kort opwarmen.",
+  "variaties": [
+    "Spelt-twist: gebruik half speltbloem, half tarwebloem voor een nootachtigere smaak",
+    "Zongedroogde tomaat: vervang de groene olijven door gehakte, drooggedepte zongedroogde tomaatjes",
+    "Kaasbroodjes: strooi vlak voor het bakken wat geraspte belegen kaas over de broodjes",
+    "Zoete versie: laat de olijven en rozemarijn weg en kneed er 100 g rozijnen en een geraspte appel door voor appel-rozijnenbroodjes",
+    "Mini's: maak 16 kleine bolletjes (ca. 12–15 minuten bakken) voor bij de borrel"
+  ],
+  "bekentenis": "Wist je dat olijven en brood al duizenden jaren samen op tafel staan rond de Middellandse Zee? In Griekenland en Cyprus bakken ze al eeuwen 'eliopsomo', olijvenbrood dat vroeger mee ging naar het land en op de boot, omdat het lekker blijft zonder beleg. Mijn eerste olijfbroodjes werden helemaal paars, omdat ik de olijven nat in het deeg gooide. Ik noemde ze 'galaxy broodjes' en ze waren binnen een uur op.",
+  "mantra": "Droog deppen, rustig rijzen, goudbruin bakken. Paarse vlekjes? Dat is gewoon karakter.",
+  "bron": [
+    "BRON (soft): Heerlijke Happen — Franse zwarte olijven fougasse — https://heerlijkehappen.nl/franse-zwarte-olijven-fougasse/",
+    "BRON (soft): Into the Cycle — Olijvenbrood met tijm en rozemarijn — https://intothecycle.com/blogs/recepten/olijvenbrood-recept-tijm-rozemarijn",
+    "BRON (soft): Rutger bakt — Olijven-tomatenbrood maken — https://rutgerbakt.nl/brood-recepten/olijven-tomatenbrood-maken/",
+    "FA-OVV32J (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ]
+}
