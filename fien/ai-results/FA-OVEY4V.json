@@ -1,0 +1,133 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-OVEY4V Kaasfondue in een zelfgebakken broodbol. Vraag: leuk recept rond kaasfondue. Bubbly 3×3 (bakkerij-twist: brood is de pan). Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-OVEY4V",
+  "titel": "Kaasfondue in een zelfgebakken broodbol",
+  "ondertitel": "Knapperige broodbol als pannetje, romige kaasfondue erin — dippen, scheuren en de bodem als toetje, voor ongeveer 4 personen",
+  "tags": [
+    "kaasfondue",
+    "broodbol",
+    "brood bakken",
+    "winter",
+    "delen",
+    "gezellig"
+  ],
+  "ingredienten": [
+    "Broodbol: 500 g tarwebloem",
+    "Broodbol: 7 g gedroogde gist (1 zakje)",
+    "Broodbol: 10 g zout",
+    "Broodbol: 1 tl suiker",
+    "Broodbol: ca. 320 ml lauw water",
+    "Broodbol: 1 el olijfolie (+ wat bloem om te bestuiven)",
+    "Fondue: 200 g Gruyère, grof geraspt",
+    "Fondue: 200 g Emmentaler, grof geraspt",
+    "Fondue: 1 teentje knoflook, gehalveerd",
+    "Fondue: 150 ml droge witte wijn",
+    "Fondue: 1 tl citroensap",
+    "Fondue: 1 el maïzena",
+    "Fondue: 1–2 el kirsch (optioneel)",
+    "Fondue: versgemalen peper en een snufje nootmuskaat",
+    "Om te dippen: wortel, radijs, gekookte krieltjes, augurkjes, appelpartjes"
+  ],
+  "benodigdheden": [
+    "Grote kom + keukenweegschaal",
+    "Theedoek of vershoudfolie",
+    "Bakplaat met bakpapier (of een gietijzeren pan met deksel)",
+    "Scherp broodmes",
+    "Rasp",
+    "Steelpan met dikke bodem",
+    "Pollepel of houten lepel",
+    "Fonduevorkjes of prikkers"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG & RIJZEN",
+      "doel": "een stevige, soepele broodbol die straks een hele fondue kan dragen zonder door te zakken.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Meng de bloem, gist en suiker in een grote kom. Voeg het zout toe aan de andere kant van de kom (zout en gist liever niet meteen op elkaar). Giet het lauwe water en de olijfolie erbij en roer tot een ruw deeg.",
+          "type": "Bubbly Tip",
+          "tip": "Lauw = als badwater, niet heet. Te heet water en je gist geeft er de brui aan."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Kneed het deeg ongeveer 10 minuten tot het glad en soepel is en terugveert als je erin duwt. Plakt het erg? Een klein beetje bloem erbij, maar niet te veel.",
+          "type": "Chaos Alert",
+          "tip": "Te veel extra bloem = droog, kruimelig brood dat lekt als een vergiet. Liever even doorkneden dan bloem blijven strooien."
+        },
+        {
+          "werkwoord": "Laat",
+          "beschrijving": "Leg het deeg terug in de kom, dek af met een theedoek en laat het op een warme plek ongeveer 1 uur rijzen tot het ongeveer dubbel zo groot is.",
+          "type": "Bubbly Tip",
+          "tip": "Mooi moment om alvast de kaas te raspen en de dipgroenten te snijden. Multitasken als een pro."
+        }
+      ]
+    },
+    {
+      "naam": "VORMEN & BAKKEN",
+      "doel": "één ronde, hoge bol met een knapperige korst — dat wordt je eetbare fonduepan.",
+      "stappen": [
+        {
+          "werkwoord": "Vorm",
+          "beschrijving": "Druk het deeg kort plat en vouw de randen naar het midden. Draai om en rol het met je handen strak tot een ronde bol. Leg op bakpapier, bestuif met bloem, dek af en laat nog 30–45 minuten rijzen. Verwarm intussen de oven voor op 220 °C.",
+          "type": "Bubbly Tip",
+          "tip": "Hoe strakker het vel, hoe hoger de bol. Een hoge bol = een diepe fonduepan."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de bol 30–35 minuten tot hij goudbruin is en hol klinkt als je op de onderkant klopt. Zet eventueel een bakje water onder in de oven voor een knapperige korst. Laat afkoelen op een rooster.",
+          "type": "Chaos Alert",
+          "tip": "Te bleek = zachte korst die gaat lekken. Liever een paar minuten langer: donker goudbruin is je vriend."
+        },
+        {
+          "werkwoord": "Hol",
+          "beschrijving": "Snijd een kapje van de bovenkant. Hol de bol uit met je vingers of een mes; laat rondom ongeveer 1,5 cm brood staan, ook op de bodem. Scheur het binnenste en het kapje in blokjes om te dippen.",
+          "type": "Chaos Alert",
+          "tip": "Niet door de bodem prikken! Gaatje gemaakt? Plak er een plukje brood in en hoop op het beste. Proud Disaster™ mag."
+        }
+      ]
+    },
+    {
+      "naam": "FONDUE & DIPPEN",
+      "doel": "romige, gladde kaas die langzaam smelt en warm blijft in zijn knapperige broodpan.",
+      "stappen": [
+        {
+          "werkwoord": "Wrijf",
+          "beschrijving": "Wrijf de binnenkant van de steelpan in met het gehalveerde teentje knoflook. Giet de wijn en het citroensap erin en verwarm op middelhoog vuur tot het tegen de kook aan zit. Hussel intussen de geraspte kaas met de maïzena door elkaar.",
+          "type": "Bubbly Tip",
+          "tip": "Maïzena door de kaas = minder klontjes. Het citroensap helpt ook om de fondue glad te houden."
+        },
+        {
+          "werkwoord": "Roer",
+          "beschrijving": "Zet het vuur laag. Voeg de kaas handje voor handje toe en roer rustig in een acht- of zigzagbeweging tot alles gesmolten en glad is. Roer de kirsch erdoor (als je die gebruikt) en breng op smaak met peper en nootmuskaat.",
+          "type": "Chaos Alert",
+          "tip": "Niet laten koken! Te heet = draderig en de kaas gaat schiften. Laag vuur, geduld en blijven roeren."
+        },
+        {
+          "werkwoord": "Schep",
+          "beschrijving": "Zet de uitgeholde broodbol op een plank of bakplaat en schenk de fondue erin. Zet hem eventueel nog 5–10 minuten in de oven op 180 °C zodat alles lekker warm is. Dip de broodblokjes en groenten, en scheur aan het eind de randen van de bol af.",
+          "type": "Bubbly Tip",
+          "tip": "De kaas-gedrenkte bodem is het allerlekkerste stuk. Eerlijk verdelen… of niet."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Het lekkerst meteen. Over? Laat afkoelen en bewaar de fondue afgedekt in de koelkast, en verwarm hem de volgende dag rustig op laag vuur met een scheutje wijn of melk erbij. De broodbol kun je een dag van tevoren bakken en in een theedoek bewaren.",
+  "variaties": [
+    "Zonder alcohol: vervang de wijn door appelsap met een scheutje citroen, of door bouillon",
+    "Kleine broodbolletjes: maak 4 mini-bollen (ca. 20 min bakken) voor ieder een eigen pannetje",
+    "Kruidig: kneed een el gedroogde tijm of rozemarijn door het deeg",
+    "Met andere kaas: half Gruyère, half belegen Goudse kaas voor een Hollandse twist",
+    "Snelle versie: gebruik een gekochte ronde broodbol of boerenbol"
+  ],
+  "bekentenis": "Wist je dat Zwitsers de korstje kaas die aan het eind onderin de pan blijft plakken 'la religieuse' noemen? Het is het meest begeerde hapje van de avond. En wie zijn broodje in de kaas laat vallen, moet volgens oude traditie een rondje geven — of de buurman een kus. Bij mijn eerste fondue liet ik er drie vallen. Ik heb heel veel rondjes gegeven.",
+  "mantra": "Laag vuur, rustig roeren, nooit koken. Laat je brood vallen? Dan heb je gewoon een verhaal erbij.",
+  "bron": [
+    "BRON (soft): Bakkerij Olde Keizer — Italiaanse bol met kaasfondue — https://bakkerijoldekeizer.nl/recepten/italiaanse-bol-met-kaasfondue/",
+    "BRON (soft): Bakkerij Versluis — Kaasfondue in broodbol — https://www.bakkerijversluis.nl/recepten/kaasfondue-in-broodbol/",
+    "BRON (soft): Kaas.nl — Klassieke Zwitserse kaasfondue — https://www.kaas.nl/recepten/klassieke-zwitserse-kaasfondue/",
+    "BRON (soft): Terroir Fribourg — Fondue moitié-moitié — https://fribourg.ch/fr/terroir-fribourg/recettes/fondue-moitie-moitie/",
+    "FA-OVEY4V (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ]
+}
