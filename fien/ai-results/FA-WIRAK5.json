@@ -1,0 +1,209 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-WIRAK5 Kruidnoten. Vraag: een recept voor kruidnoten. Bubbly 3×3, klassiek met zelfrijzend bakmeel, bruine basterdsuiker en speculaaskruiden. Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-WIRAK5",
+  "titel": "Kruidnoten",
+  "ondertitel": "Knapperige sinterklaasbolletjes vol speculaaskruiden — voor ca. 2 bakplaten (± 80 stuks), in ca. 45 minuten",
+  "tags": [
+    "kruidnoten",
+    "pepernoten",
+    "sinterklaas",
+    "speculaaskruiden",
+    "koekjes",
+    "december",
+    "bakken met kinderen"
+  ],
+  "ingredienten": [
+    "Deeg: 125 g zelfrijzend bakmeel",
+    "Deeg: 65 g donkerbruine basterdsuiker",
+    "Deeg: 50 g koude roomboter, in blokjes",
+    "Deeg: 1½–2 el speculaaskruiden (of kruidnotenkruiden)",
+    "Deeg: 1 snufje zout",
+    "Deeg: 2–3 el melk",
+    "Optioneel: 100 g pure of melkchocolade om te dippen"
+  ],
+  "benodigdheden": [
+    "Mengkom",
+    "Weegschaal + maatlepels",
+    "Bakplaat + bakpapier",
+    "Keukenfolie",
+    "Rooster om af te koelen"
+  ],
+  "fases": [
+    {
+      "naam": "MENGEN & KNEDEN",
+      "doel": "een soepel, kruidig deeg dat niet plakt en niet brokkelt.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Doe het bakmeel, de basterdsuiker, de speculaaskruiden en het zout in een kom. Meng alles goed en wrijf eventuele suikerklontjes fijn.",
+          "type": "Bubbly Tip",
+          "tip": "Ruik even aan je kruiden. Ruik je bijna niks? Dan zijn ze oud, en dan proef je ze ook nauwelijks."
+        },
+        {
+          "werkwoord": "Wrijf",
+          "beschrijving": "Voeg de koude boterblokjes toe. Wrijf ze met je vingertoppen door het meel tot het op grof zand lijkt.",
+          "type": "Chaos Alert",
+          "tip": "Warme handen smelten de boter. Werk snel en spoel je handen even koud af als het vet wordt."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Voeg de melk lepel voor lepel toe en kneed kort tot een glad deeg. Wikkel het in folie en laat het 15–30 minuten rusten in de koelkast.",
+          "type": "Chaos Alert",
+          "tip": "Te veel melk = plakdeeg. Stop zodra het deeg samenkomt; je kunt altijd nog een druppel toevoegen."
+        }
+      ]
+    },
+    {
+      "naam": "ROLLEN & VERDELEN",
+      "doel": "een bakplaat vol gelijke bolletjes die tegelijk gaar worden.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 170 °C (hetelucht 150 °C). Bekleed twee bakplaten met bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Liever iets lager en langer dan te heet. Dan worden ze knapperig zonder te verbranden."
+        },
+        {
+          "werkwoord": "Rol",
+          "beschrijving": "Rol het deeg in kleine bolletjes van ongeveer 1 cm doorsnee, zo groot als een knikker.",
+          "type": "Bubbly Tip",
+          "tip": "Rol eerst een paar dunne slierten en snijd die in gelijke stukjes. Zo worden ze allemaal even groot."
+        },
+        {
+          "werkwoord": "Verdeel",
+          "beschrijving": "Leg de bolletjes op de bakplaat met een klein beetje ruimte ertussen. Druk ze heel licht aan, zodat ze niet wegrollen.",
+          "type": "Chaos Alert",
+          "tip": "Grote en kleine door elkaar? Dan zijn de kleintjes zwart als de grote nog zacht zijn."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & KNAPPEREN",
+      "doel": "goudbruine kruidnoten die echt knapperen als je erop bijt.",
+      "stappen": [
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de kruidnoten 15–18 minuten in het midden van de oven, tot ze stevig en net iets donkerder zijn.",
+          "type": "Bubbly Tip",
+          "tip": "Bak één plaat tegelijk. Ovens verschillen, dus kijk na 13 minuten al even."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat ze helemaal afkoelen op een rooster. Pas dan worden ze echt knapperig.",
+          "type": "Chaos Alert",
+          "tip": "Warm voelen ze zacht aan. Niet langer bakken! Het knapperen komt vanzelf tijdens het afkoelen."
+        },
+        {
+          "werkwoord": "Dip",
+          "beschrijving": "Wil je chocolade-kruidnoten? Smelt de chocolade rustig au bain-marie, rol de afgekoelde kruidnoten erdoor en laat ze opstijven op bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Gebruik een vork om ze uit de chocolade te vissen. Tik hem even af op de rand, dan krijg je geen voetjes."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Helemaal afgekoeld in een goed afgesloten trommel of pot: zo blijven ze 2–3 weken knapperig. Zijn ze toch zacht geworden? Een paar minuten in een oven van 150 °C maakt ze weer krokant.",
+  "variaties": [
+    "Chocolade: dip ze in pure, melk- of witte chocolade",
+    "Sinaasappel: rasp een beetje sinaasappelschil door het deeg",
+    "Extra pittig: voeg een snufje gemberpoeder of zwarte peper toe",
+    "Notig: rol ze na het dippen door fijngehakte hazelnoten",
+    "Glitter: strooi wat gekleurde sprinkles op de verse chocolade"
+  ],
+  "bekentenis": "Wist je dat kruidnoten en pepernoten eigenlijk twee verschillende koekjes zijn? Echte pepernoten zijn taai, onregelmatig en smaken naar anijs. De ronde, knapperige bolletjes die we nu allemaal 'pepernoten' noemen, zijn kruidnoten. Mijn eerste zelfgemaakte batch was trouwens één grote vlakke koek, want ik had de bolletjes veel te dicht op elkaar gelegd. Proud Disaster™: ik heb hem gewoon in stukjes gebroken en opgegeten.",
+  "mantra": "Kleine bolletjes, koude boter, geduld bij het afkoelen. Knapperig komt vanzelf.",
+  "bron": [
+    "BRON: klassieke Nederlandse kruidnotenbasis (zelfrijzend bakmeel, donkerbruine basterdsuiker, boter, speculaaskruiden)",
+    "FA-WIRAK5 (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ],
+  "pakket": {
+    "pakketVersie": 1,
+    "status": "concept",
+    "post": {
+      "eersteZin": "Het ruikt hier naar december. De eerste kruidnoten van het jaar zijn uit de oven! 🎁",
+      "caption": "Het ruikt hier naar december. De eerste kruidnoten van het jaar zijn uit de oven! 🎁\n\nZelfrijzend bakmeel, bruine basterdsuiker, boter en een flinke schep speculaaskruiden.\n\nMeer heb je echt niet nodig.\n\nEerlijk is eerlijk: mijn eerste batch werd één grote platte koek. Ik had de bolletjes te dicht op elkaar gelegd. Proud Disaster™. 💛\n\nIk heb hem gewoon in stukjes gebroken. Net zo lekker.\n\nKleine bolletjes, koude boter, geduld bij het afkoelen.\n\nEn jij: puur, of gedipt in chocolade? Vertel het me hieronder! 👇\n\nWil je het recept? Zet 'RECEPT' in de reacties. 💌",
+      "fotoIdee": "Carrousel: 1) een schaal vol kruidnoten op een mooie plek, 2) bolletjes op de bakplaat, 3) een paar gedipt in chocolade.",
+      "altTekst": "Een schaal vol ronde, goudbruine kruidnoten, een paar gedipt in chocolade."
+    },
+    "story": [
+      {
+        "frame": 1,
+        "tekst": "Kruidnoten-dag in de keuken! 🍪",
+        "beeld": "De ingrediënten op het aanrecht met het potje speculaaskruiden vooraan.",
+        "sticker": "emoji-slider",
+        "stickerTekst": "Hoe blij word jij van kruidnoten?"
+      },
+      {
+        "frame": 2,
+        "tekst": "Koude boter erdoor wrijven. Snel werken!",
+        "beeld": "Close-up van handen die boter door het meel wrijven.",
+        "sticker": "geen"
+      },
+      {
+        "frame": 3,
+        "tekst": "Bolletjes rollen, zo groot als een knikker",
+        "beeld": "Een bakplaat vol kleine deegbolletjes.",
+        "sticker": "poll",
+        "stickerTekst": "Puur of met chocolade?"
+      },
+      {
+        "frame": 4,
+        "tekst": "Afkoelen = knapperig worden. Geduld! ⏳",
+        "beeld": "De gebakken kruidnoten op een rooster.",
+        "sticker": "vraag",
+        "stickerTekst": "Wat is jouw favoriete sinterklaaslekkernij?"
+      },
+      {
+        "frame": 5,
+        "tekst": "Wil je het recept? Reageer op de post! 💌",
+        "beeld": "Een handje kruidnoten in een schaaltje, iemand pakt er één.",
+        "sticker": "geen"
+      }
+    ],
+    "hashtags": [
+      "#ProudDisaster",
+      "#bubblybakery",
+      "#kruidnoten",
+      "#pepernoten",
+      "#sinterklaas",
+      "#zelfbakken",
+      "#koekjesbakken",
+      "#speculaaskruiden",
+      "#homebaking",
+      "#christmasbaking"
+    ],
+    "boodschappen": [
+      {
+        "afdeling": "Brood & bakken",
+        "items": [
+          "125 g zelfrijzend bakmeel",
+          "65 g donkerbruine basterdsuiker",
+          "100 g pure of melkchocolade (optioneel)"
+        ]
+      },
+      {
+        "afdeling": "Zuivel & eieren",
+        "items": [
+          "50 g roomboter",
+          "2–3 el melk"
+        ]
+      },
+      {
+        "afdeling": "Kruiden & specerijen",
+        "items": [
+          "1½–2 el speculaaskruiden (of kruidnotenkruiden)"
+        ]
+      },
+      {
+        "afdeling": "Al in huis?",
+        "items": [
+          "Zout",
+          "Bakpapier",
+          "Keukenfolie"
+        ]
+      }
+    ],
+    "tip": "Bak ze eerst zelf en film de bolletjes op de bakplaat. Dat beeld doet het altijd goed in je story."
+  }
+}
