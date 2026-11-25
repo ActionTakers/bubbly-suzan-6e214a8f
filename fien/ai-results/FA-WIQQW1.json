@@ -1,0 +1,221 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien AI uitwerking FA-WIQQW1 Taaitaai. Vraag: een recept voor taaitaai. Bubbly 3×3 op basis van klassieke Nederlandse taaitaai (rogge, honing, anijs, speculaaskruiden; deeg rust een nacht). Geen prijzen, geen allergie-claims.",
+  "verzoek": "FA-WIQQW1",
+  "titel": "Taaitaai",
+  "ondertitel": "Het zachte, taaie sinterklaaskoekje met honing, anijs en speculaaskruiden — deeg vandaag, bakken morgen. Voor ca. 15–20 poppetjes",
+  "tags": [
+    "taaitaai",
+    "sinterklaas",
+    "honing",
+    "anijs",
+    "speculaaskruiden",
+    "koekjes",
+    "december"
+  ],
+  "ingredienten": [
+    "Dag 1: 200 g roggebloem",
+    "Dag 1: 100 g bloem",
+    "Dag 1: ¼ tl zout",
+    "Dag 1: 150 g honing",
+    "Dag 1: 75 g donkerbruine basterdsuiker",
+    "Dag 1: 75 ml water",
+    "Dag 2: 40 g honing",
+    "Dag 2: 1 el bakpoeder",
+    "Dag 2: 1 el speculaaskruiden",
+    "Dag 2: 1½ tl gemalen anijszaad",
+    "Afmaken: 1 ei, losgeklopt",
+    "Afmaken: extra bloem voor het werkblad",
+    "Afmaken: eventueel greinsuiker of gekleurde suikerversiering"
+  ],
+  "benodigdheden": [
+    "Grote kom",
+    "Steelpan",
+    "Pollepel",
+    "Plasticfolie",
+    "Deegroller",
+    "Koekjesuitstekers (poppetjes!) of een scherp mesje",
+    "Bakplaat + bakpapier",
+    "Kwastje"
+  ],
+  "fases": [
+    {
+      "naam": "DEEG MAKEN (DAG 1)",
+      "doel": "een plakkerig honingdeeg dat een nacht mag rijpen.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Meng de roggebloem, bloem en het zout in een grote kom.",
+          "type": "Bubbly Tip",
+          "tip": "Roggebloem geeft taaitaai die typische donkere kleur en stevige bite. Niet vervangen door alleen gewone bloem."
+        },
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Breng de honing, donkerbruine basterdsuiker en het water al roerend aan de kook in een steelpan, tot de suiker is opgelost.",
+          "type": "Chaos Alert",
+          "tip": "Honingstroop kookt snel over én is gloeiend heet. Blijf erbij en roer, en proef niet met je vinger."
+        },
+        {
+          "werkwoord": "Rust",
+          "beschrijving": "Giet het hete honingmengsel bij de bloem en roer tot een plakkerig deeg. Verpak het in plasticfolie en laat het minimaal een nacht op kamertemperatuur rusten.",
+          "type": "Bubbly Tip",
+          "tip": "Dit is het geheim van taai: het deeg rijpt en wordt soepeler. Geduld is hier je beste ingrediënt."
+        }
+      ]
+    },
+    {
+      "naam": "KRUIDEN & KNEDEN (DAG 2)",
+      "doel": "een stevig, geurig deeg dat zich goed laat uitrollen.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 200 °C (boven- en onderwarmte) en bekleed een bakplaat met bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Hetelucht? Zet hem op ongeveer 180 °C. Ovens verschillen, dus kijk straks goed mee."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Snijd het deeg in stukken en kneed er met de hand de honing, het bakpoeder, de speculaaskruiden en het anijszaad doorheen tot alles egaal gemengd is.",
+          "type": "Chaos Alert",
+          "tip": "Dit is een workout! Het deeg is écht taai. Gebruik je handen; een mixer kan oververhit raken."
+        },
+        {
+          "werkwoord": "Rol",
+          "beschrijving": "Rol het deeg op een licht bebloemd werkblad uit tot ongeveer 5 mm dik.",
+          "type": "Bubbly Tip",
+          "tip": "Is het deeg te zacht of plakt het? Even 15 minuten in de koelkast en dan verder."
+        }
+      ]
+    },
+    {
+      "naam": "VORMEN & BAKKEN",
+      "doel": "glanzende poppetjes die zacht en taai blijven.",
+      "stappen": [
+        {
+          "werkwoord": "Steek",
+          "beschrijving": "Steek of snijd er poppetjes, dieren of andere vormen uit en leg ze met wat ruimte ertussen op de bakplaat.",
+          "type": "Bubbly Tip",
+          "tip": "Geen uitsteker? Teken een poppetje op karton, knip uit en snijd er met een mesje omheen."
+        },
+        {
+          "werkwoord": "Bestrijk",
+          "beschrijving": "Bestrijk de koekjes met het losgeklopte ei en strooi er naar wens wat greinsuiker of suikerversiering over.",
+          "type": "Chaos Alert",
+          "tip": "Niet te veel ei: plasjes op de bakplaat worden bruine randjes. Een dun laagje geeft de mooiste glans."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de taaitaai 8–12 minuten tot ze net goudbruin zijn. Laat ze afkoelen op een rooster.",
+          "type": "Bubbly Tip",
+          "tip": "Liever iets te kort dan te lang. Net uit de oven voelt de buitenkant knapperig, na een dag wordt alles lekker taai."
+        }
+      ]
+    }
+  ],
+  "bewaren": "In een goed afgesloten trommel een week of langer. Worden ze toch wat hard? Leg er een boterham bij in de trommel; na een nachtje zijn ze weer zacht en taai.",
+  "variaties": [
+    "Klassieke poppetjes: geef ze krenten als oogjes en knoopjes vóór het bakken",
+    "Mini-taaitaai: steek kleine rondjes of hartjes uit, ca. 7 minuten bakken",
+    "Extra anijs: verdubbel het anijszaad voor echte anijsfans",
+    "Versierd: teken na het afkoelen gezichtjes met wit glazuur",
+    "Cadeautje: verpak een paar poppetjes in een zakje met een strikje voor in de schoen"
+  ],
+  "bekentenis": "Wist je dat taaitaai familie is van de eeuwenoude honingkoek? Vroeger werden de poppetjes gebakken als 'vrijer' en 'vrijster', en kreeg je er een als stiekem liefdesbericht. De eerste keer dat ik taaitaai maakte, wilde ik niet wachten tot dag twee. Ik rolde het deeg meteen uit. Het plakte aan alles: de roller, het aanrecht en mijn trui. Proud Disaster™. Sindsdien gun ik het deeg zijn nachtrust.",
+  "mantra": "Vandaag mengen, morgen kneden. Taai is een kwestie van geduld.",
+  "bron": [
+    "BRON: klassieke Nederlandse taaitaai (rogge, honing, anijs, speculaaskruiden, deeg een dag laten rusten), vergeleken met o.a. Rutger bakt en Heel Holland Bakt",
+    "FA-WIQQW1 (fien-v15) — hoeveelheden en tijden zijn richting; ovens verschillen."
+  ],
+  "pakket": {
+    "pakketVersie": 1,
+    "status": "concept",
+    "post": {
+      "eersteZin": "Mijn taaitaai-deeg moest een nacht slapen. Ik dus niet: ik stond om 7 uur al te kneden. 🎁",
+      "caption": "Mijn taaitaai-deeg moest een nacht slapen. Ik dus niet: ik stond om 7 uur al te kneden. 🎁\n\nHoning, anijs en speculaaskruiden. Mijn keuken ruikt naar december.\n\nWist je dat taaitaai-poppetjes vroeger een stiekem liefdesbericht waren?\n\nMijn eerste poging? Te ongeduldig. Het deeg plakte aan alles, zelfs aan mijn trui. Proud Disaster™. 💛\n\nNu weet ik het: vandaag mengen, morgen kneden.\n\nWelke vorm steek jij uit: poppetje, hartje of iets heel geks? 👇\n\nWil je het recept? Zet 'RECEPT' in de reacties. 💌",
+      "fotoIdee": "Carrousel: 1) een schaal glanzende taaitaai-poppetjes, 2) handen die het taaie deeg kneden, 3) poppetjes met krentenoogjes op de bakplaat.",
+      "altTekst": "Glanzende bruine taaitaai-poppetjes met krentenoogjes op een bord, met anijs en honing ernaast."
+    },
+    "story": [
+      {
+        "frame": 1,
+        "tekst": "Dit deeg mag een nachtje slapen 😴",
+        "beeld": "Het plakkerige deeg in plasticfolie op het aanrecht.",
+        "sticker": "emoji-slider",
+        "stickerTekst": "Hoeveel zin heb jij in taaitaai?"
+      },
+      {
+        "frame": 2,
+        "tekst": "Dag 2: kneden. Dit is een workout! 💪",
+        "beeld": "Korte clip van handen die de kruiden door het taaie deeg kneden.",
+        "sticker": "geen"
+      },
+      {
+        "frame": 3,
+        "tekst": "Poppetjes uitsteken 🧑‍🎄",
+        "beeld": "Close-up van de uitsteker die door het uitgerolde deeg gaat.",
+        "sticker": "poll",
+        "stickerTekst": "Poppetje of hartje?"
+      },
+      {
+        "frame": 4,
+        "tekst": "Goudbruin en taai. Die geur! 😍",
+        "beeld": "De bakplaat met glanzende taaitaai net uit de oven.",
+        "sticker": "vraag",
+        "stickerTekst": "Welke vorm wil jij zien?"
+      }
+    ],
+    "hashtags": [
+      "#ProudDisaster",
+      "#bubblybakery",
+      "#taaitaai",
+      "#sinterklaas",
+      "#sinterklaasbakken",
+      "#zelfgebakken",
+      "#thuisbakken",
+      "#koekjesbakken",
+      "#homebaking",
+      "#christmasbaking"
+    ],
+    "boodschappen": [
+      {
+        "afdeling": "Brood & bakken",
+        "items": [
+          "Roggebloem (200 g)",
+          "Bloem (100 g + extra voor het werkblad)",
+          "Donkerbruine basterdsuiker (75 g)",
+          "Bakpoeder (1 el)",
+          "Greinsuiker of suikerversiering (optioneel)"
+        ]
+      },
+      {
+        "afdeling": "Houdbaar & potten",
+        "items": [
+          "Honing (190 g)"
+        ]
+      },
+      {
+        "afdeling": "Kruiden & specerijen",
+        "items": [
+          "Speculaaskruiden (1 el)",
+          "Gemalen anijszaad (1½ tl)"
+        ]
+      },
+      {
+        "afdeling": "Zuivel & eieren",
+        "items": [
+          "Ei (1)"
+        ]
+      },
+      {
+        "afdeling": "Al in huis?",
+        "items": [
+          "Zout (¼ tl)",
+          "Water (75 ml)",
+          "Plasticfolie",
+          "Bakpapier"
+        ]
+      }
+    ],
+    "tip": "Post het kneden als korte clip. Het 'zo taai is dit deeg'-moment laat mensen glimlachen."
+  }
+}
