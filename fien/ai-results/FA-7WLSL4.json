@@ -1,0 +1,36 @@
+{
+  "type": "bericht",
+  "verzoek": "FA-7WLSL4",
+  "status": "klaar",
+  "titel": "Geen gemalen anijs? Zo los je het op",
+  "bericht": "Geen gemalen anijs in huis voor je taaitaai? Geen stress. Hier zijn een paar simpele oplossingen. Het deeg lukt zo ook.",
+  "lijst": [
+    {
+      "kop": "Dit kun je gebruiken",
+      "inleiding": "Kies wat je in huis hebt. Is de smaak wat krachtiger, begin dan met een beetje minder.",
+      "items": [
+        {
+          "naam": "Hele anijszaadjes",
+          "waarom": "Fijnmalen in een vijzel of koffiemolen, dan heb je precies hetzelfde."
+        },
+        {
+          "naam": "Steranijs",
+          "waarom": "1 à 2 sterren fijnmalen. Is iets krachtiger, dus begin met minder."
+        },
+        {
+          "naam": "Venkelzaad",
+          "waarom": "Gemalen, dezelfde hoeveelheid. Iets milder en zoeter."
+        },
+        {
+          "naam": "Speculaas- of koekkruiden",
+          "waarom": "Smaakt meer kruidig dan anijs, maar ook heel lekker."
+        },
+        {
+          "naam": "Gewoon weglaten",
+          "waarom": "Het deeg werkt gewoon, je proeft alleen minder die typische taaitaaismaak."
+        }
+      ]
+    }
+  ],
+  "tip": "Voor je taaitaai gebruik je 1½ theelepel gemalen anijszaad. Als je zelf maalt, is dat een goed richtpunt."
+}
