@@ -3,7 +3,8 @@
    POST /chat/koppel {code}                     → eenmalige koppelcode (secret CHAT_KOPPELCODE) wordt een apparaat-sleutel
    POST /chat  Authorization: Bearer <sleutel>  {id, berichten:[{wie,tekst}]} → {tekst, soort?, klaar?}
    Opslag in R2 (binding FIEN): chat/tokens/<sha256>, chat/teller/<datum>, chat/log/<datum>/<id>.json, chat/voorstel/<id>.json (alleen bij een samenvatting),
-   chat/klaar/<id>.json (pas als Suzan op 'Zet klaar' drukt: POST /chat/klaar {id})
+   chat/klaar/<id>.json (pas als Suzan op 'Zet klaar' drukt: POST /chat/klaar {id}); velden status (klaargezet|bezig|uitgewerkt) en link (optioneel)
+   GET /chat/klaar (Bearer apparaat-sleutel) → haar lijst 'Wat ik heb klaargezet'; POST /chat/klaar/status (Bearer FIEN_PENDING_KEY) {id,status,link?} voor de achterkant
    Vars/secrets: CHAT_KOPPELCODE (secret), CHAT_PROMPT (var = chat-systeemprompt.md), CHAT_MODEL, CHAT_DAG_MAX (optioneel) */
 import PROMPT from './chat-prompt.js';
 const enc=new TextEncoder();
@@ -53,3 +54,23 @@ export async function klaarzet(req,env,J){const auth=req.headers.get('Authorizat
  if(!ob)return J(404,{ok:false,e:'onbekend'});
  const v=JSON.parse(await ob.text());await env.FIEN.put('chat/klaar/'+id+'.json',JSON.stringify({...v,status:'klaargezet',klaargezet:new Date().toISOString()}));
  return J(200,{ok:true,id})}
+
+/* ---- Lijst 'Wat ik heb klaargezet' ---- */
+export const STATUSSEN=['klaargezet','bezig','uitgewerkt'];
+/* link: alleen een plek in de app (app:<tab>, fa:<FA-id>) of een pagina op bubblybakery.nl / de Fien-app */
+export const LINK_OK=/^(app:(home|rec|bak|site|meer|plan|chat)|fa:FA-[A-Z0-9]{2,24}|https:\/\/(www\.)?bubblybakery\.nl\/[^\s"<>]{0,200}|https:\/\/actiontakers\.github\.io\/bubbly-suzan-6e214a8f\/[^\s"<>]{0,200})$/;
+const lijstItem=(v,id)=>({id,klaar:String(v&&v.antwoord&&v.antwoord.klaar||'').slice(0,400),soort:SOORTEN.includes(v&&v.antwoord&&v.antwoord.soort)?v.antwoord.soort:'idee',
+ t:String(v&&v.klaargezet||v&&v.t||''),status:STATUSSEN.includes(v&&v.status)?v.status:'klaargezet',...(v&&typeof v.link==='string'&&LINK_OK.test(v.link)?{link:v.link}:{})});
+export async function lijst(req,env,J){const auth=req.headers.get('Authorization')||'';const tok=auth.startsWith('Bearer ')?auth.slice(7):'';
+ if(!/^[a-f0-9]{64}$/.test(tok)||!(await env.FIEN.head('chat/tokens/'+await sha(tok))))return J(401,{ok:false});
+ const l=await env.FIEN.list({prefix:'chat/klaar/',limit:100});const items=[];
+ for(const o of l.objects||[]){const m=/^chat\/klaar\/(C[A-Z0-9]{4,21})\.json$/.exec(o.key);if(!m)continue;const ob=await env.FIEN.get(o.key);if(!ob)continue;
+  try{const v=JSON.parse(await ob.text());if(v&&v.status&&v.antwoord&&v.antwoord.klaar)items.push(lijstItem(v,m[1]))}catch{}}
+ items.sort((a,b)=>b.t<a.t?-1:b.t>a.t?1:0);return J(200,{ok:true,items:items.slice(0,50)})}
+/* achterkant: POST /chat/klaar/status {id,status,link?} met FIEN_PENDING_KEY (sleutelcontrole gebeurt in index.js) */
+export async function zetStatus(req,env,J){let b;try{b=await req.json()}catch{return J(400,{ok:false,e:'json'})}
+ const id=String(b&&b.id||'');if(!/^C[A-Z0-9]{4,21}$/.test(id))return J(400,{ok:false,e:'id'});if(!STATUSSEN.includes(b.status))return J(400,{ok:false,e:'status'});
+ let link;if(b.link===null||b.link==='')link=null;else if(b.link!==undefined){link=String(b.link);if(!LINK_OK.test(link))return J(400,{ok:false,e:'link'})}
+ const ob=await env.FIEN.get('chat/klaar/'+id+'.json');if(!ob)return J(404,{ok:false,e:'onbekend'});
+ const v=JSON.parse(await ob.text());v.status=b.status;if(link===null)delete v.link;else if(link)v.link=link;v.bijgewerkt=new Date().toISOString();
+ await env.FIEN.put('chat/klaar/'+id+'.json',JSON.stringify(v));return J(200,{ok:true,id,status:v.status,link:v.link||null})}
