@@ -1,6 +1,6 @@
 // node test/chat-test.mjs — nep-R2, nep-Workers AI (env.AI). Geen netwerk, geen sleutels.
-import {koppel,chat,klaarzet,schoon,uitModel} from '../chat.js';
-const store=new Map();const FIEN={async put(k,v){store.set(k,String(v))},async get(k){return store.has(k)?{text:async()=>store.get(k)}:null},async head(k){return store.has(k)?{}:null}};
+import {koppel,chat,klaarzet,lijst,zetStatus,schoon,uitModel} from '../chat.js';
+const store=new Map();const FIEN={async put(k,v){store.set(k,String(v))},async get(k){return store.has(k)?{text:async()=>store.get(k)}:null},async head(k){return store.has(k)?{}:null},async list({prefix}){return {objects:[...store.keys()].filter(k=>k.startsWith(prefix)).map(key=>({key}))}}};
 let antw={response:JSON.stringify({tekst:'Wat leuk! Voor wanneer wil je dit?'})},calls=[];
 const AI={async run(model,inv){calls.push({model,inv});if(typeof antw==='function')return antw(model);return antw}};
 const env={FIEN,AI,CHAT_KOPPELCODE:'test-koppel-123',CHAT_DAG_MAX:'4'};
@@ -31,4 +31,19 @@ antw=(m)=>{if(m.includes('gemma'))throw new Error('capaciteit');return {response
 t((await chat(rq({id:'CABCDH',berichten:[{wie:'suzan',tekst:'x'}]},H),env,J)).body.tekst.includes('Terugval'),'terugval op Mistral als Gemma faalt');
 t((await chat(rq({id:'CABCDI',berichten:[{wie:'suzan',tekst:'x'}]},H),env,J)).status===429,'daglimiet');
 const zonderAI={...env,AI:undefined};t((await chat(rq({id:'CABCDJ',berichten:[{wie:'suzan',tekst:'x'}]},H),zonderAI,J)).status===503,'zonder AI-binding: uit');
+
+/* lijst 'Wat ik heb klaargezet' + status via de achterkant */
+store.set('chat/klaar/COUDE1.json',JSON.stringify({id:'COUDE1',t:'2026-11-26T19:28:40.062Z',vraag:'x',antwoord:{tekst:'t',soort:'vraag',klaar:'Bakvraag: de cake is verbrand'},status:'klaargezet',klaargezet:'2026-11-26T19:29:02.209Z'}));
+store.set('chat/klaar/CNIEUW.json',JSON.stringify({id:'CNIEUW',t:'2026-11-26T19:33:15.850Z',antwoord:{tekst:'t',soort:'recept',klaar:'Receptkaart: boterkoek'},status:'bezig',klaargezet:'2026-11-26T19:34:26.715Z',link:'https://evil.example/x'}));
+store.set('chat/klaar/kapot.json','niet json');
+const JG={status:0};const gl=await lijst(rq({}),env,J);t(gl.status===401,'lijst zonder sleutel geweigerd');
+const l1=await lijst(rq({},H),env,J);const bk=l1.body.items.find(x=>x.id==='CNIEUW'),ts=l1.body.items.map(x=>x.t);t(l1.status===200&&bk&&bk.status==='bezig'&&l1.body.items.length>=2&&ts.every((x,i)=>i===0||ts[i-1]>=x),'lijst: nieuwste eerst, status mee');
+t(!('link' in bk),'lijst: onveilige link wordt weggelaten');
+t(!('tekst' in bk)&&!('vraag' in bk)&&Object.keys(bk).every(k=>['id','klaar','soort','t','status','link'].includes(k)),'lijst: alleen minimale velden');
+const st=async(b)=>zetStatus(rq(b),env,J);
+t((await st({id:'COUDE1',status:'bezig'})).status===200&&JSON.parse(store.get('chat/klaar/COUDE1.json')).status==='bezig','achterkant: status bezig');
+t((await st({id:'COUDE1',status:'uitgewerkt',link:'app:rec'})).status===200&&JSON.parse(store.get('chat/klaar/COUDE1.json')).link==='app:rec','achterkant: uitgewerkt + link');
+t((await st({id:'COUDE1',status:'uitgewerkt',link:'https://evil.example'})).status===400,'achterkant: vreemde link geweigerd');
+t((await st({id:'COUDE1',status:'raar'})).status===400&&(await st({id:'CZZZZZZ',status:'bezig'})).status===404,'achterkant: foute status/onbekend id');
+t((await st({id:'COUDE1',status:'uitgewerkt',link:null})).status===200&&!('link' in JSON.parse(store.get('chat/klaar/COUDE1.json'))),'achterkant: link wissen');
 console.log(`${ok}/${n}`);process.exit(ok===n?0:1);

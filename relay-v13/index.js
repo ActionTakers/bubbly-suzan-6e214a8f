@@ -11,7 +11,7 @@
    als er geen ai-results/<id>.json komt. GET /pending en POST /pending/klaar met Authorization: Bearer FIEN_PENDING_KEY. */
 import {zetOpSite,siteStatus} from './sitezet.js';
 import {bewaar,lees,doorsturen,herkansing,pending,sleutelOk} from './durable.js';
-import {koppel,chat,klaarzet} from './chat.js';
+import {koppel,chat,klaarzet,lijst,zetStatus} from './chat.js';
 const ORIGIN='https://actiontakers.github.io',SITE='https://bubblybakery.nl/';
 const MAX={idee:500,link:500,fotoLink:500,tijd:40,appVersie:20,receptId:40,recept:2500};const FOTO_MAX=8*1024*1024,WEEK=7*864e5;
 const hits=new Map();const DEF_ORIGIN='https://fien-relay-v13.bubblybakery.workers.dev';
@@ -28,6 +28,8 @@ export default{
   if(min<30)ctx.waitUntil(shot(env).catch(()=>{}));
   ctx.waitUntil(herkansing(env,id=>fotoUrl(env,env.RELAY_ORIGIN||DEF_ORIGIN,id)).then(l=>{if(l.length)console.log('herkansing',l.join(' '))}))},
  async fetch(req,env){const u=new URL(req.url),o=req.headers.get('Origin')||'';
+  if(u.pathname==='/chat/klaar/status'){const H={'Content-Type':'application/json','Cache-Control':'no-store'},R=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:H});
+   if(req.method!=='POST')return R(405,{ok:false,e:'method'});if(!await sleutelOk(req,env))return R(401,{ok:false,e:'sleutel'});return zetStatus(req,env,R)}
   if(u.pathname==='/pending'||u.pathname==='/pending/klaar'){const H={'Content-Type':'application/json','Cache-Control':'no-store'};
    if(!await sleutelOk(req,env))return new Response('{"ok":false,"e":"sleutel"}',{status:401,headers:H});
    if(u.pathname==='/pending'&&req.method==='GET'){const l=await pending(env,id=>fotoUrl(env,u.origin,id),u.searchParams.get('alle')==='1');return new Response(JSON.stringify({ok:true,aantal:l.length,verzoeken:l}),{headers:H})}
@@ -39,6 +41,7 @@ export default{
   const cors={'Access-Control-Allow-Origin':okO?o:ORIGIN,'Access-Control-Allow-Headers':'Content-Type, Authorization','Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Max-Age':'86400','Vary':'Origin'};
   const J=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:{...cors,'Content-Type':'application/json','Cache-Control':'no-store'}});
   if(req.method==='GET'){
+   if(u.pathname==='/chat/klaar')return okO?lijst(req,env,J):new Response('origin',{status:403});
    if(u.pathname==='/site.jpg'||u.pathname==='/site.json'){const ob=await env.FIEN.get('site/latest.jpg');if(!ob)return J(404,{ok:false,e:'nog geen screenshot'});
     const t=ob.customMetadata?.t||ob.uploaded.toISOString();if(u.pathname==='/site.json')return J(200,{ok:true,t,url:SITE});
     return new Response(ob.body,{headers:{...cors,'Content-Type':'image/jpeg','Cache-Control':'max-age=300','X-Shot-Time':t}})}

@@ -52,7 +52,7 @@ async function chatKlaar(id){const l=await chatList();const m=l.find(x=>x.id===i
    const r=await fetch(CHAT_URL+'/chat/klaar',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({id})});
    if(r.status===401)localStorage.removeItem(CHAT_TOKEN_KEY);if(!r.ok)throw Error('http '+r.status)}
   catch(e){l.push({id:id+'E',wie:'fien',tekst:'Oeps, het klaarzetten lukte nu niet. Probeer het straks nog eens.',t:new Date().toISOString(),systeem:true,fout:true});await chatSave(l);return chatPaint()}}
- m.klaargezet=true;await chatSave(l);
+ m.klaargezet=true;await chatSave(l);chatKlaarLijst();
  l.push({id:id+'K',wie:'fien',tekst:m.soort==='beslissing'?'Staat klaar ✓ Jij beslist wat ermee gebeurt.':'Staat klaar ✓ Fien AI kan het later oppakken. Er wordt niets verstuurd.',t:new Date().toISOString(),systeem:true});await chatSave(l);
  /* lokaal ook onthouden; in R2 staat het sinds de klik in chat/klaar/<id>.json */
  const b=(await get('chatKlaar'))||[];b.unshift({id,soort:m.soort,tekst:m.klaar,t:new Date().toISOString()});await put('chatKlaar',b.slice(0,50));chatPaint()}
@@ -78,12 +78,31 @@ async function chatPaint(){const box=$('#chat-log');if(!box)return render();cons
  const tips=$('#chat-tips');if(tips)tips.classList.toggle('hidden',l.length>0);const sb=$('#chat-send');if(sb)sb.disabled=chatBusy;
  requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}))}
 
+/* ---------- Wat ik heb klaargezet: haar lijst uit de relay (GET /chat/klaar) ---------- */
+const KLAAR_STATUS={klaargezet:'Ontvangen',bezig:'Fien is ermee bezig',uitgewerkt:'Klaar, staat in je app'};
+let chatKlaarItems=[];
+function chatKlaarTijd(t){const d=new Date(t);return Number.isNaN(+d)?'':d.toLocaleString('nl-NL',{timeZone:'Europe/Amsterdam',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}
+function chatKlaarPaint(){const box=$('#chat-klaar');if(!box)return;
+ if(!chatKlaarItems.length){box.classList.add('hidden');box.innerHTML='';return}
+ box.classList.remove('hidden');
+ box.innerHTML=`<details open><summary>📌 Wat ik heb klaargezet <span class="ck-n">${chatKlaarItems.length}</span></summary>`+chatKlaarItems.map((x,i)=>`<div class="ck-item s-${esc(x.status)}"><div class="ck-t">${esc(x.klaar)}</div><div class="ck-m"><span class="ck-pill">${esc(KLAAR_STATUS[x.status]||KLAAR_STATUS.klaargezet)}</span><small>${esc(chatKlaarTijd(x.t))}</small>${x.link?`<button class="btn s xs" onclick="chatKlaarOpen(${i})">Bekijk</button>`:''}</div></div>`).join('')+`</details>`}
+async function chatKlaarLijst(){if(CHAT_DEMO)return;const token=localStorage.getItem(CHAT_TOKEN_KEY);if(!token)return;
+ try{const r=await fetch(CHAT_URL+'/chat/klaar',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+  if(r.status===401){localStorage.removeItem(CHAT_TOKEN_KEY);return}if(!r.ok)return;
+  const j=await r.json();if(j&&Array.isArray(j.items)){chatKlaarItems=j.items.filter(x=>x&&x.klaar);chatKlaarPaint()}}catch(e){}}
+function chatKlaarOpen(i){const l=(chatKlaarItems[i]||{}).link||'';let m;
+ if((m=/^app:(home|rec|bak|site|meer|plan|chat)$/.exec(l)))return go(m[1]);
+ if((m=/^fa:(FA-[A-Z0-9]{2,24})$/.exec(l)))return typeof aiOpenBericht==='function'?aiOpenBericht(m[1]):go('rec');
+ if(/^https:\/\/(www\.)?bubblybakery\.nl\//.test(l)||/^https:\/\/actiontakers\.github\.io\/bubbly-suzan-6e214a8f\//.test(l))window.open(l,'_blank','noopener')}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&$('#chat-klaar'))chatKlaarLijst()});
+
 VIEWS.chat=async()=>`<div class="card chat-head"><img src="img/fien-blij-160w.webp" alt=""><div class="grow"><h2 style="margin:0;font-size:22px">Praat met Fien</h2><small>${CHAT_DEMO?'Proefversie · voorbeeldzinnen':'Fien schrijft voor je op'}</small></div></div>
+<div id="chat-klaar" class="card chat-klaarlijst hidden"></div>
 <div id="chat-log" class="chat-log" aria-live="polite"></div>
 <div id="chat-tips" class="chat-tips">${CHAT_TIPS.map(t=>`<button class="chip" onclick="chatSend(${esc(JSON.stringify(t))})">${esc(t)}</button>`).join('')}</div>
 <div class="chat-bar"><textarea id="chat-in" rows="1" placeholder="Schrijf iets aan Fien…" aria-label="Bericht aan Fien" oninput="chatDraft=this.value;this.style.height='auto';this.style.height=Math.min(this.scrollHeight,140)+'px'" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();chatSend()}">${esc(chatDraft)}</textarea><button id="chat-send" class="btn" onclick="chatSend()" aria-label="Verstuur">➤</button></div>
 <p class="chat-note">Fien schrijft op wat je wilt en zet het klaar. Er wordt niets verstuurd. Prijzen en allergieën check je altijd zelf.</p>`;
-VIEWS.chat.after=()=>chatPaint();
+VIEWS.chat.after=()=>{chatKlaarPaint();chatPaint();chatKlaarLijst()};
 /* tab in de navigatie, direct na Start */
 if(!TABS.some(t=>t[0]==='chat'))TABS.splice(1,0,['chat','💬','Fien']);
 if(typeof navR==='function')navR();
