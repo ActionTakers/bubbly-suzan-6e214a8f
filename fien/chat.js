@@ -1,5 +1,5 @@
 'use strict';
-/* ---------- Praat met Fien (PROEF, branch fien-chat-proef) ----------
+/* ---------- Praat met Fien ----------
    Intake-chat: Suzan typt, Fien luistert, vraagt kort door en schrijft op wat Suzan wil (recept, vraag, taak, idee, beslissing).
    Fien geeft geen uitleg of adviezen; wat is opgeschreven wordt klaargezet voor de bestaande Fien-flow.
    - Zonder chat-koppeling (meta fien-chat leeg) of met ?demo=1: voorbeeldantwoorden op deze telefoon (geen netwerk).
