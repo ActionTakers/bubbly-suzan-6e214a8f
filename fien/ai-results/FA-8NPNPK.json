@@ -1,0 +1,67 @@
+{
+  "type": "bericht",
+  "verzoek": "FA-8NPNPK",
+  "status": "klaar",
+  "recept": "FA-8NPNTK",
+  "titel": "Je pepernoten staan klaar voor online",
+  "bericht": "Hier is je pakket voor online: de receptkaart, een Instagram-bijschrift, een story in 3 beelden en een korte tekst voor de site.",
+  "lijst": [
+    {
+      "kop": "Receptkaart",
+      "inleiding": "De receptkaart staat in je app, onder Recepten. Tik op Bekijk receptkaart. Hij staat nog niet op de site.",
+      "items": [
+        {
+          "naam": "Pepernoten",
+          "waarom": "Knapperige bolletjes vol speculaaskruiden, ongeveer 80 stuks. Zelfrijzend bakmeel, bruine basterdsuiker, koude boter en een flinke schep kruiden."
+        }
+      ]
+    },
+    {
+      "kop": "Instagram",
+      "inleiding": "Plaats het zelf, wanneer jij wilt. Gebruik je foto van vandaag.",
+      "items": [
+        {
+          "naam": "Bijschrift",
+          "waarom": "De keuken ruikt naar speculaas. Mijn pepernoten zijn uit de oven! 🎉\n\nEen paar een beetje scheef, eentje net te donker — en ik ben er trots op.\n\nWil je het recept? De receptkaart is gratis, via de mini-gids op de site.\n[tekst volgt na akkoord Suzan]\n\nBak jij ze puur, of met een laagje chocolade? Ik lees het graag hieronder 👇"
+        },
+        {
+          "naam": "Hashtags",
+          "waarom": "#ProudDisaster #bubblybakery #pepernoten #sinterklaas #zelfbakken #koekjesbakken #speculaaskruiden"
+        },
+        {
+          "naam": "Foto",
+          "waarom": "Gebruik je eigen baksel van vandaag, geen stockfoto.\n\nMaak een close-up van je pepernoten in een schaal of nog op de bakplaat. Daglicht van opzij, een paar kruimels ernaast. Niet te netjes: eentje aangebroken of een beetje scheef is juist goed.\n\nOptioneel: jouw hand die er eentje pakt."
+        }
+      ]
+    },
+    {
+      "kop": "Story (3 beelden)",
+      "inleiding": "Drie korte beelden, het liefst met jouw baksel van vandaag.",
+      "items": [
+        {
+          "naam": "Beeld 1",
+          "waarom": "Tekst: Uit de oven! 🎉\nBeeld: jouw bakplaat of schaal met de pepernoten van vandaag, nog in de keuken."
+        },
+        {
+          "naam": "Beeld 2",
+          "waarom": "Tekst: Niet allemaal even rond. Precies goed.\nBeeld: close-up, een paar kruimels, eentje aangebroken of een beetje donkerder."
+        },
+        {
+          "naam": "Beeld 3",
+          "waarom": "Tekst: Gratis receptkaart, via de mini-gids op de site.\nBeeld: een handvol pepernoten of dezelfde schaal.\nLink/sticker: [tekst volgt na akkoord Suzan]"
+        }
+      ]
+    },
+    {
+      "kop": "Voor op de site",
+      "inleiding": "Korte tekst boven het recept, als de pagina live gaat.",
+      "items": [
+        {
+          "naam": "Snippet",
+          "waarom": "Het ruikt naar december: pepernoten. Niet de taaie van vroeger, maar de knapperige bolletjes vol speculaaskruiden — die bijna iedereen pepernoten noemt.\n\nDit recept is simpel: zelfrijzend bakmeel, bruine basterdsuiker, koude boter en een flinke schep kruiden. De truc? Kleine, gelijke bolletjes, en daarna écht laten afkoelen. Dan worden ze pas knapperig.\n\nProud Disaster toegestaan. Een beetje te donker, of aan elkaar gebakken? In stukjes breken en zelf opeten. Die zijn vaak het lekkerst."
+        }
+      ]
+    }
+  ],
+  "tip": "Jij kopieert en plaatst zelf. Er wordt niets verstuurd."
+}

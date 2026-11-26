@@ -1,0 +1,118 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Receptkaart pepernoten voor online, gebaseerd op de bestaande Bubbly kruidnoten-aanpak in de app (niet op de 32 live siterecepten; die hebben nog geen pepernoten). Zelfde basis: zelfrijzend bakmeel, donkerbruine basterdsuiker, koude boter, speculaaskruiden. Geen prijzen, geen allergie- of dieetclaims. Geen Skool/e-book/mini-gids-tekst (die blijft: [tekst volgt na akkoord Suzan]).",
+  "verzoek": "FA-8NPNTK",
+  "titel": "Pepernoten",
+  "ondertitel": "Knapperige sinterklaasbolletjes vol speculaaskruiden — voor circa 2 bakplaten (ongeveer 80 stuks), in ongeveer 45 minuten",
+  "tags": [
+    "pepernoten",
+    "kruidnoten",
+    "sinterklaas",
+    "speculaaskruiden",
+    "koekjes",
+    "december"
+  ],
+  "ingredienten": [
+    "125 g zelfrijzend bakmeel",
+    "65 g donkerbruine basterdsuiker",
+    "50 g koude roomboter, in blokjes",
+    "1½–2 el speculaaskruiden (of kruidnotenkruiden)",
+    "1 snufje zout",
+    "2–3 el melk",
+    "Optioneel: 100 g chocolade om te dippen"
+  ],
+  "benodigdheden": [
+    "Mengkom",
+    "Weegschaal en maatlepels",
+    "Bakplaat en bakpapier",
+    "Keukenfolie",
+    "Rooster om af te koelen"
+  ],
+  "fases": [
+    {
+      "naam": "MENGEN & KNEDEN",
+      "doel": "alles klaarzetten zodat het bakken zelf rustig en foutarm verloopt.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Doe het bakmeel, de basterdsuiker, de speculaaskruiden en het zout in een kom. Meng alles goed en wrijf eventuele suikerklontjes fijn.",
+          "type": "Bubbly Tip",
+          "tip": "Ruik even aan je kruiden. Ruik je bijna niks? Dan zijn ze oud, en dan proef je ze ook nauwelijks."
+        },
+        {
+          "werkwoord": "Wrijf",
+          "beschrijving": "Voeg de koude boterblokjes toe. Wrijf ze met je vingertoppen door het meel tot het op grof zand lijkt.",
+          "type": "Chaos Alert",
+          "tip": "Warme handen smelten de boter. Werk snel en spoel je handen even koud af als het vet wordt."
+        },
+        {
+          "werkwoord": "Kneed",
+          "beschrijving": "Voeg de melk lepel voor lepel toe en kneed kort tot een glad deeg. Wikkel het in folie en laat het 15–30 minuten rusten in de koelkast.",
+          "type": "Chaos Alert",
+          "tip": "Te veel melk maakt plakdeeg. Stop zodra het deeg samenkomt; je kunt altijd nog een druppel toevoegen."
+        }
+      ]
+    },
+    {
+      "naam": "ROLLEN & VERDELEN",
+      "doel": "het maken van het deeg en de garing in de oven.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 170 °C (hetelucht 150 °C). Bekleed twee bakplaten met bakpapier.",
+          "type": "Bubbly Tip",
+          "tip": "Liever iets lager en langer dan te heet. Dan worden ze knapperig zonder te verbranden."
+        },
+        {
+          "werkwoord": "Rol",
+          "beschrijving": "Rol het deeg in kleine bolletjes van ongeveer 1 cm doorsnee, zo groot als een knikker.",
+          "type": "Bubbly Tip",
+          "tip": "Rol eerst een paar dunne slierten en snijd die in gelijke stukjes. Zo worden ze allemaal even groot."
+        },
+        {
+          "werkwoord": "Verdeel",
+          "beschrijving": "Leg de bolletjes op de bakplaat met een klein beetje ruimte ertussen. Druk ze heel licht aan, zodat ze niet wegrollen.",
+          "type": "Chaos Alert",
+          "tip": "Grote en kleine door elkaar? Dan zijn de kleintjes te donker als de grote nog zacht zijn."
+        }
+      ]
+    },
+    {
+      "naam": "BAKKEN & KNAPPEREN",
+      "doel": "zorgen dat het resultaat mooi blijft, goed smaakt en handig te serveren is.",
+      "stappen": [
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de pepernoten 15–18 minuten in het midden van de oven, tot ze stevig en net iets donkerder zijn.",
+          "type": "Bubbly Tip",
+          "tip": "Bak één plaat tegelijk. Ovens verschillen, dus kijk na 13 minuten al even."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat ze helemaal afkoelen op een rooster. Pas dan worden ze echt knapperig.",
+          "type": "Chaos Alert",
+          "tip": "Warm voelen ze zacht aan. Niet langer bakken: het knapperen komt vanzelf tijdens het afkoelen."
+        },
+        {
+          "werkwoord": "Dip",
+          "beschrijving": "Wil je ze met chocolade? Smelt de chocolade rustig au bain-marie, rol de afgekoelde pepernoten erdoor en laat ze opstijven op bakpapier.",
+          "type": "Bubbly Mantra",
+          "tip": "Kleine bolletjes, koude boter, geduld bij het afkoelen. Knapperig komt vanzelf."
+        }
+      ]
+    }
+  ],
+  "bewaren": "Helemaal afgekoeld in een goed sluitende trommel blijven ze een tijdje knapperig. Zijn ze toch zacht geworden? Een paar minuten in een oven van 150 °C maakt ze vaak weer krokant. Ga even af op geur en smaak.",
+  "variaties": [
+    "Dip ze in chocolade en laat ze opstijven op bakpapier",
+    "Rasp een beetje sinaasappelschil door het deeg",
+    "Voeg een snufje gemberpoeder of zwarte peper toe voor extra pit",
+    "Strooi een paar sprinkles op de verse chocolade"
+  ],
+  "bekentenis": "Iedereen zegt pepernoten, bakkers zeggen kruidnoten: de ronde, knapperige bolletjes. De taaie met anijs zijn de ‘echte’ pepernoten van vroeger. Mijn eerste batch werd één grote platte koek, omdat de bolletjes te dicht op elkaar lagen. Proud Disaster: ik heb hem in stukjes gebroken en opgegeten. Die waren het eerst op.",
+  "mantra": "Kleine bolletjes, koude boter, geduld bij het afkoelen. Knapperig komt vanzelf.",
+  "bron": [
+    "Klassieke Nederlandse basis: zelfrijzend bakmeel, donkerbruine basterdsuiker, koude boter en speculaaskruiden.",
+    "Hoeveelheden en tijden zijn richting; ovens verschillen."
+  ]
+}

@@ -225,23 +225,23 @@ function blogFrom(j){if(typeof j=='string')j=JSON.parse(j);const b=j.blog&&typeo
  return {titel:String(b.titel||b.title||''),tekst}}
 function safeHttp(u){try{const x=new URL(String(u||''));if(x.protocol==='https:'||x.protocol==='http:')return x.href}catch(e){}return ''}
 function lijstItemFrom(it){if(!it||typeof it!=='object')return null;const naam=String(it.naam||it.titel||'').trim().slice(0,80);if(!naam)return null;
- return {naam,buurt:String(it.buurt||'').trim().slice(0,120),waarom:String(it.waarom||it.tekst||'').trim().slice(0,280),maps:safeHttp(it.maps||it.link||'')}}
+ return {naam,buurt:String(it.buurt||'').trim().slice(0,120),waarom:String(it.waarom||it.tekst||'').trim().slice(0,1200),maps:safeHttp(it.maps||it.link||'')}}
 function lijstFrom(j){const raw=(j&&Array.isArray(j.lijst))?j.lijst:[];
  return raw.map(blok=>{if(!blok||typeof blok!=='object')return null;const kop=String(blok.kop||blok.titel||'').trim().slice(0,80);
   const items=(Array.isArray(blok.items)?blok.items:[]).map(lijstItemFrom).filter(Boolean);if(!kop&&!items.length)return null;
-  return {kop,inleiding:String(blok.inleiding||'').trim().slice(0,280),items}}).filter(Boolean).slice(0,6)}
+  return {kop,inleiding:String(blok.inleiding||'').trim().slice(0,500),items}}).filter(Boolean).slice(0,6)}
 function berichtPack(j){if(typeof j=='string')j=JSON.parse(j);const lijst=lijstFrom(j);const titel=String((j&&j.titel)||'').trim().slice(0,80);
  const tip=String((j&&j.tip)||'').trim().slice(0,280);const bericht=String((j&&j.bericht)||(lijst.length?'Fien heeft een lijstje voor je.':'Fien heeft een berichtje voor je.'));
- const out={bericht};if(titel)out.titel=titel;if(tip)out.tip=tip;if(lijst.length)out.lijst=lijst;return out}
+ const recept=String((j&&(j.recept||j.receptId))||'').trim();const out={bericht};if(titel)out.titel=titel;if(tip)out.tip=tip;if(lijst.length)out.lijst=lijst;if(/^FA-[A-Z0-9]{4,24}$/.test(recept))out.recept=recept;return out}
 function berichtFrom(j){return berichtPack(j).bericht}
-function berichtSame(q,b){const pick=x=>JSON.stringify({bericht:x.bericht||'',titel:x.titel||'',tip:x.tip||'',lijst:x.lijst||[]});return pick(q)===pick(b)}
+function berichtSame(q,b){const pick=x=>JSON.stringify({bericht:x.bericht||'',titel:x.titel||'',tip:x.tip||'',lijst:x.lijst||[],recept:x.recept||''});return pick(q)===pick(b)}
 function berichtHeeftLijst(q){return !!(q&&Array.isArray(q.lijst)&&q.lijst.length)}
-function lijstHtml(lijst){return `<div class="ai-lijst">${(lijst||[]).map(blok=>`<section class="ai-lijst-blok">${blok.kop?`<h4>${esc(blok.kop)}</h4>`:''}${blok.inleiding?`<p class="ai-lijst-in">${esc(blok.inleiding)}</p>`:''}${(blok.items||[]).map(it=>`<article class="ai-plek"><b>${esc(it.naam)}</b>${it.buurt?`<span class="ai-plek-buurt">${esc(it.buurt)}</span>`:''}${it.waarom?`<p>${esc(it.waarom)}</p>`:''}${it.maps?`<a href="${esc(it.maps)}" target="_blank" rel="noopener noreferrer">Zoek op de kaart</a>`:''}</article>`).join('')}</section>`).join('')}</div>`}
+function lijstHtml(lijst){return `<div class="ai-lijst">${(lijst||[]).map(blok=>`<section class="ai-lijst-blok">${blok.kop?`<h4>${esc(blok.kop)}</h4>`:''}${blok.inleiding?`<p class="ai-lijst-in">${esc(blok.inleiding)}</p>`:''}${(blok.items||[]).map(it=>`<article class="ai-plek"><b>${esc(it.naam)}</b>${it.buurt?`<span class="ai-plek-buurt">${esc(it.buurt)}</span>`:''}${it.waarom?`<p style="white-space:pre-wrap">${esc(it.waarom)}</p>`:''}${it.maps?`<a href="${esc(it.maps)}" target="_blank" rel="noopener noreferrer">Zoek op de kaart</a>`:''}</article>`).join('')}</section>`).join('')}</div>`}
 function berichtCard(q){const k=aiKind(q);const when=aiWhen(q.t);const idOk=/^[A-Za-z0-9_-]+$/.test(q.id);
  if(k!=='klaar'){const x={...q,titel:q.titel||q.idee};return `<article class="ai-card ${k}" data-ai="${esc(q.id)}" ${aiWaiting(k)?'aria-busy="true"':''}><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(q.titel||q.idee||'Je bericht')}</h3><small class="ai-meta">${esc(when)}</small></div><span class="ai-pill ${k}">${AI_PILL[k]}</span></div><p class="ai-msg">${esc(aiBusy(q))}</p>${k==='opgepakt'?'<div class="ai-bar" aria-hidden="true"><i></i></div>':''}${aiActs(x)}</article>`}
  const lijst=berichtHeeftLijst(q);const pill=lijst?'Klaar ✓':'✅ Ontvangen';
  return `<article class="ai-card klaar bericht" data-ai="${esc(q.id)}"><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(q.titel||(lijst?'Je lijstje':'Bericht van Fien'))}</h3><small class="ai-meta">${esc(when)}</small></div><span class="ai-pill klaar">${pill}</span></div>
- <p class="ai-msg">${esc(q.bericht||'Fien heeft een berichtje voor je.')}</p>${lijst?lijstHtml(q.lijst):''}${q.tip?`<p class="ai-lijst-tip">${esc(q.tip)}</p>`:''}${idOk?`<div class="ai-acts"><button type="button" class="btn ghost xs" onclick="aiDel('${q.id}')">Verwijderen</button></div>`:''}</article>`}
+ <p class="ai-msg">${esc(q.bericht||'Fien heeft een berichtje voor je.')}</p>${lijst?lijstHtml(q.lijst):''}${q.tip?`<p class="ai-lijst-tip">${esc(q.tip)}</p>`:''}<div class="ai-acts">${q.recept?`<button type="button" class="btn xs" onclick="aiOpenBericht('${q.recept}')">Bekijk receptkaart</button>`:''}${idOk?`<button type="button" class="btn ghost xs" onclick="aiDel('${q.id}')">Verwijderen</button>`:''}</div></article>`}
 async function aiRefreshKlaarBerichten(){const rows=(await aiList()).filter(q=>q.status==='klaar'&&q.type==='bericht'&&AI_ID.test(q.id));let changed=0;
  for(const q of rows){try{const j=await aiFetchResult(q.id);if(!j||(j.type&&j.type!=='bericht'))continue;const b=berichtPack(j);if(berichtSame(q,b))continue;
   await aiPatch(q.id,b);const seen=aiSeenMap();if(seen[q.id]){seen[q.id]='opgepakt';localStorage.setItem(AI_SEEN_KEY,JSON.stringify(seen))}changed++}catch(e){}}
@@ -253,7 +253,8 @@ async function aiOpenBericht(id){if(!AI_ID.test(id))return go('rec');
     const rid=await aiTake(j);RID=null;PID=rid;PST=null;PFILL=true;tab='rec';render();return}
   if(j&&(!j.type||j.type==='bericht'||j.bericht||j.lijst)){const b=berichtPack(j);const l=await aiList();const q=l.find(x=>x.id==id);
   if(q)await aiPatch(id,{type:'bericht',status:'klaar',...b,klaar:q.klaar||new Date().toISOString()});
-  else await aiTurn(async()=>{const fresh=await aiList();if(fresh.some(x=>x.id==id))return;fresh.unshift({id,type:'bericht',status:'klaar',t:new Date().toISOString(),klaar:new Date().toISOString(),idee:b.titel||'Bericht van Fien',...b});await aiSave(fresh)})}}catch(e){}
+  else await aiTurn(async()=>{const fresh=await aiList();if(fresh.some(x=>x.id==id))return;fresh.unshift({id,type:'bericht',status:'klaar',t:new Date().toISOString(),klaar:new Date().toISOString(),idee:b.titel||'Bericht van Fien',...b});await aiSave(fresh)});
+  if(b.recept){try{const r=await aiFetchResult(b.recept);if(r&&(r.fienrecept||(Array.isArray(r.fases)&&r.fases.length)))await aiTake(r)}catch(e){}}}}catch(e){}
  aiScrollId=id;go('rec')}
 
 async function blogDec(id,k){if(k==='Aanpassen'){BEDIT=id;return render()}const t=$('#bt-'+id);const patch={blogDec:k};if(t&&BEDIT===id){patch.blog={...(await aiList()).find(x=>x.id==id).blog,tekst:t.value};patch.blogDec='Aangepast'}BEDIT=null;await aiPatch(id,patch);render()}
