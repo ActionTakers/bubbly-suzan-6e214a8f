@@ -68,8 +68,13 @@ function chatBubble(m){if(m.wie==='suzan')return `<div class="cb me"><div class=
   kaart=`<div class="cb-kaart s-${esc(m.soort||'idee')}"><b>${esc(n)}</b><span>${esc(m.klaar)}</span><div class="cb-acts">${acts.join('')}</div></div>`}
  return `<div class="cb fien ${m.fout?'fout':''} ${m.systeem?'sys':''}"><img src="img/fien-blij-160w.webp" alt=""><div><div class="cbt">${esc(m.tekst)}</div>${kaart}<small>${chatTime(m.t)}</small></div></div>`}
 
+const CHAT_WELKOM='Hoi! Typ hier gewoon wat je bezighoudt, net als een appje. Bijvoorbeeld: "Ik heb geen gemalen anijs, wat nu?" of "Een klant vraagt naar een taart voor 20 mensen". Ik stel soms één vraag terug. Daarna maak ik een kort overzichtje en vraag ik: "Zal ik dit klaarzetten?" Wil je dat? Tik dan op 📌 Zet klaar. Bij prijzen, allergieën, bestellingen en klachten beslis jij; dat zet ik voor je klaar. Ik stuur nooit zelf iets naar klanten. Probeer gerust wat uit!';
+function chatWelkom(open){const body=`<div class="cbt">${esc(CHAT_WELKOM)}</div>`;
+ if(open)return `<div class="cb fien welkom"><img src="img/fien-blij-160w.webp" alt=""><div>${body}</div></div>`;
+ return `<div class="cb fien welkom compact"><img src="img/fien-blij-160w.webp" alt=""><details class="chat-hint"><summary>Hoe werkt dit?</summary>${body}</details></div>`}
+
 async function chatPaint(){const box=$('#chat-log');if(!box)return render();const l=await chatList();
- box.innerHTML=(l.length?'':`<div class="cb fien"><img src="img/fien-blij-160w.webp" alt=""><div><div class="cbt">Hoi Suzan! Vertel me wat je wilt: een recept, een idee, een klus of iets wat je dwarszit. Ik vraag kort door en schrijf het voor je op. Jij beslist wat ermee gebeurt. 🧁</div></div></div>`)+l.map(chatBubble).join('')+(chatBusy?`<div class="cb fien typing"><img src="img/fien-denken-160w.webp" alt=""><div><div class="cbt"><i></i><i></i><i></i></div><small>Fien typt…</small></div></div>`:'');
+ box.innerHTML=chatWelkom(!l.length)+l.map(chatBubble).join('')+(chatBusy?`<div class="cb fien typing"><img src="img/fien-denken-160w.webp" alt=""><div><div class="cbt"><i></i><i></i><i></i></div><small>Fien typt…</small></div></div>`:'');
  const tips=$('#chat-tips');if(tips)tips.classList.toggle('hidden',l.length>0);const sb=$('#chat-send');if(sb)sb.disabled=chatBusy;
  requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}))}
 
