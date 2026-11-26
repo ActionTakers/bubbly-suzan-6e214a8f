@@ -248,7 +248,10 @@ async function aiRefreshKlaarBerichten(){const rows=(await aiList()).filter(q=>q
  return changed}
 let aiScrollId=null;
 async function aiOpenBericht(id){if(!AI_ID.test(id))return go('rec');
- try{const j=await aiFetchResult(id);if(j&&(!j.type||j.type==='bericht'||j.bericht||j.lijst)){const b=berichtPack(j);const l=await aiList();const q=l.find(x=>x.id==id);
+ try{const j=await aiFetchResult(id);
+  if(j&&(j.fienrecept||(Array.isArray(j.fases)&&j.fases.length&&j.type!=='bericht'))){
+    const rid=await aiTake(j);RID=null;PID=rid;PST=null;PFILL=true;tab='rec';render();return}
+  if(j&&(!j.type||j.type==='bericht'||j.bericht||j.lijst)){const b=berichtPack(j);const l=await aiList();const q=l.find(x=>x.id==id);
   if(q)await aiPatch(id,{type:'bericht',status:'klaar',...b,klaar:q.klaar||new Date().toISOString()});
   else await aiTurn(async()=>{const fresh=await aiList();if(fresh.some(x=>x.id==id))return;fresh.unshift({id,type:'bericht',status:'klaar',t:new Date().toISOString(),klaar:new Date().toISOString(),idee:b.titel||'Bericht van Fien',...b});await aiSave(fresh)})}}catch(e){}
  aiScrollId=id;go('rec')}

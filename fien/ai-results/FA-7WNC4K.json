@@ -1,0 +1,66 @@
+{
+  "type": "bericht",
+  "verzoek": "FA-7WNC4K",
+  "status": "klaar",
+  "titel": "Je cake is verbrand? Zo kun je hem nog redden",
+  "bericht": "Wat vervelend dat je cake is verbrand. Geen stress. Hier zijn een paar simpele dingen die je nu nog kunt doen, en waar je de volgende keer op kunt letten.",
+  "lijst": [
+    {
+      "kop": "Dit kun je nu doen",
+      "inleiding": "Kijk eerst even: is alleen de buitenkant donker, of zit de bittere smaak er diep in? Wat nog goed ruikt en smaakt, kun je vaak nog opmaken.",
+      "items": [
+        {
+          "naam": "Korst weghalen",
+          "waarom": "Snijd of schraap de donkere, bittere korst eraf. Wat eronder licht van kleur is, kun je vaak nog gebruiken."
+        },
+        {
+          "naam": "Recht afsnijden",
+          "waarom": "Snijd de bovenkant recht, zodat je een vlakke, nette cake overhoudt."
+        },
+        {
+          "naam": "Siroop of glazuur",
+          "waarom": "Bestrijk de cake met een beetje siroop of glazuur. Dat maakt de rand zachter en dekt een donker randje af."
+        },
+        {
+          "naam": "Afdekken met frosting",
+          "waarom": "Een laag frosting, ganache of slagroom maakt veel goed — én ziet er feestelijk uit."
+        },
+        {
+          "naam": "Cake-pops of trifle",
+          "waarom": "Verkruimel het goede deel. Rol er cake-pops van, of stapel met room en fruit in glaasjes. Niemand ziet dat hij eerst te donker was."
+        }
+      ]
+    },
+    {
+      "kop": "Volgende keer",
+      "inleiding": "Een cake wordt vaak te donker omdat de oven heter is dan het knopje zegt, of omdat de vorm te dicht bij de bovenwarmte staat.",
+      "items": [
+        {
+          "naam": "Oventhermometer",
+          "waarom": "Hang er eentje in. Zo zie je of je oven warmer is dan je denkt."
+        },
+        {
+          "naam": "Lager rek",
+          "waarom": "Zet de vorm in het midden of iets lager, niet vlak onder de bovenwarmte."
+        },
+        {
+          "naam": "Folie erover",
+          "waarom": "Wordt de bovenkant te snel donker? Leg losjes een stukje aluminiumfolie over de cake, de laatste minuten."
+        },
+        {
+          "naam": "Iets lager bakken",
+          "waarom": "Zet de oven 10 tot 20 graden lager en bak iets langer. Kijk goed: ovens verschillen."
+        },
+        {
+          "naam": "Eerder kijken",
+          "waarom": "Open de oven een paar minuten eerder dan het recept zegt. Je kunt altijd nog even verder bakken."
+        },
+        {
+          "naam": "Donkere vormen",
+          "waarom": "Een donkere bakvorm wordt sneller heet. Gebruik dan een lagere temperatuur, of een lichte vorm als je die hebt."
+        }
+      ]
+    }
+  ],
+  "tip": "Ruikt of smaakt een stukje écht bitter of raar? Laat dat stuk weg. Vertrouw je neus en je smaak."
+}

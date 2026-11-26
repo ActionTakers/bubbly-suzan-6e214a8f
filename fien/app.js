@@ -50,7 +50,7 @@ function berichtAntwoord(id){const b=(window._berichten||[]).find(x=>x.id===id);
 async function loadBerichten(){try{const r=await fetch('berichten.json',{cache:'no-store'});if(!r.ok)return[];const j=await r.json();return Array.isArray(j)?j.filter(x=>x&&/^[A-Za-z0-9_-]+$/.test(x.id)&&x.t&&x.status!=='beantwoord'&&x.verborgen!==true):[]}catch(e){return[]}}
 function berichtKijkId(x){return (x&&typeof x.kijk==='string'&&/^FA-[A-Z0-9]{4,24}$/.test(x.kijk))?x.kijk:''}
 function berichtCards(list){const seen=berichtenGelezen();window._berichten=list;
- return list.filter(x=>!seen.includes(x.id)).map(x=>{const kijk=berichtKijkId(x);const act=kijk?`<button type="button" class="btn s xs" onclick="aiOpenBericht('${kijk}')">Bekijk lijstje</button>`:(x.antwoord!=null?`<button type="button" class="btn s xs" onclick="berichtAntwoord('${x.id}')">Antwoord Fien</button>`:'');
+ return list.filter(x=>!seen.includes(x.id)).map(x=>{const kijk=berichtKijkId(x);const act=kijk?`<button type="button" class="btn s xs" onclick="aiOpenBericht('${kijk}')">${esc(x.knop||'Bekijk lijstje')}</button>`:(x.antwoord!=null?`<button type="button" class="btn s xs" onclick="berichtAntwoord('${x.id}')">Antwoord Fien</button>`:'');
   return `<div class="card tip bericht"><img src="img/fien-blij-160w.webp" alt=""><div class="grow"><b>Bericht van Fien</b><div>${esc(x.t)}</div><p class="row" style="margin:10px 0 0">${act}<button type="button" class="btn ghost xs" onclick="berichtGelezen('${x.id}')">Gelezen ✓</button></p></div></div>`}).join('')}
 
 /* ---------- Start ---------- */

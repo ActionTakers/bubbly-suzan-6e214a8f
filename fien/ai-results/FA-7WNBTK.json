@@ -1,0 +1,125 @@
+{
+  "fienrecept": 1,
+  "_uitleg": "Fien-receptkaart FA-7WNBTK Klassieke boterkoek, voor online gebruik. Bubbly 3×3, volgens de bestaande boterkoek-aanpak in de app (zachte boter, vanille, citroenrasp, 170 °C). Hoeveelheden volgen de gangbare Nederlandse basis 300 g bloem / 250 g boter / 250 g basterdsuiker. Geen prijzen, geen allergie- of dieetclaims. Geen Skool/e-book/mini-gids-tekst (die blijft: [tekst volgt na akkoord Suzan]).",
+  "verzoek": "FA-7WNBTK",
+  "titel": "Boterkoek",
+  "ondertitel": "Klassieke smeuïge boterkoek met vanille en een vleugje citroenrasp — ongeveer 16–20 stukjes, in een vorm van 20×20 cm",
+  "tags": [
+    "boterkoek",
+    "klassieker",
+    "koek",
+    "vanille",
+    "citroen",
+    "Nederland"
+  ],
+  "ingredienten": [
+    "300 g tarwebloem, gezeefd",
+    "250 g lichtbruine basterdsuiker",
+    "½ tl zout",
+    "1 tl vanille-extract (of 1 zakje vanillesuiker)",
+    "rasp van 1 citroen (alleen de gele schil)",
+    "250 g ongezouten roomboter, op kamertemperatuur",
+    "1 ei, losgeklopt (om te bestrijken)",
+    "boter om de vorm in te vetten",
+    "bakpapier"
+  ],
+  "benodigdheden": [
+    "Vierkante vorm 20×20 cm (of ronde vorm Ø 22–24 cm)",
+    "Bakpapier",
+    "Grote kom",
+    "Weegschaal",
+    "Bakkwast",
+    "Vork",
+    "Lepel (bolle kant)",
+    "Rooster"
+  ],
+  "fases": [
+    {
+      "naam": "WEGEN & TEMPEREN",
+      "doel": "alles klaarzetten zodat het bakken zelf rustig en foutarm verloopt.",
+      "stappen": [
+        {
+          "werkwoord": "Verwarm",
+          "beschrijving": "Verwarm de oven voor op 170 °C boven-/onderwarmte (hetelucht ongeveer 150 °C). Vet een vorm van 20×20 cm in en bekleed de bodem met bakpapier. Laat het papier aan twee kanten uitsteken.",
+          "type": "Bubbly Tip",
+          "tip": "Die uitstekende randen zijn handige handvatten als de koek later uit de vorm komt."
+        },
+        {
+          "werkwoord": "Weeg",
+          "beschrijving": "Weeg de bloem, de basterdsuiker, het zout, de vanille en de citroenrasp af in een kom. Meng dit even door elkaar.",
+          "type": "Bubbly Tip",
+          "tip": "Citroenrasp haalt de boter- en vanillesmaak juist op. Rasp alleen de gele schil, het witte is bitter."
+        },
+        {
+          "werkwoord": "Temper",
+          "beschrijving": "De roomboter moet écht op kamertemperatuur zijn: zacht als je erin drukt, niet gesmolten. Laat hem op tijd uit de koelkast komen.",
+          "type": "Chaos Alert",
+          "tip": "Koude boter mixt voor geen meter. Te warme, bijna vloeibare boter maakt het deeg vet en zwaar."
+        }
+      ]
+    },
+    {
+      "naam": "VORMEN & BAKKEN",
+      "doel": "het maken van het deeg en de garing in de oven.",
+      "stappen": [
+        {
+          "werkwoord": "Meng",
+          "beschrijving": "Doe de zachte boter bij het bloemmengsel. Meng tot één zacht, samenhangend deeg. Stop zodra het een bal is; niet lang kneden.",
+          "type": "Chaos Alert",
+          "tip": "Géén extra bloem toevoegen als het plakt. Dat maakt de koek droog en hard."
+        },
+        {
+          "werkwoord": "Druk",
+          "beschrijving": "Druk het deeg egaal in de vorm. Strijk de bovenkant glad, bestrijk dun met losgeklopt ei en trek met een vork een ruitjespatroon.",
+          "type": "Bubbly Tip",
+          "tip": "Plakt de vork? Maak hem licht nat of smeer hem in met een beetje boter."
+        },
+        {
+          "werkwoord": "Bak",
+          "beschrijving": "Bak de boterkoek 30–40 minuten in het midden van de oven, tot de bovenkant goudbruin is. Hij mag in het midden nog een beetje wiebelen — dat hoort zo.",
+          "type": "Chaos Alert",
+          "tip": "Niet ‘voor de zekerheid’ langer bakken: dan wordt hij droog in plaats van smeuïg. Wordt de bovenkant te snel donker? Leg er losjes een stukje folie over."
+        }
+      ]
+    },
+    {
+      "naam": "RUSTEN & SNIJDEN",
+      "doel": "zorgen dat het resultaat mooi blijft, goed smaakt en handig te serveren is.",
+      "stappen": [
+        {
+          "werkwoord": "Strijk",
+          "beschrijving": "Laat de koek 10 minuten in de vorm staan. Druk daarna de randjes licht aan met de bolle kant van een lepel, zodat hij overal even hoog is.",
+          "type": "Bubbly Tip",
+          "tip": "Dit doe je zolang hij nog warm is. Later laat het deeg zich niet meer zo mooi aandrukken."
+        },
+        {
+          "werkwoord": "Koel",
+          "beschrijving": "Laat de boterkoek minstens 6 uur, en het liefst een nacht, in de vorm afkoelen op een rooster. Niet tussendoor uit de vorm tillen.",
+          "type": "Chaos Alert",
+          "tip": "Warm uit de vorm = ingestorte boterkoek. Rust is hier verplicht. Smeuïg wordt hij pas als hij echt koud is."
+        },
+        {
+          "werkwoord": "Snijd",
+          "beschrijving": "Til de koek aan het bakpapier uit de vorm. Snijd met een scherp mes in punten of blokjes, ongeveer 16–20 stuks. Hij is machtig: klein mag.",
+          "type": "Bubbly Mantra",
+          "tip": "Proud Disaster of Pinterest-perfect: elke punt telt mee."
+        }
+      ]
+    }
+  ],
+  "bewaren": "In een goed sluitende trommel op het aanrecht blijft hij een paar dagen lekker; de smaak is de volgende dag vaak nóg voller. Invriezen kan, goed verpakt. Laat hem dan rustig op het aanrecht ontdooien. Ga altijd even af op geur en smaak.",
+  "variaties": [
+    "Donkerbruine basterdsuiker voor een diepere, karamelachtige smaak",
+    "Een laag amandelspijs in het midden (halve deeglaag, spijs, halve deeglaag)",
+    "Bestrooi de eilaag met een beetje amandelschaafsel voor een knapperig dakje",
+    "Een snufje kaneel of geraspte sinaasappelschil door het deeg",
+    "In een ronde vorm bakken en in smalle punten snijden"
+  ],
+  "bekentenis": "Boterkoek is zo’n oer-Hollands koekje dat bijna niemand meer opschrijft hoe je hem maakt: iedereen heeft wel een oma, tante of buurvrouw met “het” recept in haar hoofd. Mijn eigen Proud Disaster: ik tilde hem ooit nog lauw uit de vorm. In plaats van nette punten had ik één smeuïge puinhoop. Ik schepte er bolletjes van en noemde het boterkoek-crumble. Ze waren als eerste op.",
+  "mantra": "Zachte boter, een rustige oven, en daarna heel veel geduld. Smeuïg komt als hij rust.",
+  "bron": [
+    "BRON (idee): de Bubbly boterkoek-aanpak (zachte boter, vanille, citroenrasp, 170 °C, vorm 20×20 cm) — FA-7WNBTK",
+    "BRON (soft, hoeveelheden): gangbare Nederlandse boterkoekbasis 300 g bloem, 250 g boter, 250 g basterdsuiker (zelfde richting als eerdere Fien-boterkoek FA-EURHP9).",
+    "Hoeveelheden en tijden zijn richting; ovens verschillen."
+  ]
+}
