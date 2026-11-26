@@ -65,7 +65,7 @@ function outWorkshop(r){let t=`WORKSHOP: ${r.title}\nThe Bubbly Bakery · Bak me
  t+=`\nAFSLUITING\n  • Proeven & foto-moment met ieders resultaat\n  • Vragenrondje + receptkaart mee naar huis\n\nKLAARZETTEN PER DEELNEMER\n${r.ben.split('\n').filter(Boolean).map(x=>'  • '+x).join('\n')}\n\nINGREDIËNTEN (per deelnemer, schaal zelf op)\n${r.ingr.split('\n').filter(Boolean).map(x=>'  • '+x).join('\n')}\n\nAllergenen: check jij altijd zelf vooraf met de deelnemers.`;return t}
 const slugify=x=>(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const lines=x=>(x||'').split('\n').map(l=>l.trim()).filter(Boolean);
-function outMd(r){const sl=r.slug||slugify(r.title);let t=`# ${r.title}\n\n| Veld | Waarde |\n| --- | --- |\n| titel | ${r.title} |\n| ondertitel | ${r.ondertitel||''} |\n| slug | ${sl} |\n| status | ${r.status||'concept'} |\n| tags | ${(r.tags||'')} |\n| bron | ${r.bron||'eigen recept'} |\n\n## Ingrediënten\n${md(r.ingr)}\n\n## Benodigdheden\n${md(r.ben)}\n\n---\n\n## Fasen\n`;
+function outMd(r){const sl=r.slug||slugify(r.title);let t=`# ${r.title}\n\n| Veld | Waarde |\n| --- | --- |\n| titel | ${r.title} |\n| ondertitel | ${r.ondertitel||''} |\n| slug | ${sl} |\n| status | ${r.status||'concept'} |\n| tags | ${(r.tags||'')} |\n| bron | ${schoonZichtbaar(r.bron||'eigen recept')} |\n\n## Ingrediënten\n${md(r.ingr)}\n\n## Benodigdheden\n${md(r.ben)}\n\n---\n\n## Fasen\n`;
  r.fases.forEach((f,fi)=>{t+=`\n### FASE ${fi+1}: ${f.naam}\n\n*Doel: ${f.doel}*\n`;r.steps.slice(fi*3,fi*3+3).forEach((s,j)=>{const n=fi*3+j+1;t+=`\n**${n}. ${s.verb}**\n${s.text}\n*(${TI[s.type]} ${s.type}: ${s.tip})*\nFoto: \`${String(n).padStart(2,'0')}-${slugify(s.verb)}.jpg\`\n`})});
  t+=`\n## Bewaren\n${r.bewaren||''}\n\n## Variaties\n${md(r.variaties||'')}\n\n## Bekentenis\n${r.bekentenis||''}\n`;
  if(typeof logTxt=='function'&&logTxt(r))t+=`\n## Besluitenlog\n${logTxt(r)}\n`;return t+'\n---\n*Allergenen check jij altijd zelf.*\n'}
@@ -73,9 +73,10 @@ function outJson(r){const tip=s=>s.type=='Chaos Alert'?{tip:'',alert:s.tip}:{tip
  return JSON.stringify({titel:r.title,ondertitel:r.ondertitel||'',slug:r.slug||slugify(r.title),status:r.status||'concept',tags:lines((r.tags||'').replace(/,/g,'\n')),
  ingrediënten:lines(r.ingr).map(x=>({ingrediënt:x})),benodigdheden:lines(r.ben),
  fasen:r.fases.map((f,fi)=>({naam:f.naam,stappen:r.steps.slice(fi*3,fi*3+3).map((s,j)=>({werkwoord:s.verb,beschrijving:s.text,...tip(s),foto:`${String(fi*3+j+1).padStart(2,'0')}-${slugify(s.verb)}.jpg`}))})),
- bewaren:r.bewaren||'',variaties:lines(r.variaties),bekentenis:r.bekentenis||'',bron:r.bron||'eigen recept',_let_op:'CONCEPT uit Fien; ingrediënt-structuur (hoeveelheid/eenheid) nog niet gesplitst; niet zelf in de site-repo zetten'},null,2)}
+ bewaren:r.bewaren||'',variaties:lines(r.variaties),bekentenis:r.bekentenis||'',bron:schoonZichtbaar(r.bron||'eigen recept'),_let_op:'CONCEPT uit Fien; ingrediënt-structuur (hoeveelheid/eenheid) nog niet gesplitst; niet zelf in de site-repo zetten'},null,2)}
 const md=x=>x.split('\n').filter(Boolean).map(l=>'- '+l).join('\n');const cap=x=>x[0]+x.slice(1).toLowerCase();
-const OUTS={kaart:['🃏 Receptkaart',outKaart],boek:['📖 E-book',outBoek],workshop:['👩‍🍳 Workshop',outWorkshop],md:['🗒️ Notion',outMd],json:['🧩 JSON',outJson]};
+const outSafe=fn=>r=>schoonCodes(fn(r));
+const OUTS={kaart:['🃏 Receptkaart',outSafe(outKaart)],boek:['📖 E-book',outSafe(outBoek)],workshop:['👩‍🍳 Workshop',outSafe(outWorkshop)],md:['🗒️ Tekst',outSafe(outMd)],json:['🧩 JSON',outSafe(outJson)]};
 
 VIEWS.rec=async()=>{const l=await recipes();
  if(!RID)return `${l.length?'<h3 class="ai-list-h">Je recepten</h3>':''}${siteHead(l)}

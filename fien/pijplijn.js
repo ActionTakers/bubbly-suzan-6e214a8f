@@ -40,7 +40,7 @@ async function pExtra(sec,inp){const l=await recipes();const r=l.find(x=>x.id==P
  if(inp){for(const f of inp.files){const id=await addFile({sid:'rec:'+r.id,slot:'extra:'+sec,kind:'foto',blob:f,type:f.type,t:Date.now()});P.extra[sec].push({type:'foto',id})}}
  else{const t=($('#px-'+sec)?.value||'').trim();if(!t)return;P.extra[sec].push({type:'note',text:t})}
  P.log.push({t:new Date().toISOString(),stage:PST,sec,k:'+ content',c:inp?'foto':'notitie'});await put('recipes',l);render()}
-const AI=`<div class="card soft" id="fien-soon"><h3>Fien AI</h3><small>Onderzoek en Bubbly-stijl komen later op deze plek. Nu gebruik ik alleen jouw tekst. Er wordt niets verzonnen.</small></div>`;
+const AI=`<div class="card soft" id="fien-soon"><h3>Fien</h3><small>Onderzoek en Bubbly-stijl komen later op deze plek. Nu gebruik ik alleen jouw tekst. Er wordt niets verzonnen.</small></div>`;
 async function pipeView(){const l=await recipes();const r=l.find(x=>x.id==PID);if(!r){PID=null;return VIEWS.rec()}const P=pipe(r);
  if(PFILL)return fillView(r);
  PST=PST||curStage(r)||'workshop';const st=PST;const p=pct(r);
@@ -60,10 +60,10 @@ async function pipeView(){const l=await recipes();const r=l.find(x=>x.id==PID);i
  const nxt=curStage(r);
  return head+`<small style="display:block;margin:4px 6px">Veeg naar rechts = Eens, links = Niet eens.</small>`+cards+
  `<div class="card row"><button class="btn kook grow" onclick="kookOpen('rec','${r.id}')">👩‍🍳 Kookmodus</button><button class="btn s grow" onclick="PID=null;RID='${r.id}';render()">📄 Uitvoer & export</button></div><div class="card row"><button class="btn p grow" onclick="aiBlog('${r.id}')">✍️ Maak maandagblog</button></div>${AI}
- <div class="card"><h3>🗒️ Besluitenlog (${P.log.length})</h3>${P.log.slice(-8).reverse().map(x=>`<small style="display:block">${x.t.slice(5,16).replace('T',' ')} · ${x.stage} · ${SECS[x.sec]||x.sec}: <b>${esc(x.k)}</b>${x.c?' — '+esc(x.c):''}</small>`).join('')||'<small>Nog leeg.</small>'}<small>Gaat mee in de ZIP en de Notion-tekst.</small></div>`}
+ <div class="card"><h3>🗒️ Besluitenlog (${P.log.length})</h3>${P.log.slice(-8).reverse().map(x=>`<small style="display:block">${esc(gemaaktWanneer(x.t))} · ${x.stage} · ${SECS[x.sec]||x.sec}: <b>${esc(x.k)}</b>${x.c?' — '+esc(x.c):''}</small>`).join('')||'<small>Nog leeg.</small>'}<small>Gaat mee in de ZIP.</small></div>`}
 /* live invullen (zelfde UI waar straks Fien AI in schrijft) */
 const FILLF=r=>[['Titel',r.title],['Ondertitel',r.ondertitel],['Ingrediënten',r.ingr],['Benodigdheden',r.ben],...r.fases.map((f,i)=>['Fase '+(i+1),f.naam]),...r.steps.map((s,i)=>[`Stap ${i+1}`,[s.verb,s.text,s.tip&&('('+s.type+': '+s.tip+')')].filter(Boolean).join(' — ')]),['Bewaren',r.bewaren],['Variaties',r.variaties],['Bekentenis',r.bekentenis]];
-function fillView(r){return `<div class="card"><h2>✨ Fien vult het formulier…</h2><small>Bron: ${esc(r.bron||'idee')}. Nu met de vaste parser; straks schrijft Fien AI hier live mee.</small><div class="bar" style="margin:8px 0"><i id="fbar" style="width:0"></i></div>
+function fillView(r){const wanneer=gemaaktOp((r.fienai&&r.fienai.t)||r.created);const titel=schoonZichtbaar(r.title||'Je recept');const sub=wanneer?`${esc(titel)} · Gemaakt op ${esc(wanneer)}`:esc(titel);return `<div class="card"><h2>✨ Fien vult het formulier…</h2><small>${sub}</small><div class="bar" style="margin:8px 0"><i id="fbar" style="width:0"></i></div>
  ${FILLF(r).map(([k],i)=>`<div class="fl" style="margin:6px 0"><small><b>${k}</b></small><div id="ff${i}" class="ffv" style="min-height:24px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 8px;white-space:pre-wrap"></div></div>`).join('')}
  <button class="btn s" onclick="FILLSKIP=1">Sla animatie over ▶</button></div>`}
 let FILLSKIP=0;
@@ -91,4 +91,4 @@ VIEWS.rec.after=()=>{if(PFILL)return runFill();document.querySelectorAll('.pcard
  el.addEventListener('touchmove',e=>{if(x0!=null)el.style.transform=`translateX(${(e.touches[0].clientX-x0)/3}px)`},{passive:true});
  el.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=Math.abs(e.changedTouches[0].clientY-y0);el.style.transform='';x0=null;if(Math.abs(dx)>90&&dy<60)pDec(el.dataset.sec,dx>0?'Eens':'Niet eens')})})};
 /* besluitenlog voor md en zip */
-function logTxt(r){const P=r.pipe;if(!P||!P.log.length)return '';return P.log.map(x=>`- ${x.t.slice(0,16).replace('T',' ')} · ${x.stage} · ${SECS[x.sec]||x.sec}: ${x.k}${x.c?' — '+x.c:''}`).join('\n')}
+function logTxt(r){const P=r.pipe;if(!P||!P.log.length)return '';return P.log.map(x=>`- ${gemaaktWanneer(x.t)} · ${x.stage} · ${SECS[x.sec]||x.sec}: ${x.k}${x.c?' — '+x.c:''}`).join('\n')}

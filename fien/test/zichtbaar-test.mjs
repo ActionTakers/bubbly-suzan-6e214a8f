@@ -1,0 +1,25 @@
+import {readFileSync} from 'node:fs';
+import {createContext,runInContext} from 'node:vm';
+const ctx=createContext({globalThis:{}});
+ctx.globalThis=ctx;
+runInContext(readFileSync(new URL('../zichtbaar.js',import.meta.url),'utf8'),ctx);
+const {schoonZichtbaar,schoonCodes,gemaaktOp}=ctx;
+const T=[];
+const ok=(n,c)=>{T.push(c()?`ok  ${n}`:(failed=1,`FOUT ${n}`))};
+let failed=0;
+const bron='Fien AI · BRON (idee): de Bubbly boterkoek-aanpak (zachte boter, vanille, citroenrasp, 170 °C, vorm 20×20 cm) — FA-7WNBTK · BRON (soft, hoeveelheden): gangbare Nederlandse boterkoekbasis 300 g bloem, 250 g boter, 250 g basterdsuiker (zelfde richting als eerdere Fien-boterkoek FA-EURHP9). Hoeveelheden en tijden zijn richting; ovens verschillen.';
+const s=schoonZichtbaar(bron);
+ok('geen FA-code',()=>!/FA-[A-Z0-9]{4,}/.test(s));
+ok('geen Fien AI',()=>!/Fien AI/.test(s));
+ok('geen BRON-label',()=>!/\bBRON\b/.test(s));
+ok('behoudt boterkoek-aanpak',()=>/Bubbly boterkoek-aanpak/.test(s)&&/300 g bloem/.test(s));
+ok('behoudt CHOCOLATE',()=>schoonZichtbaar('CHOCOLATE CHIP COOKIES')==='CHOCOLATE CHIP COOKIES');
+ok('stript ISO',()=>!/2026-11-26T/.test(schoonZichtbaar('Gemaakt 2026-11-26T19:34:26.715Z even')));
+ok('stript fien-v',()=>!/fien-v/.test(schoonZichtbaar('cache fien-v15-9 klaar')));
+ok('stript chat-id',()=>!/CMWXY3OG3/.test(schoonZichtbaar('item CMWXY3OG3 klaar')));
+ok('gemaaktOp',()=>gemaaktOp('2026-11-26T19:34:26.715Z')==='26 nov');
+ok('export bewaart regeleinden',()=>schoonCodes('A\n300 g bloem\nB').includes('\n'));
+ok('lege string',()=>schoonZichtbaar('')===''&&schoonZichtbaar(null)==='');
+console.log(T.join('\n'));
+if(failed){console.error(s);process.exit(1)}
+console.log(T.filter(x=>x.startsWith('ok')).length+'/'+T.length);

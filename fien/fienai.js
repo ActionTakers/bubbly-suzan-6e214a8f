@@ -11,7 +11,7 @@ const AI_ID=/^FA-[A-Z0-9]{4,24}$/;
 /* 404 = nog bezig. Poll start meteen, daarna 15s → max 2 min. Na 7 dagen stopt de lus; openen of "nog eens kijken" checkt alsnog één keer. */
 const POLL_MAX=7*24*60*60*1000,POLL_BASE=15000,POLL_CAP=120000;
 let pollTimer=null,pollDelay=POLL_BASE,pollGen=0,pollForce=false,aiHandsOff=false,aiDirty=false;
-async function aiPin(){if(localStorage.getItem('fienPin')==PIN)return true;const v=prompt('Pincode voor Fien AI (één keer per telefoon):');if((v||'').trim()==PIN){localStorage.setItem('fienPin',PIN);return true}if(v!=null)alert('Pincode klopt niet.');return false}
+async function aiPin(){if(localStorage.getItem('fienPin')==PIN)return true;const v=prompt('Pincode voor Fien (één keer per telefoon):');if((v||'').trim()==PIN){localStorage.setItem('fienPin',PIN);return true}if(v!=null)alert('Pincode klopt niet.');return false}
 const aiPatch=(id,patch)=>aiTurn(async()=>{const l=await aiList();const x=l.find(y=>y.id==id);if(x){Object.assign(x,patch);await aiSave(l)}return x});
 async function aiShrink(blob){try{const bm=await createImageBitmap(blob);const sc=Math.min(1,1600/Math.max(bm.width,bm.height));const c=document.createElement('canvas');c.width=Math.round(bm.width*sc);c.height=Math.round(bm.height*sc);
  c.getContext('2d').drawImage(bm,0,0,c.width,c.height);const out=await new Promise(ok=>c.toBlob(ok,'image/jpeg',.82));return out||blob}catch(e){return blob}}
@@ -60,7 +60,7 @@ function fromFien(j){if(typeof j=='string')j=JSON.parse(j);if(!j||typeof j!='obj
  r.bewaren=String(j.bewaren||'');r.variaties=arr(j.variaties);r.bekentenis=String(j.bekentenis||'');r.mantra=String(j.mantra||'');
  /* v15: site-label komt alleen uit het ai-results JSON (siteStatus/siteSlug); 'Staat online' checkt daarna de echte site-lijst */
  {const p=sitePick(j);if(p.siteStatus)r.siteStatus=p.siteStatus;if(p.siteSlug)r.siteSlug=p.siteSlug}
- r.bron='Fien AI'+(j.bron?' · '+arr(j.bron).replace(/\n/g,' · '):'');r.fienai={verzoek:j.verzoek||'',bronnen:j.bron||'',t:new Date().toISOString()};
+ r.bron=schoonZichtbaar(j.bron?arr(j.bron).replace(/\n/g,' · '):'')||'Fien';r.fienai={verzoek:j.verzoek||'',bronnen:j.bron||'',t:new Date().toISOString()};
  fases.forEach((f,fi)=>{r.fases[fi]={naam:String(f.naam||FN[fi]),doel:String(f.doel||DOELEN[fi])};const st=f.stappen||[];if(st.length!=3)E.push(`fase ${fi+1} heeft ${st.length} stappen (moet 3)`);
   st.slice(0,3).forEach((s,j2)=>{const n=fi*3+j2;r.steps[n]={verb:String(s.werkwoord||s.verb||''),text:String(s.beschrijving||s.text||''),type:TYP(s.type||(s.alert?'alert':'')),tip:String(s.tip||s.alert||'')};if(!r.steps[n].verb)E.push(`stap ${n+1}: werkwoord ontbreekt`);if(!r.steps[n].text)E.push(`stap ${n+1}: beschrijving ontbreekt`)})});
  if(!r.ingr)E.push('ingrediënten ontbreken');
@@ -260,6 +260,6 @@ async function blogDec(id,k){if(k==='Aanpassen'){BEDIT=id;return render()}const 
 let BEDIT=null;
 function blogCard(q){const k=aiKind(q);const b=q.blog||{};const d=q.blogDec;
  if(k!=='klaar'){const x={...q,titel:q.titel};return `<article class="ai-card ${k}" data-ai="${esc(q.id)}" ${aiWaiting(k)?'aria-busy="true"':''}><div class="ai-top"><div class="grow"><h3 class="ai-title">✍️ ${esc(q.titel)}</h3><small class="ai-meta">${esc(aiWhen(q.t))}</small></div><span class="ai-pill ${k}">${AI_PILL[k]||'Fien pakt het op…'}</span></div><p class="ai-msg">${esc(aiBusy(q))}</p>${k==='opgepakt'?'<div class="ai-bar" aria-hidden="true"><i></i></div>':''}${aiActs(x)}</article>`}
- const body=BEDIT===q.id?`<textarea id="bt-${q.id}" rows="12">${esc(b.tekst||'')}</textarea><button class="btn" style="width:100%" onclick="blogDec('${q.id}','Opslaan')">💾 Opslaan & goedkeuren</button>`:`<div class="blog-tekst">${esc(b.tekst||'(leeg)')}</div>`;
+ const body=BEDIT===q.id?`<textarea id="bt-${q.id}" rows="12">${esc(b.tekst||'')}</textarea><button class="btn" style="width:100%" onclick="blogDec('${q.id}','Opslaan')">💾 Opslaan & goedkeuren</button>`:`<div class="blog-tekst">${esc(schoonZichtbaar(b.tekst||'(leeg)'))}</div>`;
  return `<article class="ai-card klaar blog ${d?'dk-'+d.replace(/ /g,''):''}" data-ai="${esc(q.id)}"><div class="ai-top"><div class="grow"><h3 class="ai-title">✍️ ${esc(b.titel||q.titel)}</h3><small class="ai-meta">Maandagblog · ${esc(aiWhen(q.t))}</small></div><span class="ai-pill ${d=='Niet eens'?'vraag':'klaar'}">${esc(d||'Klaar ✓')}</span></div>${body}
  ${BEDIT===q.id?'':`<div class="decrow">${['Eens','Aanpassen','Niet eens'].map(o=>`<button class="btn ${d==o?'':'s'}" onclick="blogDec('${q.id}','${o}')">${o}</button>`).join('')}</div>`}<div class="ai-acts"><button class="btn s xs" onclick="navigator.clipboard?.writeText(${esc(JSON.stringify(b.tekst||''))}).then(()=>alert('Gekopieerd'))">Kopieer</button><button class="btn ghost xs" onclick="aiDel('${q.id}')">Verwijderen</button></div></article>`}

@@ -53,7 +53,7 @@ async function chatKlaar(id){const l=await chatList();const m=l.find(x=>x.id===i
    if(r.status===401)localStorage.removeItem(CHAT_TOKEN_KEY);if(!r.ok)throw Error('http '+r.status)}
   catch(e){l.push({id:id+'E',wie:'fien',tekst:'Oeps, het klaarzetten lukte nu niet. Probeer het straks nog eens.',t:new Date().toISOString(),systeem:true,fout:true});await chatSave(l);return chatPaint()}}
  m.klaargezet=true;await chatSave(l);chatKlaarLijst();
- l.push({id:id+'K',wie:'fien',tekst:m.soort==='beslissing'?'Staat klaar ✓ Jij beslist wat ermee gebeurt.':'Staat klaar ✓ Fien AI kan het later oppakken. Er wordt niets verstuurd.',t:new Date().toISOString(),systeem:true});await chatSave(l);
+ l.push({id:id+'K',wie:'fien',tekst:m.soort==='beslissing'?'Staat klaar ✓ Jij beslist wat ermee gebeurt.':'Staat klaar ✓ Fien kan het later oppakken. Er wordt niets verstuurd.',t:new Date().toISOString(),systeem:true});await chatSave(l);
  /* lokaal ook onthouden; in R2 staat het sinds de klik in chat/klaar/<id>.json */
  const b=(await get('chatKlaar'))||[];b.unshift({id,soort:m.soort,tekst:m.klaar,t:new Date().toISOString()});await put('chatKlaar',b.slice(0,50));chatPaint()}
 
@@ -65,8 +65,8 @@ function chatBubble(m){if(m.wie==='suzan')return `<div class="cb me"><div class=
  let kaart='';if(m.klaar){const n=SOORT_NAAM[m.soort]||'Opgeschreven';const acts=[];
   if(!m.klaargezet)acts.push(`<button class="btn s xs" onclick="chatKlaar('${m.id}')">📌 Zet klaar</button>`);else acts.push('<span class="cb-ok">📌 Klaargezet</span>');
   if(m.soort==='recept'&&!m.klaargezet)acts.push(`<button class="btn s xs" onclick="chatRecept('${m.id}')">✨ Maak er een recept van</button>`);
-  kaart=`<div class="cb-kaart s-${esc(m.soort||'idee')}"><b>${esc(n)}</b><span>${esc(m.klaar)}</span><div class="cb-acts">${acts.join('')}</div></div>`}
- return `<div class="cb fien ${m.fout?'fout':''} ${m.systeem?'sys':''}"><img src="img/fien-blij-160w.webp" alt=""><div><div class="cbt">${esc(m.tekst)}</div>${kaart}<small>${chatTime(m.t)}</small></div></div>`}
+  kaart=`<div class="cb-kaart s-${esc(m.soort||'idee')}"><b>${esc(n)}</b><span>${esc(schoonZichtbaar(m.klaar))}</span><div class="cb-acts">${acts.join('')}</div></div>`}
+ return `<div class="cb fien ${m.fout?'fout':''} ${m.systeem?'sys':''}"><img src="img/fien-blij-160w.webp" alt=""><div><div class="cbt">${esc(schoonZichtbaar(m.tekst)||m.tekst)}</div>${kaart}<small>${chatTime(m.t)}</small></div></div>`}
 
 const CHAT_WELKOM='Hoi! Typ hier gewoon wat je bezighoudt, net als een appje. Bijvoorbeeld: "Ik heb geen gemalen anijs, wat nu?" of "Een klant vraagt naar een taart voor 20 mensen". Ik stel soms één vraag terug. Daarna maak ik een kort overzichtje en vraag ik: "Zal ik dit klaarzetten?" Wil je dat? Tik dan op 📌 Zet klaar. Bij prijzen, allergieën, bestellingen en klachten beslis jij; dat zet ik voor je klaar. Ik stuur nooit zelf iets naar klanten. Probeer gerust wat uit!';
 function chatWelkom(open){const body=`<div class="cbt">${esc(CHAT_WELKOM)}</div>`;
@@ -85,7 +85,7 @@ function chatKlaarTijd(t){const d=new Date(t);return Number.isNaN(+d)?'':d.toLoc
 function chatKlaarPaint(){const box=$('#chat-klaar');if(!box)return;
  if(!chatKlaarItems.length){box.classList.add('hidden');box.innerHTML='';return}
  box.classList.remove('hidden');
- box.innerHTML=`<details open><summary>📌 Wat ik heb klaargezet <span class="ck-n">${chatKlaarItems.length}</span></summary>`+chatKlaarItems.map((x,i)=>`<div class="ck-item s-${esc(x.status)}"><div class="ck-t">${esc(x.klaar)}</div><div class="ck-m"><span class="ck-pill">${esc(KLAAR_STATUS[x.status]||KLAAR_STATUS.klaargezet)}</span><small>${esc(chatKlaarTijd(x.t))}</small>${x.link?`<button class="btn s xs" onclick="chatKlaarOpen(${i})">Bekijk</button>`:''}</div></div>`).join('')+`</details>`}
+ box.innerHTML=`<details open><summary>📌 Wat ik heb klaargezet <span class="ck-n">${chatKlaarItems.length}</span></summary>`+chatKlaarItems.map((x,i)=>`<div class="ck-item s-${esc(x.status)}"><div class="ck-t">${esc(schoonZichtbaar(x.klaar))}</div><div class="ck-m"><span class="ck-pill">${esc(KLAAR_STATUS[x.status]||KLAAR_STATUS.klaargezet)}</span><small>${esc(chatKlaarTijd(x.t))}</small>${x.link?`<button class="btn s xs" onclick="chatKlaarOpen(${i})">Bekijk</button>`:''}</div></div>`).join('')+`</details>`}
 async function chatKlaarLijst(){if(CHAT_DEMO)return;const token=localStorage.getItem(CHAT_TOKEN_KEY);if(!token)return;
  try{const r=await fetch(CHAT_URL+'/chat/klaar',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
   if(r.status===401){localStorage.removeItem(CHAT_TOKEN_KEY);return}if(!r.ok)return;
