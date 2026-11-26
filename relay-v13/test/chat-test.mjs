@@ -1,5 +1,5 @@
 // node test/chat-test.mjs — nep-R2, nep-Workers AI (env.AI). Geen netwerk, geen sleutels.
-import {koppel,chat,schoon,uitModel} from '../chat.js';
+import {koppel,chat,klaarzet,schoon,uitModel} from '../chat.js';
 const store=new Map();const FIEN={async put(k,v){store.set(k,String(v))},async get(k){return store.has(k)?{text:async()=>store.get(k)}:null},async head(k){return store.has(k)?{}:null}};
 let antw={response:JSON.stringify({tekst:'Wat leuk! Voor wanneer wil je dit?'})},calls=[];
 const AI={async run(model,inv){calls.push({model,inv});if(typeof antw==='function')return antw(model);return antw}};
@@ -16,7 +16,11 @@ t(calls[0].inv.messages[0].content.includes('INTAKE')&&calls[0].model==='@cf/goo
 antw={choices:[{message:{content:'<think>hmm</think>```json\n'+JSON.stringify({tekst:'Zal ik dit voor je klaarzetten?',soort:'recept',klaar:'Ik wil een kerstkoekjes-recept voor 20 mensen.'})+'\n```'}}]};
 const r2=await chat(rq({id:'CABCDF',berichten:[{wie:'suzan',tekst:'kerstkoekjes voor 20 mensen'}]},H),env,J);
 t(r2.body.soort==='recept'&&r2.body.klaar.includes('kerstkoekjes')&&!r2.body.tekst.includes('think'),'OpenAI-vorm + denkblok + soort');
-t([...store.keys()].some(x=>x.startsWith('chat/klaar/CABCDF')),'voorstel in R2 (chat/klaar)');
+t([...store.keys()].some(x=>x.startsWith('chat/voorstel/CABCDF'))&&![...store.keys()].some(x=>x.startsWith('chat/klaar/')),'voorstel in R2, nog niet klaargezet');
+t((await klaarzet(rq({id:'CABCDF'}),env,J)).status===401,'klaarzetten zonder sleutel geweigerd');
+const kz=await klaarzet(rq({id:'CABCDF'},H),env,J);t(kz.status===200&&JSON.parse(store.get('chat/klaar/CABCDF.json')).status==='klaargezet','📌 Zet klaar → chat/klaar');
+store.set('chat/voorstel/CQQQQQ.json','{"klaar":"x"}');t((await klaarzet(rq({id:'CQQQQQF'},H),env,J)).status===200&&store.has('chat/klaar/CQQQQQ.json'),'Fien-bericht-id (…F) werkt ook');
+t((await klaarzet(rq({id:'CZZZZZ'},H),env,J)).status===404,'onbekend voorstel → 404');
 antw={response:JSON.stringify({tekst:'Die taart kost €25.',soort:'taak',klaar:'prijs'})};
 const r3=await chat(rq({id:'CABCDG',berichten:[{wie:'suzan',tekst:'prijs?'}]},H),env,J);t(r3.body.soort==='beslissing'&&!r3.body.tekst.includes('€'),'bedrag gefilterd → beslissing');
 t(schoon({tekst:'Ja hoor, die is notenvrij.',soort:'vraag',klaar:'x'}).soort==='beslissing','allergie-belofte gefilterd');
