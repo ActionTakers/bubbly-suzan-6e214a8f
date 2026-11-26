@@ -46,9 +46,15 @@ async function chatSend(txt){txt=String(txt??$('#chat-in')?.value??'').trim();if
  const m={id:id+'F',wie:'fien',tekst:String(a.tekst||'').slice(0,1500),t:new Date().toISOString()};if(a.klaar){m.klaar=String(a.klaar).slice(0,500);m.soort=SOORT_NAAM[a.soort]?a.soort:'idee'}if(a.fout)m.fout=true;
  const l2=await chatList();l2.push(m);chatBusy=false;await chatSave(l2);await chatPaint()}
 
-async function chatKlaar(id){const l=await chatList();const m=l.find(x=>x.id===id);if(!m)return;m.klaargezet=true;await chatSave(l);
+async function chatKlaar(id){const l=await chatList();const m=l.find(x=>x.id===id);if(!m||m.klaargezet)return;
+ if(!CHAT_DEMO){/* echt klaarzetten: de relay bewaart het voorstel pas nu in R2 (chat/klaar/<id>.json) */
+  try{const token=await chatToken();if(!token)throw Error('geen koppeling');
+   const r=await fetch(CHAT_URL+'/chat/klaar',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({id})});
+   if(r.status===401)localStorage.removeItem(CHAT_TOKEN_KEY);if(!r.ok)throw Error('http '+r.status)}
+  catch(e){l.push({id:id+'E',wie:'fien',tekst:'Oeps, het klaarzetten lukte nu niet. Probeer het straks nog eens.',t:new Date().toISOString(),systeem:true,fout:true});await chatSave(l);return chatPaint()}}
+ m.klaargezet=true;await chatSave(l);
  l.push({id:id+'K',wie:'fien',tekst:m.soort==='beslissing'?'Staat klaar ✓ Jij beslist wat ermee gebeurt.':'Staat klaar ✓ Fien AI kan het later oppakken. Er wordt niets verstuurd.',t:new Date().toISOString(),systeem:true});await chatSave(l);
- /* proef: alleen lokaal. Echt staat het voorstel al in R2 (chat/klaar/<id>.json); de bestaande flow pakt het daar later op. */
+ /* lokaal ook onthouden; in R2 staat het sinds de klik in chat/klaar/<id>.json */
  const b=(await get('chatKlaar'))||[];b.unshift({id,soort:m.soort,tekst:m.klaar,t:new Date().toISOString()});await put('chatKlaar',b.slice(0,50));chatPaint()}
 
 function chatRecept(id){chatList().then(l=>{const m=l.find(x=>x.id===id);const w=(m&&m.klaar||'').replace(/^Receptwens:\s*/,'');if(typeof aiDraft!=='undefined')aiDraft.idee=w;go('rec');

@@ -2,7 +2,8 @@
    Draait op Cloudflare Workers AI via de binding env.AI in de bestaande relay: geen API-sleutel, geen nieuw account.
    POST /chat/koppel {code}                     → eenmalige koppelcode (secret CHAT_KOPPELCODE) wordt een apparaat-sleutel
    POST /chat  Authorization: Bearer <sleutel>  {id, berichten:[{wie,tekst}]} → {tekst, soort?, klaar?}
-   Opslag in R2 (binding FIEN): chat/tokens/<sha256>, chat/teller/<datum>, chat/log/<datum>/<id>.json, chat/klaar/<id>.json
+   Opslag in R2 (binding FIEN): chat/tokens/<sha256>, chat/teller/<datum>, chat/log/<datum>/<id>.json, chat/voorstel/<id>.json (alleen bij een samenvatting),
+   chat/klaar/<id>.json (pas als Suzan op 'Zet klaar' drukt: POST /chat/klaar {id})
    Vars/secrets: CHAT_KOPPELCODE (secret), CHAT_PROMPT (var = chat-systeemprompt.md), CHAT_MODEL, CHAT_DAG_MAX (optioneel) */
 import PROMPT from './chat-prompt.js';
 const enc=new TextEncoder();
@@ -37,9 +38,18 @@ export async function chat(req,env,J){const auth=req.headers.get('Authorization'
  if(!env.AI)return J(503,{ok:false,e:'chat staat nog uit'});
  if(await teller(env)>Number(env.CHAT_DAG_MAX||150))return J(429,{ok:false,e:'dag'});
  const messages=[{role:'system',content:env.CHAT_PROMPT||PROMPT},...msgs.map(m=>({role:m.wie==='fien'?'assistant':'user',content:m.tekst}))];
- let a=null;for(const model of [env.CHAT_MODEL||MODEL,MODEL_TERUG]){try{a=uitModel(await vraagModel(env,model,messages));if(a)break}catch(e){a=null}}
+ let a=null,dbg=null;for(const model of [env.CHAT_MODEL||MODEL,MODEL_TERUG]){try{const raw=await vraagModel(env,model,messages);a=uitModel(raw);if(env.CHAT_DEBUG)dbg={model,usage:raw&&raw.usage,raw:JSON.stringify(raw).slice(0,1500)};if(a)break}catch(e){a=null;if(env.CHAT_DEBUG)dbg={model,fout:String(e&&e.message||e).slice(0,300)}}}
  if(!a)return J(502,{ok:false,e:'model'});
  const out=schoon(a);const log={id,t:new Date().toISOString(),vraag:msgs[msgs.length-1].tekst,antwoord:out};
  await env.FIEN.put(`chat/log/${dag()}/${id}.json`,JSON.stringify(log));
- if(out.klaar)await env.FIEN.put(`chat/klaar/${id}.json`,JSON.stringify({...log,status:'voorstel'}));
- return J(200,{ok:true,...out})}
+ if(out.klaar)await env.FIEN.put(`chat/voorstel/${id}.json`,JSON.stringify({...log,status:'voorstel'}));
+ return J(200,{ok:true,...out,...(env.CHAT_DEBUG?{dbg}:{})})}
+
+/* POST /chat/klaar {id} (Bearer): Suzan drukte op 📌 Zet klaar → voorstel wordt chat/klaar/<id>.json (status 'klaargezet'). Zonder die klik komt er niets in chat/klaar. */
+export async function klaarzet(req,env,J){const auth=req.headers.get('Authorization')||'';const tok=auth.startsWith('Bearer ')?auth.slice(7):'';
+ if(!/^[a-f0-9]{64}$/.test(tok)||!(await env.FIEN.head('chat/tokens/'+await sha(tok))))return J(401,{ok:false});
+ let b;try{b=await req.json()}catch{return J(400,{ok:false})}let id=String(b&&b.id||'');if(!/^C[A-Z0-9]{4,21}$/.test(id))return J(400,{ok:false,e:'id'});
+ let ob=await env.FIEN.get('chat/voorstel/'+id+'.json');if(!ob&&id.endsWith('F')){id=id.slice(0,-1);ob=await env.FIEN.get('chat/voorstel/'+id+'.json')} /* de app geeft het Fien-bericht-id mee (vraag-id + F) */
+ if(!ob)return J(404,{ok:false,e:'onbekend'});
+ const v=JSON.parse(await ob.text());await env.FIEN.put('chat/klaar/'+id+'.json',JSON.stringify({...v,status:'klaargezet',klaargezet:new Date().toISOString()}));
+ return J(200,{ok:true,id})}
