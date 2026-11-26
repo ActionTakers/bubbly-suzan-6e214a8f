@@ -1,3 +1,4 @@
+/* v13.2 PROEF: POST /chat/koppel en /chat (zie chat.js, Workers AI via env.AI). Pas live na GO. */
 /* Fien relay v13 — nieuwe, losse Worker naast de bestaande. De webhook-sleutel staat alleen hier (secret), niet in de app.
    POST /foto?id=FA-…&pin=…   body = foto (image/*, max 8 MB) → R2 foto/<id>
    POST /verzoek              JSON {id,pin,idee,link,fotoLink,tijd,appVersie,test,foto:true} → één keer door naar de Fien-routine (dedupe op id)
@@ -10,6 +11,7 @@
    als er geen ai-results/<id>.json komt. GET /pending en POST /pending/klaar met Authorization: Bearer FIEN_PENDING_KEY. */
 import {zetOpSite,siteStatus} from './sitezet.js';
 import {bewaar,lees,doorsturen,herkansing,pending,sleutelOk} from './durable.js';
+import {koppel,chat,klaarzet} from './chat.js';
 const ORIGIN='https://actiontakers.github.io',SITE='https://bubblybakery.nl/';
 const MAX={idee:500,link:500,fotoLink:500,tijd:40,appVersie:20,receptId:40,recept:2500};const FOTO_MAX=8*1024*1024,WEEK=7*864e5;
 const hits=new Map();const DEF_ORIGIN='https://fien-relay-v13.bubblybakery.workers.dev';
@@ -34,7 +36,7 @@ export default{
     r.status=b.status==='opgegeven'?'opgegeven':'klaar';r.volgende=0;r.klaar=new Date().toISOString();await bewaar(env,r);return new Response(JSON.stringify({ok:true,id:r.id,status:r.status}),{headers:H})}
    return new Response('{"ok":false,"e":"method"}',{status:405,headers:H})}
   const allowed=[ORIGIN,...String(env.EXTRA_ORIGINS||'').split(',').map(s=>s.trim()).filter(Boolean)];const okO=allowed.includes(o);
-  const cors={'Access-Control-Allow-Origin':okO?o:ORIGIN,'Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Max-Age':'86400','Vary':'Origin'};
+  const cors={'Access-Control-Allow-Origin':okO?o:ORIGIN,'Access-Control-Allow-Headers':'Content-Type, Authorization','Access-Control-Allow-Methods':'GET, POST, OPTIONS','Access-Control-Max-Age':'86400','Vary':'Origin'};
   const J=(s,b)=>new Response(JSON.stringify(b),{status:s,headers:{...cors,'Content-Type':'application/json','Cache-Control':'no-store'}});
   if(req.method==='GET'){
    if(u.pathname==='/site.jpg'||u.pathname==='/site.json'){const ob=await env.FIEN.get('site/latest.jpg');if(!ob)return J(404,{ok:false,e:'nog geen screenshot'});
@@ -48,6 +50,9 @@ export default{
   if(!okO)return new Response('origin',{status:403});
   if(req.method==='OPTIONS')return new Response(null,{status:204,headers:cors});if(req.method!=='POST')return J(405,{ok:false,e:'method'});
   const ip=req.headers.get('CF-Connecting-IP')||'x',now=Date.now(),h=(hits.get(ip)||[]).filter(t=>now-t<600000);if(h.length>=30)return J(429,{ok:false,e:'rate'});h.push(now);hits.set(ip,h);
+  if(u.pathname==='/chat/koppel')return koppel(req,env,J);
+  if(u.pathname==='/chat')return chat(req,env,J);
+  if(u.pathname==='/chat/klaar')return klaarzet(req,env,J);
   if(u.pathname==='/site/nu'){if(u.searchParams.get('pin')!==env.PIN)return J(401,{ok:false,e:'pin'});let r;try{r=await shot(env)}catch(e){r='fout: '+String(e&&e.message||e).slice(0,200)}return J(r==='ok'?200:500,{ok:r==='ok',r})}
   if(u.pathname==='/foto'){const id=u.searchParams.get('id')||'';if(u.searchParams.get('pin')!==env.PIN)return J(401,{ok:false,e:'pin'});if(!/^FA-[A-Z0-9]{2,24}$/.test(id))return J(400,{ok:false,e:'id'});
    const ct=(req.headers.get('Content-Type')||'').split(';')[0];if(!/^image\//.test(ct))return J(415,{ok:false,e:'type'});

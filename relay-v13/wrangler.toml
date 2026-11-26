@@ -9,6 +9,10 @@ workers_dev = true
 binding = "FIEN"
 bucket_name = "bubblyfien"
 
+# Workers AI: binding zonder sleutel, gebruikt het bestaande Cloudflare-account (gratis 10.000 neurons/dag).
+[ai]
+binding = "AI"
+
 [browser]
 binding = "BROWSER"
 
