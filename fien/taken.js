@@ -4,9 +4,10 @@
 function takenOpenRecept(){if(typeof aiOpenBericht==='function')aiOpenBericht('FA-8NPNPK')}
 function takenOpenKaart(){if(typeof aiOpenBericht==='function')aiOpenBericht('FA-KAARTCC')}
 function takenOpenBlog(){if(typeof aiOpenBericht==='function')aiOpenBericht('FA-Z8OHVQ')}
+function takenOpenLivePepernoten(){window.open('https://bubblybakery.nl/recepten/pepernoten/','_blank','noopener')}
 
 const TAKEN_VAST=[
-  {id:'pepernoten-online',titel:'Pepernoten op de site',tekst:'Het recept is klaar in de app. Kijk of het klopt. Daarna maakt Fien de pagina klaar. Het staat nog niet op de site.',status:'wacht',knop:'Bekijk het recept',go:takenOpenRecept},
+  {id:'pepernoten-online',titel:'Pepernoten op de site',tekst:'Je pepernoten staan nu op de site. Kijk gerust of alles klopt.',status:'klaar',knop:'Open de pagina',go:takenOpenLivePepernoten},
   {id:'kaartstijl',titel:'Nieuwe stijl voor je receptkaarten',tekst:'Hier is een voorbeeld: je Chocolate Chip Cookies, in een nieuwe stijl. Vind je deze mooi? Stuur Fien een berichtje.',status:'wacht',knop:'Bekijk de kaart',go:takenOpenKaart},
   {id:'pepernoten-blog',titel:'Je blog over pepernoten',tekst:'Fien heeft een blog klaargezet over pepernoten die ongelijk bakken. Kijk of de toon klopt. Hij staat nog niet op de site.',status:'wacht',knop:'Bekijk het blog',go:takenOpenBlog}
 ];
