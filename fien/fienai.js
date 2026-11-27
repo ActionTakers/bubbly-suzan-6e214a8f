@@ -192,7 +192,8 @@ VIEWS.site=async()=>{const nieuw=(await aiList()).filter(q=>q.status==='klaar'&&
  <div class="card site-shot">${shot?`<img id="site-img" src="${shot}" alt="Voorbeeld van bubblybakery.nl" onerror="this.replaceWith(Object.assign(document.createElement('p'),{className:'fien-hint',textContent:'Nog geen foto van de site. Tik op Open de site.'}))">`:'<p class="fien-hint">Nog geen foto van de site. Tik op Open de site.</p>'}<small id="site-t" class="ai-meta"></small></div>
  <button class="btn xl" onclick="window.open(SITE,'_blank','noopener')">Open de site</button>
  ${nieuw.map(q=>`<div class="ai-card klaar"><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(q.titel||q.idee)}</h3></div><span class="ai-pill nieuw">Nieuw</span></div><p class="ai-msg">Staat nog niet op de site. Je recept staat wel in de app.</p><div class="ai-acts"><button class="btn s xs" onclick="PID='${q.recept}';PST=null;go('rec')">Bekijk recept in de app</button></div></div>`).join('')}
- <div class="card soft"><small>Fien zet zelf niets op je website.</small></div>`};
+ <div class="card soft"><small>Fien zet zelf niets op je website.</small></div>
+ <p class="row"><button class="btn s" onclick="go('meer')">‹ Terug naar Meer</button></p>`};
 VIEWS.site.after=()=>{if(!RELAY)return;fetch(RELAY+'/site.json',{cache:'no-store'}).then(r=>r.json()).then(j=>{const el=$('#site-t');if(el&&j.t)el.textContent='Foto van '+aiWhen(j.t)}).catch(()=>{})};
 /* link openen: #fienrecept=... (noodpad; normaal komt het recept via ai-results) */
 async function aiHash(){if(/fienrecept=/.test(location.hash)){const h=location.hash;history.replaceState(null,'',location.pathname+location.search);await aiImport(h)}}
