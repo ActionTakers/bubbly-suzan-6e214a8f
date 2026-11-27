@@ -11,13 +11,13 @@
 @font-face{font-family:Fraunces;src:url(fonts/fraunces.woff2) format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:Nunito;src:url(fonts/nunito.woff2) format('woff2');font-weight:200 1000;font-display:swap}
 @font-face{font-family:Caveat;src:url(fonts/caveat.woff2) format('woff2');font-weight:400 700;font-display:swap}
-:root{--t:#2A9D8F;--td:#1F7A6F;--cream:#FFF7EC;--paper:#FFFDF8;--pink:#F5A5C2;--cocoa:#3A2A22;--soft:#6B4E3E;--line:#EADBC8;--shadow:0 10px 28px #3a2a2212;--r:22px;--ease:cubic-bezier(.16,1,.3,1)}
+:root{--t:#2A9D8F;--td:#1F7A6F;--cream:#FFF7EC;--paper:#FFFDF8;--pink:#F5A5C2;--butter:#FFD98A;--mint:#B6E3C6;--berry:#C94A6B;--cocoa:#3A2A22;--soft:#6B4E3E;--line:#EADBC8;--shadow:0 10px 28px #3a2a2212;--r:22px;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Nunito,system-ui,sans-serif;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;background:radial-gradient(900px 280px at 50% -80px,#FFE7C4 0%,transparent 60%),linear-gradient(180deg,#FFF4E4 0%,var(--cream) 30%,#FFF9F3 100%);color:var(--cocoa);padding-bottom:calc(112px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
 h1,h2,h3{font-family:Fraunces,serif;font-weight:560;margin:.2em 0;letter-spacing:-.02em;line-height:1.15}
 .hand{font-family:Caveat,cursive;font-size:1.35rem;color:var(--td);line-height:1.15}
-header{background:linear-gradient(145deg,#1B6E64 0%,var(--t) 58%,#49C2B2 100%);color:#fff;padding:18px max(16px,calc(50vw - 250px)) 22px;padding-top:calc(16px + env(safe-area-inset-top));border-radius:0 0 32px 32px;display:flex;gap:14px;align-items:center;box-shadow:0 12px 28px #1F7A6F2e}
+header{background:var(--td);color:#fff;padding:18px max(16px,calc(50vw - 250px)) 22px;padding-top:calc(16px + env(safe-area-inset-top));border-radius:0 0 32px 32px;display:flex;gap:14px;align-items:center;box-shadow:0 12px 28px #1F7A6F2e}
 header img{width:72px;height:72px;border-radius:50%;background:#fff;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 16px #00000022;flex:none}
 header h1{font-size:23px;margin:0}
 header .hand{color:#FFE9F1;margin:2px 0 0;font-size:1.45rem}
@@ -91,7 +91,7 @@ details summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;alig
 details summary::-webkit-details-marker{color:var(--td)}
 .pcard{padding:18px;margin:14px 0}.pcard h3,.pcard > .row > b{font-size:18px}
 .th{position:relative;display:inline-block}.th.spraak{display:flex;align-items:center;padding-right:34px;background:#fff;border:1px solid var(--line);border-radius:12px}.th audio{width:180px}
-.thx{position:absolute;top:-8px;right:-8px;width:32px;height:32px;border-radius:50%;border:2px solid #fff;background:#C0392B;color:#fff;font-size:16px;font-weight:700;line-height:1;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.thx{position:absolute;top:-8px;right:-8px;width:32px;height:32px;border-radius:50%;border:2px solid #fff;background:var(--cocoa);color:#FFF7EC;font-size:16px;font-weight:700;line-height:1;padding:0;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .th.spraak .thx{top:50%;right:2px;transform:translateY(-50%)}
 .blog-tekst{white-space:pre-wrap;font-size:17px;line-height:1.5;margin:10px 0;max-height:360px;overflow:auto}
 .ai-card.blog textarea{width:100%;font-size:16px}
