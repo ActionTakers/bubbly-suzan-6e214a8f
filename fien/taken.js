@@ -1,6 +1,7 @@
 'use strict';
 /* Mijn taken — eigen tab. Berichten blijven vindbaar na «Gelezen». Geen codes in beeld.
-   Akkoord gaat als gewoon Fien-verzoek naar de relay (POST /verzoek), het publiceert niets. */
+   Akkoord gaat als gewoon Fien-verzoek naar de relay (POST /verzoek), het publiceert niets.
+   Klaar-lijst en verwijderen zijn alleen op deze telefoon; een akkoord blijft bewaard. */
 
 function takenOpenRecept(){if(typeof aiOpenBericht==='function')aiOpenBericht('FA-8NPNPK')}
 function takenOpenKaart(){if(typeof aiOpenBericht==='function')aiOpenBericht('FA-KAARTCC')}
@@ -15,6 +16,7 @@ const TAKEN_VAST=[
 
 const ST_LABEL={wacht:'Wacht op jouw akkoord',bezig:'Fien is bezig',klaar:'Klaar'};
 const TAKEN_AKKOORD_KEY='takenAkkoord';
+const TAKEN_WEG_KEY='takenWeg';
 const TAKEN_ID=/^FA-[A-Z0-9]{2,24}$/;
 
 function takenAkkoordIdee(titel,antwoord,notitie){
@@ -49,11 +51,51 @@ function takenToon(t,ant){
   return{st:'klaar',label:'Fien past het aan',open:false,klaarLijst:true};
 }
 
+function takenWegLeeg(){return{taak:{},bericht:{}}}
+function takenWegNorm(v){
+  const o=takenWegLeeg();
+  if(!v||typeof v!=='object'||Array.isArray(v))return o;
+  if(v.taak&&typeof v.taak==='object')o.taak=Object.assign({},v.taak);
+  if(v.bericht&&typeof v.bericht==='object')o.bericht=Object.assign({},v.bericht);
+  return o;
+}
+function takenIsWeg(weg,soort,id){
+  const w=takenWegNorm(weg);
+  return !!(id&&w[soort]&&w[soort][id]);
+}
+function takenWegZet(weg,soort,id,aan){
+  const w=takenWegNorm(weg);
+  const bak=Object.assign({},w[soort]||{});
+  if(aan)bak[id]=true;else delete bak[id];
+  w[soort]=bak;return w;
+}
+function takenKlaarStukken(vast,ant,list,seen,weg){
+  const open=[],klaarT=[],nieuw=[],gelezen=[];
+  for(const t of vast){
+    if(takenIsWeg(weg,'taak',t.id))continue;
+    const s=takenToon(t,ant&&ant[t.id]);
+    if(s.open)open.push(t);
+    else if(s.klaarLijst)klaarT.push(t);
+  }
+  for(const b of (list||[])){
+    if(!b||!b.id||b.status==='beantwoord')continue;
+    if(takenIsWeg(weg,'bericht',b.id))continue;
+    if((seen||[]).includes(b.id))gelezen.push(b);else nieuw.push(b);
+  }
+  return{open,klaarT,nieuw,gelezen,klaarN:klaarT.length+gelezen.length};
+}
+
 async function takenLoad(){
   try{const v=typeof get==='function'?await get(TAKEN_AKKOORD_KEY):null;return (v&&typeof v==='object'&&!Array.isArray(v))?v:{}}catch(e){return{}}
 }
 async function takenSave(id,row){
   const all=await takenLoad();all[id]=row;if(typeof put==='function')await put(TAKEN_AKKOORD_KEY,all);return row;
+}
+async function takenWegLoad(){
+  try{const v=typeof get==='function'?await get(TAKEN_WEG_KEY):null;return takenWegNorm(v)}catch(e){return takenWegLeeg()}
+}
+async function takenWegSave(w){
+  const n=takenWegNorm(w);if(typeof put==='function')await put(TAKEN_WEG_KEY,n);return n;
 }
 
 function takenAndersOpen(id){
@@ -110,6 +152,62 @@ async function takenRetryOpen(opts){
   if(changed&&!(opts&&opts.stil)&&typeof tab!=='undefined'&&tab==='taken'&&typeof render==='function')await render();
 }
 
+function takenKlaarToggle(el){
+  if(typeof window!=='undefined')window._takenKlaarOpen=!!(el&&el.open);
+}
+
+function takenToonToast(onUndo){
+  if(typeof document==='undefined')return;
+  let el=document.getElementById('fien-toast');
+  if(!el){el=document.createElement('div');el.id='fien-toast';el.setAttribute('role','status');document.body.appendChild(el)}
+  el.innerHTML='Verwijderd · <button type="button" class="taken-undo" id="taken-undo-btn">Ongedaan maken</button>';
+  el.classList.add('on','act');
+  const btn=document.getElementById('taken-undo-btn');
+  if(btn)btn.onclick=async ev=>{ev.preventDefault();clearTimeout(takenToonToast._t);el.classList.remove('on','act');if(typeof onUndo==='function')await onUndo()};
+  clearTimeout(takenToonToast._t);
+  takenToonToast._t=setTimeout(()=>el.classList.remove('on','act'),7000);
+}
+
+async function takenVerwijder(soort,id){
+  if(soort!=='taak'&&soort!=='bericht'||!id)return;
+  const prev=await takenWegLoad();
+  if(takenIsWeg(prev,soort,id))return;
+  await takenWegSave(takenWegZet(prev,soort,id,true));
+  if(typeof window!=='undefined')window._takenKlaarOpen=true;
+  if(typeof window!=='undefined')window._takenWisVraag=false;
+  if(typeof render==='function')await render();
+  takenToonToast(async()=>{
+    await takenWegSave(prev);
+    if(typeof window!=='undefined')window._takenKlaarOpen=true;
+    if(typeof render==='function')await render();
+  });
+}
+
+function takenWisVraag(aan){
+  if(typeof window!=='undefined'){window._takenWisVraag=!!aan;window._takenKlaarOpen=true}
+  if(typeof render==='function')render();
+}
+
+async function takenWisAlles(){
+  const list=await takenBerichten();
+  const ant=await takenLoad();
+  const seen=typeof berichtenGelezen==='function'?berichtenGelezen():[];
+  const prev=await takenWegLoad();
+  const st=takenKlaarStukken(TAKEN_VAST,ant,list,seen,prev);
+  if(!st.klaarN){if(typeof window!=='undefined')window._takenWisVraag=false;if(typeof render==='function')await render();return}
+  let next=takenWegNorm(prev);
+  for(const t of st.klaarT)next=takenWegZet(next,'taak',t.id,true);
+  for(const b of st.gelezen)next=takenWegZet(next,'bericht',b.id,true);
+  await takenWegSave(next);
+  if(typeof window!=='undefined'){window._takenWisVraag=false;window._takenKlaarOpen=false}
+  if(typeof render==='function')await render();
+  takenToonToast(async()=>{
+    await takenWegSave(prev);
+    if(typeof window!=='undefined')window._takenKlaarOpen=true;
+    if(typeof render==='function')await render();
+  });
+}
+
 async function takenBerichten(){
   try{
     const r=await fetch('berichten.json',{cache:'no-store'});
@@ -131,9 +229,13 @@ function takenOpenById(id){
 }
 
 function takenBadgeOn(){
-  const seen=typeof berichtenGelezen==='function'?berichtenGelezen():[];
   const ant=window._takenAnt||{};
-  return TAKEN_VAST.some(t=>{const s=takenToon(t,ant[t.id]);return s.open&&(t.status==='wacht'||s.opnieuw)})||false;
+  const weg=window._takenWeg||takenWegLeeg();
+  return TAKEN_VAST.some(t=>{
+    if(takenIsWeg(weg,'taak',t.id))return false;
+    const s=takenToon(t,ant[t.id]);
+    return s.open&&(t.status==='wacht'||s.opnieuw);
+  })||false;
 }
 
 if(typeof VIEWS==='object'){
@@ -141,11 +243,12 @@ if(typeof VIEWS==='object'){
     await takenRetryOpen({stil:true});
     const list=await takenBerichten();window._takenBerichten=list;
     const ant=window._takenAnt=await takenLoad();
+    const weg=window._takenWeg=await takenWegLoad();
     if(typeof navR==='function')navR();
     const seen=typeof berichtenGelezen==='function'?berichtenGelezen():[];
-    const open=TAKEN_VAST.filter(t=>takenToon(t,ant[t.id]).open);
-    const klaar=TAKEN_VAST.filter(t=>takenToon(t,ant[t.id]).klaarLijst);
-    const openBer=list.filter(b=>b.status!=='beantwoord');
+    const st=takenKlaarStukken(TAKEN_VAST,ant,list,seen,weg);
+    const klaarOpen=typeof window!=='undefined'&&!!window._takenKlaarOpen;
+    const wisVraag=typeof window!=='undefined'&&!!window._takenWisVraag;
     function akkoordBlok(t,s){
       if(!s.open||t.status!=='wacht')return'';
       if(s.opnieuw)return `<div class="taken-akkoord"><p class="ai-note">Je antwoord is bewaard. Zodra er weer bereik is, stuur ik het naar Fien. Niets gaat live.</p><button type="button" class="btn xl" onclick="takenOpnieuw('${t.id}')">Opnieuw versturen</button></div>`;
@@ -159,27 +262,36 @@ if(typeof VIEWS==='object'){
         </div>
       </div>`;
     }
-    function kaart(t){
+    function wegKnop(soort,id){
+      return `<button type="button" class="btn ghost xs taken-weg" onclick="takenVerwijder('${soort}','${id}')">Verwijder</button>`;
+    }
+    function kaart(t,inKlaar){
       const s=takenToon(t,ant[t.id]);
       const pill=s.st==='klaar'?'klaar':s.st==='bezig'?'bezig':'vraag';
       const kijk=t.go?`<button type="button" class="btn s xs" onclick="(${t.go.name})()">${esc(t.knop||'Bekijk')}</button>`:'';
-      return `<article class="ai-card ${pill}"><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(t.titel)}</h3></div><span class="ai-pill ${pill}">${esc(s.label)}</span></div><p class="ai-msg">${esc(t.tekst||'')}</p><div class="ai-acts">${kijk}</div>${akkoordBlok(t,s)}</article>`;
+      return `<article class="ai-card ${pill}"><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(t.titel)}</h3></div><span class="ai-pill ${pill}">${esc(s.label)}</span></div><p class="ai-msg">${esc(t.tekst||'')}</p><div class="ai-acts">${kijk}${inKlaar?wegKnop('taak',t.id):''}</div>${akkoordBlok(t,s)}</article>`;
     }
-    function berKaart(b){
+    function berKaart(b,inKlaar){
       const gelezen=seen.includes(b.id);
       const kijk=b&&typeof b.kijk==='string'&&/^FA-[A-Z0-9]{4,24}$/.test(b.kijk);
       const knop=esc(b.knop||(kijk?'Bekijk':'Open'));
       const act=(kijk||b.antwoord!=null)?`<button type="button" class="btn s xs" onclick="takenOpenById('${b.id}')">${knop}</button>`:'';
       const lees=gelezen?'':`<button type="button" class="btn ghost xs" onclick="berichtGelezen('${b.id}');go('taken')">Gelezen ✓</button>`;
-      return `<article class="ai-card ${gelezen?'':'vraag'}"><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(b.t)}</h3></div><span class="ai-pill ${gelezen?'klaar':'vraag'}">${gelezen?'Gelezen':'Nieuw'}</span></div><div class="ai-acts">${act}${lees}</div></article>`;
+      return `<article class="ai-card ${gelezen?'klaar':'vraag'}"><div class="ai-top"><div class="grow"><h3 class="ai-title">${esc(b.t)}</h3></div><span class="ai-pill ${gelezen?'klaar':'vraag'}">${gelezen?'Gelezen':'Nieuw'}</span></div><div class="ai-acts">${act}${lees}${inKlaar?wegKnop('bericht',b.id):''}</div></article>`;
     }
+    const klaarBlok=st.klaarN?`<details class="taken-klaar"${klaarOpen?' open':''} ontoggle="takenKlaarToggle(this)">
+      <summary><span>Klaar</span><b class="taken-klaar-n">${st.klaarN}</b></summary>
+      <div class="ai-list">${st.klaarT.map(t=>kaart(t,true)).join('')}${st.gelezen.map(b=>berKaart(b,true)).join('')}</div>
+      <div class="taken-klaar-act">
+        ${wisVraag?`<div class="taken-wis-vraag"><p>Alles wat klaar is van je lijstje halen?</p><div class="row"><button type="button" class="btn xs" onclick="takenWisAlles()">Ja, haal weg</button><button type="button" class="btn ghost xs" onclick="takenWisVraag(false)">Liever niet</button></div></div>`:`<button type="button" class="btn s xs" onclick="takenWisVraag(true)">Wis alles wat klaar is</button>`}
+      </div>
+    </details>`:'';
     return `<div class="card hero"><h2>Mijn taken</h2><p class="hand" style="margin:4px 0 0">Wat er nog van je wordt gevraagd, op één plek.</p></div>
-  <p class="st-uitleg">Open taken eerst. Een bericht blijft hier staan, ook als je het op Start als gelezen hebt gemarkeerd.</p>
-  ${open.length?`<h3 class="ai-list-h">Open</h3><div class="ai-list">${open.map(kaart).join('')}</div>`:''}
-  ${klaar.length?`<h3 class="ai-list-h">Klaar</h3><div class="ai-list">${klaar.map(kaart).join('')}</div>`:''}
-  <h3 class="ai-list-h">Berichten van Fien</h3>
-  <div class="ai-list">${openBer.length?openBer.map(berKaart).join(''):'<div class="card soft"><small>Nog geen berichten.</small></div>'}</div>
-  <div class="card soft"><small>Fien zet zelf niets op je website. Jouw antwoord komt bij Fien terecht. Er gaat nog niets live.</small></div>`;
+  <p class="st-uitleg">Open taken staan bovenaan. Wat klaar is, zit onderaan in Klaar. Daar kun je het ook weghalen.</p>
+  ${st.open.length?`<h3 class="ai-list-h">Open</h3><div class="ai-list">${st.open.map(t=>kaart(t,false)).join('')}</div>`:(st.nieuw.length?'':`<p class="st-uitleg">Er staat niets meer open.</p>`)}
+  ${st.nieuw.length?`<h3 class="ai-list-h">Berichten van Fien</h3><div class="ai-list">${st.nieuw.map(b=>berKaart(b,false)).join('')}</div>`:''}
+  <div class="card soft"><small>Fien zet zelf niets op je website. Jouw antwoord komt bij Fien terecht. Er gaat nog niets live.</small></div>
+  ${klaarBlok}`;
   };
 
   (function(){
@@ -192,5 +304,5 @@ if(typeof VIEWS==='object'){
 }
 
 if(typeof module!=='undefined'&&module.exports){
-  module.exports={takenAkkoordIdee,takenAkkoordVraag,takenToon,takenNieuweId,TAKEN_VAST};
+  module.exports={takenAkkoordIdee,takenAkkoordVraag,takenToon,takenNieuweId,TAKEN_VAST,takenIsWeg,takenWegZet,takenWegNorm,takenWegLeeg,takenKlaarStukken};
 }
