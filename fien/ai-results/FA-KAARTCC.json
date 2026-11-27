@@ -1,0 +1,26 @@
+{
+  "type": "bericht",
+  "verzoek": "FA-KAARTCC",
+  "status": "klaar",
+  "titel": "Nieuwe stijl voor je receptkaarten",
+  "bericht": "Hier is een voorbeeld: je Chocolate Chip Cookies, in een nieuwe stijl. De hoeveelheden zijn rustig leesbaar. Vind je deze mooi? Stuur me een berichtje: ja, mooi zo — of wat je anders wilt.",
+  "lijst": [
+    {
+      "kop": "De kaart",
+      "inleiding": "Hij staat nog niet op de site. Open de kaart of de PDF hieronder.",
+      "items": [
+        {
+          "naam": "Open de kaart",
+          "waarom": "Voorkant en achterkant na elkaar, zodat je rustig kunt kijken.",
+          "link": "https://actiontakers.github.io/bubbly-suzan-6e214a8f/fien/bestanden/receptkaart-chocolate-chip-cookies.html"
+        },
+        {
+          "naam": "Download als PDF",
+          "waarom": "Om te bekijken of te printen.",
+          "link": "https://actiontakers.github.io/bubbly-suzan-6e214a8f/fien/bestanden/receptkaart-chocolate-chip-cookies.pdf"
+        }
+      ]
+    }
+  ],
+  "tip": "Hij staat nog niet online. Jij kijkt eerst."
+}
