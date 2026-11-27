@@ -30,7 +30,7 @@ L.push({k:'knoei',t:'Knoeimoment 🎉',d:'Eén leuk foutje of knoeimoment. Knoei
 {k:'selfie',t:'Jij met je '+nm+' (mag)',d:'Alleen als je dat wilt.',need:[],opt:['foto']},{k:'notes',t:'Notities',d:'Hoeveel stuks, tips, wat beter kan.',need:['notitie']});return L}
 
 /* ---------- navigatie ---------- */
-const TABS=[['home','🏠','Start'],['rec','✨','Recepten'],['bak','📸','Bakken'],['site','🌐','Site'],['meer','⋯','Meer']];const MEER=['plan','besl','content','meer','zelf'];
+const TABS=[['home','🏠','Start'],['taken','✅','Taken'],['rec','✨','Recepten'],['bak','📸','Bakken'],['site','🌐','Site'],['meer','⋯','Meer']];const MEER=['plan','besl','content','meer','zelf'];
 let tab='home',shownTab='';function go(t){tab=t;render();scrollTo(0,0)}
 function navR(){$('#nav').innerHTML=TABS.map(([k,i,l])=>`<button class="${k==tab||(k=='meer'&&MEER.includes(tab)&&tab!='meer')?'on':''}" onclick="go('${k}')" aria-current="${k==tab?'page':'false'}"><span class="nav-ico"><b aria-hidden="true">${i}</b>${(typeof navBadge==='function'&&navBadge(k))?'<i class="nav-dot" aria-hidden="true"></i>':''}</span>${l}</button>`).join('')}
 async function render(){navR();const v=$('#view');const switched=shownTab!==tab;shownTab=tab;v.innerHTML=await VIEWS[tab]();if(switched){v.classList.remove('is-in');void v.offsetWidth;v.classList.add('is-in')}VIEWS[tab].after&&VIEWS[tab].after()}
