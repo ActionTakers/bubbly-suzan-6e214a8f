@@ -3,7 +3,7 @@
 /* v13: alles gaat via de Fien-relay (Cloudflare Worker). De webhook-sleutel staat alleen in de Worker, niet hier. */
 const RELAY=(localStorage.getItem('fienRelay')||document.querySelector('meta[name="fien-relay"]')?.content||'').replace(/\/$/,'');
 const RESULTS=(localStorage.getItem('fienResults')||'').replace(/\/$/,'');const SITE='https://bubblybakery.nl/';
-const APPV='fien-v15';const PIN='0709';
+const APPV='fien-v15-13';const PIN='0709';
 const AIK='aiReq';const aiList=async()=>(await get(AIK))||[];const aiSave=l=>put(AIK,l);
 let aiQ=Promise.resolve();const aiTurn=fn=>{const n=aiQ.then(fn,fn);aiQ=n.then(()=>{},()=>{});return n};
 const VERBODEN=/prij|price|kost|allerg|glutenvrij|notenvrij|lactosevrij|veilig voor/i;
@@ -20,7 +20,7 @@ async function aiPostOnce(q){if(!RELAY)return false;
   const r=await fetch(RELAY+'/foto?id='+encodeURIComponent(q.id)+'&pin='+PIN,{method:'POST',headers:{'Content-Type':img.type||'image/jpeg'},body:img});
   if(!r.ok)return false;await aiPatch(q.id,{fotoUp:true});q.fotoUp=true}
  const fl=/^https?:\/\//.test(q.fotoLink||'')?q.fotoLink:undefined;
- const body={id:q.id,pin:PIN,idee:q.idee,...(q.type?{type:q.type,receptId:q.receptId,recept:q.receptTekst}:{}),link:q.link,tijd:q.t,appVersie:APPV,...(fl?{fotoLink:fl}:{}),...(q.foto?{foto:true}:{}),...(q.test?{test:true}:{})};
+ const body={id:q.id,pin:PIN,idee:q.idee,...(q.receptId?{receptId:q.receptId}:{}),...(q.type?{type:q.type,recept:q.receptTekst}:{}),link:q.link,tijd:q.t,appVersie:APPV,...(fl?{fotoLink:fl}:{}),...(q.foto?{foto:true}:{}),...(q.test?{test:true}:{}),...(q.droog?{droog:true}:{})};
  const r=await fetch(RELAY+'/verzoek',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
  const j=await r.json().catch(()=>({}));return r.ok&&j.ok===true}
 async function aiHasResult(id){try{return !!(await aiFetchResult(id))}catch(e){return false}}

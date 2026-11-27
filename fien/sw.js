@@ -1,4 +1,4 @@
-const C='fien-v15-12';const F=['./','index.html','zichtbaar.js','app.js','recepten.js','kook.js','pijplijn.js','fienai.js','taken.js','sitestatus.js','chat.js','vendor/jszip.min.js','fonts/nunito.woff2','fonts/fraunces.woff2','fonts/caveat.woff2','img/fien-blij-160w.webp','img/fien-trots-160w.webp','img/fien-in-actie-320w.webp','img/fien-denken-160w.webp','manifest.webmanifest','icon-192.png','img/fien-hero-320w.webp'];
+const C='fien-v15-13';const F=['./','index.html','zichtbaar.js','app.js','recepten.js','kook.js','pijplijn.js','fienai.js','taken.js','sitestatus.js','chat.js','vendor/jszip.min.js','fonts/nunito.woff2','fonts/fraunces.woff2','fonts/caveat.woff2','img/fien-blij-160w.webp','img/fien-trots-160w.webp','img/fien-in-actie-320w.webp','img/fien-denken-160w.webp','manifest.webmanifest','icon-192.png','img/fien-hero-320w.webp'];
 /* ai-results/<FA-id>.json: nooit in de cache. Een 404 of een oud recept mag niet blijven hangen. */
 const aiResult=u=>new URL(u,self.location).pathname.includes('/ai-results/');
 const liveJson=u=>{const p=new URL(u,self.location).pathname;return aiResult(u)||/\/berichten\.json$/.test(p)};
